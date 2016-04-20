@@ -27,6 +27,7 @@ public class CustomerManager {
     }
     
     public void createCustomer(String name, String address, int phoneNumber, String email, String password, Date dayOfBirth){
+        customerList.add(new Customer(name, address, email, password, dayOfBirth, phoneNumber));
         throw new NotImplementedException();
     }
     
