@@ -16,6 +16,7 @@ public class Grp14_THE_WEBSHOP {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        //RIP
     }
     
 }
