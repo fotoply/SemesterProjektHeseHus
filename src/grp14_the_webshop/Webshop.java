@@ -21,15 +21,15 @@ public class Webshop {
     }
     
     public void createNewOrder(){
-        
+        throw new NotImplementedException();
     }
     
     public void addItem(Product product, int amount){
-        
+        throw new NotImplementedException();
     }
     
     public void createCustomer(String name, String address, String email, String password, Date dayOfBirth, int phoneNumber){
-        
+        throw new NotImplementedException();
     }
     
     public Customer findCustomer(){
@@ -38,7 +38,7 @@ public class Webshop {
     }
     
     public void deleteCustomer(){
-        
+        throw new NotImplementedException();
     }
     
 }

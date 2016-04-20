@@ -5,6 +5,8 @@
  */
 package grp14_the_webshop;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 import java.util.Date;
 
 /**
@@ -26,7 +28,7 @@ public class Order {
     };
 
     public void addProduct(Product product, int amount) {
-
+        throw new NotImplementedException();
     }
 
     public void setCustomerID(int customerID) {
