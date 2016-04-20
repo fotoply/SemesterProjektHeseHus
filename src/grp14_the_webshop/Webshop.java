@@ -24,6 +24,10 @@ public class Webshop {
         return instance;
     }
 
+    public Webshop() {
+        customerManager = new CustomerManager();
+    }
+
     public Product findProduct(int productID){
         
         throw new NotImplementedException();
@@ -42,8 +46,7 @@ public class Webshop {
     }
     
     public Customer findCustomer(){
-        
-        throw new NotImplementedException();
+        return customerManager.findCustomer(currentCustomer);
     }
     
     public void deleteCustomer(){
