@@ -18,6 +18,4 @@ public class Grp14_THE_WEBSHOP {
         // TODO code application logic here
         //RIP
     }
-    String YEAH = "Emil har en STOR PIK!";
-                
 }
