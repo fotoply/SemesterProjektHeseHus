@@ -13,6 +13,6 @@ public class Product {
     String type;
     Double price;
     int itemID;
-    boolean currentselling;
+    boolean currentlySelling;
     
 }
