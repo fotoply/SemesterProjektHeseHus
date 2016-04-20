@@ -8,4 +8,8 @@ package grp14_the_webshop;
 public class MemberShipCard {
     
     int memberShipID;
+    
+    public MemberShipCard getMemberShipCard() {
+        return this;
+    }
 }
