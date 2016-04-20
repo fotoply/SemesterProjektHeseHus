@@ -14,5 +14,14 @@ public class Product {
     Double price;
     int itemID;
     boolean currentlySelling;
-    
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof Product) {
+            if(type == ((Product) obj).type && price == ((Product) obj).price && itemID == ((Product) obj).itemID) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
