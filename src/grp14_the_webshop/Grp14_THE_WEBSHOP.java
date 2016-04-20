@@ -11,7 +11,7 @@ package grp14_the_webshop;
  */
 public class Grp14_THE_WEBSHOP {
     
-     private int memberShipCardID = 1;
+     private int memberShipCardID = 0;
     
     /**
      * @param args the command line arguments
@@ -19,9 +19,10 @@ public class Grp14_THE_WEBSHOP {
     public static void main(String[] args) {
         // TODO code application logic here
         //RIP
+        create100MemberShipCards();
     }
     
-    private void create100MemberShipCards() {
+    private static void create100MemberShipCards() {
         for (int i = 0; i < 100; i++) {
             new MemberShipCard(memberShipCardID++);
         }

@@ -18,7 +18,7 @@ public class MemberShipCard {
         memberShipCard.add(this);
     }
         
-    public MemberShipCard getMemberShipCard() {
-        return this;
+    public MemberShipCard getMemberShipCard(int id) {
+        return memberShipCard.get(id);
     }
 }
