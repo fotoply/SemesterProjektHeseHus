@@ -14,6 +14,10 @@ public class CustomerManager {
     
     private List<Customer> customerList;
     
+    public List getCustomerList() {
+        return this.customerList;
+    }
+    
     public CustomerManager() {
         customerList = new ArrayList();
     }

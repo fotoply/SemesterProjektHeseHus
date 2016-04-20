@@ -29,7 +29,7 @@ public class Webshop {
     }
     
     public void createCustomer(String name, String address, String email, String password, Date dayOfBirth, int phoneNumber){
-        CustomerManager.customerList.add(new Customer(name, address, email, password, dayOfBirth, phoneNumber));
+        CustomerManager.getCustomerList().add(new Customer(name, address, email, password, dayOfBirth, phoneNumber));
     }
     
     public Customer findCustomer(){
