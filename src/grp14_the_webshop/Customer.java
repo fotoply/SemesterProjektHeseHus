@@ -1,6 +1,8 @@
 
 package grp14_the_webshop;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 import java.util.Date;
 
 /**
@@ -15,15 +17,15 @@ public class Customer {
     String name;
     
     public void createNewOrder(){
-        
+        throw new NotImplementedException();
     }
     
     public void linkMemberShipCard(){
-        
+        throw new NotImplementedException();
     }
     
     public void addProduct(Product product, int amount){
-        
+        throw new NotImplementedException();
     }
 
     public void setAddress(String address) {
