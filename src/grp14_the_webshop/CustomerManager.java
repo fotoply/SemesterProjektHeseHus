@@ -31,12 +31,14 @@ public class CustomerManager {
     }
     
     public Customer getCustomer(int customerID){
-        
-        throw new NotImplementedException();
+        if(customerMap.containsKey(customerID)) {
+            return customerMap.get(customerID);
+        }
+        throw new IllegalArgumentException("This customer does not exist");
     }
     
     public void deleteCustomer(int customerID){
-
+        customerMap.remove(customerID);
     }
     
     public void addproduct(Product product, int amount, int customerID){
