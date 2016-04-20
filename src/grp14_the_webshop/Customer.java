@@ -12,9 +12,20 @@ import java.util.Date;
 public class Customer {
     String address;
     String email;
+    String password;
     int phoneNumber;
     Date birthday;
     String name;
+    
+    public Customer(String name, String address, String email, String password, Date dayOfBirth, int phoneNumber) {
+        this.name = name;
+        this.address = address;
+        this.email = email;
+        this.password = password;
+        this.birthday = dayOfBirth;
+        this.phoneNumber = phoneNumber;        
+        
+    }
     
     public void createNewOrder(){
         throw new NotImplementedException();
