@@ -11,7 +11,10 @@ public class CreditCard {
     String cardHolder;
     int cardNumber;
     Date expDate;
-
+    
+public void Jebisan (int size){
+    
+}
     enum cardType {
         danKort, visa, 
     };
