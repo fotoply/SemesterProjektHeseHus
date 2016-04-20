@@ -9,7 +9,7 @@ import java.util.Date;
  */
 public class Customer {
     String address;
-    String Email;
+    String email;
     int phoneNumber;
     Date birthday;
     String name;
@@ -31,7 +31,7 @@ public class Customer {
     }
 
     public void setEmail(String Email) {
-        this.Email = Email;
+        this.email = Email;
     }
 
     public void setPhoneNumber(int phoneNumber) {
