@@ -14,6 +14,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
  */
 public class Webshop {
     int currentCustomer;
+    CustomerManager customerManager;
     
     public Product findProduct(int productID){
         
