@@ -13,7 +13,11 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
  * @author Karim
  */
 public class Webshop {
-    
+    /*
+    Hejsa
+    Guys
+    OK?
+    */
     int currentCustomer;
     
     public Product findProduct(int productID){
