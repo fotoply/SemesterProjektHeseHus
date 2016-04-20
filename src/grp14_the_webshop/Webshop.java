@@ -14,31 +14,44 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
  */
 public class Webshop {
     int currentCustomer;
-    
+    CustomerManager customerManager;
+    Webshop instance;
+
+    public Webshop getInstance() {
+        if(instance == null) {
+            instance = new Webshop();
+        }
+        return instance;
+    }
+
+    public Webshop() {
+        customerManager = new CustomerManager();
+    }
+
     public Product findProduct(int productID){
         
         throw new NotImplementedException();
     }
     
     public void createNewOrder(){
-        throw new NotImplementedException();
+        customerManager.findCustomer(currentCustomer).createNewOrder();
     }
     
     public void addItem(Product product, int amount){
+        customerManager.findCustomer(currentCustomer).addProduct(product,amount);
         throw new NotImplementedException();
     }
     
     public void createCustomer(String name, String address, String email, String password, Date dayOfBirth, int phoneNumber){
-        CustomerManager.getCustomerList().add(new Customer(name, address, email, password, dayOfBirth, phoneNumber));
+        customerManager.createCustomer(name, address, phoneNumber, email, password, dayOfBirth);
     }
     
     public Customer findCustomer(){
-        
-        throw new NotImplementedException();
+        return customerManager.findCustomer(currentCustomer);
     }
     
     public void deleteCustomer(){
-        throw new NotImplementedException();
+        customerManager.deleteCustomer(currentCustomer);
     }
     
 }
