@@ -4,6 +4,7 @@ package grp14_the_webshop;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.Date;
+import java.util.Random;
 
 /**
  *
@@ -16,15 +17,17 @@ public class Customer {
     int phoneNumber;
     Date birthday;
     String name;
+    int salt;
     
     public Customer(String name, String address, String email, String password, Date dayOfBirth, int phoneNumber) {
         this.name = name;
         this.address = address;
         this.email = email;
-        this.password = password;
         this.birthday = dayOfBirth;
-        this.phoneNumber = phoneNumber;        
-        
+        this.phoneNumber = phoneNumber;
+        Random rnd = new Random();
+        this.salt = String.valueOf(rnd.nextFloat()).hashCode();
+        setPassword(password);
     }
     
     public void createNewOrder(){
@@ -58,7 +61,16 @@ public class Customer {
     public void setName(String name) {
         this.name = name;
     }
-    
-    
-    
+
+    public boolean isCorrectPassword(String comparisonPassword) {
+
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPasswordHash() {
+
+    }
 }
