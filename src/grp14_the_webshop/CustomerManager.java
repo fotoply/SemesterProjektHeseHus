@@ -31,7 +31,7 @@ public class CustomerManager {
         throw new NotImplementedException();
     }
     
-    public Customer findCustomer(int customerID){
+    public Customer getCustomer(int customerID){
         
         throw new NotImplementedException();
     }
