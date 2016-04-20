@@ -18,7 +18,7 @@ public class CustomerManager {
     }
     
     public void createNewOrder(int customerID){
-        throw new NotImplementedException();
+        getCustomer(customerID).createNewOrder();
     }
 
     private int getNextId() {
