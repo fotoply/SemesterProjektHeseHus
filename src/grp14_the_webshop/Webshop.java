@@ -15,7 +15,15 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 public class Webshop {
     int currentCustomer;
     CustomerManager customerManager;
-    
+    Webshop instance;
+
+    public Webshop getInstance() {
+        if(instance == null) {
+            instance = new Webshop();
+        }
+        return instance;
+    }
+
     public Product findProduct(int productID){
         
         throw new NotImplementedException();
