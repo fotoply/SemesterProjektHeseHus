@@ -17,7 +17,7 @@ public class CustomerManager {
         customerMap = new HashMap<>();
     }
     
-    public void createNewOrder(){
+    public void createNewOrder(int customerID){
         throw new NotImplementedException();
     }
 
