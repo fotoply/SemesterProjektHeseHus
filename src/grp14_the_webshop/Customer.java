@@ -70,6 +70,7 @@ public class Customer {
         this.name = name;
     }
 
+    //TODO implement constant-time comparison to avoid timing attacks
     public boolean isCorrectPassword(String comparisonPassword) {
         return this.password.equals(getPasswordHash(comparisonPassword));
     }
@@ -78,16 +79,14 @@ public class Customer {
         this.password = getPasswordHash(password);
     }
 
-    public byte[] getPasswordHash(String password) {
+    private byte[] getPasswordHash(String password) {
         KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
         SecretKeyFactory f = null;
         byte[] hash = new byte[32];
         try {
             f = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
             hash = f.generateSecret(spec).getEncoded();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        } catch (InvalidKeySpecException e) {
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
             e.printStackTrace();
         }
         return hash;
