@@ -12,10 +12,10 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
  */
 public class CustomerManager {
     
-    private List<Customer> CustomerList;
+    private List<Customer> customerList;
     
     public CustomerManager() {
-        CustomerList = new ArrayList();
+        customerList = new ArrayList();
     }
     
     public void createNewOrder(){
