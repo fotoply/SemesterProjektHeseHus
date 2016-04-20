@@ -1,7 +1,9 @@
 
 package grp14_the_webshop;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
@@ -9,6 +11,12 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
  * @author Grp. 14
  */
 public class CustomerManager {
+    
+    private List<Customer> CustomerList;
+    
+    public CustomerManager() {
+        CustomerList = new ArrayList();
+    }
     
     public void createNewOrder(){
         throw new NotImplementedException();
