@@ -11,8 +11,10 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Date;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -27,8 +29,9 @@ public class Customer {
     int phoneNumber;
     Date birthday;
     String name;
+    private List<MemberShipCard> memberShipCards;
     byte[] salt = new byte[32];
-    
+
     public Customer(String name, String address, String email, String password, Date dayOfBirth, int phoneNumber) {
         this.name = name;
         this.address = address;
@@ -44,7 +47,9 @@ public class Customer {
         throw new NotImplementedException();
     }
     
-    public void linkMemberShipCard(){
+    public void linkMemberShipCard(int id){
+        MemberShipCard e = MemberShipCard.getMemberShipCard(id);
+        memberShipCards.add(e);
         throw new NotImplementedException();
     }
     
