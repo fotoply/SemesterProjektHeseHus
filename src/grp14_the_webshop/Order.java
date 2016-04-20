@@ -22,7 +22,7 @@ public class Order {
     int customerID;
 
     private enum Status {
-        ShoppingBasket, acceptede, closede
+        shoppingBasket, accepted, closed
     };
 
     public void addProduct(Product product, int amount) {
