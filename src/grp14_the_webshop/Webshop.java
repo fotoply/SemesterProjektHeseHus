@@ -34,11 +34,11 @@ public class Webshop {
     }
     
     public void createNewOrder(){
-        customerManager.findCustomer(currentCustomer).createNewOrder();
+        customerManager.getCustomer(currentCustomer).createNewOrder();
     }
     
     public void addItem(Product product, int amount){
-        customerManager.findCustomer(currentCustomer).addProduct(product,amount);
+        customerManager.getCustomer(currentCustomer).addProduct(product,amount);
         throw new NotImplementedException();
     }
     
@@ -47,7 +47,7 @@ public class Webshop {
     }
     
     public Customer findCustomer(){
-        return customerManager.findCustomer(currentCustomer);
+        return customerManager.getCustomer(currentCustomer);
     }
     
     public void deleteCustomer(){

@@ -8,6 +8,8 @@ package grp14_the_webshop;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.List;
 
 /**
  *
@@ -22,13 +24,16 @@ public class Order {
     String shippingAddress;
     int orderID;
     int customerID;
+    List<Product> productList;
 
     private enum Status {
         shoppingBasket, accepted, closed
     };
 
     public void addProduct(Product product, int amount) {
-        throw new NotImplementedException();
+        for (int i = 0; i < amount; i++) {
+            productList.add(product);
+        }
     }
 
     public void setCustomerID(int customerID) {

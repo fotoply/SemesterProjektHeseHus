@@ -9,5 +9,16 @@ public class Item {
     
     int quantity;
     double sumPrice;
-    
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Item)) return false;
+
+        Item item = (Item) o;
+
+        if (quantity != item.quantity) return false;
+        return Double.compare(item.sumPrice, sumPrice) == 0;
+
+    }
 }

@@ -14,5 +14,17 @@ public class Product {
     Double price;
     int itemID;
     boolean currentlySelling;
-    
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Product)) return false;
+
+        Product product = (Product) o;
+
+        if (itemID != product.itemID) return false;
+        if (type != null ? !type.equals(product.type) : product.type != null) return false;
+        return price != null ? price.equals(product.price) : product.price == null;
+
+    }
 }
