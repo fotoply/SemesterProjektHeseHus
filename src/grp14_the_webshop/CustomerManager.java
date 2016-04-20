@@ -42,6 +42,6 @@ public class CustomerManager {
     }
     
     public void addproduct(Product product, int amount, int customerID){
-        throw new NotImplementedException();
+        getCustomer(customerID).addProduct(product, amount);
     }
 }
