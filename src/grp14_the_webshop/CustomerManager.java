@@ -31,7 +31,7 @@ public class CustomerManager {
         throw new NotImplementedException();
     }
     
-    public void deleteCustomer(){
+    public void deleteCustomer(int customerID){
         throw new NotImplementedException();
     }
     
