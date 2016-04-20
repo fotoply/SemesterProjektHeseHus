@@ -5,6 +5,8 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
+import javax.xml.bind.DatatypeConverter;
+import java.io.Console;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
@@ -12,6 +14,7 @@ import java.security.spec.KeySpec;
 import java.util.Base64;
 import java.util.Date;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  *
@@ -24,7 +27,7 @@ public class Customer {
     int phoneNumber;
     Date birthday;
     String name;
-    byte[] salt;
+    byte[] salt = new byte[32];
     
     public Customer(String name, String address, String email, String password, Date dayOfBirth, int phoneNumber) {
         this.name = name;
@@ -33,8 +36,7 @@ public class Customer {
         this.birthday = dayOfBirth;
         this.phoneNumber = phoneNumber;
         SecureRandom rnd = new SecureRandom();
-        byte[] saltArray = new byte[32];
-        rnd.nextBytes(saltArray);
+        rnd.nextBytes(salt);
         setPassword(password);
     }
     
@@ -90,5 +92,23 @@ public class Customer {
             e.printStackTrace();
         }
         return hash;
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String password = input.nextLine();
+
+        Customer c = new Customer("Bob","bob","bob","bob",new Date(),1);
+        System.out.println("Hashed password is: ");
+        System.out.println(toBase64(c.getPasswordHash(password)));
+        password = input.nextLine();
+        System.out.println("And again");
+        System.out.println(toBase64(c.getPasswordHash(password)));
+
+    }
+
+    private static String toBase64(byte[] array)
+    {
+        return DatatypeConverter.printBase64Binary(array);
     }
 }
