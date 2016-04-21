@@ -13,9 +13,9 @@ import java.util.Date;
  * @author Karim
  */
 public class Webshop {
-    int currentCustomer;
-    CustomerManager customerManager;
-    Webshop instance;
+    private int currentCustomer;
+    private CustomerManager customerManager;
+    private Webshop instance;
 
     public Webshop() {
         customerManager = new CustomerManager();
