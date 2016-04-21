@@ -22,7 +22,7 @@ public class Grp14_THE_WEBSHOP {
         create100MemberShipCards();
     }
     
-    private static void create100MemberShipCards() {
+    private void create100MemberShipCards() {
         for (int i = 0; i < 100; i++) {
             new MemberShipCard(memberShipCardID++);
         }
