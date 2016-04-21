@@ -12,4 +12,8 @@ public class GiftCard {
     private int id;
     private double amount;
 
+    public GiftCard(int id, double amount) {
+        this.id = id;
+        this.amount = amount;
+    }
 }
