@@ -17,13 +17,13 @@ import java.util.Scanner;
  * @author Grp. 14
  */
 public class Customer {
-    String address;
-    String email;
-    byte[] password;
-    int phoneNumber;
-    Date birthday;
-    String name;
-    byte[] salt = new byte[32];
+    private String address;
+    private String email;
+    private byte[] password;
+    private int phoneNumber;
+    private Date birthday;
+    private String name;
+    private byte[] salt = new byte[32];
     private List<MemberShipCard> memberShipCards;
 
     public Customer(String name, String address, String email, String password, Date dayOfBirth, int phoneNumber) {
