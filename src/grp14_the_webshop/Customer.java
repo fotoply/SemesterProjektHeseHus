@@ -87,12 +87,12 @@ public class Customer {
     }
 
     private byte[] getPasswordHash(String password) {
-        KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
-        SecretKeyFactory f = null;
+        KeySpec keySpecification = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
+        SecretKeyFactory secretKeyFactory;
         byte[] hash = new byte[32];
         try {
-            f = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-            hash = f.generateSecret(spec).getEncoded();
+            secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+            hash = secretKeyFactory.generateSecret(keySpecification).getEncoded();
         } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
             e.printStackTrace();
         }
