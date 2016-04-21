@@ -13,14 +13,21 @@ import java.util.List;
  */
 public class Order {
 
-    Date date;
-    double tax;
-    double shippingCharges;
-    double totalPrice;
-    String shippingAddress;
-    int orderID;
-    int customerID;
-    List<Product> productList;
+    private Date date;
+    private double tax;
+    private double shippingCharges;
+    private double totalPrice;
+    private String shippingAddress;
+    private int orderID;
+    private int customerID;
+    private List<Product> productList;
+
+    public Order(double shippingCharges, String shippingAddress, int orderID, int customerID) {
+        this.shippingCharges = shippingCharges;
+        this.shippingAddress = shippingAddress;
+        this.orderID = orderID;
+        this.customerID = customerID;
+    }
 
     public void addProduct(Product product, int amount) {
         for (int i = 0; i < amount; i++) {
