@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class MemberShipCard {
 
-    int memberShipID;
+    private int memberShipID;
     private List<MemberShipCard> memberShipCard = new ArrayList();
 
     public MemberShipCard(int id) {
