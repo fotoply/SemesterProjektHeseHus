@@ -27,7 +27,7 @@ public class Order {
     List<Product> productList;
 
     private enum Status {
-        shoppingBasket, accepted, closed
+        SHOPPING_BASKET, ACCEPTED, CLOSED
     };
 
     public void addProduct(Product product, int amount) {
