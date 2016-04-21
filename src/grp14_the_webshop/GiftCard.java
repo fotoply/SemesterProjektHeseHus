@@ -9,7 +9,7 @@ package grp14_the_webshop;
  * @author Karim
  */
 public class GiftCard {
-    int id;
-    double amount;
+    private int id;
+    private double amount;
 
 }
