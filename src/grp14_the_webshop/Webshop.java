@@ -5,11 +5,11 @@
  */
 package grp14_the_webshop;
 
-import java.util.Date;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.util.Date;
+
 /**
- *
  * @author Karim
  */
 public class Webshop {
@@ -17,41 +17,41 @@ public class Webshop {
     CustomerManager customerManager;
     Webshop instance;
 
+    public Webshop() {
+        customerManager = new CustomerManager();
+    }
+
     public Webshop getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new Webshop();
         }
         return instance;
     }
 
-    public Webshop() {
-        customerManager = new CustomerManager();
+    public Product findProduct(int productID) {
+
+        throw new NotImplementedException();
     }
 
-    public Product findProduct(int productID){
-        
-        throw new NotImplementedException();
-    }
-    
-    public void createNewOrder(){
+    public void createNewOrder() {
         customerManager.getCustomer(currentCustomer).createNewOrder();
     }
-    
-    public void addItem(Product product, int amount){
-        customerManager.getCustomer(currentCustomer).addProduct(product,amount);
+
+    public void addItem(Product product, int amount) {
+        customerManager.getCustomer(currentCustomer).addProduct(product, amount);
         throw new NotImplementedException();
     }
-    
-    public void createCustomer(String name, String address, String email, String password, Date dayOfBirth, int phoneNumber){
+
+    public void createCustomer(String name, String address, String email, String password, Date dayOfBirth, int phoneNumber) {
         customerManager.createCustomer(name, address, phoneNumber, email, password, dayOfBirth);
     }
-    
-    public Customer findCustomer(){
+
+    public Customer findCustomer() {
         return customerManager.getCustomer(currentCustomer);
     }
-    
-    public void deleteCustomer(){
+
+    public void deleteCustomer() {
         customerManager.deleteCustomer(currentCustomer);
     }
-    
+
 }

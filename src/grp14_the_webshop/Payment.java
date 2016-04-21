@@ -6,13 +6,13 @@
 package grp14_the_webshop;
 
 /**
- *
  * @author Karim
  */
 public class Payment {
     double price;
-    private enum Status{
+
+    private enum Status {
         NOT_PAYED, RESERVED_IN_STORE, PAYED
-    } 
-    
+    }
+
 }

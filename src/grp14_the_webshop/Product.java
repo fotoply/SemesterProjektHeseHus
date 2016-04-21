@@ -6,7 +6,6 @@
 package grp14_the_webshop;
 
 /**
- *
  * @author Karim
  */
 public class Product {

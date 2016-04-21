@@ -3,7 +3,6 @@ package grp14_the_webshop;
 import java.util.Date;
 
 /**
- *
  * @author Grp. 14
  */
 public class CreditCard {

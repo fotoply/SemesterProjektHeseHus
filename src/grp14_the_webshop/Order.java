@@ -5,14 +5,10 @@
  */
 package grp14_the_webshop;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 import java.util.Date;
-import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
- *
  * @author Karim
  */
 public class Order {
@@ -26,10 +22,6 @@ public class Order {
     int customerID;
     List<Product> productList;
 
-    private enum Status {
-        SHOPPING_BASKET, ACCEPTED, CLOSED
-    };
-
     public void addProduct(Product product, int amount) {
         for (int i = 0; i < amount; i++) {
             productList.add(product);
@@ -38,6 +30,10 @@ public class Order {
 
     public void setCustomerID(int customerID) {
         this.customerID = customerID;
+    }
+
+    private enum Status {
+        SHOPPING_BASKET, ACCEPTED, CLOSED
     }
 
 }

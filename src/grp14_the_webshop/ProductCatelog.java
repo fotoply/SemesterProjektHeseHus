@@ -8,13 +8,12 @@ package grp14_the_webshop;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
- *
  * @author Karim
  */
 public class ProductCatelog {
-    
-    public void findProduct(int itemID){
+
+    public void findProduct(int itemID) {
         throw new NotImplementedException();
     }
-    
+
 }

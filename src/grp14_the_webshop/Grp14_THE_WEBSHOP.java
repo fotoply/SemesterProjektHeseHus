@@ -6,13 +6,12 @@
 package grp14_the_webshop;
 
 /**
- *
  * @author Karim
  */
 public class Grp14_THE_WEBSHOP {
-    
-     private int memberShipCardID = 0;
-    
+
+    private int memberShipCardID = 0;
+
     /**
      * @param args the command line arguments
      */

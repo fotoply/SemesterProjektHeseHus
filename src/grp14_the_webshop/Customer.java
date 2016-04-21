@@ -1,4 +1,3 @@
-
 package grp14_the_webshop;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
@@ -6,20 +5,15 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import javax.xml.bind.DatatypeConverter;
-import java.io.Console;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
-import java.util.ArrayList;
-import java.util.Base64;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 import java.util.Scanner;
 
 /**
- *
  * @author Grp. 14
  */
 public class Customer {
@@ -29,8 +23,8 @@ public class Customer {
     int phoneNumber;
     Date birthday;
     String name;
-    private List<MemberShipCard> memberShipCards;
     byte[] salt = new byte[32];
+    private List<MemberShipCard> memberShipCards;
 
     public Customer(String name, String address, String email, String password, Date dayOfBirth, int phoneNumber) {
         this.name = name;
@@ -42,18 +36,35 @@ public class Customer {
         rnd.nextBytes(salt);
         setPassword(password);
     }
-    
-    public void createNewOrder(){
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String password = input.nextLine();
+
+        Customer c = new Customer("Bob", "bob", "bob", "bob", new Date(), 1);
+        System.out.println("Hashed password is: ");
+        System.out.println(toBase64(c.getPasswordHash(password)));
+        password = input.nextLine();
+        System.out.println("And again");
+        System.out.println(toBase64(c.getPasswordHash(password)));
+
+    }
+
+    private static String toBase64(byte[] array) {
+        return DatatypeConverter.printBase64Binary(array);
+    }
+
+    public void createNewOrder() {
         throw new NotImplementedException();
     }
-    
-    public void linkMemberShipCard(int id){
+
+    public void linkMemberShipCard(int id) {
         MemberShipCard e = MemberShipCard.getMemberShipCard(id);
         memberShipCards.add(e);
         throw new NotImplementedException();
     }
-    
-    public void addProduct(Product product, int amount){
+
+    public void addProduct(Product product, int amount) {
         throw new NotImplementedException();
     }
 
@@ -97,23 +108,5 @@ public class Customer {
             e.printStackTrace();
         }
         return hash;
-    }
-
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        String password = input.nextLine();
-
-        Customer c = new Customer("Bob","bob","bob","bob",new Date(),1);
-        System.out.println("Hashed password is: ");
-        System.out.println(toBase64(c.getPasswordHash(password)));
-        password = input.nextLine();
-        System.out.println("And again");
-        System.out.println(toBase64(c.getPasswordHash(password)));
-
-    }
-
-    private static String toBase64(byte[] array)
-    {
-        return DatatypeConverter.printBase64Binary(array);
     }
 }
