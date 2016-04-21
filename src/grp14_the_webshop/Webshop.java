@@ -13,7 +13,7 @@ import java.util.Date;
  * @author Karim
  */
 public class Webshop {
-    private int currentCustomer;
+    private int currentCustomerID;
     private CustomerManager customerManager;
     private Webshop instance;
 
@@ -34,11 +34,11 @@ public class Webshop {
     }
 
     public void createNewOrder() {
-        customerManager.getCustomer(currentCustomer).createNewOrder();
+        customerManager.getCustomer(currentCustomerID).createNewOrder();
     }
 
     public void addItem(Product product, int amount) {
-        customerManager.getCustomer(currentCustomer).addProduct(product, amount);
+        customerManager.getCustomer(currentCustomerID).addProduct(product, amount);
         throw new NotImplementedException();
     }
 
@@ -46,12 +46,17 @@ public class Webshop {
         customerManager.createCustomer(name, address, phoneNumber, email, password, dayOfBirth);
     }
 
+    public String checkoutBasket() {
+        customerManager.getCustomer(currentCustomerID);
+        return "";
+    }
+
     public Customer findCustomer() {
-        return customerManager.getCustomer(currentCustomer);
+        return customerManager.getCustomer(currentCustomerID);
     }
 
     public void deleteCustomer() {
-        customerManager.deleteCustomer(currentCustomer);
+        customerManager.deleteCustomer(currentCustomerID);
     }
 
 }
