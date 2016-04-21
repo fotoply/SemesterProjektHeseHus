@@ -9,10 +9,10 @@ package grp14_the_webshop;
  * @author Karim
  */
 public class Product {
-    String type;
-    Double price;
-    int itemID;
-    boolean currentlySelling;
+    private String type;
+    private Double price;
+    private int itemID;
+    private boolean currentlySelling;
 
     @Override
     public boolean equals(Object o) {
