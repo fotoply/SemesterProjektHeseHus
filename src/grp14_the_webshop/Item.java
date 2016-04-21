@@ -5,8 +5,8 @@ package grp14_the_webshop;
  */
 public class Item {
 
-    int quantity;
-    double sumPrice;
+    private int quantity;
+    private double sumPrice;
 
     @Override
     public boolean equals(Object o) {
