@@ -12,7 +12,7 @@ package grp14_the_webshop;
 public class Payment {
     double price;
     private enum Status{
-        notpayed , reservedInStore, payed 
+        NOT_PAYED, RESERVED_IN_STORE, PAYED
     } 
     
 }

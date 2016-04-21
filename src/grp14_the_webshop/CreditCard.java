@@ -13,7 +13,7 @@ public class CreditCard {
     Date expDate;
 
     enum cardType {
-        danKort, visa, 
+        DAN_KORT, VISA,
     }
 
 }
