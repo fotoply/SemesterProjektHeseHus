@@ -44,7 +44,7 @@ public class Money implements Comparable {
     }
 
     public String getAmountAsString() {
-        return amount.toString();
+        return amount.toPlainString();
     }
 
     public void pay(Money money) {
@@ -85,5 +85,10 @@ public class Money implements Comparable {
 
         return amount.equals(money.amount);
 
+    }
+
+    @Override
+    public int hashCode() {
+        return amount != null ? amount.hashCode() : 0;
     }
 }

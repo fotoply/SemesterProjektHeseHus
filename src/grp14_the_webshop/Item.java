@@ -6,7 +6,6 @@ package grp14_the_webshop;
 public class Item {
 
     private int quantity;
-    private double sumPrice;
 
     @Override
     public boolean equals(Object o) {
@@ -15,8 +14,12 @@ public class Item {
 
         Item item = (Item) o;
 
-        if (quantity != item.quantity) return false;
-        return Double.compare(item.sumPrice, sumPrice) == 0;
+        return quantity == item.quantity;
 
+    }
+
+    @Override
+    public int hashCode() {
+        return quantity;
     }
 }

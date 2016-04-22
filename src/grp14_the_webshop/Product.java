@@ -32,9 +32,21 @@ public class Product {
         Product product = (Product) o;
 
         if (productID != product.productID) return false;
+        if (name != null ? !name.equals(product.name) : product.name != null) return false;
+        if (description != null ? !description.equals(product.description) : product.description != null) return false;
         if (type != null ? !type.equals(product.type) : product.type != null) return false;
         return price != null ? price.equals(product.price) : product.price == null;
 
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (type != null ? type.hashCode() : 0);
+        result = 31 * result + (price != null ? price.hashCode() : 0);
+        result = 31 * result + productID;
+        return result;
     }
 
     public String getName() {
