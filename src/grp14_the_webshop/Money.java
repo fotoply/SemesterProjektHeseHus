@@ -1,7 +1,7 @@
+
 package grp14_the_webshop;
 
 import java.math.BigDecimal;
-import java.util.Objects;
 
 /**
  * Created 4/22/16
@@ -21,11 +21,23 @@ public class Money implements Comparable {
     }
 
     public Money(BigDecimal amount) {
-        if(amount.compareTo(BigDecimal.ZERO) < 0) {
+        if(Money.isNegative(amount)) {
             throw new IllegalArgumentException("Money cannot be negative");
         } else {
             this.amount = amount;
         }
+    }
+
+    public static boolean isNegative(String amount) {
+        return isNegative(new BigDecimal(amount));
+    }
+
+    public static boolean isNegative(BigDecimal amount) {
+        return amount.compareTo(BigDecimal.ZERO) < 0;
+    }
+
+    public boolean isNegative() {
+        return amount.compareTo(BigDecimal.ZERO) < 0;
     }
 
     public BigDecimal getAmount() {
@@ -36,12 +48,16 @@ public class Money implements Comparable {
         return amount.toString();
     }
 
-    public void subtract(Money money) {
-        subtract(money.amount.toString());
+    public void pay(Money money) {
+        pay(money.amount.toString());
     }
 
-    public void subtract(String amount) {
-        this.amount = this.amount.subtract(new BigDecimal(amount));
+    public void pay(String amount) {
+        if(!isNegative(this.amount.subtract(new BigDecimal(amount)))) {
+            this.amount = this.amount.subtract(new BigDecimal(amount));
+        } else{
+            throw new IllegalArgumentException("Money cannot be negative");
+        }
     }
 
     public void add(Money money) {
@@ -49,6 +65,9 @@ public class Money implements Comparable {
     }
 
     public void add(String amount) {
+        if(isNegative(amount)) {
+            throw new IllegalArgumentException("Cannot add negative money, use pay instead");
+        }
         this.amount = this.amount.add(new BigDecimal(amount));
     }
 
