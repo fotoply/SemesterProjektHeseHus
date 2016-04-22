@@ -10,7 +10,7 @@ package grp14_the_webshop;
  */
 public class Product {
     private String type;
-    private Double price;
+    private Money price;
     private int itemID;
     private boolean currentlySelling;
 

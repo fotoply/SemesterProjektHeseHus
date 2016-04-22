@@ -23,7 +23,7 @@ public class Order {
     private List<Product> productList;
     private Money currentlyPaid;
 
-    public Order(double shippingCharges, String shippingAddress, int orderID, int customerID) {
+    public Order(String shippingCharges, String shippingAddress, int orderID, int customerID) {
         this.shippingCharges = new Money(shippingCharges);
         this.shippingAddress = shippingAddress;
         this.orderID = orderID;
@@ -45,7 +45,10 @@ public class Order {
     }
 
     public Money getTotalAmountOwed() {
-
+        Money owed = new Money();
+        for (Product product: productList) {
+            owed.add(product.ge);
+        }
     }
 
     public void payAmountForOrder(Money amount) {
