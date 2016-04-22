@@ -22,5 +22,4 @@ public class Payment {
     private enum Status {
         NOT_PAID, RESERVED_IN_STORE, PAID
     }
-
 }
