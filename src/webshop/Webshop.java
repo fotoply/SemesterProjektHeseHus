@@ -34,7 +34,7 @@ public class Webshop {
     }
 
     public void createNewOrder() {
-        customerManager.getCustomer(currentCustomerID).createNewOrder();
+        customerManager.getCustomer(currentCustomerID).createNewOrder(currentCustomerID);
     }
 
     public void addItem(Product product, int amount) {
