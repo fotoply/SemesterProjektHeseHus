@@ -16,6 +16,7 @@ public class Webshop {
     private int currentCustomerID;
     private CustomerManager customerManager;
     private Webshop instance;
+    private ProductCatelog productCatalog = new ProductCatelog();
 
     public Webshop() {
         customerManager = new CustomerManager();
@@ -30,7 +31,8 @@ public class Webshop {
 
     public Product findProduct(int productID) {
 
-        throw new NotImplementedException();
+        return productCatalog.findProduct(productID);
+        
     }
 
     public void createNewOrder() {
