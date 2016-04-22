@@ -5,6 +5,7 @@
  */
 package grp14_the_webshop;
 
+import java.util.Currency;
 import java.util.Date;
 import java.util.List;
 
@@ -14,16 +15,16 @@ import java.util.List;
 public class Order {
 
     private Date date;
-    private double tax;
-    private double shippingCharges;
+    private Money tax;
+    private Money shippingCharges;
     private String shippingAddress;
     private int orderID;
     private int customerID;
     private List<Product> productList;
-    private int currentlyPaid;
+    private Money currentlyPaid;
 
     public Order(double shippingCharges, String shippingAddress, int orderID, int customerID) {
-        this.shippingCharges = shippingCharges;
+        this.shippingCharges = new Money(shippingCharges);
         this.shippingAddress = shippingAddress;
         this.orderID = orderID;
         this.customerID = customerID;
@@ -43,11 +44,11 @@ public class Order {
         SHOPPING_BASKET, ACCEPTED, CLOSED
     }
 
-    public double getTotalAmountOwed() {
+    public Money getTotalAmountOwed() {
 
     }
 
-    public void payAmountForOrder(int amount) {
+    public void payAmountForOrder(Money amount) {
 
     }
 
