@@ -8,7 +8,7 @@ package grp14_the_webshop;
 /**
  * @author Karim
  */
-public class GiftCard extends Payment{
+public class GiftCard extends Payment {
     private int id;
 
     public GiftCard(Money amount, int id) {

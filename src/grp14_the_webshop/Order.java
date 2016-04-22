@@ -6,7 +6,6 @@
 package grp14_the_webshop;
 
 import java.util.ArrayList;
-import java.util.Currency;
 import java.util.Date;
 import java.util.List;
 
@@ -47,13 +46,9 @@ public class Order {
         this.customerID = customerID;
     }
 
-    private enum Status {
-        IN_BASKET, SHIPPING_TO_SHOP, SHIPPING, ACCEPTED, CLOSED
-    }
-
     public Money getTotalAmountOwedForProducts() {
         Money owed = new Money();
-        for (Product product: productList) {
+        for (Product product : productList) {
             owed.add(product.getPrice());
         }
         return owed;
@@ -61,8 +56,8 @@ public class Order {
 
     public int amountOfProductInOrder(int productId) {
         int count = 0;
-        for (Product product: productList) {
-            if(product.getProductID() == productId) {
+        for (Product product : productList) {
+            if (product.getProductID() == productId) {
                 count++;
             }
         }
@@ -82,7 +77,7 @@ public class Order {
     }
 
     public void payAmountForOrder(Money amount) {
-        if(amount.compareTo(getTotalAmountOwedForProducts()) > 0) {
+        if (amount.compareTo(getTotalAmountOwedForProducts()) > 0) {
             throw new IllegalArgumentException("Trying to pay more than owed");
         } else {
             currentlyPaid.add(amount);
@@ -91,5 +86,9 @@ public class Order {
 
     public void setShippingAddress(String shippingAddress) {
         this.shippingAddress = shippingAddress;
+    }
+
+    private enum Status {
+        IN_BASKET, SHIPPING_TO_SHOP, SHIPPING, ACCEPTED, CLOSED
     }
 }

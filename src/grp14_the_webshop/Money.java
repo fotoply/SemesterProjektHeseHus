@@ -1,4 +1,3 @@
-
 package grp14_the_webshop;
 
 import java.math.BigDecimal;
@@ -21,7 +20,7 @@ public class Money implements Comparable {
     }
 
     public Money(BigDecimal amount) {
-        if(Money.isNegative(amount)) {
+        if (Money.isNegative(amount)) {
             throw new IllegalArgumentException("Money cannot be negative");
         } else {
             this.amount = amount;
@@ -53,9 +52,9 @@ public class Money implements Comparable {
     }
 
     public void pay(String amount) {
-        if(!isNegative(this.amount.subtract(new BigDecimal(amount)))) {
+        if (!isNegative(this.amount.subtract(new BigDecimal(amount)))) {
             this.amount = this.amount.subtract(new BigDecimal(amount));
-        } else{
+        } else {
             throw new IllegalArgumentException("Money cannot be negative");
         }
     }
@@ -65,7 +64,7 @@ public class Money implements Comparable {
     }
 
     public void add(String amount) {
-        if(isNegative(amount)) {
+        if (isNegative(amount)) {
             throw new IllegalArgumentException("Cannot add negative money, use pay instead");
         }
         this.amount = this.amount.add(new BigDecimal(amount));
@@ -73,7 +72,7 @@ public class Money implements Comparable {
 
     @Override
     public int compareTo(Object o) {
-        if(!(o instanceof Money)) return 0;
+        if (!(o instanceof Money)) return 0;
         return amount.compareTo(((Money) o).amount);
     }
 
