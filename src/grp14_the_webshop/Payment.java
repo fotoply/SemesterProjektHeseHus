@@ -9,7 +9,15 @@ package grp14_the_webshop;
  * @author Karim
  */
 public class Payment {
-    private Money price;
+    private Money amount;
+
+    public Payment(Money amount) {
+        this.amount = amount;
+    }
+
+    public Money getAmount() {
+        return amount;
+    }
 
     private enum Status {
         NOT_PAID, RESERVED_IN_STORE, PAID

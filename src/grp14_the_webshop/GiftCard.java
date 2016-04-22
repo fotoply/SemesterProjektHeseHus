@@ -8,16 +8,11 @@ package grp14_the_webshop;
 /**
  * @author Karim
  */
-public class GiftCard {
+public class GiftCard extends Payment{
     private int id;
-    private Money amount;
 
-    public GiftCard(int id, String amount) {
+    public GiftCard(Money amount, int id) {
+        super(amount);
         this.id = id;
-        this.amount = new Money(amount);
-    }
-
-    public Money getAmount() {
-        return amount;
     }
 }

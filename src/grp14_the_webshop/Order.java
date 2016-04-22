@@ -5,6 +5,7 @@
  */
 package grp14_the_webshop;
 
+import java.util.ArrayList;
 import java.util.Currency;
 import java.util.Date;
 import java.util.List;
@@ -22,13 +23,14 @@ public class Order {
     private int customerID;
     private List<Product> productList;
     private Money currentlyPaid;
-    private Payment paymentMethod;
+    private List<Payment> paymentMethods;
 
     public Order(String shippingCharges, String shippingAddress, int orderID, int customerID) {
         this.shippingCharges = new Money(shippingCharges);
         this.shippingAddress = shippingAddress;
         this.orderID = orderID;
         this.customerID = customerID;
+        this.paymentMethods = new ArrayList<>();
     }
 
     public void addProduct(Product product, int amount) {
@@ -64,7 +66,7 @@ public class Order {
     }
 
     public void setPaymentMethod(Payment method) {
-        this.paymentMethod = method;
+        this.paymentMethods.add(method);
     }
 
     public Money getTax(Money price) {
