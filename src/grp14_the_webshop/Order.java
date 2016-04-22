@@ -25,6 +25,10 @@ public class Order {
     private Money currentlyPaid;
     private List<Payment> paymentMethods;
 
+    public Order() {
+        this.paymentMethods = new ArrayList<>();
+    }
+
     public Order(String shippingCharges, String shippingAddress, int orderID, int customerID) {
         this.shippingCharges = new Money(shippingCharges);
         this.shippingAddress = shippingAddress;
@@ -44,7 +48,7 @@ public class Order {
     }
 
     private enum Status {
-        SHOPPING_BASKET, ACCEPTED, CLOSED
+        IN_BASKET, SHIPPING_TO_SHOP, ACCEPTED, CLOSED
     }
 
     public Money getTotalAmountOwedForProducts() {
