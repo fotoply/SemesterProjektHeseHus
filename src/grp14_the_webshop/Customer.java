@@ -38,20 +38,6 @@ public class Customer {
         setPassword(password);
     }
 
-    public void checkoutBasket() {
-        if(currentOrder != null) {
-            currentOrder.setStatus(Order.Status.FOR_VERIFICATION);
-        }
-    }
-
-    public Order getCurrentOrder() {
-        return currentOrder;
-    }
-
-    public void setCurrentOrder(Order currentOrder) {
-        this.currentOrder = currentOrder;
-    }
-
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         String password = input.nextLine();
@@ -67,6 +53,20 @@ public class Customer {
 
     private static String toBase64(byte[] array) {
         return DatatypeConverter.printBase64Binary(array);
+    }
+
+    public void checkoutBasket() {
+        if (currentOrder != null) {
+            currentOrder.setStatus(Order.Status.FOR_VERIFICATION);
+        }
+    }
+
+    public Order getCurrentOrder() {
+        return currentOrder;
+    }
+
+    public void setCurrentOrder(Order currentOrder) {
+        this.currentOrder = currentOrder;
     }
 
     public void createNewOrder() {

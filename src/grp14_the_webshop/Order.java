@@ -27,14 +27,6 @@ public class Order {
     private List<Payment> paymentMethods;
     private Status status = Status.IN_BASKET;
 
-    public Status getStatus() {
-        return status;
-    }
-
-    public void setStatus(Status status) {
-        this.status = status;
-    }
-
     public Order() {
         this.paymentMethods = new ArrayList<>();
     }
@@ -45,6 +37,14 @@ public class Order {
         this.orderID = orderID;
         this.customerID = customerID;
         this.paymentMethods = new ArrayList<>();
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     public void addProduct(Product product, int amount) {

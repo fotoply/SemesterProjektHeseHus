@@ -6,7 +6,6 @@
 package grp14_the_webshop.payments;
 
 import grp14_the_webshop.Money;
-import grp14_the_webshop.payments.Payment;
 
 /**
  * @author Karim

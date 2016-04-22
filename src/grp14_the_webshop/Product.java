@@ -20,6 +20,10 @@ public class Product {
         return price;
     }
 
+    public void setPrice(Money price) {
+        this.price = price;
+    }
+
     public int getProductID() {
         return productID;
     }
@@ -71,10 +75,6 @@ public class Product {
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    public void setPrice(Money price) {
-        this.price = price;
     }
 
     public boolean isCurrentlySelling() {
