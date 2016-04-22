@@ -8,7 +8,7 @@ package grp14_the_webshop;
 /**
  * @author Karim
  */
-public class Payment {
+public abstract class Payment {
     private Money amount;
 
     public Payment(Money amount) {
