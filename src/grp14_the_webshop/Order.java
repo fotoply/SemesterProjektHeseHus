@@ -16,11 +16,11 @@ public class Order {
     private Date date;
     private double tax;
     private double shippingCharges;
-    private double totalPrice;
     private String shippingAddress;
     private int orderID;
     private int customerID;
     private List<Product> productList;
+    private int currentlyPaid;
 
     public Order(double shippingCharges, String shippingAddress, int orderID, int customerID) {
         this.shippingCharges = shippingCharges;
@@ -41,6 +41,14 @@ public class Order {
 
     private enum Status {
         SHOPPING_BASKET, ACCEPTED, CLOSED
+    }
+
+    public double getTotalAmountOwed() {
+
+    }
+
+    public void payAmountForOrder(int amount) {
+
     }
 
 }
