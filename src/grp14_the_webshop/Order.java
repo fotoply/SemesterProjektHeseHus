@@ -49,6 +49,17 @@ public class Order {
         for (Product product: productList) {
             owed.add(product.getPrice());
         }
+        owed.add(getTax(owed));
+        owed.add(getShippingCharges());
+        return owed;
+    }
+
+    public Money getTax(Money price) {
+        return tax;
+    }
+
+    public Money getShippingCharges() {
+        return shippingCharges;
     }
 
     public void payAmountForOrder(Money amount) {
