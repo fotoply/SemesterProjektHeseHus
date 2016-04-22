@@ -38,4 +38,15 @@ public class Money {
     public void add(String amount) {
         this.amount = this.amount.add(new BigDecimal(amount));
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Money)) return false;
+
+        Money money = (Money) o;
+
+        return amount.equals(money.amount);
+
+    }
 }
