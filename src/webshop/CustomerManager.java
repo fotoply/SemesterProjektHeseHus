@@ -13,7 +13,7 @@ import java.util.Map;
 public class CustomerManager {
 
     private Map<Integer, Customer> customerMap;
-    private int customerID = 0;
+    private static int customerID = 0;
     private static final int PHONENUMBER = 8;
 
     public CustomerManager() {
