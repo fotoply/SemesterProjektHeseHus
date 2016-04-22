@@ -47,8 +47,8 @@ public class Webshop {
     }
 
     public String checkoutBasket() {
-        customerManager.getCustomer(currentCustomerID);
-        return "";
+        customerManager.getCustomer(currentCustomerID).checkoutBasket();
+        return "Basket was checked out";
     }
 
     public Customer findCustomer() {

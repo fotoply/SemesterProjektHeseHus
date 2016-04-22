@@ -25,6 +25,15 @@ public class Order {
     private List<Product> productList;
     private Money currentlyPaid;
     private List<Payment> paymentMethods;
+    private Status status = Status.IN_BASKET;
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 
     public Order() {
         this.paymentMethods = new ArrayList<>();
@@ -90,7 +99,7 @@ public class Order {
         this.shippingAddress = shippingAddress;
     }
 
-    private enum Status {
-        IN_BASKET, SHIPPING_TO_SHOP, SHIPPING, ACCEPTED, CLOSED
+    public enum Status {
+        IN_BASKET, SHIPPING_TO_SHOP, SHIPPING, ACCEPTED, CLOSED, FOR_VERIFICATION
     }
 }

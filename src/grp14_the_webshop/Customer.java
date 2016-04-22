@@ -25,6 +25,7 @@ public class Customer {
     private String name;
     private byte[] salt = new byte[32];
     private List<MemberShipCard> memberShipCards;
+    private Order currentOrder;
 
     public Customer(String name, String address, String email, String password, Date dayOfBirth, int phoneNumber) {
         this.name = name;
@@ -35,6 +36,20 @@ public class Customer {
         SecureRandom rnd = new SecureRandom();
         rnd.nextBytes(salt);
         setPassword(password);
+    }
+
+    public void checkoutBasket() {
+        if(currentOrder != null) {
+            currentOrder.setStatus(Order.Status.FOR_VERIFICATION);
+        }
+    }
+
+    public Order getCurrentOrder() {
+        return currentOrder;
+    }
+
+    public void setCurrentOrder(Order currentOrder) {
+        this.currentOrder = currentOrder;
     }
 
     public static void main(String[] args) {
