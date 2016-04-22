@@ -16,4 +16,8 @@ public class GiftCard {
         this.id = id;
         this.amount = new Money(amount);
     }
+
+    public Money getAmount() {
+        return amount;
+    }
 }
