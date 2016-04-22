@@ -1,26 +1,31 @@
 package grp14_the_webshop;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 /**
  * Created 4/22/16
  *
  * @author Niels Norberg
  */
-public class Money {
+public class Money implements Comparable {
 
     private BigDecimal amount;
 
     public Money() {
-        this.amount = new BigDecimal(0);
+        this("0");
     }
 
     public Money(String amount) {
-        this.amount = new BigDecimal(amount);
+        this(new BigDecimal(amount));
     }
 
     public Money(BigDecimal amount) {
-        this.amount = amount;
+        if(amount.compareTo(BigDecimal.ZERO) < 0) {
+            throw new IllegalArgumentException("Money cannot be negative");
+        } else {
+            this.amount = amount;
+        }
     }
 
     public BigDecimal getAmount() {
@@ -45,6 +50,12 @@ public class Money {
 
     public void add(String amount) {
         this.amount = this.amount.add(new BigDecimal(amount));
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if(!(o instanceof Money)) return 0;
+        return amount.compareTo(((Money) o).amount);
     }
 
     @Override

@@ -44,13 +44,11 @@ public class Order {
         SHOPPING_BASKET, ACCEPTED, CLOSED
     }
 
-    public Money getTotalAmountOwed() {
+    public Money getTotalAmountOwedForProducts() {
         Money owed = new Money();
         for (Product product: productList) {
             owed.add(product.getPrice());
         }
-        owed.add(getTax(owed));
-        owed.add(getShippingCharges());
         return owed;
     }
 
@@ -73,7 +71,11 @@ public class Order {
     }
 
     public void payAmountForOrder(Money amount) {
-
+        if(amount.compareTo(getTotalAmountOwedForProducts()) > 0) {
+            throw new IllegalArgumentException("Trying to pay more than owed");
+        } else {
+            currentlyPaid.add(amount);
+        }
     }
 
 }
