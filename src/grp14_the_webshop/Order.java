@@ -47,7 +47,7 @@ public class Order {
     public Money getTotalAmountOwed() {
         Money owed = new Money();
         for (Product product: productList) {
-            owed.add(product.ge);
+            owed.add(product.getPrice());
         }
     }
 

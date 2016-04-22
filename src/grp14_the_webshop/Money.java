@@ -31,8 +31,16 @@ public class Money {
         return amount.toString();
     }
 
+    public void subtract(Money money) {
+        subtract(money.amount.toString());
+    }
+
     public void subtract(String amount) {
         this.amount = this.amount.subtract(new BigDecimal(amount));
+    }
+
+    public void add(Money money) {
+        add(money.amount.toString());
     }
 
     public void add(String amount) {
