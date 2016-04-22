@@ -48,7 +48,7 @@ public class Order {
     }
 
     private enum Status {
-        IN_BASKET, SHIPPING_TO_SHOP, ACCEPTED, CLOSED
+        IN_BASKET, SHIPPING_TO_SHOP, SHIPPING, ACCEPTED, CLOSED
     }
 
     public Money getTotalAmountOwedForProducts() {
