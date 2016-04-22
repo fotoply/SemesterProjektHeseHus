@@ -21,7 +21,7 @@ public class CustomerManager {
     }
 
     public void createNewOrder(int customerID) {
-        getCustomer(customerID).createNewOrder();
+        getCustomer(customerID).createNewOrder(customerID);
     }
 
     private int getNextId() {

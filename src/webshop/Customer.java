@@ -69,8 +69,9 @@ public class Customer {
         this.currentOrder = currentOrder;
     }
 
-    public void createNewOrder() {
-        throw new NotImplementedException();
+    public void createNewOrder(int customerID) {
+        //Shippingcharges sat til 0.
+        currentOrder = new Order("0", address, customerID);
     }
 
     public void linkMemberShipCard(int id) {
@@ -80,7 +81,8 @@ public class Customer {
     }
 
     public void addProduct(Product product, int amount) {
-        throw new NotImplementedException();
+        this.currentOrder.addProduct(product, amount);
+        
     }
 
     public void setAddress(String address) {

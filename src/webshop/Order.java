@@ -10,6 +10,7 @@ import webshop.payments.Payment;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import static webshop.Order.Status.IN_BASKET;
 
 /**
  * @author Karim
@@ -26,17 +27,22 @@ public class Order {
     private Money currentlyPaid;
     private List<Payment> paymentMethods;
     private Status status = Status.IN_BASKET;
+    private static int orderCount = 0;
 
     public Order() {
         this.paymentMethods = new ArrayList<>();
     }
 
-    public Order(String shippingCharges, String shippingAddress, int orderID, int customerID) {
+    public Order(String shippingCharges, String shippingAddress, int customerID) {
         this.shippingCharges = new Money(shippingCharges);
         this.shippingAddress = shippingAddress;
-        this.orderID = orderID;
+        this.orderID = orderCount;
         this.customerID = customerID;
         this.paymentMethods = new ArrayList<>();
+        date = new Date();
+        
+        
+        orderCount++;
     }
 
     public Status getStatus() {

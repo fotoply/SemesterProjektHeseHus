@@ -5,15 +5,32 @@
  */
 package webshop;
 
+import java.util.ArrayList;
+import java.util.List;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  * @author Karim
  */
 public class ProductCatelog {
+    
+    private List<Product> productList;
 
-    public void findProduct(int itemID) {
-        throw new NotImplementedException();
+    public ProductCatelog() {
+        productList = new ArrayList<>();
     }
+
+    public Product findProduct(int itemID) {
+
+        for (Product product : productList) {
+            if (itemID == product.getProductID()) {
+                return product;
+            }
+
+        }
+        return null;
+    }
+    
+    
 
 }
