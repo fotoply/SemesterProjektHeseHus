@@ -11,11 +11,15 @@ package grp14_the_webshop;
 public class Product {
     private String type;
     private Money price;
-    private int itemID;
+    private int productID;
     private boolean currentlySelling;
 
     public Money getPrice() {
         return price;
+    }
+
+    public int getProductID() {
+        return productID;
     }
 
     @Override
@@ -25,7 +29,7 @@ public class Product {
 
         Product product = (Product) o;
 
-        if (itemID != product.itemID) return false;
+        if (productID != product.productID) return false;
         if (type != null ? !type.equals(product.type) : product.type != null) return false;
         return price != null ? price.equals(product.price) : product.price == null;
 

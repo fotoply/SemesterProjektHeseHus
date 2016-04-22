@@ -54,6 +54,14 @@ public class Order {
         return owed;
     }
 
+    public int amountOfProductInOrder(int productId) {
+        int count = 0;
+        for (Product product: productList) {
+            if(product.)
+        }
+        return count;
+    }
+
     public Money getTax(Money price) {
         return tax;
     }
