@@ -10,10 +10,10 @@ package grp14_the_webshop;
  */
 public class GiftCard {
     private int id;
-    private double amount;
+    private Money amount;
 
-    public GiftCard(int id, double amount) {
+    public GiftCard(int id, String amount) {
         this.id = id;
-        this.amount = amount;
+        this.amount = new Money(amount);
     }
 }
