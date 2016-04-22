@@ -12,7 +12,7 @@ public class Payment {
     private double price;
 
     private enum Status {
-        NOT_PAYED, RESERVED_IN_STORE, PAYED
+        NOT_PAID, RESERVED_IN_STORE, PAID
     }
 
 }
