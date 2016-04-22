@@ -59,8 +59,8 @@ public class Customer {
     }
 
     public void linkMemberShipCard(int id) {
-        MemberShipCard e = MemberShipCard.getMemberShipCard(id);
-        memberShipCards.add(e);
+    /*    MemberShipCard e = MemberShipCard.getMemberShipCard(id);
+        memberShipCards.add(e);*/
         throw new NotImplementedException();
     }
 
