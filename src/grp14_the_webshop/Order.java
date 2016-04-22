@@ -22,6 +22,7 @@ public class Order {
     private int customerID;
     private List<Product> productList;
     private Money currentlyPaid;
+    private Payment paymentMethod;
 
     public Order(String shippingCharges, String shippingAddress, int orderID, int customerID) {
         this.shippingCharges = new Money(shippingCharges);
@@ -60,6 +61,10 @@ public class Order {
             }
         }
         return count;
+    }
+
+    public void setPaymentMethod(Payment method) {
+        this.paymentMethod = method;
     }
 
     public Money getTax(Money price) {
