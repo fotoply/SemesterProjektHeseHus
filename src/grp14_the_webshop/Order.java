@@ -5,6 +5,8 @@
  */
 package grp14_the_webshop;
 
+import grp14_the_webshop.payments.Payment;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
