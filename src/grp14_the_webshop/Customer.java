@@ -124,4 +124,8 @@ public class Customer {
         }
         return hash;
     }
+
+    public void cancelOrder() {
+        currentOrder.setStatus(Order.Status.IN_BASKET);
+    }
 }

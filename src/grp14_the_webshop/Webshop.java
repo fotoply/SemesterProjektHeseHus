@@ -51,6 +51,10 @@ public class Webshop {
         return "Basket was checked out";
     }
 
+    public void cancelOrder() {
+        customerManager.getCustomer(currentCustomerID).cancelOrder();
+    }
+
     public Customer findCustomer() {
         return customerManager.getCustomer(currentCustomerID);
     }
