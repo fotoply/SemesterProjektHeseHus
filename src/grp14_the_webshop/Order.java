@@ -85,4 +85,7 @@ public class Order {
         }
     }
 
+    public void setShippingAddress(String shippingAddress) {
+        this.shippingAddress = shippingAddress;
+    }
 }
