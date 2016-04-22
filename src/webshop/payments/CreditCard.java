@@ -1,6 +1,6 @@
-package grp14_the_webshop.payments;
+package webshop.payments;
 
-import grp14_the_webshop.Money;
+import webshop.Money;
 
 import java.util.Date;
 

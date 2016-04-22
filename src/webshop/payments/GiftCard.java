@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package grp14_the_webshop.payments;
+package webshop.payments;
 
-import grp14_the_webshop.Money;
+import webshop.Money;
 
 /**
  * @author Karim

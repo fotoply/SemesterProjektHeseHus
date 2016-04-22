@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package grp14_the_webshop;
+package webshop;
 
 /**
  * @author Karim

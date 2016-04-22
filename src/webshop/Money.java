@@ -1,4 +1,4 @@
-package grp14_the_webshop;
+package webshop;
 
 import java.math.BigDecimal;
 
