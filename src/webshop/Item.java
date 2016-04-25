@@ -28,12 +28,15 @@ public class Item {
 
         Item item = (Item) o;
 
-        return quantity == item.quantity;
+        if (quantity != item.quantity) return false;
+        return product != null ? product.equals(item.product) : item.product == null;
 
     }
 
     @Override
     public int hashCode() {
-        return quantity;
+        int result = product != null ? product.hashCode() : 0;
+        result = 31 * result + quantity;
+        return result;
     }
 }
