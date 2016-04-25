@@ -52,6 +52,10 @@ public class Webshop {
         return customerManager.createCustomer(name, address, phoneNumber, email, password, dayOfBirth);
     }
 
+    public int getCustomerIdFromEmail(String email) {
+        return customerManager.getCustomerIDFromEmail(email);
+    }
+
     public boolean loginWithCustomer(int customerId, String password) {
         if(customerManager.getCustomer(customerId).isCorrectPassword(password)) {
             return true;

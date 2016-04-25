@@ -51,6 +51,16 @@ public class CustomerManager {
         throw new IllegalArgumentException("This customer does not exist");
     }
 
+    public int getCustomerIDFromEmail(String email) {
+        for (int i = 0; i < customerMap.values().size(); i++) {
+            Customer customer = customerMap.getOrDefault(i,null);
+            if(customer != null && customer.getEmail().equals(email)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public void deleteCustomer(int customerID) {
         customerMap.remove(customerID);
     }

@@ -46,7 +46,10 @@ public class WebshopController {
     }
 
     private void attemptLogin(Scanner input) {
+        input.nextLine();
 
+        System.out.println("Enter email to login:");
+        String email = input.nextLine();
     }
 
     private void createAccount(Scanner input) throws ParseException {
