@@ -52,6 +52,13 @@ public class Webshop {
         return customerManager.createCustomer(name, address, phoneNumber, email, password, dayOfBirth);
     }
 
+    public boolean loginWithCustomer(int customerId, String password) {
+        if(customerManager.getCustomer(customerId).isCorrectPassword(password)) {
+            return true;
+        }
+        return false;
+    }
+
     public String checkoutBasket() {
         customerManager.getCustomer(currentCustomerID).checkoutBasket();
         return "Basket was checked out";

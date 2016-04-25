@@ -37,8 +37,16 @@ public class WebshopController {
                 case 0:
                     System.exit(0);
                     break;
+
+                case 2:
+                    controller.attemptLogin(input);
+                    break;
             }
         }
+    }
+
+    private void attemptLogin(Scanner input) {
+
     }
 
     private void createAccount(Scanner input) throws ParseException {
