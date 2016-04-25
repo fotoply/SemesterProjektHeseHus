@@ -1,7 +1,6 @@
 package webshop;
 
 import java.util.Collection;
-
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,9 +10,9 @@ import java.util.Map;
  */
 public class CustomerManager {
 
-    private Map<Integer, Customer> customerMap;
-    private static int customerID = 0;
     private static final int PHONENUMBER_LENGTH = 8;
+    private static int customerID = 0;
+    private Map<Integer, Customer> customerMap;
 
     public CustomerManager() {
         customerMap = new HashMap<>();
@@ -29,19 +28,19 @@ public class CustomerManager {
 
     public Customer createCustomer(String name, String address, int phoneNumber, String email, String password, Date dayOfBirth) {
         Collection<Integer> keys = customerMap.keySet();
-        for(Object key: keys){
-            if (email==customerMap.get(key).getEmail()) {
+        for (Object key : keys) {
+            if (email == customerMap.get(key).getEmail()) {
                 throw new IllegalArgumentException("This E-Mail is already used");
             }
         }
-        String number = ""+phoneNumber;
-        if (number.length()!= PHONENUMBER_LENGTH) {
+        String number = "" + phoneNumber;
+        if (number.length() != PHONENUMBER_LENGTH) {
             throw new IllegalArgumentException("Phone Number does not exist");
-        }     
-            int ID = getNextId();
-            customerMap.put(ID, new Customer(name, address, email, password, dayOfBirth, phoneNumber));
-            return customerMap.get(ID);
-        
+        }
+        int ID = getNextId();
+        customerMap.put(ID, new Customer(name, address, email, password, dayOfBirth, phoneNumber));
+        return customerMap.get(ID);
+
     }
 
     public Customer getCustomer(int customerID) {
@@ -53,8 +52,8 @@ public class CustomerManager {
 
     public int getCustomerIDFromEmail(String email) {
         for (int i = 0; i < customerMap.values().size(); i++) {
-            Customer customer = customerMap.getOrDefault(i,null);
-            if(customer != null && customer.getEmail().equals(email)) {
+            Customer customer = customerMap.getOrDefault(i, null);
+            if (customer != null && customer.getEmail().equals(email)) {
                 return i;
             }
         }

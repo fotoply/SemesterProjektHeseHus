@@ -7,13 +7,12 @@ package webshop;
 
 import java.util.ArrayList;
 import java.util.List;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 /**
  * @author Karim
  */
 public class ProductCatelog {
-    
+
     private List<Product> productList;
 
     public ProductCatelog() {
@@ -30,7 +29,6 @@ public class ProductCatelog {
         }
         return null;
     }
-    
-    
+
 
 }

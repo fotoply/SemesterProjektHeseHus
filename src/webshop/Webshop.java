@@ -13,17 +13,13 @@ import java.util.Date;
  * @author Karim
  */
 public class Webshop {
+    private static Webshop instance;
     private int currentCustomerID;
     private CustomerManager customerManager;
-    private static Webshop instance;
     private ProductCatelog productCatalog = new ProductCatelog();
 
     private Webshop() {
         customerManager = new CustomerManager();
-    }
-
-    public void setCurrentCustomerID(int currentCustomerID) {
-        this.currentCustomerID = currentCustomerID;
     }
 
     public static Webshop getInstance() {
@@ -33,10 +29,14 @@ public class Webshop {
         return instance;
     }
 
+    public void setCurrentCustomerID(int currentCustomerID) {
+        this.currentCustomerID = currentCustomerID;
+    }
+
     public Product findProduct(int productID) {
 
         return productCatalog.findProduct(productID);
-        
+
     }
 
     public void createNewOrder() {
@@ -57,7 +57,7 @@ public class Webshop {
     }
 
     public boolean loginWithCustomer(int customerId, String password) {
-        if(customerManager.getCustomer(customerId).isCorrectPassword(password)) {
+        if (customerManager.getCustomer(customerId).isCorrectPassword(password)) {
             return true;
         }
         return false;

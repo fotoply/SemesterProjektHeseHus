@@ -83,15 +83,11 @@ public class Customer {
 
     public void addProduct(Product product, int amount) {
         this.currentOrder.addProduct(product, amount);
-        
+
     }
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public void setEmail(String Email) {
-        this.email = Email;
     }
 
     public void setPhoneNumber(int phoneNumber) {
@@ -108,15 +104,19 @@ public class Customer {
 
     //TODO implement constant-time comparison to avoid timing attacks
     public boolean isCorrectPassword(String comparisonPassword) {
-        return Arrays.equals(password,getPasswordHash(comparisonPassword));
+        return Arrays.equals(password, getPasswordHash(comparisonPassword));
     }
 
     public void setPassword(String password) {
         this.password = getPasswordHash(password);
     }
-    
+
     public String getEmail() {
         return this.email;
+    }
+
+    public void setEmail(String Email) {
+        this.email = Email;
     }
 
     private byte[] getPasswordHash(String password) {

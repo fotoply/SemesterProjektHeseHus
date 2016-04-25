@@ -10,13 +10,13 @@ import webshop.payments.Payment;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import static webshop.Order.Status.IN_BASKET;
 
 /**
  * @author Karim
  */
 public class Order {
 
+    private static int orderCount = 0;
     private Date date;
     private Money tax;
     private Money shippingCharges;
@@ -28,7 +28,6 @@ public class Order {
     private Money currentlyPaid;
     private List<Payment> paymentMethods;
     private Status status = Status.IN_BASKET;
-    private static int orderCount = 0;
 
     public Order() {
         this.paymentMethods = new ArrayList<>();
@@ -41,8 +40,8 @@ public class Order {
         this.customerID = customerID;
         this.paymentMethods = new ArrayList<>();
         date = new Date();
-        
-        
+
+
         orderCount++;
     }
 
@@ -55,7 +54,7 @@ public class Order {
     }
 
     public void addProduct(Product product, int amount) {
-        productList.add(new Item(product,amount));
+        productList.add(new Item(product, amount));
     }
 
     public void setCustomerID(int customerID) {
@@ -73,8 +72,8 @@ public class Order {
     }
 
     public int amountOfProductInOrder(int productId) {
-        for (Item item: productList) {
-            if(item.getProduct().getProductID() == productId) {
+        for (Item item : productList) {
+            if (item.getProduct().getProductID() == productId) {
                 return item.getQuantity();
             }
         }

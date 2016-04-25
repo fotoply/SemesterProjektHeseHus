@@ -20,6 +20,7 @@ public class Money implements Comparable {
 
     /**
      * Creates a new money object which represents an arbitrary currency.
+     *
      * @param amount the starting amount for the new object
      * @throws IllegalArgumentException If the starting amount is less than 0
      */
@@ -29,6 +30,7 @@ public class Money implements Comparable {
 
     /**
      * Creates a new money object which represents an arbitrary currency.
+     *
      * @param amount the starting amount for the new object
      * @throws IllegalArgumentException If the starting amount is less than 0
      */
@@ -49,7 +51,6 @@ public class Money implements Comparable {
     }
 
     /**
-     *
      * @return true if the current money object is negative
      */
     public boolean isNegative() {
@@ -61,7 +62,6 @@ public class Money implements Comparable {
     }
 
     /**
-     *
      * @return amount as a human readable string
      */
     public String getAmountAsString() {
@@ -70,6 +70,7 @@ public class Money implements Comparable {
 
     /**
      * Subtracts the amount in the given money object from the current money object
+     *
      * @param money
      */
     public void pay(Money money) {
@@ -78,6 +79,7 @@ public class Money implements Comparable {
 
     /**
      * Subtracts the amount from the current money object
+     *
      * @param amount
      * @throws IllegalArgumentException If the amount passed is less than 0
      */
@@ -91,6 +93,7 @@ public class Money implements Comparable {
 
     /**
      * Adds the value of the <code>money</code> object to the current object
+     *
      * @param money
      */
     public void add(Money money) {
@@ -99,8 +102,9 @@ public class Money implements Comparable {
 
     /**
      * Adds a specified amount of money to the current object
+     *
      * @param amount
-     * @throws  IllegalArgumentException If the amount is less than 0
+     * @throws IllegalArgumentException If the amount is less than 0
      */
     public void add(String amount) {
         if (isNegative(amount)) {

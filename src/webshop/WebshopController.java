@@ -16,8 +16,8 @@ import java.util.Scanner;
  */
 public class WebshopController {
 
-    private int memberShipCardID = 0;
     Webshop webshop = Webshop.getInstance();
+    private int memberShipCardID = 0;
 
     /**
      * @param args the command line arguments
@@ -26,7 +26,7 @@ public class WebshopController {
         // Test code for products
         WebshopController controller = new WebshopController();
 
-        while(true) {
+        while (true) {
             System.out.println("Enter 1 to create a new account.\nEnter 2 to login to existing account.\nEnter 0 to exit");
             Scanner input = new Scanner(System.in);
             switch (input.nextInt()) {
@@ -51,7 +51,7 @@ public class WebshopController {
         System.out.println("Enter email to login:");
         String email = input.nextLine();
         int customerId = webshop.getCustomerIdFromEmail(email);
-        if(customerId == -1) {
+        if (customerId == -1) {
             System.out.println("Email not found");
             return;
         }
@@ -72,14 +72,14 @@ public class WebshopController {
         System.out.println("Enter email:");
         String email = input.nextLine();
         System.out.println("Enter password:");
-        String password= input.nextLine();
+        String password = input.nextLine();
         System.out.println("Enter birthday (YYYY-MM-DD):");
         DateFormat format = new SimpleDateFormat("YYYY-M-d");
         Date birth = format.parse(input.nextLine());
         System.out.println("Enter phone number:");
         int phoneNumber = Integer.valueOf(input.nextLine());
 
-        Customer newCustomer = webshop.createCustomer(name, address,email,password,birth,phoneNumber);
+        Customer newCustomer = webshop.createCustomer(name, address, email, password, birth, phoneNumber);
         System.out.println("You are: " + newCustomer.toString());
     }
 }
