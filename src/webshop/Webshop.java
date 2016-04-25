@@ -22,6 +22,10 @@ public class Webshop {
         customerManager = new CustomerManager();
     }
 
+    public void setCurrentCustomerID(int currentCustomerID) {
+        this.currentCustomerID = currentCustomerID;
+    }
+
     public static Webshop getInstance() {
         if (instance == null) {
             instance = new Webshop();
