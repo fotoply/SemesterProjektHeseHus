@@ -15,14 +15,14 @@ import java.util.Date;
 public class Webshop {
     private int currentCustomerID;
     private CustomerManager customerManager;
-    private Webshop instance;
+    private static Webshop instance;
     private ProductCatelog productCatalog = new ProductCatelog();
 
-    public Webshop() {
+    private Webshop() {
         customerManager = new CustomerManager();
     }
 
-    public Webshop getInstance() {
+    public static Webshop getInstance() {
         if (instance == null) {
             instance = new Webshop();
         }
