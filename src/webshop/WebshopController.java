@@ -17,6 +17,6 @@ public class WebshopController {
      */
     public static void main(String[] args) {
         // Test code for products
-        Webshop webshop = Webshop
+        Webshop webshop = Webshop.getInstance();
     }
 }
