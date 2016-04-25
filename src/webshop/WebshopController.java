@@ -50,6 +50,16 @@ public class WebshopController {
 
         System.out.println("Enter email to login:");
         String email = input.nextLine();
+        int customerId = webshop.getCustomerIdFromEmail(email);
+        if(customerId == -1) {
+            System.out.println("Email not found");
+            return;
+        }
+
+        System.out.println("Enter password for this account: ");
+        String password = input.nextLine();
+
+        System.out.println("Password matches: " + webshop.loginWithCustomer(customerId, password));
     }
 
     private void createAccount(Scanner input) throws ParseException {
@@ -63,8 +73,8 @@ public class WebshopController {
         String email = input.nextLine();
         System.out.println("Enter password:");
         String password= input.nextLine();
-        System.out.println("Enter birthday (YY-MM-DD):");
-        DateFormat format = new SimpleDateFormat("YY-MM-dd");
+        System.out.println("Enter birthday (YYYY-MM-DD):");
+        DateFormat format = new SimpleDateFormat("YYYY-MM-dd");
         Date birth = format.parse(input.nextLine());
         System.out.println("Enter phone number:");
         int phoneNumber = Integer.valueOf(input.nextLine());

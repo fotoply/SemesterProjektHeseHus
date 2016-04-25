@@ -142,7 +142,6 @@ public class Customer {
                 "name='" + name + '\'' +
                 ", birthday=" + birthday +
                 ", phoneNumber=" + phoneNumber +
-                ", password=" + Arrays.toString(password) +
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +
                 '}';
