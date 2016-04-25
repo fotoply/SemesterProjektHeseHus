@@ -51,6 +51,7 @@ public class WebshopController {
         System.out.println("Enter email to login:");
         String email = input.nextLine();
         int customerId = webshop.getCustomerIdFromEmail(email);
+        System.out.println("ID: " + customerId);
         if(customerId == -1) {
             System.out.println("Email not found");
             return;
@@ -74,7 +75,7 @@ public class WebshopController {
         System.out.println("Enter password:");
         String password= input.nextLine();
         System.out.println("Enter birthday (YYYY-MM-DD):");
-        DateFormat format = new SimpleDateFormat("YYYY-MM-dd");
+        DateFormat format = new SimpleDateFormat("YYYY-M-d");
         Date birth = format.parse(input.nextLine());
         System.out.println("Enter phone number:");
         int phoneNumber = Integer.valueOf(input.nextLine());

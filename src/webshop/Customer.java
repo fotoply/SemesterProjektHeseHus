@@ -108,7 +108,7 @@ public class Customer {
 
     //TODO implement constant-time comparison to avoid timing attacks
     public boolean isCorrectPassword(String comparisonPassword) {
-        return this.password.equals(getPasswordHash(comparisonPassword));
+        return Arrays.equals(password,getPasswordHash(comparisonPassword));
     }
 
     public void setPassword(String password) {
