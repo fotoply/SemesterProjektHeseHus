@@ -23,7 +23,7 @@ public class Order {
     private String shippingAddress;
     private int orderID;
     private int customerID;
-    private List<Product> productList;
+    private List<Item> productList;
     private Money currentlyPaid;
     private List<Payment> paymentMethods;
     private Status status = Status.IN_BASKET;
@@ -54,9 +54,7 @@ public class Order {
     }
 
     public void addProduct(Product product, int amount) {
-        for (int i = 0; i < amount; i++) {
-            productList.add(product);
-        }
+        productList.add(new Item(product,amount));
     }
 
     public void setCustomerID(int customerID) {
@@ -65,20 +63,21 @@ public class Order {
 
     public Money getTotalAmountOwedForProducts() {
         Money owed = new Money();
-        for (Product product : productList) {
-            owed.add(product.getPrice());
+        for (Item item : productList) {
+            for (int i = 0; i < item.getQuantity(); i++) {
+                owed.add(item.getProduct().getPrice());
+            }
         }
         return owed;
     }
 
     public int amountOfProductInOrder(int productId) {
-        int count = 0;
-        for (Product product : productList) {
-            if (product.getProductID() == productId) {
-                count++;
+        for (Item item: productList) {
+            if(item.getProduct().getProductID() == productId) {
+                return item.getQuantity();
             }
         }
-        return count;
+        return 0;
     }
 
     public void setPaymentMethod(Payment method) {
