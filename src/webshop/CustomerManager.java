@@ -1,7 +1,6 @@
 package webshop;
 
 import java.util.Collection;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -14,7 +13,7 @@ public class CustomerManager {
 
     private Map<Integer, Customer> customerMap;
     private static int customerID = 0;
-    private static final int PHONENUMBER = 8;
+    private static final int PHONENUMBER_LENGTH = 8;
 
     public CustomerManager() {
         customerMap = new HashMap<>();
@@ -36,7 +35,7 @@ public class CustomerManager {
             }
         }
         String number = ""+phoneNumber;
-        if (number.length()!=PHONENUMBER) {
+        if (number.length()!= PHONENUMBER_LENGTH) {
             throw new IllegalArgumentException("Phone Number does not exist");
         }     
             int ID = getNextId();

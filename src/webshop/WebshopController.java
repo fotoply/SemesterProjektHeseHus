@@ -51,11 +51,12 @@ public class WebshopController {
         System.out.println("Enter password:");
         String password= input.nextLine();
         System.out.println("Enter birthday (YY-MM-DD):");
-        DateFormat format = new SimpleDateFormat("YY,MM,dd");
+        DateFormat format = new SimpleDateFormat("YY-MM-dd");
         Date birth = format.parse(input.nextLine());
         System.out.println("Enter phone number:");
         int phoneNumber = Integer.valueOf(input.nextLine());
 
-        webshop.createCustomer(name, address,email,password,birth,phoneNumber);
+        Customer newCustomer = webshop.createCustomer(name, address,email,password,birth,phoneNumber);
+        System.out.println("You are: " + newCustomer.toString());
     }
 }
