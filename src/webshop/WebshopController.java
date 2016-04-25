@@ -51,7 +51,6 @@ public class WebshopController {
         System.out.println("Enter email to login:");
         String email = input.nextLine();
         int customerId = webshop.getCustomerIdFromEmail(email);
-        System.out.println("ID: " + customerId);
         if(customerId == -1) {
             System.out.println("Email not found");
             return;
