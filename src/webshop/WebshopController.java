@@ -26,16 +26,18 @@ public class WebshopController {
         // Test code for products
         WebshopController controller = new WebshopController();
 
-        System.out.println("Enter 1 to create a new account.\nEnter 2 to login to existing account.\nEnter 0 to exit");
-        Scanner input = new Scanner(System.in);
-        switch (input.nextInt()) {
-            case 1:
-                controller.createAccount(input);
-                break;
+        while(true) {
+            System.out.println("Enter 1 to create a new account.\nEnter 2 to login to existing account.\nEnter 0 to exit");
+            Scanner input = new Scanner(System.in);
+            switch (input.nextInt()) {
+                case 1:
+                    controller.createAccount(input);
+                    break;
 
-            case 0:
-                System.exit(0);
-                break;
+                case 0:
+                    System.exit(0);
+                    break;
+            }
         }
     }
 

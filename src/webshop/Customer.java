@@ -9,6 +9,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -133,5 +134,17 @@ public class Customer {
 
     public void cancelOrder() {
         currentOrder.setStatus(Order.Status.IN_BASKET);
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "name='" + name + '\'' +
+                ", birthday=" + birthday +
+                ", phoneNumber=" + phoneNumber +
+                ", password=" + Arrays.toString(password) +
+                ", email='" + email + '\'' +
+                ", address='" + address + '\'' +
+                '}';
     }
 }
