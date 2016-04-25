@@ -20,6 +20,7 @@ public class Order {
     private Date date;
     private Money tax;
     private Money shippingCharges;
+    private Money finalPrice;
     private String shippingAddress;
     private int orderID;
     private int customerID;
@@ -90,6 +91,10 @@ public class Order {
 
     public Money getShippingCharges() {
         return shippingCharges;
+    }
+
+    public Money getFinalPrice() {
+        return finalPrice;
     }
 
     public void payAmountForOrder(Money amount) {
