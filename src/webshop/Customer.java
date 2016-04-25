@@ -43,7 +43,7 @@ public class Customer {
         Scanner input = new Scanner(System.in);
         String password = input.nextLine();
 
-        Customer c = new Customer("Bob", "bob", "bob", "bob", new Date(), 1);
+        Customer c = new Customer("Bob", "bob", "bob", password, new Date(), 10203040);
         System.out.println("Hashed password is: ");
         System.out.println(toBase64(c.getPasswordHash(password)));
         password = input.nextLine();
@@ -52,8 +52,12 @@ public class Customer {
 
     }
 
-    private static String toBase64(byte[] array) {
+    public static String toBase64(byte[] array) {
         return DatatypeConverter.printBase64Binary(array);
+    }
+
+    public byte[] getPassword() {
+        return password;
     }
 
     public void checkoutBasket() {

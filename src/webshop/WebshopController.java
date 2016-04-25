@@ -81,5 +81,6 @@ public class WebshopController {
 
         Customer newCustomer = webshop.createCustomer(name, address, email, password, birth, phoneNumber);
         System.out.println("You are: " + newCustomer.toString());
+        System.out.println("Your password hash is: " + Customer.toBase64(newCustomer.getPassword()));
     }
 }
