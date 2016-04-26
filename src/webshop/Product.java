@@ -36,6 +36,7 @@ public class Product {
         Product product = (Product) o;
 
         if (productID != product.productID) return false;
+        if (currentlySelling != product.currentlySelling) return false;
         if (name != null ? !name.equals(product.name) : product.name != null) return false;
         if (description != null ? !description.equals(product.description) : product.description != null) return false;
         if (type != null ? !type.equals(product.type) : product.type != null) return false;
@@ -45,11 +46,13 @@ public class Product {
 
     @Override
     public int hashCode() {
+        final int magicPrime = 524287;
         int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        result = 31 * result + (type != null ? type.hashCode() : 0);
-        result = 31 * result + (price != null ? price.hashCode() : 0);
-        result = 31 * result + productID;
+        result = magicPrime * result + (description != null ? description.hashCode() : 0);
+        result = magicPrime * result + (type != null ? type.hashCode() : 0);
+        result = magicPrime * result + (price != null ? price.hashCode() : 0);
+        result = magicPrime * result + productID;
+        result = magicPrime * result + (currentlySelling ? 1 : 0);
         return result;
     }
 

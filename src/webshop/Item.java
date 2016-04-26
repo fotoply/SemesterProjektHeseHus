@@ -35,8 +35,9 @@ public class Item {
 
     @Override
     public int hashCode() {
+        final int magicPrime = 524287;
         int result = product != null ? product.hashCode() : 0;
-        result = 31 * result + quantity;
+        result = magicPrime * result + quantity;
         return result;
     }
 }

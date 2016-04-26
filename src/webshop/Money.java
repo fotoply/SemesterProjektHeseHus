@@ -126,12 +126,13 @@ public class Money implements Comparable {
 
         Money money = (Money) o;
 
-        return amount.equals(money.amount);
+        return amount != null ? amount.equals(money.amount) : money.amount == null;
 
     }
 
     @Override
     public int hashCode() {
+        final int magicPrime = 524287;
         return amount != null ? amount.hashCode() : 0;
     }
 }
