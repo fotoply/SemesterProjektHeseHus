@@ -50,8 +50,7 @@ public class WebshopController {
 
         System.out.println("Enter email to login:");
         String email = input.nextLine();
-        int customerId = webshop.getCustomerIdFromEmail(email);
-        if (customerId == -1) {
+        if (!webshop.isValidEmail(email)) {
             System.out.println("Email not found");
             return;
         }
@@ -59,7 +58,7 @@ public class WebshopController {
         System.out.println("Enter password for this account: ");
         String password = input.nextLine();
 
-        System.out.println("Password matches: " + webshop.loginWithCustomer(customerId, password));
+        System.out.println("Password matches: " + webshop.loginWithEmail(email, password));
     }
 
     private void createAccount(Scanner input) throws ParseException {

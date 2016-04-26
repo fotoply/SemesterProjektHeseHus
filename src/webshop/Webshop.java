@@ -63,6 +63,14 @@ public class Webshop {
         return false;
     }
 
+    public boolean isValidEmail(String email) {
+        return customerManager.getCustomerIDFromEmail(email) > -1;
+    }
+
+    public boolean loginWithEmail(String email, String password) {
+        return loginWithCustomer(getCustomerIdFromEmail(email),password);
+    }
+
     public String checkoutBasket() {
         customerManager.getCustomer(currentCustomerID).checkoutBasket();
         return "Basket was checked out";
