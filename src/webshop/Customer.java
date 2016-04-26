@@ -52,6 +52,10 @@ public class Customer {
 
     }
 
+    public static byte[] fromBase64(String base64String) {
+        return DatatypeConverter.parseBase64Binary(base64String);
+    }
+
     public static String toBase64(byte[] array) {
         return DatatypeConverter.printBase64Binary(array);
     }
