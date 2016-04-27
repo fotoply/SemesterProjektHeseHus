@@ -77,7 +77,7 @@ public class Webshop {
 
     public boolean loginWithEmail(String email, String password) {
         setCurrentCustomerID(getCustomerIdFromEmail(email));
-        System.out.println("Current customer ID: " + findCustomer());
+        System.out.println("Current customer ID: " + getCustomer());
         return loginWithCustomer(getCustomerIdFromEmail(email),password);
     }
 
