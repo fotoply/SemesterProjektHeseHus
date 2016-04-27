@@ -30,17 +30,20 @@ public class WebshopController {
             System.out.println("Enter 1 to create a new account.\nEnter 2 to login to existing account.\nEnter 0 to exit");
             Scanner input = new Scanner(System.in);
             switch (input.nextInt()) {
-                case 1:
-                    controller.createAccount(input);
-                    break;
-
                 case 0:
                     System.exit(0);
+                    break;
+                
+                case 1:
+                    controller.createAccount(input);
                     break;
 
                 case 2:
                     controller.attemptLogin(input);
                     break;
+                    
+                case 3:
+                    controller.getAllProducts();
             }
         }
     }
@@ -81,5 +84,9 @@ public class WebshopController {
         Customer newCustomer = webshop.createCustomer(name, address, email, password, birth, phoneNumber);
         System.out.println("You are: " + newCustomer.toString());
         System.out.println("Your password hash is: " + Customer.toBase64(newCustomer.getPassword()));
+    }
+    
+    private void getAllProducts() {
+        System.out.println(webshop.getAllProducts());
     }
 }
