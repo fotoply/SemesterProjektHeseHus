@@ -27,7 +27,10 @@ public class WebshopController {
         WebshopController controller = new WebshopController();
 
         while (true) {
-            System.out.println("Enter 1 to create a new account.\nEnter 2 to login to existing account.\nEnter 0 to exit");
+            System.out.println("Enter 1 to create a new account.\n"
+                    + "Enter 2 to login to existing account.\n"
+                    + "Enter 3 to add items to basket.\n"
+                    + "Enter 0 to exit");
             Scanner input = new Scanner(System.in);
             switch (input.nextInt()) {
                 case 0:
@@ -43,7 +46,7 @@ public class WebshopController {
                     break;
                     
                 case 3:
-                    controller.getAllProducts();
+                    controller.addToBasket();
             }
         }
     }
@@ -86,7 +89,8 @@ public class WebshopController {
         System.out.println("Your password hash is: " + Customer.toBase64(newCustomer.getPassword()));
     }
     
-    private void getAllProducts() {
+    private void addToBasket() {
+        System.out.println("Add an item from the product catelog to the basket:\n");
         System.out.println(webshop.getAllProducts());
     }
 }
