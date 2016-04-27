@@ -80,7 +80,7 @@ public class Webshop {
         customerManager.getCustomer(currentCustomerID).cancelOrder();
     }
 
-    public Customer findCustomer() {
+    public Customer getCustomer() {
         return customerManager.getCustomer(currentCustomerID);
     }
 
