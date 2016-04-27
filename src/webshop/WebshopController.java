@@ -19,6 +19,7 @@ public class WebshopController {
     Webshop webshop = Webshop.getInstance();
     private int memberShipCardID = 0;
 
+    ProductCatelog productcatelog = new ProductCatelog();
     /**
      * @param args the command line arguments
      */
@@ -81,5 +82,11 @@ public class WebshopController {
         Customer newCustomer = webshop.createCustomer(name, address, email, password, birth, phoneNumber);
         System.out.println("You are: " + newCustomer.toString());
         System.out.println("Your password hash is: " + Customer.toBase64(newCustomer.getPassword()));
+    }
+    
+    private void addToBasket (){
+        System.out.println("Add an item from the product catalog to the basket:\n");
+        System.out.println(productcatelog.getAllProducts());
+        
     }
 }
