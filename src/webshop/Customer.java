@@ -91,6 +91,7 @@ public class Customer {
 
     public void addProduct(Product product, int amount) {
         this.currentOrder.addProduct(product, amount);
+        
 
     }
 
