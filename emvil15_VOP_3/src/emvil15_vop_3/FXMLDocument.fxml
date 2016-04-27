@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="emvil15_vop_3.FXMLDocumentController">
+   <children>
+      <TabPane layoutX="83.0" layoutY="-27.0" prefHeight="480.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="Poly og String">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="28.0" layoutY="40.0" text="Input:" />
+                        <TextField fx:id="inputField" layoutX="85.0" layoutY="35.0" />
+                        <TextField fx:id="outputField" layoutX="85.0" layoutY="146.0" />
+                        <Label layoutX="28.0" layoutY="151.0" text="Output:" />
+                        <RadioButton fx:id="upperCase" layoutX="27.0" layoutY="97.0" mnemonicParsing="false" onAction="#caseHandler" text="UpperCase">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="caseGrp" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="lowerCase" layoutX="144.0" layoutY="97.0" mnemonicParsing="false" onAction="#caseHandler" text="LowerCase" toggleGroup="$caseGrp" />
+                        <RadioButton fx:id="flipCase" layoutX="252.0" layoutY="97.0" mnemonicParsing="false" onAction="#caseHandler" text="FlipCase" toggleGroup="$caseGrp" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="ArrayTest">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextArea fx:id="arrayOutputArea" layoutX="184.0" layoutY="14.0" prefHeight="409.0" prefWidth="444.0" />
+                        <TextField fx:id="arraySizeField" layoutX="14.0" layoutY="14.0" prefHeight="23.0" prefWidth="37.0" />
+                        <Button fx:id="fillBtn" layoutX="67.0" layoutY="14.0" mnemonicParsing="false" onAction="#fillBtnHandler" text="Fill" />
+                        <Button fx:id="sortBtn" layoutX="63.0" layoutY="58.0" mnemonicParsing="false" onAction="#sortBtnHandler" text="Sort" />
+                        <Button fx:id="reverseBtn" layoutX="51.0" layoutY="100.0" mnemonicParsing="false" onAction="#reverseBtnHandler" text="Reverse" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="UrbanPopulation">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="urbanRunBtn" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#urbanRunBtnHandler" text="Run" />
+                        <TextArea fx:id="urbanOutputArea" layoutX="80.0" layoutY="14.0" prefHeight="416.0" prefWidth="547.0" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

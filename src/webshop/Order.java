@@ -40,7 +40,7 @@ public class Order {
         this.customerID = customerID;
         this.paymentMethods = new ArrayList<>();
         date = new Date();
-
+        this.productList = new ArrayList<>();
 
         orderCount++;
     }

@@ -38,14 +38,22 @@ public class Webshop {
         return productCatalog.findProduct(productID);
 
     }
+    
+    public String getAllProducts() {
+        
+        return productCatalog.getAllProducts();
+    }
 
+    public Order getCurrentOrder() {
+        return customerManager.getCustomer(currentCustomerID).getCurrentOrder();
+    }
+    
     public void createNewOrder() {
         customerManager.getCustomer(currentCustomerID).createNewOrder(currentCustomerID);
     }
 
     public void addItem(Product product, int amount) {
         customerManager.getCustomer(currentCustomerID).addProduct(product, amount);
-        throw new NotImplementedException();
     }
 
     public Customer createCustomer(String name, String address, String email, String password, Date dayOfBirth, int phoneNumber) {
@@ -68,6 +76,8 @@ public class Webshop {
     }
 
     public boolean loginWithEmail(String email, String password) {
+        setCurrentCustomerID(getCustomerIdFromEmail(email));
+        System.out.println("Current customer ID: " + findCustomer());
         return loginWithCustomer(getCustomerIdFromEmail(email),password);
     }
 
@@ -80,7 +90,7 @@ public class Webshop {
         customerManager.getCustomer(currentCustomerID).cancelOrder();
     }
 
-    public Customer findCustomer() {
+    public Customer getCustomer() {
         return customerManager.getCustomer(currentCustomerID);
     }
 
