@@ -42,6 +42,11 @@ public class ProductCatelog {
         }
         return null;
     }
+    
+    public String getAllProducts() {
+        
+        return productList.toString();
+    }
 
 
 }
