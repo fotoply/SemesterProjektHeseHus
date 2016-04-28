@@ -80,7 +80,7 @@ public class Webshop {
         System.out.println("Current customer ID: " + getCustomer());
         return loginWithCustomer(getCustomerIdFromEmail(email),password);
     }
-//
+
     public String checkoutBasket() {
         customerManager.getCustomer(currentCustomerID).checkoutBasket();
         return "Basket was checked out";
