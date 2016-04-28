@@ -14,7 +14,7 @@ public class Product {
     private String type;
     private Money price;
     private int productID;
-    private boolean currentlySelling;
+    private boolean currentlySelling;   
 
     public Money getPrice() {
         return price;

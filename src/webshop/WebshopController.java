@@ -84,9 +84,5 @@ public class WebshopController {
         System.out.println("Your password hash is: " + Customer.toBase64(newCustomer.getPassword()));
     }
     
-    private void addToBasket (){
-        System.out.println("Add an item from the product catalog to the basket:\n");
-        System.out.println(productcatelog.getAllProducts());
-        
-    }
+   
 }
