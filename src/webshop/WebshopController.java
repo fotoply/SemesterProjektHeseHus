@@ -19,7 +19,8 @@ public class WebshopController {
     Webshop webshop = Webshop.getInstance();
     private int memberShipCardID = 0;
 
-    ProductCatelog productcatelog = new ProductCatelog();
+    //webshop.createCustomer("Bob", "Campusvej 55", "bob@bob.dk", "1234", 1990-12-21, 11223344);
+    
     /**
      * @param args the command line arguments
      */
@@ -27,21 +28,44 @@ public class WebshopController {
         // Test code for products
         WebshopController controller = new WebshopController();
 
+        
+        
         while (true) {
-            System.out.println("Enter 1 to create a new account.\nEnter 2 to login to existing account.\nEnter 0 to exit");
+            System.out.println("Enter 1 to create a new account.\n"
+                    + "Enter 2 to login to existing account.\n"
+                    + "Enter 3 to add items to basket.\n"
+                    + "Enter 0 to exit");
             Scanner input = new Scanner(System.in);
             switch (input.nextInt()) {
-                case 1:
-                    controller.createAccount(input);
-                    break;
-
                 case 0:
                     System.exit(0);
+                    break;
+                
+                case 1:
+                    controller.createAccount(input);
                     break;
 
                 case 2:
                     controller.attemptLogin(input);
                     break;
+                    
+                case 3:
+                    controller.addToBasket();
+                    System.out.println("Add an item from the product catelog to the basket type the ID:\n");
+                    switch(input.nextInt()) {
+                        case 0:
+                            controller.addToOrder(0);
+                            break;
+                        case 1:
+                            controller.addToOrder(1);
+                            break;
+                        case 2:
+                            controller.addToOrder(2);
+                            break;
+                        case 3:
+                            controller.addToOrder(3);
+                            break;
+                    }
             }
         }
     }
@@ -84,5 +108,21 @@ public class WebshopController {
         System.out.println("Your password hash is: " + Customer.toBase64(newCustomer.getPassword()));
     }
     
-   
+    private void addToBasket() {
+        
+        System.out.println(webshop.getAllProducts());
+    }
+    
+    private void addToOrder(int id) {
+        //if(webshop.getCurrentOrder() == null) {
+            webshop.createNewOrder();
+        //}
+       
+        Product product = webshop.findProduct(id);
+        
+        System.out.println(product);
+        
+        webshop.addItem(product, 1);
+    }
+    
 }

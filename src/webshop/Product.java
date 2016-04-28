@@ -16,6 +16,17 @@ public class Product {
     private int productID;
     private boolean currentlySelling;   
 
+    public Product(String name, String description, String type, Money price, int productID, boolean currentlySelling) {
+        this.name = name;
+        this.description = description;
+        this.type = type;
+        this.price = price;
+        this.productID = productID;
+        this.currentlySelling = currentlySelling;
+    }
+
+    
+    
     public Money getPrice() {
         return price;
     }
@@ -64,6 +75,10 @@ public class Product {
         this.name = name;
     }
 
+    public int getID() {
+        return this.productID;
+    }
+    
     public String getDescription() {
         return description;
     }

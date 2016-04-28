@@ -45,7 +45,15 @@ public class ProductCatelog {
     
     public String getAllProducts() {
         
-        return productList.toString();
+        StringBuilder sb = new StringBuilder();
+        
+        for(int i = 0; i < productList.size(); i++) {
+            sb.append("ID: " + productList.get(i).getID());
+            sb.append(" " + productList.get(i).getName());
+            sb.append("\n");
+        }
+        
+        return sb.toString();
     }
 
 
