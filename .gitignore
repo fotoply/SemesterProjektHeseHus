@@ -107,4 +107,4 @@ crashlytics-build.properties
 /emvil15_VOP_3/build/
 /emvil15_VOP_3/dist/
 
-/*/nbproject/*
+/*/nbproject/private/
