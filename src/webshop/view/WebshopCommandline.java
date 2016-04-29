@@ -57,10 +57,16 @@ public class WebshopCommandline {
                     break;
 
                 case 4:
-                    controller.checkoutCustomer(input);
+                    if(!controller.checkoutCustomer(input)) {
+                        controller.cancelOrder();
+                    }
                     break;
             }
         }
+    }
+
+    private void cancelOrder() {
+        webshop.cancelOrder();
     }
 
     private void handleBasket(Scanner input) {
@@ -74,10 +80,13 @@ public class WebshopCommandline {
 
         if(webshop.getCustomer() == null || webshop.getCurrentOrder() == null) {
             System.out.println("You cannot checkout without an account or basket");
-            return;
+            return false;
         }
-
         System.out.println("Type 'cancel' at any time to cancel");
+        System.out.println("Your basket contains:");
+        showBasket();
+
+
         System.out.println("Do you wish to apply a giftcard? (Y/N)");
         String nextString = input.nextLine();
         if(nextString.equalsIgnoreCase("cancel")) return false;
@@ -98,6 +107,7 @@ public class WebshopCommandline {
         System.out.println("Your address is:" + webshop.getCurrentOrder().getShippingAddress());
 
         webshop.checkoutBasket();
+        return true;
     }
 
     private void attemptLogin(Scanner input) {
@@ -139,7 +149,6 @@ public class WebshopCommandline {
     }
 
     private void showBasket() {
-
         System.out.println(webshop.getAllProducts());
     }
 
