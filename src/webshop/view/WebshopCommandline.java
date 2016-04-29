@@ -109,15 +109,15 @@ public class WebshopCommandline {
             choice = input.nextInt();
 
             if(choice == 0) {
-                webshop.payingBy = Webshop.paymentType.CREDIT_CARD;
+                webshop.setPayingBy(Webshop.paymentType.CREDIT_CARD);
             } else if(choice == 1) {
-                webshop.payingBy = Webshop.paymentType.IN_SHOP;
+                webshop.setPayingBy(Webshop.paymentType.IN_SHOP);
             } else {
                 System.out.println("Invalid choice, credit card was substituted");
-                webshop.payingBy = Webshop.paymentType.CREDIT_CARD;
+                webshop.setPayingBy(Webshop.paymentType.CREDIT_CARD);
             }
 
-            if (webshop.payingBy == Webshop.paymentType.CREDIT_CARD) {
+            if (webshop.getPayingBy() == Webshop.paymentType.CREDIT_CARD) {
                 System.out.println("Please press enter to continue to the payment processors site.");
                 input.nextLine();
                 System.out.println("Payment for the remaining was received");
