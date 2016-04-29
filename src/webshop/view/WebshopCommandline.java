@@ -3,7 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package webshop;
+package webshop.view;
+
+import webshop.Customer;
+import webshop.Product;
+import webshop.Webshop;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -14,7 +18,7 @@ import java.util.Scanner;
 /**
  * @author Karim
  */
-public class WebshopController {
+public class WebshopCommandline {
 
     Webshop webshop = Webshop.getInstance();
     private int memberShipCardID = 0;
@@ -26,7 +30,7 @@ public class WebshopController {
      */
     public static void main(String[] args) throws ParseException {
         // Test code for products
-        WebshopController controller = new WebshopController();
+        WebshopCommandline controller = new WebshopCommandline();
 
         
         
