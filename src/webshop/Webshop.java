@@ -96,5 +96,11 @@ public class Webshop {
         customerManager.deleteCustomer(currentCustomerID);
     }
 
+    public boolean isOrderPaidFor() {
+        return customerManager.getCustomer(currentCustomerID).getCurrentOrder().isPaid();
+    }
 
+    public boolean applyGiftCard(int giftcardId) {
+        return true;
+    }
 }

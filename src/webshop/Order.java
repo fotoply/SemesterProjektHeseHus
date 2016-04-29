@@ -108,6 +108,10 @@ public class Order {
         this.shippingAddress = shippingAddress;
     }
 
+    public boolean isPaid() {
+        return getFinalPrice().compareTo(currentlyPaid) < 0;
+    }
+
     public enum Status {
         IN_BASKET, SHIPPING_TO_SHOP, SHIPPING, ACCEPTED, CLOSED, FOR_VERIFICATION
     }

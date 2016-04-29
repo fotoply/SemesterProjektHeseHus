@@ -57,7 +57,7 @@ public class WebshopCommandline {
                     break;
 
                 case 4:
-                    checkoutCustomer(input);
+                    controller.checkoutCustomer(input);
                     break;
             }
         }
@@ -69,7 +69,22 @@ public class WebshopCommandline {
         addToOrder(input.nextInt());
     }
 
-    private static void checkoutCustomer(Scanner input) {
+    private void checkoutCustomer(Scanner input) {
+        input.nextLine();
+
+        System.out.println("Do you wish to apply a giftcard? (Y/N)");
+        String nextString = input.nextLine();;
+        while (!nextString.toLowerCase().equals("y") && !nextString.toLowerCase().equals("n")) {
+            nextString = input.nextLine();
+            System.out.println("Try again");
+        }
+        if(nextString.toLowerCase().equals("y")) {
+            System.out.println("Please enter giftcard ID");
+            int giftcardId = input.nextInt();
+            webshop.applyGiftCard(giftcardId);
+            System.out.println("Giftcard was applied");
+        }
+
 
     }
 
