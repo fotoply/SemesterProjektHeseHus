@@ -15,8 +15,6 @@ public class RootWindowController {
 
     @FXML
     void initialize() {
-        //ImageView optionsButtonImage = new ImageView("/res/menuButton.png");
-        //optionsButton.setGraphic(optionsButtonImage);
         optionsButton.setPadding(Insets.EMPTY);
     }
 
