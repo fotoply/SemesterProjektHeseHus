@@ -112,6 +112,10 @@ public class Order {
         return getFinalPrice().compareTo(currentlyPaid) < 0;
     }
 
+    public String getShippingAddress() {
+        return shippingAddress;
+    }
+
     public enum Status {
         IN_BASKET, SHIPPING_TO_SHOP, SHIPPING, ACCEPTED, CLOSED, FOR_VERIFICATION
     }

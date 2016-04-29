@@ -69,7 +69,7 @@ public class WebshopCommandline {
         addToOrder(input.nextInt());
     }
 
-    private void checkoutCustomer(Scanner input) {
+    private boolean checkoutCustomer(Scanner input) {
         input.nextLine();
 
         if(webshop.getCustomer() == null || webshop.getCurrentOrder() == null) {
@@ -80,10 +80,10 @@ public class WebshopCommandline {
         System.out.println("Type 'cancel' at any time to cancel");
         System.out.println("Do you wish to apply a giftcard? (Y/N)");
         String nextString = input.nextLine();
-        if(nextString.equalsIgnoreCase("cancel")) return;
+        if(nextString.equalsIgnoreCase("cancel")) return false;
         if(nextString.toLowerCase().equals("y")) {
             System.out.println("Please enter giftcard ID");
-            if(input.nextLine().equalsIgnoreCase("cancel")) return;
+            if(input.nextLine().equalsIgnoreCase("cancel")) return false;
             int giftcardId = input.nextInt();
             webshop.applyGiftCard(giftcardId);
             System.out.println("Giftcard was applied");
@@ -94,6 +94,8 @@ public class WebshopCommandline {
             input.nextLine();
             System.out.println("Payment for the remaining was received");
         }
+
+        System.out.println("Your address is:" + webshop.getCurrentOrder().getShippingAddress());
 
         webshop.checkoutBasket();
     }
