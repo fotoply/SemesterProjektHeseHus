@@ -97,7 +97,7 @@ public class Webshop {
     }
 
     public boolean isOrderPaidFor() {
-        return customerManager.getCustomer(currentCustomerID).getCurrentOrder().isPaid();
+        return getCurrentOrder().isPaid();
     }
 
     public boolean applyGiftCard(int giftcardId) {

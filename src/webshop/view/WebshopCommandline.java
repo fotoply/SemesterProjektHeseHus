@@ -53,7 +53,7 @@ public class WebshopCommandline {
                     break;
 
                 case 3:
-                    controller.addToBasket(input);
+                    controller.handleBasket(input);
                     break;
 
                 case 4:
@@ -63,8 +63,8 @@ public class WebshopCommandline {
         }
     }
 
-    private void addToBasket(Scanner input) {
-        addToBasket();
+    private void handleBasket(Scanner input) {
+        showBasket();
         System.out.println("Add an item from the product catelog to the basket type the ID:\n");
         addToOrder(input.nextInt());
     }
@@ -72,20 +72,30 @@ public class WebshopCommandline {
     private void checkoutCustomer(Scanner input) {
         input.nextLine();
 
-        System.out.println("Do you wish to apply a giftcard? (Y/N)");
-        String nextString = input.nextLine();;
-        while (!nextString.toLowerCase().equals("y") && !nextString.toLowerCase().equals("n")) {
-            nextString = input.nextLine();
-            System.out.println("Try again");
+        if(webshop.getCustomer() == null || webshop.getCurrentOrder() == null) {
+            System.out.println("You cannot checkout without an account or basket");
+            return;
         }
+
+        System.out.println("Type 'cancel' at any time to cancel");
+        System.out.println("Do you wish to apply a giftcard? (Y/N)");
+        String nextString = input.nextLine();
+        if(nextString.equalsIgnoreCase("cancel")) return;
         if(nextString.toLowerCase().equals("y")) {
             System.out.println("Please enter giftcard ID");
+            if(input.nextLine().equalsIgnoreCase("cancel")) return;
             int giftcardId = input.nextInt();
             webshop.applyGiftCard(giftcardId);
             System.out.println("Giftcard was applied");
         }
 
+        if(!webshop.isOrderPaidFor()) {
+            System.out.println("Please press enter to continue to the payment processors site.");
+            input.nextLine();
+            System.out.println("Payment for the remaining was received");
+        }
 
+        webshop.checkoutBasket();
     }
 
     private void attemptLogin(Scanner input) {
@@ -126,7 +136,7 @@ public class WebshopCommandline {
         System.out.println("Your password hash is: " + Customer.toBase64(newCustomer.getPassword()));
     }
 
-    private void addToBasket() {
+    private void showBasket() {
 
         System.out.println(webshop.getAllProducts());
     }
