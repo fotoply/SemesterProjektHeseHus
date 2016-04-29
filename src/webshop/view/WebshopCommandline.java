@@ -70,7 +70,7 @@ public class WebshopCommandline {
     }
 
     private void handleBasket(Scanner input) {
-        showBasket();
+        showAllProducts();
         System.out.println("Add an item from the product catelog to the basket type the ID:\n");
         addToOrder(input.nextInt());
     }
@@ -88,7 +88,7 @@ public class WebshopCommandline {
         }
         System.out.println("Type 'cancel' at any time to cancel");
         System.out.println("Your basket contains:");
-        showBasket();
+        showAllProducts();
 
 
         System.out.println("Do you wish to apply a giftcard? (Y/N)");
@@ -152,7 +152,7 @@ public class WebshopCommandline {
         System.out.println("Your password hash is: " + Customer.toBase64(newCustomer.getPassword()));
     }
 
-    private void showBasket() {
+    private void showAllProducts() {
         System.out.println(webshop.getAllProducts());
     }
 

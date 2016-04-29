@@ -41,6 +41,8 @@ public class Order {
         this.paymentMethods = new ArrayList<>();
         date = new Date();
         this.productList = new ArrayList<>();
+        this.currentlyPaid = new Money();
+        this.finalPrice = new Money();
 
         orderCount++;
     }
