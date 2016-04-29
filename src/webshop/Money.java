@@ -135,4 +135,9 @@ public class Money implements Comparable {
         final int magicPrime = 524287;
         return amount != null ? amount.hashCode() : 0;
     }
+
+    @Override
+    public String toString() {
+        return ""+ amount.toPlainString();
+    }
 }

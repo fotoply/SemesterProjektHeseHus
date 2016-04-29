@@ -6,6 +6,7 @@
 package webshop.view;
 
 import webshop.Customer;
+import webshop.Item;
 import webshop.Product;
 import webshop.Webshop;
 
@@ -114,7 +115,10 @@ public class WebshopCommandline {
     }
 
     private void showBasket() {
-
+        System.out.printf("%-20s%-6s%-7s", "Product name", "Price", "Amount");
+        for (Item item : webshop.getCurrentOrder().getProducts()) {
+            System.out.printf("%-20s%-6f%-7d", item.getProduct().getName(), item.getProduct().getPrice().toString());
+        }
     }
 
     private void attemptLogin(Scanner input) {
