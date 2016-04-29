@@ -182,9 +182,9 @@ public class WebshopCommandline {
     }
 
     private void addToOrder(int id) {
-        //if(webshop.getCurrentOrder() == null) {
-        webshop.createNewOrder();
-        //}
+        if(webshop.getCurrentOrder() == null) {
+            webshop.createNewOrder();
+        }
 
         Product product = webshop.findProduct(id);
 
