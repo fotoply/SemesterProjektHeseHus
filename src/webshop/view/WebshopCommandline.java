@@ -78,9 +78,13 @@ public class WebshopCommandline {
     private boolean checkoutCustomer(Scanner input) {
         input.nextLine();
 
-        if(webshop.getCustomer() == null || webshop.getCurrentOrder() == null) {
-            System.out.println("You cannot checkout without an account or basket");
-            return false;
+        try {
+            if (webshop.getCustomer() == null || webshop.getCurrentOrder() == null) {
+                System.out.println("You cannot checkout without an account or basket");
+                return true;
+            }
+        } catch (IllegalArgumentException e) {
+            return true;
         }
         System.out.println("Type 'cancel' at any time to cancel");
         System.out.println("Your basket contains:");
