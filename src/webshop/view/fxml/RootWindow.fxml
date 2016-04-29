@@ -11,7 +11,7 @@
          <children>
             <Button fx:id="optionsButton" mnemonicParsing="false" style="-fx-focus-color: transparent; -fx-faint-focus-color: transparent;" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="4.0">
                <graphic>
-                  <ImageView fitHeight="22.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="22.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true" style="-fx-focus-color: transparent; -fx-focus-faint-color: transparent;">
                      <image>
                         <Image url="@../../../res/menuButton.png" />
                      </image>
