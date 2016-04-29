@@ -32,7 +32,6 @@ public class WebshopCommandline {
         // Test code for products
         WebshopCommandline controller = new WebshopCommandline();
 
-
         while (true) {
             System.out.println("Enter 1 to create a new account.\n"
                     + "Enter 2 to login to existing account.\n"
@@ -58,7 +57,7 @@ public class WebshopCommandline {
                     break;
 
                 case 4:
-                    checkoutCustomer();
+                    checkoutCustomer(input);
                     break;
             }
         }
@@ -67,23 +66,11 @@ public class WebshopCommandline {
     private void addToBasket(Scanner input) {
         addToBasket();
         System.out.println("Add an item from the product catelog to the basket type the ID:\n");
-        switch (input.nextInt()) {
-            case 0:
-                addToOrder(0);
-                break;
-            case 1:
-                addToOrder(1);
-                break;
-            case 2:
-                addToOrder(2);
-                break;
-            case 3:
-                addToOrder(3);
-                break;
-        }
+        addToOrder(input.nextInt());
     }
 
-    private static void checkoutCustomer() {
+    private static void checkoutCustomer(Scanner input) {
+
     }
 
     private void attemptLogin(Scanner input) {
