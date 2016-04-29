@@ -97,7 +97,6 @@ public class WebshopCommandline {
         if(nextString.equalsIgnoreCase("cancel")) return false;
         if(nextString.toLowerCase().equals("y")) {
             System.out.println("Please enter giftcard ID");
-            if(input.nextLine().equalsIgnoreCase("cancel")) return false;
             int giftcardId = input.nextInt();
             webshop.applyGiftCard(giftcardId);
             System.out.println("Giftcard was applied");
@@ -132,10 +131,10 @@ public class WebshopCommandline {
     }
 
     private void showBasket() {
-        System.out.printf("%-20s%-6s%-7s", "Product name", "Price", "Amount");
+        System.out.printf("%-20s%-10s%-10s", "Product name", "Price", "Amount");
         System.out.println();
         for (Item item : webshop.getCurrentOrder().getProducts()) {
-            System.out.printf("%-20s%-6s%-7d", item.getProduct().getName(), item.getProduct().getPrice().toString(), item.getQuantity());
+            System.out.printf("%-20s%-10s%-10d", item.getProduct().getName(), item.getProduct().getPrice().toString(), item.getQuantity());
             System.out.println();
         }
     }
