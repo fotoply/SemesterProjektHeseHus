@@ -1,13 +1,10 @@
-package webshop.view.fxml;/**
- * Created 4/29/16
- *
- * @author Niels Norberg
- */
+package webshop.view;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import webshop.view.fxml.RootWindowController;
 
 import java.io.IOException;
 
@@ -26,7 +23,7 @@ public class GUIController extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("RootWindow.fxml"));
+        loader.setLocation(getClass().getResource("fxml/RootWindow.fxml"));
         Scene scene = new Scene(loader.load());
         rootInstance = loader.getController();
         primaryStage.setScene(scene);
