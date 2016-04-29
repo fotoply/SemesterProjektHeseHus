@@ -17,7 +17,7 @@ public class RootWindowController {
     }
 
     public void showSearchOptions() {
-
+        //TODO Should show a menu for search options in the left part of the centerpane
     }
 
     public void hideSearchOptions() {
