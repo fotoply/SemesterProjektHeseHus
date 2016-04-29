@@ -88,8 +88,7 @@ public class WebshopCommandline {
         }
         System.out.println("Type 'cancel' at any time to cancel");
         System.out.println("Your basket contains:");
-        showAllProducts();
-
+        showBasket();
 
         System.out.println("Do you wish to apply a giftcard? (Y/N)");
         String nextString = input.nextLine();
@@ -112,6 +111,10 @@ public class WebshopCommandline {
 
         webshop.checkoutBasket();
         return true;
+    }
+
+    private void showBasket() {
+
     }
 
     private void attemptLogin(Scanner input) {

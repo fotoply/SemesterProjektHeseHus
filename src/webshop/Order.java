@@ -106,6 +106,10 @@ public class Order {
         }
     }
 
+    public List<Item> getProducts() {
+        return productList;
+    }
+
     public void setShippingAddress(String shippingAddress) {
         this.shippingAddress = shippingAddress;
     }
