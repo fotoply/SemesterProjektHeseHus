@@ -32,6 +32,7 @@ public class WebshopCommandline {
     public static void main(String[] args) throws ParseException {
         // Test code for products
         WebshopCommandline controller = new WebshopCommandline();
+        controller.webshop.createCustomer("Bob","Vester bobvej", "bob@bob.dk", "1", new Date(), 10203040);
 
         while (true) {
             System.out.println("Enter 1 to create a new account.\n"
