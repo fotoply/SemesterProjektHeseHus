@@ -27,7 +27,7 @@ public class GUIController extends Application {
     public void start(Stage primaryStage) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("RootWindow.fxml"));
-        Scene scene = loader.load();
+        Scene scene = new Scene(loader.load());
         rootInstance = loader.getController();
         primaryStage.setScene(scene);
         primaryStage.show();
