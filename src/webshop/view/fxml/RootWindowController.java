@@ -3,11 +3,15 @@ package webshop.view.fxml;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
 
 public class RootWindowController {
 
     @FXML
     private Button optionsButton;
+
+    @FXML
+    private BorderPane centerPane;
 
     @FXML
     void initialize() {
