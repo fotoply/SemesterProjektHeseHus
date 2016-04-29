@@ -4,10 +4,9 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Text?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="webshop.view.fxml.RootWindowController">
    <top>
-      <AnchorPane prefHeight="31.0" prefWidth="600.0" style="-fx-background-color: lightgray; -fx-border-color: gray;" BorderPane.alignment="CENTER">
+      <AnchorPane maxHeight="-Infinity" minWidth="100.0" prefHeight="30.0" prefWidth="600.0" style="-fx-background-color: lightgray; -fx-border-color: gray;" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="optionsButton" mnemonicParsing="false" style="-fx-focus-color: transparent; -fx-faint-focus-color: transparent;" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="4.0">
                <graphic>
@@ -18,7 +17,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Text layoutX="563.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0" />
+            <Button layoutX="540.0" layoutY="7.0" mnemonicParsing="false" text="Login" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0" />
          </children>
       </AnchorPane>
    </top>
