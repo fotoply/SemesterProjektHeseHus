@@ -103,20 +103,25 @@ public class WebshopCommandline {
             System.out.println("Giftcard was applied");
         }
 
-        int choice = 0;
+        if(!webshop.isOrderPaidFor()) {
+            int choice = 0;
+            System.out.println("How do you wish to pay? 0 for by credit card and 1 for in-shop:");
+            choice = input.nextInt();
 
-        System.out.println("How do you wish to pay? 0 for by credit card and 1 for in-shop:");
-        choice = input.nextInt();
+            if(choice == 0) {
+                webshop.payingBy = Webshop.paymentType.CREDIT_CARD;
+            } else if(choice == 1) {
+                webshop.payingBy = Webshop.paymentType.IN_SHOP;
+            } else {
+                System.out.println("Invalid choice, credit card was substituted");
+                webshop.payingBy = Webshop.paymentType.CREDIT_CARD;
+            }
 
-        if(choice != 1 && choice != 0) {
-            System.out.println("Invalid choice, credit card was substituted");
-            choice = 0;
-        }
-
-        if(!webshop.isOrderPaidFor() && choice == 0) {
-            System.out.println("Please press enter to continue to the payment processors site.");
-            input.nextLine();
-            System.out.println("Payment for the remaining was received");
+            if (webshop.payingBy == Webshop.paymentType.CREDIT_CARD) {
+                System.out.println("Please press enter to continue to the payment processors site.");
+                input.nextLine();
+                System.out.println("Payment for the remaining was received");
+            }
         }
 
         System.out.println("Your address is: " + webshop.getCurrentOrder().getShippingAddress());

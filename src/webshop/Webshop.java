@@ -15,6 +15,7 @@ public class Webshop {
     private int currentCustomerID;
     private CustomerManager customerManager;
     private ProductCatalog productCatalog = new ProductCatalog();
+    private paymentType payingBy;
 
     private Webshop() {
         customerManager = new CustomerManager();
@@ -103,4 +104,14 @@ public class Webshop {
     public boolean applyGiftCard(int giftcardId) {
         return true;
     }
+
+    public void setPayingBy(paymentType payingBy) {
+        this.payingBy = payingBy;
+    }
+
+    public paymentType getPayingBy() {
+        return payingBy;
+    }
+
+    public enum paymentType {IN_SHOP, CREDIT_CARD};
 }
