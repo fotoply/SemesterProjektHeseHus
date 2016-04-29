@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 
@@ -14,8 +15,8 @@ public class RootWindowController {
 
     @FXML
     void initialize() {
-        BackgroundImage optionsButtonImage = new BackgroundImage(new Image("/res/menuButton.png"),null,null,null,null);
-        optionsButton.setBackground(new Background(optionsButtonImage));
+        ImageView optionsButtonImage = new ImageView("/res/menuButton.png");
+        optionsButton.setGraphic(optionsButtonImage);
         optionsButton.setPadding(Insets.EMPTY);
     }
 
