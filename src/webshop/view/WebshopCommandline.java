@@ -90,6 +90,7 @@ public class WebshopCommandline {
         System.out.println("Type 'cancel' at any time to cancel");
         System.out.println("Your basket contains:");
         showBasket();
+        System.out.println("Total price: " + webshop.getCurrentOrder().getFinalPrice());
 
         System.out.println("Do you wish to apply a giftcard? (Y/N)");
         String nextString = input.nextLine();
@@ -108,7 +109,7 @@ public class WebshopCommandline {
             System.out.println("Payment for the remaining was received");
         }
 
-        System.out.println("Your address is:" + webshop.getCurrentOrder().getShippingAddress());
+        System.out.println("Your address is: " + webshop.getCurrentOrder().getShippingAddress());
 
         webshop.checkoutBasket();
         return true;
@@ -116,8 +117,10 @@ public class WebshopCommandline {
 
     private void showBasket() {
         System.out.printf("%-20s%-6s%-7s", "Product name", "Price", "Amount");
+        System.out.println();
         for (Item item : webshop.getCurrentOrder().getProducts()) {
-            System.out.printf("%-20s%-6f%-7d", item.getProduct().getName(), item.getProduct().getPrice().toString());
+            System.out.printf("%-20s%-6s%-7d", item.getProduct().getName(), item.getProduct().getPrice().toString(), item.getQuantity());
+            System.out.println();
         }
     }
 
