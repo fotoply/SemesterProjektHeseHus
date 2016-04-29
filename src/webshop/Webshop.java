@@ -5,8 +5,6 @@
  */
 package webshop;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 import java.util.Date;
 
 /**
@@ -16,7 +14,7 @@ public class Webshop {
     private static Webshop instance;
     private int currentCustomerID;
     private CustomerManager customerManager;
-    private ProductCatelog productCatalog = new ProductCatelog();
+    private ProductCatalog productCatalog = new ProductCatalog();
 
     private Webshop() {
         customerManager = new CustomerManager();

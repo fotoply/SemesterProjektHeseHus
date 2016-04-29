@@ -11,11 +11,11 @@ import java.util.List;
 /**
  * @author Karim
  */
-public class ProductCatelog {
+public class ProductCatalog {
 
     private List<Product> productList;
 
-    public ProductCatelog() {
+    public ProductCatalog() {
         productList = new ArrayList<>();
         
         productList.add(new Product("Baseball T-Shirt", "Simple and fresh  new Zine 2nd Inning white baseball t-shirt.",
