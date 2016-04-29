@@ -25,15 +25,15 @@ public class RootWindowController {
     }
 
     public void hideSearchOptions() {
-
+        //TODO Hide the search menu again.
     }
 
     public void showLoginScreen() {
-
+        //TODO Shows the login screen. Should probably check if the user is already logged in.
     }
 
     public void showProfile() {
-
+        //TODO Shows the profile of the current user, if they are logged in.
     }
 
 }
