@@ -89,4 +89,8 @@ public class RootWindowController {
     public ShopAreaController getShopAreaController() {
         return shopAreaController;
     }
+
+    public void showSignupScreen() {
+        //TODO create and display signup screen
+    }
 }

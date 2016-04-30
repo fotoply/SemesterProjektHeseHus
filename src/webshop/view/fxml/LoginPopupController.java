@@ -22,7 +22,7 @@ public class LoginPopupController {
 
     @FXML
     void signUpClicked(MouseEvent event) {
-
+        GUIController.getRootInstance().showSignupScreen();
     }
 
 }
