@@ -61,7 +61,7 @@ public class RootWindowController {
 
     public void showLoginScreen() {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("LoginPopup.fxml"));
+        loader.setLocation(getClass().getResource("LoginScreen.fxml"));
         try {
             centerPane.setCenter(loader.load());
         } catch (IOException e) {

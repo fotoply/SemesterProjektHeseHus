@@ -9,7 +9,7 @@ import webshop.view.GUIController;
 
 import java.util.Date;
 
-public class LoginPopupController {
+public class LoginScreenController {
 
     @FXML
     private TextField emailField;
