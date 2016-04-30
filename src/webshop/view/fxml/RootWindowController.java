@@ -15,6 +15,9 @@ public class RootWindowController {
     private ShopAreaController shopAreaController;
 
     @FXML
+    private Button loginButton;
+
+    @FXML
     private Button optionsButton;
 
     @FXML
@@ -99,5 +102,10 @@ public class RootWindowController {
 
     public void showSignupScreen() {
         //TODO create and display signup screen
+    }
+
+    public void loginSuccesful() {
+        showShopArea();
+
     }
 }

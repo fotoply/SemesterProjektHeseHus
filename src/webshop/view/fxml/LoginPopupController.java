@@ -20,7 +20,7 @@ public class LoginPopupController {
     @FXML
     void loginPressed(ActionEvent event) {
         if(GUIController.getWebshopInstance().loginWithEmail(emailField.getText(),passwordField.getText())) {
-            GUIController.getRootInstance().showShopArea();
+            GUIController.getRootInstance().loginSuccesful();
         } else {
             //TODO Display some sort of error message
         }
