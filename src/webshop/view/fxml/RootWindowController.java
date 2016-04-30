@@ -21,7 +21,7 @@ public class RootWindowController {
     private Button optionsButton;
 
     @FXML
-    private BorderPane centerPane;
+    private BorderPane borderPane;
 
     @FXML
     void initialize() {
@@ -31,13 +31,13 @@ public class RootWindowController {
 
     public void showSearchOptions() {
         searchShown = true;
-        //centerPane.setLeft();
+        //borderPane.setLeft();
         //TODO Should show a menu for search options in the left part of the center pane
     }
 
     public void hideSearchOptions() {
         searchShown = false;
-        centerPane.setLeft(null);
+        borderPane.setLeft(null);
         //TODO Hide the search menu again.
     }
 
@@ -63,7 +63,7 @@ public class RootWindowController {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("LoginScreen.fxml"));
         try {
-            centerPane.setCenter(loader.load());
+            borderPane.setCenter(loader.load());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -77,7 +77,7 @@ public class RootWindowController {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("ShopArea.fxml"));
         try {
-            centerPane.setCenter(loader.load());
+            borderPane.setCenter(loader.load());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -100,6 +100,13 @@ public class RootWindowController {
     }
 
     public void showSignupScreen() {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("SignupScreen.fxml"));
+        try {
+            borderPane.setCenter(loader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         //TODO create and display signup screen
     }
 

@@ -8,6 +8,8 @@ import javafx.scene.input.MouseEvent;
 import webshop.view.GUIController;
 
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class LoginScreenController {
 
