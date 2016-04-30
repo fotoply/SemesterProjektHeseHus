@@ -91,6 +91,8 @@ public class RootWindowController {
     }
 
     public void addToBasket(ProductNode node) {
+        //TODO Fix concurrentModificationException issue.
+        //synchronised keyword does not fix it.. For some odd reason
         GUIController.getWebshopInstance().addItem(node.getProduct(),1);
         System.out.println(node.getProduct() + " was added");
     }
