@@ -21,10 +21,14 @@ public class RootWindowController {
     }
 
     public void showSearchOptions() {
+        searchShown = true;
+        //centerPane.setLeft();
         //TODO Should show a menu for search options in the left part of the centerpane
     }
 
     public void hideSearchOptions() {
+        searchShown = false;
+        centerPane.setLeft(null);
         //TODO Hide the search menu again.
     }
 
