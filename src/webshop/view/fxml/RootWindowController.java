@@ -64,4 +64,8 @@ public class RootWindowController {
         //TODO make it show the general shop grid-view.
     }
 
+    public void showBasket() {
+        //TODO Shows the basket of the current user, if any
+    }
+
 }
