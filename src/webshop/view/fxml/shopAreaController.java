@@ -3,7 +3,7 @@ package webshop.view.fxml;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.layout.TilePane;
+import javafx.scene.layout.FlowPane;
 import webshop.Product;
 
 import java.io.IOException;
@@ -12,7 +12,7 @@ import java.util.List;
 public class ShopAreaController {
 
     @FXML
-    private TilePane productArea;
+    private FlowPane productArea;
 
     @FXML
     void initialize() {
