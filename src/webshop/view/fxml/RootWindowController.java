@@ -46,9 +46,9 @@ public class RootWindowController {
     @FXML
     private void loginButtonPressed() {
         if(GUIController.getWebshopInstance().isLoggedIn()) {
-
+            showProfile();
         } else {
-
+            showLoginScreen();
         }
     }
 
