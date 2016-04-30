@@ -3,9 +3,13 @@ package webshop.view.fxml;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import webshop.Product;
 import webshop.view.GUIController;
+
+import java.awt.*;
 
 public class ProductNode extends AnchorPane {
 
@@ -15,18 +19,24 @@ public class ProductNode extends AnchorPane {
         this.product = product;
 
         //TODO Find a way to represent all of this as FXML or something, cause this is hard to edit
+        Rectangle border = new Rectangle(150, 150, Color.TRANSPARENT);
+        border.setStroke(Color.DIMGREY);
+        border.setWidth(150);
+
+        getChildren().add(border);
+
         ImageView imageView = new ImageView();
         imageView.setImage(new Image("/res/placeholderProductIcon.png"));
-        imageView.setX(12);
-        imageView.setY(12);
+        imageView.setX(2);
+        imageView.setY(16);
         imageView.setFitHeight(126);
         imageView.setFitHeight(126);
         getChildren().add(imageView);
 
-        Text nametext = new Text(10,4,product.getName());
+        Text nametext = new Text(4,12,product.getName());
         getChildren().add(nametext);
 
-        Text pricetext = new Text(120,140,product.getPrice().getAmountAsString());
+        Text pricetext = new Text(105,140,product.getPrice().getAmountAsString());
         getChildren().add(pricetext);
 
         setPrefWidth(150);
@@ -37,6 +47,7 @@ public class ProductNode extends AnchorPane {
 
     private void clicked() {
         GUIController.getRootInstance().addToBasket(this);
+        //TODO Add some indication that this happened
     }
 
     public Product getProduct() {
