@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
-import webshop.Product;
 import webshop.view.GUIController;
 
 import java.io.IOException;
@@ -74,9 +73,7 @@ public class RootWindowController {
             e.printStackTrace();
         }
         shopAreaController = loader.getController();
-        for (Product product : GUIController.getWebshopInstance().getProducts()) {
-            shopAreaController.addNewItem();
-        }
+        shopAreaController.loadItems(GUIController.getProducts());
         //TODO make it show the general shop grid-view.
     }
 
