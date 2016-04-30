@@ -67,7 +67,6 @@ public class RootWindowController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //TODO Shows the login screen. Should probably check if the user is already logged in.
     }
 
     public void showProfile() {
@@ -106,6 +105,6 @@ public class RootWindowController {
 
     public void loginSuccesful() {
         showShopArea();
-
+        loginButton.setText("Profile");
     }
 }
