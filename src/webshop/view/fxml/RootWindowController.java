@@ -6,6 +6,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import webshop.view.GUIController;
+import webshop.view.ShopAreaController;
 
 import java.io.IOException;
 

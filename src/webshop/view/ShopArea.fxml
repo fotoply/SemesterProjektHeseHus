@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.layout.TilePane?>
+<TilePane fx:id="productArea" hgap="4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumns="4" prefHeight="400.0" prefRows="50" prefTileHeight="150.0" prefTileWidth="150.0" prefWidth="600.0" vgap="4.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="webshop.view.ShopAreaController" />
