@@ -18,7 +18,7 @@
       <TextField fx:id="addressField" layoutX="67.0" layoutY="114.0" prefHeight="25.0" prefWidth="217.0" promptText="Address" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="66.0" />
       <TextField fx:id="emailField" layoutX="67.0" layoutY="194.0" prefHeight="25.0" prefWidth="217.0" promptText="Email" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="66.0" />
       <TextField fx:id="repeatEmailField" layoutX="67.0" layoutY="224.0" prefHeight="25.0" prefWidth="217.0" promptText="Repeat email" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="66.0" />
-      <Button layoutX="147.0" layoutY="352.0" mnemonicParsing="false" text="Sign up" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="66.0" />
+      <Button layoutX="147.0" layoutY="352.0" mnemonicParsing="false" onAction="#signupPressed" text="Sign up" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="66.0" />
       <DatePicker fx:id="dateOfBirthPicker" layoutX="67.0" layoutY="148.0" prefHeight="25.0" prefWidth="217.0" promptText="Date of birth" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="66.0" />
    </children>
 </AnchorPane>
