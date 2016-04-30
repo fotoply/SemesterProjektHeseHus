@@ -6,6 +6,7 @@
 package webshop;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author Karim
@@ -120,6 +121,10 @@ public class Webshop {
             return false;
         }
         return currentCustomerID != -1;
+    }
+
+    public List<Product> getProducts() {
+        return productCatalog.getProductList();
     }
 
     public enum paymentType {IN_SHOP, CREDIT_CARD};

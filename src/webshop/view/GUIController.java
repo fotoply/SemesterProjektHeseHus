@@ -5,10 +5,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import webshop.Product;
 import webshop.Webshop;
 import webshop.view.fxml.RootWindowController;
 
 import java.io.IOException;
+import java.util.List;
 
 public class GUIController extends Application {
 
@@ -24,6 +26,10 @@ public class GUIController extends Application {
     }
     public static Webshop getWebshopInstance() {
         return webshopInstance;
+    }
+
+    public static List<Product> getProducts() {
+        return webshopInstance.getProducts();
     }
 
     @Override
