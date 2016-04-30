@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import webshop.view.GUIController;
 
 public class RootWindowController {
 
@@ -44,7 +45,11 @@ public class RootWindowController {
 
     @FXML
     private void loginButtonPressed() {
+        if(GUIController.getWebshopInstance().isLoggedIn()) {
 
+        } else {
+
+        }
     }
 
     public void showLoginScreen() {

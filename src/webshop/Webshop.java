@@ -12,7 +12,7 @@ import java.util.Date;
  */
 public class Webshop {
     private static Webshop instance;
-    private int currentCustomerID;
+    private int currentCustomerID = -1;
     private CustomerManager customerManager;
     private ProductCatalog productCatalog = new ProductCatalog();
     private paymentType payingBy;
@@ -111,6 +111,15 @@ public class Webshop {
 
     public paymentType getPayingBy() {
         return payingBy;
+    }
+
+    public boolean isLoggedIn() {
+        try {
+            customerManager.getCustomer(currentCustomerID);
+        } catch (Exception ignored) {
+            return false;
+        }
+        return currentCustomerID != -1;
     }
 
     public enum paymentType {IN_SHOP, CREDIT_CARD};
