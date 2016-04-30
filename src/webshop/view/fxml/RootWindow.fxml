@@ -17,7 +17,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="540.0" layoutY="7.0" mnemonicParsing="false" text="Login" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0" />
+            <Button layoutX="540.0" layoutY="7.0" mnemonicParsing="false" onAction="#loginButtonPressed" text="Login" AnchorPane.rightAnchor="4.0" AnchorPane.topAnchor="4.0" />
          </children>
       </AnchorPane>
    </top>
