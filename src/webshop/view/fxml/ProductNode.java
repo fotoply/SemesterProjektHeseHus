@@ -14,6 +14,7 @@ public class ProductNode extends AnchorPane {
     public ProductNode(Product product) {
         this.product = product;
 
+        //TODO Find a way to represent all of this as FXML or something, cause this is hard to edit
         ImageView imageView = new ImageView();
         imageView.setImage(new Image("/res/placeholderProductIcon.png"));
         imageView.setX(12);
