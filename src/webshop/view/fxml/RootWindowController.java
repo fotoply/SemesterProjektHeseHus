@@ -81,6 +81,10 @@ public class RootWindowController {
         //TODO Shows the basket of the current user, if any
     }
 
+    public void addToBasket(ProductNode node) {
+
+    }
+
     public ShopAreaController getShopAreaController() {
         return shopAreaController;
     }

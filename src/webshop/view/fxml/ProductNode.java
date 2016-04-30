@@ -1,25 +1,37 @@
 package webshop.view.fxml;
 
-import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import webshop.Product;
 
-public class ProductNode {
+public class ProductNode extends AnchorPane {
 
-    @FXML
-    private ImageView productImage;
+    private Product product;
 
-    @FXML
-    private Text priceTextField;
+    public ProductNode(Product product) {
+        this.product = product;
 
-    @FXML
-    private Text titleTextField;
+        ImageView imageView = new ImageView();
+        imageView.setImage(new Image("/res/placeholderProductIcon.png"));
+        imageView.setX(12);
+        imageView.setY(12);
+        imageView.setFitHeight(126);
+        imageView.setFitHeight(126);
+        getChildren().add(imageView);
 
-    public void setProduct(Product product) {
-        productImage.setImage(new Image("/res/placeholderProductIcon.png"));
-        priceTextField.setText(product.getPrice().getAmountAsString());
-        titleTextField.setText(product.getName());
+        Text nametext = new Text(10,4,product.getName());
+        getChildren().add(nametext);
+
+        Text pricetext = new Text(120,140,product.getPrice().getAmountAsString());
+        getChildren().add(pricetext);
+
+        setPrefWidth(150);
+        setPrefHeight(150);
+    }
+
+    public Product getProduct() {
+        return product;
     }
 }
