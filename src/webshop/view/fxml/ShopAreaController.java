@@ -11,7 +11,7 @@ import webshop.Product;
 
 import java.util.List;
 
-public class shopAreaController {
+public class ShopAreaController {
 
     @FXML
     private FlowPane productArea;
