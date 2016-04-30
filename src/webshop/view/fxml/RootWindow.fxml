@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <BorderPane fx:id="centerPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="webshop.view.fxml.RootWindowController">
    <top>
-      <AnchorPane maxHeight="-Infinity" minWidth="100.0" prefHeight="30.0" prefWidth="600.0" style="-fx-background-color: lightgray; -fx-border-color: gray;" BorderPane.alignment="CENTER">
+      <AnchorPane maxHeight="-Infinity" minHeight="35.0" minWidth="100.0" prefHeight="30.0" prefWidth="600.0" style="-fx-background-color: lightgray; -fx-border-color: gray;" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="optionsButton" mnemonicParsing="false" onAction="#menuButtonPressed" style="-fx-focus-color: transparent; -fx-faint-focus-color: transparent;" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="4.0">
                <graphic>
