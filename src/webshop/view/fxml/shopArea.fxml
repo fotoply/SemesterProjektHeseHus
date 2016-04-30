@@ -2,4 +2,4 @@
 
 
 <?import javafx.scene.layout.TilePane?>
-<TilePane fx:id="productArea" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="webshop.view.fxml.shopAreaController" />
+<TilePane fx:id="productArea" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="webshop.view.fxml.ShopAreaController" />

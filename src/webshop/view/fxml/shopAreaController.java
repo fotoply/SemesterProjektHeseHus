@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.layout.TilePane;
 
-public class shopAreaController {
+public class ShopAreaController {
 
     @FXML
     private TilePane productArea;

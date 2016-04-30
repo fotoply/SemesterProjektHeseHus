@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import webshop.Product;
 import webshop.view.GUIController;
 
 import java.io.IOException;
@@ -12,7 +13,7 @@ import java.io.IOException;
 public class RootWindowController {
 
     private boolean searchShown = false;
-    private shopAreaController shopAreaController;
+    private ShopAreaController shopAreaController;
 
     @FXML
     private Button optionsButton;
@@ -66,14 +67,16 @@ public class RootWindowController {
 
     public void showShopArea() {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("shopArea.fxml"));
+        loader.setLocation(getClass().getResource("ShopArea.fxml"));
         try {
             centerPane.setCenter(loader.load());
         } catch (IOException e) {
             e.printStackTrace();
         }
         shopAreaController = loader.getController();
-
+        for (Product product : GUIController.getWebshopInstance().getProducts()) {
+            shopAreaController.addNewItem();
+        }
         //TODO make it show the general shop grid-view.
     }
 
@@ -81,7 +84,7 @@ public class RootWindowController {
         //TODO Shows the basket of the current user, if any
     }
 
-    public webshop.view.fxml.shopAreaController getShopAreaController() {
+    public ShopAreaController getShopAreaController() {
         return shopAreaController;
     }
 }
