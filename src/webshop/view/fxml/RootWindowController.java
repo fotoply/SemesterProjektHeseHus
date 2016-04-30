@@ -42,6 +42,11 @@ public class RootWindowController {
         }
     }
 
+    @FXML
+    private void loginButtonPressed() {
+
+    }
+
     public void showLoginScreen() {
         //TODO Shows the login screen. Should probably check if the user is already logged in.
     }

@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import webshop.Webshop;
 import webshop.view.fxml.RootWindowController;
 
 import java.io.IOException;
@@ -16,9 +17,14 @@ public class GUIController extends Application {
     }
 
     private static RootWindowController rootInstance;
+    private static Webshop webshopInstance;
 
     public static RootWindowController getRootInstance() {
         return rootInstance;
+    }
+
+    public static Webshop getWebshopInstance() {
+        return webshopInstance;
     }
 
     @Override
