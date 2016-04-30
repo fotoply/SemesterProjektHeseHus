@@ -7,6 +7,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import webshop.view.GUIController;
 
+import java.util.Date;
+
 public class LoginPopupController {
 
     @FXML
