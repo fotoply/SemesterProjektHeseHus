@@ -7,6 +7,8 @@ import javafx.scene.layout.BorderPane;
 
 public class RootWindowController {
 
+    private boolean searchShown = false;
+
     @FXML
     private Button optionsButton;
 
@@ -24,6 +26,15 @@ public class RootWindowController {
 
     public void hideSearchOptions() {
         //TODO Hide the search menu again.
+    }
+
+    @FXML
+    private void menuButtonPressed() {
+        if(searchShown) {
+            hideSearchOptions();
+        } else  {
+            showSearchOptions();
+        }
     }
 
     public void showLoginScreen() {

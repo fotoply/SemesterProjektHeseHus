@@ -8,7 +8,7 @@
    <top>
       <AnchorPane maxHeight="-Infinity" minWidth="100.0" prefHeight="30.0" prefWidth="600.0" style="-fx-background-color: lightgray; -fx-border-color: gray;" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="optionsButton" mnemonicParsing="false" style="-fx-focus-color: transparent; -fx-faint-focus-color: transparent;" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="4.0">
+            <Button fx:id="optionsButton" mnemonicParsing="false" onAction="#menuButtonPressed" style="-fx-focus-color: transparent; -fx-faint-focus-color: transparent;" AnchorPane.leftAnchor="4.0" AnchorPane.topAnchor="4.0">
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true" style="-fx-focus-color: transparent; -fx-focus-faint-color: transparent;">
                      <image>
