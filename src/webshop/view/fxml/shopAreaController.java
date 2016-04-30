@@ -27,12 +27,12 @@ public class ShopAreaController {
         for (Product product : products) {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("ProductNode.fxml"));
-            ((ProductNode)loader.getController()).setProduct(product);
             try {
                 addNewItem(loader.load());
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            ((ProductNode)loader.getController()).setProduct(product);
         }
     }
 }

@@ -18,7 +18,7 @@ public class ProductNode {
     private Text titleTextField;
 
     public void setProduct(Product product) {
-        productImage.setImage(new Image(getClass().getResourceAsStream("/res/placeholderProductIcon")));
+        productImage.setImage(new Image(getClass().getResourceAsStream("/res/placeholderProductIcon.png")));
         priceTextField.setText(product.getPrice().getAmountAsString());
         titleTextField.setText(product.getName());
     }
