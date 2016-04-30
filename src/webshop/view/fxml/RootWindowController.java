@@ -18,6 +18,7 @@ public class RootWindowController {
     @FXML
     void initialize() {
         optionsButton.setPadding(Insets.EMPTY);
+        showShopArea();
     }
 
     public void showSearchOptions() {
@@ -47,6 +48,10 @@ public class RootWindowController {
 
     public void showProfile() {
         //TODO Shows the profile of the current user, if they are logged in.
+    }
+
+    public void showShopArea() {
+        //TODO make it show the general shop grid-view.
     }
 
 }
