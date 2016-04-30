@@ -53,7 +53,7 @@ public class CustomerManager {
     public int getCustomerIDFromEmail(String email) {
         for (int i = 0; i < customerMap.values().size(); i++) {
             Customer customer = customerMap.getOrDefault(i, null);
-            if (customer != null && customer.getEmail().equals(email)) {
+            if (customer != null && customer.getEmail().equalsIgnoreCase(email)) {
                 return i;
             }
         }
