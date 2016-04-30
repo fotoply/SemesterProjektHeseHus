@@ -22,13 +22,13 @@ public class GUIController extends Application {
     public static RootWindowController getRootInstance() {
         return rootInstance;
     }
-
     public static Webshop getWebshopInstance() {
         return webshopInstance;
     }
 
     @Override
     public void start(Stage primaryStage) throws IOException {
+        webshopInstance = Webshop.getInstance();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("fxml/RootWindow.fxml"));
         Scene scene = new Scene(loader.load());
