@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import webshop.view.GUIController;
 
 public class LoginPopupController {
 
@@ -16,7 +17,7 @@ public class LoginPopupController {
 
     @FXML
     void loginPressed(ActionEvent event) {
-
+        GUIController.getWebshopInstance().loginWithEmail(emailField.getText(),passwordField.getText());
     }
 
     @FXML
