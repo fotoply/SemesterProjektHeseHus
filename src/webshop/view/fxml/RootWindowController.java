@@ -12,7 +12,7 @@ import java.io.IOException;
 public class RootWindowController {
 
     private boolean searchShown = false;
-    private ShopAreaController shopAreaController;
+    private webshop.view.fxml.shopAreaController shopAreaController;
 
     @FXML
     private Button optionsButton;
@@ -81,7 +81,7 @@ public class RootWindowController {
         //TODO Shows the basket of the current user, if any
     }
 
-    public ShopAreaController getShopAreaController() {
+    public webshop.view.fxml.shopAreaController getShopAreaController() {
         return shopAreaController;
     }
 }
