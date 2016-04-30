@@ -29,7 +29,7 @@ public class RootWindowController {
     public void showSearchOptions() {
         searchShown = true;
         //centerPane.setLeft();
-        //TODO Should show a menu for search options in the left part of the centerpane
+        //TODO Should show a menu for search options in the left part of the center pane
     }
 
     public void hideSearchOptions() {
@@ -57,6 +57,13 @@ public class RootWindowController {
     }
 
     public void showLoginScreen() {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("LoginPopup.fxml"));
+        try {
+            centerPane.setCenter(loader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         //TODO Shows the login screen. Should probably check if the user is already logged in.
     }
 
