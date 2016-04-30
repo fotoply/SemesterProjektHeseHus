@@ -66,7 +66,7 @@ public class RootWindowController {
 
     public void showShopArea() {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("ShopArea.fxml"));
+        loader.setLocation(getClass().getResource("shopArea.fxml"));
         try {
             centerPane.setCenter(loader.load());
         } catch (IOException e) {
