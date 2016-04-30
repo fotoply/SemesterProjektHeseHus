@@ -16,7 +16,7 @@ public class ShopAreaController {
 
     @FXML
     void initialize() {
-        productArea.setHgap(4);
+
     }
 
     public void addNewItem(Node node) {
