@@ -82,7 +82,8 @@ public class RootWindowController {
     }
 
     public void addToBasket(ProductNode node) {
-
+        GUIController.getWebshopInstance().addItem(node.getProduct(),1);
+        System.out.println(node.getProduct() + " was added");
     }
 
     public ShopAreaController getShopAreaController() {

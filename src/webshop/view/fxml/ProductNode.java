@@ -5,6 +5,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import webshop.Product;
+import webshop.view.GUIController;
 
 public class ProductNode extends AnchorPane {
 
@@ -29,6 +30,12 @@ public class ProductNode extends AnchorPane {
 
         setPrefWidth(150);
         setPrefHeight(150);
+
+        setOnMouseClicked(event -> {clicked();});
+    }
+
+    private void clicked() {
+        GUIController.getRootInstance().addToBasket(this);
     }
 
     public Product getProduct() {
