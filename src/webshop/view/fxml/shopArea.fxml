@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
-<?import javafx.scene.layout.TilePane?>
-<TilePane fx:id="productArea" hgap="4.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumns="4" prefHeight="400.0" prefRows="50" prefTileHeight="150.0" prefTileWidth="150.0" prefWidth="600.0" vgap="4.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="webshop.view.fxml.ShopAreaController" />
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="webshop.view.fxml.ShopAreaController">
+   <children>
+      <FlowPane fx:id="productArea" hgap="8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" vgap="8.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding></FlowPane>
+   </children>
+</AnchorPane>
