@@ -53,6 +53,9 @@ public class Webshop {
     }
 
     public void addItem(Product product, int amount) {
+        if(getCurrentOrder() == null) {
+            createNewOrder();
+        }
         customerManager.getCustomer(currentCustomerID).addProduct(product, amount);
     }
 

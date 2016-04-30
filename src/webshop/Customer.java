@@ -91,8 +91,6 @@ public class Customer {
 
     public void addProduct(Product product, int amount) {
         this.currentOrder.addProduct(product, amount);
-        
-
     }
 
     public void setAddress(String address) {

@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import webshop.view.GUIController;
 
 import java.time.Instant;
+import java.time.ZoneId;
 import java.util.Date;
 
 public class SignupScreenController {
@@ -48,8 +49,9 @@ public class SignupScreenController {
         if(!passwordField.getText().equalsIgnoreCase(repeatPasswordField.getText())) {
             return;
         }
+        Date date = Date.from(Instant.from(dateOfBirthPicker.getValue().atStartOfDay(ZoneId.systemDefault())));
 
-        GUIController.getWebshopInstance().createCustomer(nameField.getText(), addressField.getText(), emailField.getText(), passwordField.getText(), Date.from(Instant.from(dateOfBirthPicker.getValue().atStartOfDay())), Integer.parseInt(phoneField.getText()));
+        GUIController.getWebshopInstance().createCustomer(nameField.getText(), addressField.getText(), emailField.getText(), passwordField.getText(), date, Integer.parseInt(phoneField.getText()));
         GUIController.getRootInstance().showLoginScreen();
     }
 
