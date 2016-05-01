@@ -25,12 +25,32 @@ public class ProductInformationScreenController {
     private TextField quantityTextField;
 
     @FXML
+    void initialize() {
+        quantityTextField.textProperty().addListener((observable, oldValue, newValue) -> {correctAmountValue(oldValue);});
+    }
+
+    private void correctAmountValue(String oldValue) {
+        if(!isTextfieldValidAmount()) {
+            quantityTextField.setText(oldValue);
+        }
+    }
+
+    private boolean isTextfieldValidAmount() {
+        try {
+            Integer.parseInt(quantityTextField.getText());
+        } catch (NumberFormatException e) {
+            return false;
+        }
+        return true;
+    }
+
+    @FXML
     void addToBasketClicked(ActionEvent event) {
         int amount = 1;
         if(!quantityTextField.getText().isEmpty()) {
             amount = getAmountFromTextfield();
         }
-        GUIController.getRootInstance().addToBasket(product, amount);
+        GUIController.getRootInstance().addToBasket(product,  amount);
     }
 
     private int getAmountFromTextfield() {
