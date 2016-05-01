@@ -88,7 +88,6 @@ public class RootWindowController {
         }
         shopAreaController = loader.getController();
         shopAreaController.loadItems(GUIController.getProducts());
-        //TODO make it show the general shop grid-view.
     }
 
     public void showBasket() {
@@ -104,6 +103,7 @@ public class RootWindowController {
             e.printStackTrace();
         }
         ((ProductInformationScreenController) loader.getController()).setProduct(product);
+        //TODO Back button maybe?
     }
 
     public ShopAreaController getShopAreaController() {
@@ -117,7 +117,6 @@ public class RootWindowController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //TODO create and display signup screen
     }
 
     private FXMLLoader createFXMLLoader() {
