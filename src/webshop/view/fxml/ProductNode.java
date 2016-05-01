@@ -26,7 +26,7 @@ public class ProductNode extends AnchorPane {
         getChildren().add(border);
 
         ImageView imageView = new ImageView();
-        imageView.setImage(new Image("/res/placeholderProductIcon.png"));
+        imageView.setImage(GUIController.getRootInstance().getDefaultImage());
         imageView.setX(2);
         imageView.setY(16);
         imageView.setFitHeight(126);
@@ -51,5 +51,17 @@ public class ProductNode extends AnchorPane {
 
     public Product getProduct() {
         return product;
+    }
+
+    public String getDescription() {
+        return product.getDescription();
+    }
+
+    public String getName() {
+        return product.getName();
+    }
+
+    public String getPrice() {
+        return product.getPrice().getAmountAsString();
     }
 }

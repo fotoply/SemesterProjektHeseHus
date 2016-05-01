@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import webshop.Product;
 import webshop.view.GUIController;
@@ -131,5 +133,9 @@ public class RootWindowController {
     public void addToBasket(ProductNode node, int amount) {
         GUIController.getWebshopInstance().addItem(node.getProduct(),amount);
         System.out.println(node.getProduct() + " was added");
+    }
+
+    public static Image getDefaultImage() {
+        return new Image("/res/placeholderProductIcon.png");
     }
 }

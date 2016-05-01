@@ -59,5 +59,8 @@ public class ProductInformationScreenController {
 
     public void setProduct(ProductNode product) {
         this.product = product;
+        this.productImage.setImage(RootWindowController.getDefaultImage());
+        this.titleText.setText(product.getName());
+        this.descriptionTextArea.setText(product.getDescription());
     }
 }
