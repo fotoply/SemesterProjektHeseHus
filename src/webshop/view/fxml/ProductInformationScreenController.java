@@ -26,7 +26,15 @@ public class ProductInformationScreenController {
 
     @FXML
     void addToBasketClicked(ActionEvent event) {
-        GUIController.getRootInstance().addToBasket(product);
+        int amount = 1;
+        if(!quantityTextField.getText().isEmpty()) {
+            amount = getAmountFromTextfield();
+        }
+        GUIController.getRootInstance().addToBasket(product, amount);
+    }
+
+    private int getAmountFromTextfield() {
+        return Integer.valueOf(quantityTextField.getText());
     }
 
 }

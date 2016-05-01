@@ -95,13 +95,6 @@ public class RootWindowController {
         //TODO Implement product screen where product information is shown
     }
 
-    public void addToBasket(ProductNode node) {
-        //TODO Fix concurrentModificationException issue.
-        //synchronised keyword does not fix it.. For some odd reason
-        GUIController.getWebshopInstance().addItem(node.getProduct(),1);
-        System.out.println(node.getProduct() + " was added");
-    }
-
     public ShopAreaController getShopAreaController() {
         return shopAreaController;
     }
@@ -120,5 +113,16 @@ public class RootWindowController {
     public void loginSuccesful() {
         showShopArea();
         loginButton.setText("Profile");
+    }
+
+    public void addToBasket(ProductNode node) {
+        //TODO Fix concurrentModificationException issue.
+        //synchronised keyword does not fix it.. For some odd reason
+        addToBasket(node, 1);
+    }
+
+    public void addToBasket(ProductNode node, int amount) {
+        GUIController.getWebshopInstance().addItem(node.getProduct(),amount);
+        System.out.println(node.getProduct() + " was added");
     }
 }
