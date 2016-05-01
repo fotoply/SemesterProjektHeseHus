@@ -46,8 +46,7 @@ public class ProductNode extends AnchorPane {
     }
 
     private void clicked() {
-        GUIController.getRootInstance().addToBasket(this);
-        //TODO Add some indication that this happened
+        GUIController.getRootInstance().showProduct(this);
     }
 
     public Product getProduct() {

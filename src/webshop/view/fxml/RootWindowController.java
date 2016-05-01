@@ -91,8 +91,15 @@ public class RootWindowController {
         //TODO Shows the basket of the current user, if any
     }
 
-    public void showProduct(Product product) {
-        //TODO Implement product screen where product information is shown
+    public void showProduct(ProductNode product) {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ProductInformationScreen.fxml"));
+        try {
+            borderPane.setCenter(loader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ((ProductInformationScreenController)loader.getController()).setProduct(product);
     }
 
     public ShopAreaController getShopAreaController() {

@@ -10,7 +10,7 @@ import webshop.view.GUIController;
 
 public class ProductInformationScreenController {
 
-    ProductNode product;
+    private ProductNode product;
 
     @FXML
     private ImageView productImage;
@@ -57,4 +57,7 @@ public class ProductInformationScreenController {
         return Integer.valueOf(quantityTextField.getText());
     }
 
+    public void setProduct(ProductNode product) {
+        this.product = product;
+    }
 }
