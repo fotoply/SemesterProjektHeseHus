@@ -109,14 +109,19 @@ public class RootWindowController {
     }
 
     public void showSignupScreen() {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("SignupScreen.fxml"));
+        FXMLLoader loader = createFXMLLoader();
         try {
             borderPane.setCenter(loader.load());
         } catch (IOException e) {
             e.printStackTrace();
         }
         //TODO create and display signup screen
+    }
+
+    private FXMLLoader createFXMLLoader() {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("SignupScreen.fxml"));
+        return loader;
     }
 
     public void loginSuccesful() {
