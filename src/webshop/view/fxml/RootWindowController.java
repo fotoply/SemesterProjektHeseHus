@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import webshop.Product;
 import webshop.view.GUIController;
 
 import java.io.IOException;
@@ -88,6 +89,10 @@ public class RootWindowController {
 
     public void showBasket() {
         //TODO Shows the basket of the current user, if any
+    }
+
+    public void showProduct(Product product) {
+        //TODO Implement product screen where product information is shown
     }
 
     public void addToBasket(ProductNode node) {
