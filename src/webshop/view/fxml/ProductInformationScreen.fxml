@@ -10,14 +10,16 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="webshop.view.fxml.ProductInformationScreenController">
    <children>
-      <ImageView fx:id="productImage" fitHeight="292.0" fitWidth="292.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
-      <Text fx:id="titleText" layoutX="324.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PRODUCT TITLE" wrappingWidth="251.00000649690628" AnchorPane.leftAnchor="324.0" AnchorPane.topAnchor="14.0">
+      <ImageView fx:id="productImage" fitHeight="292.0" fitWidth="292.0" layoutX="13.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="39.0" />
+      <Text fx:id="titleText" layoutX="13.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PRODUCT TITEL" wrappingWidth="562.0000064969063" AnchorPane.leftAnchor="13.0" AnchorPane.topAnchor="14.0">
          <font>
-            <Font size="30.0" />
+            <Font size="16.0" />
          </font>
       </Text>
       <TextArea fx:id="descriptionTextArea" editable="false" focusTraversable="false" layoutX="324.0" layoutY="60.0" prefHeight="275.0" prefWidth="251.0" promptText="descriptionArea" style="-fx-background-color: transparent;" wrapText="true" />
-      <Button layoutX="484.0" layoutY="348.0" mnemonicParsing="false" onAction="#addToBasketClicked" text="Add to basket" />
-      <TextField fx:id="quantityTextField" layoutX="440.0" layoutY="348.0" prefHeight="25.0" prefWidth="33.0" promptText="qty" />
+      <Button layoutX="14.0" layoutY="342.0" mnemonicParsing="false" onAction="#addToBasketClicked" text="Add to basket" />
+      <TextField fx:id="quantityTextField" layoutX="114.0" layoutY="342.0" prefHeight="25.0" prefWidth="33.0" promptText="qty" />
+      <Text fx:id="textPrice" layoutX="360.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PRICE" />
+      <Text layoutX="324.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price:" />
    </children>
 </AnchorPane>

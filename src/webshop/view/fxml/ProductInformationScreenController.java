@@ -25,6 +25,10 @@ public class ProductInformationScreenController {
     private TextField quantityTextField;
 
     @FXML
+    private Text textPrice;
+
+
+    @FXML
     void initialize() {
         quantityTextField.textProperty().addListener((observable, oldValue, newValue) -> {correctAmountValue(oldValue);});
     }
@@ -62,5 +66,6 @@ public class ProductInformationScreenController {
         this.productImage.setImage(RootWindowController.getDefaultImage());
         this.titleText.setText(product.getName());
         this.descriptionTextArea.setText(product.getDescription());
+        this.textPrice.setText(product.getPrice());
     }
 }
