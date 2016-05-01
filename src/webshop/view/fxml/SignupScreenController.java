@@ -42,11 +42,11 @@ public class SignupScreenController {
         //TODO verify that all data is valid
         //TODO Find a way to display what data is invalid and why
 
-        if(!emailField.getText().equalsIgnoreCase(repeatEmailField.getText())) {
+        if (!emailField.getText().equalsIgnoreCase(repeatEmailField.getText())) {
             return;
         }
 
-        if(!passwordField.getText().equalsIgnoreCase(repeatPasswordField.getText())) {
+        if (!passwordField.getText().equalsIgnoreCase(repeatPasswordField.getText())) {
             return;
         }
         Date date = Date.from(Instant.from(dateOfBirthPicker.getValue().atStartOfDay(ZoneId.systemDefault())));

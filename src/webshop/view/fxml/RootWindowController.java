@@ -5,9 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
-import webshop.Product;
 import webshop.view.GUIController;
 
 import java.io.IOException;
@@ -25,6 +23,10 @@ public class RootWindowController {
 
     @FXML
     private BorderPane borderPane;
+
+    public static Image getDefaultImage() {
+        return new Image("/res/placeholderProductIcon.png");
+    }
 
     @FXML
     void initialize() {
@@ -46,16 +48,16 @@ public class RootWindowController {
 
     @FXML
     private void menuButtonPressed() {
-        if(searchShown) {
+        if (searchShown) {
             hideSearchOptions();
-        } else  {
+        } else {
             showSearchOptions();
         }
     }
 
     @FXML
     private void loginButtonPressed() {
-        if(GUIController.getWebshopInstance().isLoggedIn()) {
+        if (GUIController.getWebshopInstance().isLoggedIn()) {
             showProfile();
         } else {
             showLoginScreen();
@@ -101,7 +103,7 @@ public class RootWindowController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        ((ProductInformationScreenController)loader.getController()).setProduct(product);
+        ((ProductInformationScreenController) loader.getController()).setProduct(product);
     }
 
     public ShopAreaController getShopAreaController() {
@@ -136,11 +138,7 @@ public class RootWindowController {
     }
 
     public void addToBasket(ProductNode node, int amount) {
-        GUIController.getWebshopInstance().addItem(node.getProduct(),amount);
+        GUIController.getWebshopInstance().addItem(node.getProduct(), amount);
         System.out.println(node.getProduct() + " was added");
-    }
-
-    public static Image getDefaultImage() {
-        return new Image("/res/placeholderProductIcon.png");
     }
 }

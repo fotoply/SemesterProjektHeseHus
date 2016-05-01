@@ -7,10 +7,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import webshop.view.GUIController;
 
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 public class LoginScreenController {
 
     @FXML
@@ -21,7 +17,7 @@ public class LoginScreenController {
 
     @FXML
     void loginPressed(ActionEvent event) {
-        if(GUIController.getWebshopInstance().loginWithEmail(emailField.getText(),passwordField.getText())) {
+        if (GUIController.getWebshopInstance().loginWithEmail(emailField.getText(), passwordField.getText())) {
             GUIController.getRootInstance().loginSuccesful();
         } else {
             //TODO Display some sort of error message

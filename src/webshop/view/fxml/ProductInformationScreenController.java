@@ -30,11 +30,13 @@ public class ProductInformationScreenController {
 
     @FXML
     void initialize() {
-        quantityTextField.textProperty().addListener((observable, oldValue, newValue) -> {correctAmountValue(oldValue);});
+        quantityTextField.textProperty().addListener((observable, oldValue, newValue) -> {
+            correctAmountValue(oldValue);
+        });
     }
 
     private void correctAmountValue(String oldValue) {
-        if(!isTextfieldValidAmount()) {
+        if (!isTextfieldValidAmount()) {
             quantityTextField.setText(oldValue);
         }
     }
@@ -51,10 +53,10 @@ public class ProductInformationScreenController {
     @FXML
     void addToBasketClicked(ActionEvent event) {
         int amount = 1;
-        if(!quantityTextField.getText().isEmpty()) {
+        if (!quantityTextField.getText().isEmpty()) {
             amount = getAmountFromTextfield();
         }
-        GUIController.getRootInstance().addToBasket(product,  amount);
+        GUIController.getRootInstance().addToBasket(product, amount);
     }
 
     private int getAmountFromTextfield() {
