@@ -130,7 +130,7 @@ public class RootWindowController {
         loginButton.setText("Profile");
     }
 
-    public void addToBasket(ProductNode node) {
+    public synchronized void addToBasket(ProductNode node) {
         //TODO Fix concurrentModificationException issue.
         //synchronised keyword does not fix it.. For some odd reason
         addToBasket(node, 1);
