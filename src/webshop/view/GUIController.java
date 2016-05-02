@@ -5,8 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import webshop.Product;
-import webshop.Webshop;
+import webshop.model.Product;
+import webshop.model.Webshop;
 import webshop.view.fxml.RootWindowController;
 
 import java.io.IOException;

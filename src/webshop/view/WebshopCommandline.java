@@ -5,10 +5,10 @@
  */
 package webshop.view;
 
-import webshop.Customer;
-import webshop.Item;
-import webshop.Product;
-import webshop.Webshop;
+import webshop.model.Customer;
+import webshop.model.Item;
+import webshop.model.Product;
+import webshop.model.Webshop;
 
 import java.text.DateFormat;
 import java.text.ParseException;

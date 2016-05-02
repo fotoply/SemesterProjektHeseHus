@@ -1,4 +1,4 @@
-package webshop;
+package webshop.model;
 
 /**
  * @author Grp. 14

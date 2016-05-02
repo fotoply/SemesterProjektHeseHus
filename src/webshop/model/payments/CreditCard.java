@@ -1,6 +1,6 @@
-package webshop.payments;
+package webshop.model.payments;
 
-import webshop.Money;
+import webshop.model.Money;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package webshop;
+package webshop.model;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
