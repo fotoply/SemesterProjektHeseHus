@@ -56,7 +56,15 @@ public class Order {
     }
 
     public void addProduct(Product product, int amount) {
-        productList.add(new Item(product, amount));
+        int amountContained = 0;
+        for (Item item: productList) {
+            if(item.getProduct().equals(product)) {
+                amountContained += item.getQuantity();
+                productList.remove(item);
+            }
+        }
+        productList.add(new Item(product, amount+amountContained));
+
     }
 
     public void setCustomerID(int customerID) {
