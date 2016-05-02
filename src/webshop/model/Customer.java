@@ -29,12 +29,12 @@ public class Customer {
     private Order currentOrder;
 /**
  * A constructor to the class Customer is used wen first need to create a new customer.
- * There is no control of the parameters in the contructer an has to be checked before 
- * putting it in the construcktor.
+ * There is no control of the parameters in the constructor an has to be checked before 
+ * putting it in the constructor.
  * @param name The name of the customer.
  * @param address The current address of the customer.
  * @param email The contact email of the customer.
- * @param password The Hashed password of the customer, the construcktor does not hash the password.
+ * @param password The Hashed password of the customer, the constructor does not hash the password.
  * @param dayOfBirth The day of birth of the customer.
  * @param phoneNumber The phone number of the customer.
  */
@@ -75,7 +75,7 @@ public class Customer {
     }
 /**
  * Sets the status for the current order to "FOR_VERIFICATION".
- * is used when the customer need til verifye the current basket
+ * is used when the customer need til verify the current basket
  */
     public void checkoutBasket() {
         if (currentOrder != null) {
@@ -91,13 +91,13 @@ public class Customer {
     }
 /**
  * Sets the order to the currentOrder. 
- * @param currentOrder set objekt of order to the current order
+ * @param currentOrder set object of order to the current order
  */
     public void setCurrentOrder(Order currentOrder) {
         this.currentOrder = currentOrder;
     }
 /**
- * A constructor to make a new order on a specifik customer.
+ * A constructor to make a new order on a specific customer.
  * @param customerID the id for the customer that you want to create a new order for.
  */
     public void createNewOrder(int customerID) {
@@ -169,7 +169,7 @@ public class Customer {
         return hash;
     }
 /**
- * Cancel the currnetorder, set the status of the order to IN_BASKET
+ * Cancel the current order, set the status of the order to IN_BASKET
  */
     public void cancelOrder() {
         currentOrder.setStatus(Order.Status.IN_BASKET);
