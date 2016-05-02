@@ -80,7 +80,8 @@ public class WebshopCommandline {
 
     private boolean checkoutCustomer(Scanner input) {
         input.nextLine();
-
+        webshop.checkoutBasket();
+        
         try {
             if (webshop.getCustomer() == null || webshop.getCurrentOrder() == null) {
                 System.out.println("You cannot checkout without an account or basket");
@@ -127,7 +128,7 @@ public class WebshopCommandline {
 
         System.out.println("Your address is: " + webshop.getCurrentOrder().getShippingAddress());
 
-        webshop.checkoutBasket();
+        
         input.nextLine();
         return true;
     }
