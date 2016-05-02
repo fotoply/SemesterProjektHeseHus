@@ -42,7 +42,11 @@ public class ProductCatalog {
         }
         return null;
     }
-    
+
+    public List<Product> getProductList() {
+        return productList;
+    }
+
     public String getAllProducts() {
         
         StringBuilder sb = new StringBuilder();

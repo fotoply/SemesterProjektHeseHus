@@ -6,13 +6,14 @@
 package webshop;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author Karim
  */
 public class Webshop {
     private static Webshop instance;
-    private int currentCustomerID;
+    private int currentCustomerID = -1;
     private CustomerManager customerManager;
     private ProductCatalog productCatalog = new ProductCatalog();
     private paymentType payingBy;
@@ -52,6 +53,9 @@ public class Webshop {
     }
 
     public void addItem(Product product, int amount) {
+        if(getCurrentOrder() == null) {
+            createNewOrder();
+        }
         customerManager.getCustomer(currentCustomerID).addProduct(product, amount);
     }
 
@@ -77,7 +81,7 @@ public class Webshop {
     public boolean loginWithEmail(String email, String password) {
         setCurrentCustomerID(getCustomerIdFromEmail(email));
         System.out.println("Current customer ID: " + getCustomer());
-        return loginWithCustomer(getCustomerIdFromEmail(email),password);
+        return loginWithCustomer(currentCustomerID,password);
     }
 
     public String checkoutBasket() {
@@ -111,6 +115,19 @@ public class Webshop {
 
     public paymentType getPayingBy() {
         return payingBy;
+    }
+
+    public boolean isLoggedIn() {
+        try {
+            customerManager.getCustomer(currentCustomerID);
+        } catch (Exception ignored) {
+            return false;
+        }
+        return currentCustomerID != -1;
+    }
+
+    public List<Product> getProducts() {
+        return productCatalog.getProductList();
     }
 
     public enum paymentType {IN_SHOP, CREDIT_CARD};
