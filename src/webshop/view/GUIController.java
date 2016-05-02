@@ -10,6 +10,7 @@ import webshop.model.Webshop;
 import webshop.view.fxml.RootWindowController;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 public class GUIController extends Application {
@@ -42,5 +43,6 @@ public class GUIController extends Application {
         primaryStage.initStyle(StageStyle.UNIFIED);
         primaryStage.setScene(scene);
         primaryStage.show();
+       webshopInstance.createCustomer("testnavn","testvej", "test", "test", new Date(), 12345678);
     }
 }
