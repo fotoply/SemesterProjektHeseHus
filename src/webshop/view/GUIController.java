@@ -39,7 +39,7 @@ public class GUIController extends Application {
         loader.setLocation(getClass().getResource("fxml/RootWindow.fxml"));
         Scene scene = new Scene(loader.load());
         rootInstance = loader.getController();
-        primaryStage.initStyle(StageStyle.UTILITY);
+        primaryStage.initStyle(StageStyle.UNIFIED);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
