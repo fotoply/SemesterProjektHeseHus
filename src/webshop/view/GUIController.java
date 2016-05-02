@@ -5,7 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import webshop.model.Product;
+import webshop.model.Inventory.Product;
 import webshop.model.Webshop;
 import webshop.view.fxml.RootWindowController;
 
