@@ -29,7 +29,17 @@ public class Customer {
     private byte[] salt = new byte[32];
     private List<MemberShipCard> memberShipCards;
     private Order currentOrder;
-
+/**
+ * A constructor to the class Customer is used wen first need to create a new customer.
+ * There is no control of the parameters in the constructor an has to be checked before 
+ * putting it in the constructor.
+ * @param name The name of the customer.
+ * @param address The current address of the customer.
+ * @param email The contact email of the customer.
+ * @param password The Hashed password of the customer, the constructor does not hash the password.
+ * @param dayOfBirth The day of birth of the customer.
+ * @param phoneNumber The phone number of the customer.
+ */
     public Customer(String name, String address, String email, String password, Date dayOfBirth, int phoneNumber) {
         this.name = name;
         this.address = address;
@@ -65,21 +75,33 @@ public class Customer {
     public byte[] getPassword() {
         return password;
     }
-
+/**
+ * Sets the status for the current order to "FOR_VERIFICATION".
+ * is used when the customer need til verify the current basket
+ */
     public void checkoutBasket() {
         if (currentOrder != null) {
             currentOrder.setStatus(Order.Status.FOR_VERIFICATION);
         }
     }
-
+/**
+ * Returns the current order.
+ * @return the current order instants
+ */
     public Order getCurrentOrder() {
         return currentOrder;
     }
-
+/**
+ * Sets the order to the currentOrder. 
+ * @param currentOrder set object of order to the current order
+ */
     public void setCurrentOrder(Order currentOrder) {
         this.currentOrder = currentOrder;
     }
-
+/**
+ * A constructor to make a new order on a specific customer.
+ * @param customerID the id for the customer that you want to create a new order for.
+ */
     public void createNewOrder(int customerID) {
         //Shippingcharges sat til 0.
         currentOrder = new Order("0", address, customerID);
@@ -90,7 +112,11 @@ public class Customer {
         memberShipCards.add(e);*/
         throw new NotImplementedException();
     }
-
+/**
+ * Adds a product to the current order.
+ * @param product a object of the class product
+ * @param amount the amount of the product that should be add to the current order.
+ */
     public void addProduct(Product product, int amount) {
         this.currentOrder.addProduct(product, amount);
     }
@@ -127,7 +153,11 @@ public class Customer {
     public void setEmail(String Email) {
         this.email = Email;
     }
-
+/**
+ * Is used to hash the password.
+ * @param password the password that should be hashed.
+ * @return the hashed password.
+ */
     private byte[] getPasswordHash(String password) {
         KeySpec keySpecification = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
         SecretKeyFactory secretKeyFactory;
@@ -140,7 +170,9 @@ public class Customer {
         }
         return hash;
     }
-
+/**
+ * Cancel the current order, set the status of the order to IN_BASKET
+ */
     public void cancelOrder() {
         currentOrder.setStatus(Order.Status.IN_BASKET);
     }
