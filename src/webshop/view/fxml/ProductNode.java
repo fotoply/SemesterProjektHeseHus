@@ -16,9 +16,12 @@ public class ProductNode extends AnchorPane {
         this.product = product;
 
         //TODO Find a way to represent all of this as FXML or something, cause this is hard to edit
-        Rectangle border = new Rectangle(150, 150, Color.TRANSPARENT);
-        border.setStroke(Color.DIMGREY);
+        Rectangle border = new Rectangle(150, 150, Color.LIGHTGREY);
+        border.setOpacity(1);
+        //border.setStroke(Color.DIMGREY);
         border.setWidth(150);
+        border.setArcHeight(10);
+        border.setArcWidth(10);
 
         getChildren().add(border);
 
