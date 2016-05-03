@@ -30,13 +30,13 @@ public class Customer {
     private List<MemberShipCard> memberShipCards;
     private Order currentOrder;
 /**
- * A constructor to the class Customer is used wen first need to create a new customer.
- * There is no control of the parameters in the constructor an has to be checked before 
- * putting it in the constructor.
+ * A constructor to the class Customer is used to create a new customer.
+ * There is no control of the parameters in the constructor, it has to be checked before 
+ * calling the constructor.
  * @param name The name of the customer.
  * @param address The current address of the customer.
  * @param email The contact email of the customer.
- * @param password The Hashed password of the customer, the constructor does not hash the password.
+ * @param password The password of the customer, the inputted password will be hashed before it gets saved, by calling the "setPassword" method.
  * @param dayOfBirth The day of birth of the customer.
  * @param phoneNumber The phone number of the customer.
  */
@@ -177,7 +177,7 @@ public class Customer {
         currentOrder.setStatus(Order.Status.IN_BASKET);
     }
 
-    @Override
+    @Override   
     public String toString() {
         return "Customer{" +
                 "name='" + name + '\'' +
