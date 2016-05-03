@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package webshop.model;
+package webshop.model.Inventory;
 
 import webshop.model.payments.Payment;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import webshop.model.Money;
 
 /**
  * @author Karim

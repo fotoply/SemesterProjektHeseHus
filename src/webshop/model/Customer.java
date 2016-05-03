@@ -1,5 +1,7 @@
 package webshop.model;
 
+import webshop.model.Inventory.Order;
+import webshop.model.Inventory.Product;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import javax.crypto.SecretKeyFactory;

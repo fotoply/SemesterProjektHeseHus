@@ -5,6 +5,9 @@
  */
 package webshop.model;
 
+import webshop.model.Inventory.Order;
+import webshop.model.Inventory.ProductCatalog;
+import webshop.model.Inventory.Product;
 import java.util.Date;
 import java.util.List;
 

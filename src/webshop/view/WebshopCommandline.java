@@ -6,8 +6,8 @@
 package webshop.view;
 
 import webshop.model.Customer;
-import webshop.model.Item;
-import webshop.model.Product;
+import webshop.model.Inventory.Item;
+import webshop.model.Inventory.Product;
 import webshop.model.Webshop;
 
 import java.text.DateFormat;

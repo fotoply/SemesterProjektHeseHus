@@ -5,11 +5,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import webshop.model.Product;
+import webshop.model.Inventory.Product;
 import webshop.model.Webshop;
 import webshop.view.fxml.RootWindowController;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 public class GUIController extends Application {
@@ -42,5 +43,6 @@ public class GUIController extends Application {
         primaryStage.initStyle(StageStyle.UNIFIED);
         primaryStage.setScene(scene);
         primaryStage.show();
+       webshopInstance.createCustomer("testnavn","testvej", "test", "test", new Date(), 12345678);
     }
 }

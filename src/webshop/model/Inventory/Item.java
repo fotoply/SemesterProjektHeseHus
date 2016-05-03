@@ -1,4 +1,4 @@
-package webshop.model;
+package webshop.model.Inventory;
 
 /**
  * @author Grp. 14
