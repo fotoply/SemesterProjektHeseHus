@@ -55,6 +55,9 @@ public class RootWindowController {
         } else {
             showSearchOptions();
         }
+        
+        showShopArea();
+        
     }
 
     @FXML
