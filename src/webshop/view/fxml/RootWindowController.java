@@ -14,6 +14,8 @@ public class RootWindowController {
 
     private boolean searchShown = false;
     private ShopAreaController shopAreaController;
+    private SignupScreenController signupScreen;
+    private LoginScreenController loginScreen;
 
     @FXML
     private Button loginButton;
