@@ -175,7 +175,7 @@ public class Customer {
         currentOrder.setStatus(Order.Status.IN_BASKET);
     }
 
-    @Override
+    @Override   
     public String toString() {
         return "Customer{" +
                 "name='" + name + '\'' +
