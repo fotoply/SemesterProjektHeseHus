@@ -26,6 +26,8 @@ public class PostgresDatabaseProduct extends Product {
             setPrice(new Money(rs.getString("price")));
             setType(rs.getString("type"));
             setCurrentlySelling(rs.getBoolean("currentlySelling"));
+        } else {
+            throw new SQLException("Product not found");
         }
     }
 }
