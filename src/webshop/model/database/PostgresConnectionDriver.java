@@ -2,11 +2,6 @@ package webshop.model.database;
 
 import java.sql.*;
 
-/**
- * Created 3/4/16
- *
- * @author Niels Norberg
- */
 public class PostgresConnectionDriver implements DatabaseConnector {
     private String username = "postgres";
     private String password = "123";
