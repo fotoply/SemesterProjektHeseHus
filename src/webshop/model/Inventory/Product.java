@@ -7,9 +7,6 @@ package webshop.model.Inventory;
 
 import webshop.model.Money;
 
-/**
- * @author Karim
- */
 public class Product {
     private String name = "NameNotSet";
     private String description = "DescriptionNotSet";
@@ -18,8 +15,8 @@ public class Product {
     private int productID = -1;
     private boolean currentlySelling = false;
 
-    public Product() {
-
+    public Product(int productID) {
+        this.productID = productID;
     }
 
     public Product(String name, String description, String type, Money price, int productID, boolean currentlySelling) {
@@ -31,8 +28,6 @@ public class Product {
         this.currentlySelling = currentlySelling;
     }
 
-    
-    
     public Money getPrice() {
         return price;
     }
@@ -84,7 +79,7 @@ public class Product {
     public int getID() {
         return this.productID;
     }
-    
+
     public String getDescription() {
         return description;
     }
@@ -103,5 +98,9 @@ public class Product {
 
     public boolean isCurrentlySelling() {
         return currentlySelling;
+    }
+
+    public void setCurrentlySelling(boolean currentlySelling) {
+        this.currentlySelling = currentlySelling;
     }
 }
