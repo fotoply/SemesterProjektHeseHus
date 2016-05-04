@@ -6,8 +6,11 @@
 package webshop.model;
 
 import webshop.model.Inventory.Order;
-import webshop.model.Inventory.ProductCatalog;
 import webshop.model.Inventory.Product;
+import webshop.model.Inventory.ProductCatalog;
+import webshop.model.database.DatabaseConnector;
+import webshop.model.database.PostgresConnectionDriver;
+
 import java.util.Date;
 import java.util.List;
 
@@ -16,6 +19,7 @@ import java.util.List;
  */
 public class Webshop {
     private static Webshop instance;
+    private static DatabaseConnector databaseConnector = new PostgresConnectionDriver();
     private int currentCustomerID = -1;
     private CustomerManager customerManager;
     private ProductCatalog productCatalog = new ProductCatalog();
@@ -30,6 +34,10 @@ public class Webshop {
             instance = new Webshop();
         }
         return instance;
+    }
+
+    public static DatabaseConnector getDatabaseConnector() {
+        return databaseConnector;
     }
 
     public void setCurrentCustomerID(int currentCustomerID) {
