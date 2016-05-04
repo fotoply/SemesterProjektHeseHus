@@ -62,13 +62,20 @@ public class ProductCatalog {
     }
 
 
-    public Product searchProduct(String searchTerms) {
+    public List searchProduct(String searchTerms) {
+        List<Product> searchedProducts = new ArrayList<>();
         for (Product product : productList) {
             if (searchTerms.equals(product.getName())) {
-                return product;
+                searchedProducts.add(product);
+                return searchedProducts;
             }
         }
-
+        for (Product product : productList) {
+            if (searchTerms.equals(product.getType())) {
+                searchedProducts.add(product);
+                return searchedProducts;
+            }
+        }
         return null;
     }
 }
