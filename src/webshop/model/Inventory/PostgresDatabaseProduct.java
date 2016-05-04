@@ -5,6 +5,7 @@ import webshop.model.database.DatabaseConnector;
 import webshop.model.database.PostgresConnectionDriver;
 
 import java.sql.ResultSet;
+import java.sql.SQLDataException;
 import java.sql.SQLException;
 
 /**
@@ -27,7 +28,7 @@ public class PostgresDatabaseProduct extends Product {
             setType(rs.getString("type"));
             setCurrentlySelling(rs.getBoolean("currentlySelling"));
         } else {
-            throw new SQLException("Product not found");
+            throw new SQLDataException("Product not found");
         }
     }
 }
