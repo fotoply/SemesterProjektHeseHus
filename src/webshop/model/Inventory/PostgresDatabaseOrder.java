@@ -19,8 +19,8 @@ public class PostgresDatabaseOrder extends Order {
         super(orderId);
         this.connector = driver;
         ResultSet rs = driver.executeQueryStatement("SELECT * FROM order WHERE orderId=" + orderId);
-        if(rs.next()) {
-            if(!rs.getString("tax").isEmpty()) {
+        if (rs.next()) {
+            if (!rs.getString("tax").isEmpty()) {
 
             }
         } else {

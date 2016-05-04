@@ -19,10 +19,6 @@ public class Product {
         this.productID = productID;
     }
 
-    public void setCurrentlySelling(boolean currentlySelling) {
-        this.currentlySelling = currentlySelling;
-    }
-
     public Product(String name, String description, String type, Money price, int productID, boolean currentlySelling) {
         this.name = name;
         this.description = description;
@@ -32,8 +28,6 @@ public class Product {
         this.currentlySelling = currentlySelling;
     }
 
-    
-    
     public Money getPrice() {
         return price;
     }
@@ -85,7 +79,7 @@ public class Product {
     public int getID() {
         return this.productID;
     }
-    
+
     public String getDescription() {
         return description;
     }
@@ -104,5 +98,9 @@ public class Product {
 
     public boolean isCurrentlySelling() {
         return currentlySelling;
+    }
+
+    public void setCurrentlySelling(boolean currentlySelling) {
+        this.currentlySelling = currentlySelling;
     }
 }

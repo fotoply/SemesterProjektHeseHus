@@ -49,22 +49,22 @@ public class Webshop {
         return productCatalog.findProduct(productID);
 
     }
-    
+
     public String getAllProducts() {
-        
+
         return productCatalog.getAllProducts();
     }
 
     public Order getCurrentOrder() {
         return customerManager.getCustomer(currentCustomerID).getCurrentOrder();
     }
-    
+
     public void createNewOrder() {
         customerManager.getCustomer(currentCustomerID).createNewOrder(currentCustomerID);
     }
 
     public void addItem(Product product, int amount) {
-        if(getCurrentOrder() == null) {
+        if (getCurrentOrder() == null) {
             createNewOrder();
         }
         customerManager.getCustomer(currentCustomerID).addProduct(product, amount);
@@ -92,7 +92,7 @@ public class Webshop {
     public boolean loginWithEmail(String email, String password) {
         setCurrentCustomerID(getCustomerIdFromEmail(email));
         System.out.println("Current customer ID: " + getCustomer());
-        return loginWithCustomer(currentCustomerID,password);
+        return loginWithCustomer(currentCustomerID, password);
     }
 
     public String checkoutBasket() {
@@ -100,7 +100,7 @@ public class Webshop {
         return "Basket was checked out";
     }
 
-    public Product searchProduct (String searchTerms) {
+    public Product searchProduct(String searchTerms) {
         return productCatalog.searchProduct(searchTerms);
     }
 
@@ -124,12 +124,12 @@ public class Webshop {
         return true;
     }
 
-    public void setPayingBy(paymentType payingBy) {
-        this.payingBy = payingBy;
-    }
-
     public paymentType getPayingBy() {
         return payingBy;
+    }
+
+    public void setPayingBy(paymentType payingBy) {
+        this.payingBy = payingBy;
     }
 
     public boolean isLoggedIn() {

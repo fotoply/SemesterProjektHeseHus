@@ -28,43 +28,6 @@ public class Order {
     private List<Item> productList;
     private Money currentlyPaid;
     private List<Payment> paymentMethods;
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public Money getTax() {
-        return tax;
-    }
-
-    public void setTax(Money tax) {
-        this.tax = tax;
-    }
-
-    public void setShippingCharges(Money shippingCharges) {
-        this.shippingCharges = shippingCharges;
-    }
-
-    public void setFinalPrice(Money finalPrice) {
-        this.finalPrice = finalPrice;
-    }
-
-    public int getCustomerID() {
-        return customerID;
-    }
-
-    public List<Item> getProductList() {
-        return productList;
-    }
-
-    public void setProductList(List<Item> productList) {
-        this.productList = productList;
-    }
-
     private Status status = Status.IN_BASKET;
 
     public Order(int orderId) {
@@ -86,6 +49,38 @@ public class Order {
         orderCount++;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Money getTax() {
+        return tax;
+    }
+
+    public void setTax(Money tax) {
+        this.tax = tax;
+    }
+
+    public int getCustomerID() {
+        return customerID;
+    }
+
+    public void setCustomerID(int customerID) {
+        this.customerID = customerID;
+    }
+
+    public List<Item> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(List<Item> productList) {
+        this.productList = productList;
+    }
+
     public Status getStatus() {
         return status;
     }
@@ -97,10 +92,6 @@ public class Order {
     public void addProduct(Product product, int amount) {
         productList.add(new Item(product, amount));
 
-    }
-
-    public void setCustomerID(int customerID) {
-        this.customerID = customerID;
     }
 
     public Money getTotalAmountOwedForProducts() {
@@ -134,8 +125,16 @@ public class Order {
         return shippingCharges;
     }
 
+    public void setShippingCharges(Money shippingCharges) {
+        this.shippingCharges = shippingCharges;
+    }
+
     public Money getFinalPrice() {
         return finalPrice;
+    }
+
+    public void setFinalPrice(Money finalPrice) {
+        this.finalPrice = finalPrice;
     }
 
     public void payAmountForOrder(Money amount) {
@@ -150,16 +149,16 @@ public class Order {
         return productList;
     }
 
-    public void setShippingAddress(String shippingAddress) {
-        this.shippingAddress = shippingAddress;
-    }
-
     public boolean isPaid() {
         return getFinalPrice().compareTo(currentlyPaid) < 0;
     }
 
     public String getShippingAddress() {
         return shippingAddress;
+    }
+
+    public void setShippingAddress(String shippingAddress) {
+        this.shippingAddress = shippingAddress;
     }
 
     public enum Status {

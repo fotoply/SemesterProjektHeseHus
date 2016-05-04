@@ -138,6 +138,6 @@ public class Money implements Comparable {
 
     @Override
     public String toString() {
-        return ""+ amount.toPlainString();
+        return "" + amount.toPlainString();
     }
 }
