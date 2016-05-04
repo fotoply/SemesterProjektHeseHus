@@ -2,15 +2,19 @@ package webshop.model.Inventory;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import webshop.model.Money;
+import webshop.model.Webshop;
+import webshop.model.database.DatabaseConnector;
 
 /**
  * Created 5/4/16
  *
  * @author Niels Norberg
  */
-public class DatabaseProduct extends Product {
+public class PostgresDatabaseProduct extends Product {
 
-    public DatabaseProduct(String name, String description, String type, Money price, int productID, boolean currentlySelling) {
+    DatabaseConnector databaseConnector = Webshop.getDatabaseConnector();
+
+    public PostgresDatabaseProduct(String name, String description, String type, Money price, int productID, boolean currentlySelling) {
         super(name, description, type, price, productID, currentlySelling);
     }
 

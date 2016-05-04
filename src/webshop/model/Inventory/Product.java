@@ -11,12 +11,16 @@ import webshop.model.Money;
  * @author Karim
  */
 public class Product {
-    private String name;
-    private String description;
-    private String type;
-    private Money price;
-    private int productID;
-    private boolean currentlySelling;   
+    private String name = "NameNotSet";
+    private String description = "DescriptionNotSet";
+    private String type = "TypeNotSet";
+    private Money price = new Money();
+    private int productID = -1;
+    private boolean currentlySelling = false;
+
+    public Product() {
+
+    }
 
     public Product(String name, String description, String type, Money price, int productID, boolean currentlySelling) {
         this.name = name;
