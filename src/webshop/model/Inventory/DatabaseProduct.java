@@ -1,5 +1,6 @@
 package webshop.model.Inventory;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import webshop.model.Money;
 
 /**
@@ -15,6 +16,7 @@ public class DatabaseProduct extends Product {
 
     @Override
     public Money getPrice() {
-        return super.getPrice();
+        throw new NotImplementedException();
+        //TODO connect to the database and get the data from there.
     }
 }
