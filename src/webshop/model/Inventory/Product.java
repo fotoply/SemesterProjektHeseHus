@@ -7,9 +7,6 @@ package webshop.model.Inventory;
 
 import webshop.model.Money;
 
-/**
- * @author Karim
- */
 public class Product {
     private String name = "NameNotSet";
     private String description = "DescriptionNotSet";
