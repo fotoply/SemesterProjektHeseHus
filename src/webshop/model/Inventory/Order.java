@@ -3,13 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package webshop;
+package webshop.model.Inventory;
 
-import webshop.payments.Payment;
+import webshop.model.payments.Payment;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import webshop.model.Money;
 
 /**
  * @author Karim
@@ -56,14 +57,14 @@ public class Order {
     }
 
     public void addProduct(Product product, int amount) {
-        int amountContained = 0;
+        /*int amountContained = 0;
         for (Item item: productList) {
             if(item.getProduct().equals(product)) {
                 amountContained += item.getQuantity();
                 productList.remove(item);
             }
-        }
-        productList.add(new Item(product, amount+amountContained));
+        }*/
+        productList.add(new Item(product, amount));
 
     }
 

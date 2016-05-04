@@ -3,7 +3,7 @@ package webshop.view.fxml;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.layout.FlowPane;
-import webshop.Product;
+import webshop.model.Inventory.Product;
 
 import java.util.List;
 

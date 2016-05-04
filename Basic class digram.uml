@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="1067.5000000000002" y="0.0">webshop.model.Money</node>
+    <node x="193.0" y="1772.0">webshop.view.fxml.ShopAreaController</node>
+    <node x="24.532692307692514" y="2013.0">webshop.view.fxml.RootWindowController</node>
+    <node x="1244.8761599511597" y="1726.0">webshop.model.CustomerManager</node>
+    <node x="651.0000000000001" y="1737.0">webshop.view.fxml.ProductInformationScreenController</node>
+    <node x="1152.5535714285716" y="1231.0">webshop.model.Customer</node>
+    <node x="0.0" y="1772.0">webshop.view.fxml.SignupScreenController</node>
+    <node x="2068.081868131868" y="1001.0">webshop.model.payments.Payment.Status</node>
+    <node x="2155.081868131868" y="1001.0">webshop.model.payments.CreditCard</node>
+    <node x="1039.0818681318679" y="851.0">webshop.model.Inventory.Order</node>
+    <node x="736.6768009768007" y="380.0">webshop.model.Inventory.Product</node>
+    <node x="386.0" y="1783.5">webshop.view.fxml.LoginScreenController</node>
+    <node x="223.0326923076925" y="2577.0">webshop.view.GUIController</node>
+    <node x="1035.5000000000002" y="668.0">webshop.model.Inventory.Item</node>
+    <node x="1373.4493589743593" y="714.5">webshop.model.Inventory.Order.Status</node>
+    <node x="790.5000000000001" y="679.5">webshop.model.Inventory.ProductCatalog</node>
+    <node x="1964.6850732600735" y="703.0">webshop.model.payments.Payment</node>
+    <node x="1579.8761599511597" y="1806.5">webshop.model.Webshop.paymentType</node>
+    <node x="411.6261599511597" y="1380.5">webshop.view.fxml.ProductNode</node>
+    <node x="2159.581868131868" y="1438.5">webshop.model.payments.CreditCard.cardType</node>
+    <node x="1389.8761599511597" y="2531.0">webshop.view.WebshopCommandline</node>
+    <node x="1827.0818681318679" y="1001.0">webshop.model.payments.GiftCard</node>
+    <node x="1111.3761599511597" y="1967.0">webshop.model.Webshop</node>
+    <node x="1926.0818681318679" y="1001.0">webshop.model.payments.PaymentInStore</node>
+    <node x="1513.0818681318679" y="989.5">webshop.model.MemberShipCard</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="webshop.model.payments.GiftCard" target="webshop.model.payments.Payment">
+      <point x="0.0" y="-15.0" />
+      <point x="1866.5818681318679" y="821.0" />
+      <point x="2005.7850732600734" y="821.0" />
+      <point x="-27.40000000000009" y="26.5" />
+    </edge>
+    <edge source="webshop.view.fxml.RootWindowController" target="webshop.view.fxml.ShopAreaController">
+      <point x="0.0" y="-211.0" />
+      <point x="282.0326923076925" y="1947.0" />
+      <point x="279.5" y="1947.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="webshop.model.Customer" target="webshop.model.Inventory.Order">
+      <point x="-165.33333333333348" y="-222.5" />
+      <point x="1235.220238095238" y="1206.0" />
+      <point x="1152.5818681318679" y="1206.0" />
+      <point x="-113.5" y="165.0" />
+    </edge>
+    <edge source="webshop.model.payments.Payment.Status" target="webshop.model.payments.Payment">
+      <point x="0.0" y="-15.0" />
+      <point x="2101.581868131868" y="831.0" />
+      <point x="2060.5850732600734" y="831.0" />
+      <point x="27.399999999999864" y="26.5" />
+    </edge>
+    <edge source="webshop.view.WebshopCommandline" target="webshop.model.Webshop">
+      <point x="0.0" y="-118.5" />
+      <point x="145.5" y="257.0" />
+    </edge>
+    <edge source="webshop.view.GUIController" target="webshop.view.fxml.RootWindowController">
+      <point x="-59.0" y="-72.5" />
+      <point x="0.0" y="211.0" />
+    </edge>
+    <edge source="webshop.model.Inventory.Order" target="webshop.model.Inventory.Item">
+      <point x="-129.71428571428555" y="-165.0" />
+      <point x="1136.3675824175823" y="811.0" />
+      <point x="1217.0000000000002" y="811.0" />
+      <point x="60.5" y="61.5" />
+    </edge>
+    <edge source="webshop.view.fxml.ProductNode" target="webshop.model.Inventory.Product">
+      <point x="0.0" y="-73.0" />
+      <point x="514.1261599511597" y="648.0" />
+      <point x="779.4268009768007" y="648.0" />
+      <point x="-128.25" y="119.0" />
+    </edge>
+    <edge source="webshop.model.Webshop" target="webshop.model.Webshop.paymentType">
+      <point x="145.5" y="-257.0" />
+      <point x="1547.8761599511597" y="1947.0" />
+      <point x="1606.8761599511597" y="1947.0" />
+      <point x="-27.0" y="15.0" />
+    </edge>
+    <edge source="webshop.model.Inventory.ProductCatalog" target="webshop.model.Money">
+      <point x="-75.0" y="-50.0" />
+      <point x="828.0000000000001" y="638.0" />
+      <point x="726.1768009768007" y="638.0" />
+      <point x="726.1768009768007" y="350.0" />
+      <point x="1111.6000000000001" y="350.0" />
+      <point x="-176.4000000000001" y="165.0" />
+    </edge>
+    <edge source="webshop.view.fxml.ProductInformationScreenController" target="webshop.view.fxml.ProductNode">
+      <point x="0.0" y="-84.5" />
+      <point x="769.0000000000001" y="1701.0" />
+      <point x="565.3761599511597" y="1701.0" />
+      <point x="51.25" y="73.0" />
+    </edge>
+    <edge source="webshop.model.payments.PaymentInStore" target="webshop.model.payments.Payment">
+      <point x="0.0" y="-15.0" />
+      <point x="1987.0818681318679" y="831.0" />
+      <point x="2033.1850732600735" y="831.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="webshop.view.fxml.RootWindowController" target="webshop.view.fxml.LoginScreenController">
+      <point x="171.66666666666663" y="-211.0" />
+      <point x="453.69935897435914" y="1947.0" />
+      <point x="508.5" y="1947.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="webshop.model.payments.CreditCard" target="webshop.model.payments.Payment">
+      <point x="0.0" y="-15.0" />
+      <point x="2201.581868131868" y="821.0" />
+      <point x="2087.9850732600735" y="821.0" />
+      <point x="54.799999999999955" y="26.5" />
+    </edge>
+    <edge source="webshop.model.Webshop" target="webshop.model.CustomerManager">
+      <point x="-48.5" y="-257.0" />
+      <point x="1353.8761599511597" y="1947.0" />
+      <point x="1323.6261599511597" y="1947.0" />
+      <point x="-78.75" y="95.5" />
+    </edge>
+    <edge source="webshop.view.fxml.RootWindowController" target="webshop.view.fxml.SignupScreenController">
+      <point x="-171.66666666666663" y="-211.0" />
+      <point x="110.366025641026" y="1947.0" />
+      <point x="86.5" y="1947.0" />
+      <point x="0.0" y="49.5" />
+    </edge>
+    <edge source="webshop.model.payments.Payment" target="webshop.model.Money">
+      <point x="-2.2737367544323206E-13" y="-26.5" />
+      <point x="2033.1850732600733" y="360.0" />
+      <point x="1464.4" y="360.0" />
+      <point x="176.39999999999984" y="165.0" />
+    </edge>
+    <edge source="webshop.model.Inventory.Item" target="webshop.model.Inventory.Product">
+      <point x="0.0" y="-61.5" />
+      <point x="1156.5000000000002" y="648.0" />
+      <point x="1035.9268009768007" y="648.0" />
+      <point x="128.25" y="119.0" />
+    </edge>
+    <edge source="webshop.model.Inventory.Order.Status" target="webshop.model.Inventory.Order">
+      <point x="16.75" y="15.0" />
+      <point x="1423.6993589743593" y="831.0" />
+      <point x="1395.7961538461536" y="831.0" />
+      <point x="129.71428571428578" y="-165.0" />
+    </edge>
+    <edge source="webshop.model.Inventory.Product" target="webshop.model.Money">
+      <point x="0.0" y="-119.0" />
+      <point x="907.6768009768007" y="360.0" />
+      <point x="1199.8000000000002" y="360.0" />
+      <point x="-88.20000000000005" y="165.0" />
+    </edge>
+    <edge source="webshop.view.fxml.ShopAreaController" target="webshop.view.fxml.ProductNode">
+      <point x="0.0" y="-49.5" />
+      <point x="279.5" y="1701.0" />
+      <point x="462.8761599511597" y="1701.0" />
+      <point x="-51.25" y="73.0" />
+    </edge>
+    <edge source="webshop.model.Inventory.Order" target="webshop.model.Money">
+      <point x="0.0" y="-165.0" />
+      <point x="1266.0818681318679" y="831.0" />
+      <point x="1299.0000000000002" y="831.0" />
+      <point x="1299.0000000000002" y="360.0" />
+      <point x="1376.2000000000003" y="360.0" />
+      <point x="88.20000000000005" y="165.0" />
+    </edge>
+    <edge source="webshop.model.Inventory.ProductCatalog" target="webshop.model.Inventory.Product">
+      <point x="75.0" y="-50.0" />
+      <point x="978.0000000000001" y="648.0" />
+      <point x="950.4268009768007" y="648.0" />
+      <point x="42.75" y="119.0" />
+    </edge>
+    <edge source="webshop.model.Webshop.paymentType" target="webshop.model.Webshop">
+      <point x="27.0" y="15.0" />
+      <point x="1660.8761599511597" y="1947.0" />
+      <point x="1644.8761599511597" y="1947.0" />
+      <point x="242.5" y="-257.0" />
+    </edge>
+    <edge source="webshop.model.Webshop" target="webshop.model.Inventory.ProductCatalog">
+      <point x="-145.5" y="-257.0" />
+      <point x="1256.8761599511597" y="1937.0" />
+      <point x="908.5000000000001" y="1937.0" />
+      <point x="908.5000000000001" y="831.0" />
+      <point x="959.2500000000001" y="831.0" />
+      <point x="56.25" y="50.0" />
+    </edge>
+    <edge source="webshop.view.GUIController" target="webshop.model.Webshop">
+      <point x="59.0" y="-72.5" />
+      <point x="400.0326923076925" y="2506.0" />
+      <point x="1256.8761599511597" y="2506.0" />
+      <point x="-145.5" y="257.0" />
+    </edge>
+    <edge source="webshop.model.Inventory.Order" target="webshop.model.Inventory.Order.Status">
+      <point x="64.85714285714289" y="-165.0" />
+      <point x="1330.9390109890107" y="831.0" />
+      <point x="1390.1993589743593" y="831.0" />
+      <point x="-16.75" y="15.0" />
+    </edge>
+    <edge source="webshop.model.Inventory.Order" target="webshop.model.payments.Payment">
+      <point x="194.57142857142867" y="-165.0" />
+      <point x="1460.6532967032965" y="811.0" />
+      <point x="1978.3850732600736" y="811.0" />
+      <point x="-54.799999999999955" y="26.5" />
+    </edge>
+    <edge source="webshop.model.Customer" target="webshop.model.MemberShipCard">
+      <point x="165.33333333333326" y="-222.5" />
+      <point x="1565.8869047619048" y="1206.0" />
+      <point x="1660.0818681318679" y="1206.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="webshop.model.CustomerManager" target="webshop.model.Customer">
+      <point x="78.75" y="-95.5" />
+      <point x="1481.1261599511597" y="1701.0" />
+      <point x="1524.5535714285716" y="1701.0" />
+      <point x="124.0" y="222.5" />
+    </edge>
+    <edge source="webshop.model.payments.CreditCard.cardType" target="webshop.model.payments.CreditCard">
+      <point x="0.0" y="-15.0" />
+      <point x="0.0" y="15.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.203012912482066" x="1124.5" y="1384.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Properties</Category>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

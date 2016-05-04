@@ -5,7 +5,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
-import webshop.Product;
+import webshop.model.Inventory.Product;
 import webshop.view.GUIController;
 
 public class ProductNode extends AnchorPane {

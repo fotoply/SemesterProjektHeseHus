@@ -14,6 +14,8 @@ public class RootWindowController {
 
     private boolean searchShown = false;
     private ShopAreaController shopAreaController;
+    private SignupScreenController signupScreen;
+    private LoginScreenController loginScreen;
 
     @FXML
     private Button loginButton;
@@ -53,6 +55,9 @@ public class RootWindowController {
         } else {
             showSearchOptions();
         }
+        
+        showShopArea();
+        
     }
 
     @FXML
@@ -130,7 +135,7 @@ public class RootWindowController {
         loginButton.setText("Profile");
     }
 
-    public void addToBasket(ProductNode node) {
+    public synchronized void addToBasket(ProductNode node) {
         //TODO Fix concurrentModificationException issue.
         //synchronised keyword does not fix it.. For some odd reason
         addToBasket(node, 1);

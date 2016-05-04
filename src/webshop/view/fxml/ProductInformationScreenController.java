@@ -42,6 +42,9 @@ public class ProductInformationScreenController {
     }
 
     private boolean isTextfieldValidAmount() {
+        if(quantityTextField.getText().isEmpty()) {
+            return true;
+        }
         try {
             Integer.parseInt(quantityTextField.getText());
         } catch (NumberFormatException e) {
