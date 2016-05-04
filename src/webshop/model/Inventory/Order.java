@@ -28,6 +28,43 @@ public class Order {
     private List<Item> productList;
     private Money currentlyPaid;
     private List<Payment> paymentMethods;
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Money getTax() {
+        return tax;
+    }
+
+    public void setTax(Money tax) {
+        this.tax = tax;
+    }
+
+    public void setShippingCharges(Money shippingCharges) {
+        this.shippingCharges = shippingCharges;
+    }
+
+    public void setFinalPrice(Money finalPrice) {
+        this.finalPrice = finalPrice;
+    }
+
+    public int getCustomerID() {
+        return customerID;
+    }
+
+    public List<Item> getProductList() {
+        return productList;
+    }
+
+    public void setProductList(List<Item> productList) {
+        this.productList = productList;
+    }
+
     private Status status = Status.IN_BASKET;
 
     public Order(int orderId) {
