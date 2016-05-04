@@ -1,8 +1,8 @@
 package webshop.model;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import webshop.model.Inventory.Order;
 import webshop.model.Inventory.Product;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
@@ -23,6 +23,15 @@ public class Customer {
     private String address;
     private String email;
     private byte[] password;
+
+    public void setPassword(byte[] password) {
+        this.password = password;
+    }
+
+    public void setSalt(byte[] salt) {
+        this.salt = salt;
+    }
+
     private int phoneNumber;
     private Date birthday;
     private String name;
