@@ -1,10 +1,11 @@
 package webshop.model.database;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public interface DatabaseConnector {
-    ResultSet executeQueryStatement(String sqlQuery);
-    void executeUpdateStatement(String sqlQuery);
-    boolean excuteStatement(String sqlQuery);
+    ResultSet executeQueryStatement(String sqlQuery) throws SQLException;
+    void executeUpdateStatement(String sqlQuery) throws SQLException;
+    boolean executeStatement(String sqlQuery) throws SQLException;
 
 }
