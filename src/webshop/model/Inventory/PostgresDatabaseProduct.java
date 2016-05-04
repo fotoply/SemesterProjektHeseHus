@@ -1,9 +1,11 @@
 package webshop.model.Inventory;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import webshop.model.Money;
-import webshop.model.Webshop;
 import webshop.model.database.DatabaseConnector;
+import webshop.model.database.PostgresConnectionDriver;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * Created 5/4/16
@@ -12,15 +14,18 @@ import webshop.model.database.DatabaseConnector;
  */
 public class PostgresDatabaseProduct extends Product {
 
-    DatabaseConnector databaseConnector = Webshop.getDatabaseConnector();
+    DatabaseConnector databaseConnector;
 
-    public PostgresDatabaseProduct(String name, String description, String type, Money price, int productID, boolean currentlySelling) {
-        super(name, description, type, price, productID, currentlySelling);
-    }
-
-    @Override
-    public Money getPrice() {
-        throw new NotImplementedException();
-        //TODO connect to the database and get the data from there.
+    public PostgresDatabaseProduct(PostgresConnectionDriver connector, int productId) throws SQLException {
+        super(productId);
+        databaseConnector = connector;
+        ResultSet rs = databaseConnector.executeQueryStatement("SELECT * FROM product WHERE productId=" + getProductID());
+        if (rs.next()) {
+            setName(rs.getString("name"));
+            setDescription(rs.getString("description"));
+            setPrice(new Money(rs.getString("price")));
+            setType(rs.getString("type"));
+            setCurrentlySelling(rs.getBoolean("currentlySelling"));
+        }
     }
 }

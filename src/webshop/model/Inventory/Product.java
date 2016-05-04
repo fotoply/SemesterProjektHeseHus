@@ -18,8 +18,12 @@ public class Product {
     private int productID = -1;
     private boolean currentlySelling = false;
 
-    public Product() {
+    public Product(int productID) {
+        this.productID = productID;
+    }
 
+    public void setCurrentlySelling(boolean currentlySelling) {
+        this.currentlySelling = currentlySelling;
     }
 
     public Product(String name, String description, String type, Money price, int productID, boolean currentlySelling) {
