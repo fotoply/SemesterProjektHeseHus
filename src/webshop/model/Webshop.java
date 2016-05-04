@@ -100,6 +100,10 @@ public class Webshop {
         return "Basket was checked out";
     }
 
+    public Product searchProduct (String searchTerms) {
+        return productCatalog.searchProduct(searchTerms);
+    }
+
     public void cancelOrder() {
         customerManager.getCustomer(currentCustomerID).cancelOrder();
     }
@@ -141,5 +145,5 @@ public class Webshop {
         return productCatalog.getProductList();
     }
 
-    public enum paymentType {IN_SHOP, CREDIT_CARD};
+    public enum paymentType {IN_SHOP, CREDIT_CARD}
 }

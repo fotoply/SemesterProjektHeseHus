@@ -62,4 +62,13 @@ public class ProductCatalog {
     }
 
 
+    public Product searchProduct(String searchTerms) {
+        for (Product product : productList) {
+            if (searchTerms.equals(product.getName())) {
+                return product;
+            }
+        }
+
+        return null;
+    }
 }
