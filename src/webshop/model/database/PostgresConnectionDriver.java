@@ -8,7 +8,6 @@ import java.sql.*;
  * @author Niels Norberg
  */
 public class PostgresConnectionDriver implements DatabaseConnector {
-    private static PostgresConnectionDriver instance;
     private String username = "postgres";
     private String password = "123";
     private String url = "jdbc:postgresql://localhost:5432/testdb";
