@@ -58,8 +58,7 @@ public class ProductCatalog {
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < productList.size(); i++) {
-            sb.append("ID: " + productList.get(i).getID());
-            sb.append(" " + productList.get(i).getName());
+            sb.append("ID: ").append(productList.get(i).getID()).append(" ").append(productList.get(i).getName());
             sb.append("\n");
         }
 
