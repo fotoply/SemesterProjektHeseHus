@@ -21,7 +21,6 @@ public class ProductCatalog {
         productList = new ArrayList<>();
 
         addTestProducts();
-
     }
 
     private void addTestProducts() {
@@ -39,12 +38,10 @@ public class ProductCatalog {
     }
 
     public Product findProduct(int itemID) {
-
         for (Product product : productList) {
             if (itemID == product.getProductID()) {
                 return product;
             }
-
         }
         return null;
     }
@@ -54,7 +51,6 @@ public class ProductCatalog {
     }
 
     public String getAllProducts() {
-
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < productList.size(); i++) {
