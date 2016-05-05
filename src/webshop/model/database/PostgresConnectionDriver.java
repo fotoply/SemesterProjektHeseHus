@@ -40,14 +40,14 @@ public class PostgresConnectionDriver implements DatabaseConnector {
     }
 
     @Override
-    public ResultSet executeQueryStatement(String sqlQuery) throws SQLException {
+    public ResultSet executeQuery(String sqlQuery) throws SQLException {
         Statement statement = connection.createStatement();
         statement.closeOnCompletion();
         return statement.executeQuery(sqlQuery);
     }
 
     @Override
-    public void executeUpdateStatement(String sqlQuery) throws SQLException {
+    public void executeUpdate(String sqlQuery) throws SQLException {
         Statement statement = connection.createStatement();
         statement.executeUpdate(sqlQuery);
         statement.close();

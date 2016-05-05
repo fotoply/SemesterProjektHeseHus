@@ -20,7 +20,7 @@ public class PostgresDatabaseProduct extends Product {
     public PostgresDatabaseProduct(PostgresConnectionDriver connector, int productId) throws SQLException {
         super(productId);
         databaseConnector = connector;
-        ResultSet rs = databaseConnector.executeQueryStatement("SELECT * FROM product WHERE productId=" + getProductID());
+        ResultSet rs = databaseConnector.executeQuery("SELECT * FROM product WHERE productId=" + getProductID());
         if (rs.next()) {
             setName(rs.getString("name"));
             setDescription(rs.getString("description"));
