@@ -1,5 +1,6 @@
 package webshop.model.Inventory;
 
+import webshop.model.Money;
 import webshop.model.database.DatabaseConnector;
 import webshop.model.database.PostgresConnectionDriver;
 
@@ -21,8 +22,15 @@ public class PostgresDatabaseOrder extends Order {
         ResultSet rs = driver.executeQueryStatement("SELECT * FROM order WHERE orderId=" + orderId);
         if (rs.next()) {
             if (!rs.getString("tax").isEmpty()) {
-
+                setTax(new Money(rs.getString("tax")));
+                setFinalPrice(new Money(rs.getString("finalprice")));
+                setShippingCharges(new Money(rs.getString("shippingcharges")));
+                setStatus(Status.CLOSED);
             }
+            setCustomerID(rs.getInt("customerid"));
+            setShippingAddress(rs.getString("shippingaddress"));
+            setDate(rs.getDate("date"));
+            //TODO Implement productlist loading
         } else {
             throw new SQLDataException("Order not found");
         }
