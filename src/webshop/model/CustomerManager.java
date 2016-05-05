@@ -30,8 +30,8 @@ public class CustomerManager {
 
     public Customer createCustomer(String name, String address, int phoneNumber, String email, String password, Date dayOfBirth) {
         Collection<Integer> keys = customerMap.keySet();
-        for (Object key : keys) {
-            if (email == customerMap.get(key).getEmail()) {
+        for (Integer key : keys) {
+            if (email.equalsIgnoreCase(customerMap.get(key).getEmail())) {
                 throw new IllegalArgumentException("This E-Mail is already used");
             }
         }
