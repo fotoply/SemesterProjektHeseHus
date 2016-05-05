@@ -20,6 +20,11 @@ public class ProductCatalog {
     public ProductCatalog() {
         productList = new ArrayList<>();
 
+        addTestProducts();
+
+    }
+
+    private void addTestProducts() {
         productList.add(new Product("Baseball T-Shirt", "Simple and fresh  new Zine 2nd Inning white baseball t-shirt.",
                 "T-Shirt", new Money("599.95"), 0, false));
 
@@ -31,7 +36,6 @@ public class ProductCatalog {
 
         productList.add(new Product("Denim Jacket", "Stylish black denim body with an integrated black zip up hoodie and soft fleece lined black knit sleeves.",
                 "Jackets", new Money("1499.95"), 3, true));
-
     }
 
     public Product findProduct(int itemID) {
