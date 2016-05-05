@@ -100,7 +100,7 @@ public class Webshop {
         return "Basket was checked out";
     }
 
-    public Product searchProduct(String searchTerms) {
+    public List<Product> searchProduct(String searchTerms) {
         return productCatalog.searchProduct(searchTerms);
     }
 
