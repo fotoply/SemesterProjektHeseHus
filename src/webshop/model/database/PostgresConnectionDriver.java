@@ -30,10 +30,13 @@ public class PostgresConnectionDriver implements DatabaseConnector {
     }
 
     private void readInfofile() {
-        try {
-            Scanner scanner = new Scanner(new File(defaultInfoFile));
+        try (Scanner scanner = new Scanner(new File(defaultInfoFile))){
+            String[] input = scanner.nextLine().split(";");
+            username = input[0];
+            password = input[1];
+            url = input[2];
         } catch (FileNotFoundException e) {
-            System.out.println("Info file not found, using defaults");
+            System.out.println("An error was encountered, file not found, using defaults");
             username = defaultUsername;
             password = defaultPassword;
             url = defaultUrl;
