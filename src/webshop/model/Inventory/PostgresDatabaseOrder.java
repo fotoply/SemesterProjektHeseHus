@@ -19,7 +19,7 @@ public class PostgresDatabaseOrder extends Order {
     public PostgresDatabaseOrder(PostgresConnectionDriver driver, int orderId) throws SQLException {
         super(orderId);
         this.connector = driver;
-        ResultSet rs = driver.executeQuery("SELECT * FROM order WHERE orderId=" + orderId);
+        ResultSet rs = driver.executeQuery("SELECT * FROM orderinfo WHERE orderId=" + orderId);
         if (rs.next()) {
             if (!rs.getString("tax").isEmpty()) {
                 setTax(new Money(rs.getString("tax")));
@@ -30,7 +30,10 @@ public class PostgresDatabaseOrder extends Order {
             setCustomerID(rs.getInt("customerid"));
             setShippingAddress(rs.getString("shippingaddress"));
             setDate(rs.getDate("date"));
-            //TODO Implement productlist loading
+            ResultSet rs2 = driver.executeQuery("SELECT * FROM productorderlink where orderid=" + orderId);
+            while(rs2.next()) {
+                addProduct(new PostgresDatabaseProduct(driver, rs2.getInt("productid")), rs2.getInt("quantity"));
+            }
         } else {
             throw new SQLDataException("Order not found");
         }
