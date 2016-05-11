@@ -34,6 +34,10 @@ public class Customer {
 
     }
 
+    public byte[] getSalt() {
+        return salt;
+    }
+
     /**
      * A constructor to the class Customer is used to create a new customer.
      * There is no control of the parameters in the constructor, it has to be checked before
