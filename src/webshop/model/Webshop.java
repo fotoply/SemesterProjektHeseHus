@@ -19,7 +19,6 @@ import java.util.List;
  */
 public class Webshop {
     private static Webshop instance;
-    private static DatabaseConnector databaseConnector = new PostgresConnectionDriver();
     private int currentCustomerID = -1;
     private CustomerManager customerManager;
     private ProductCatalog productCatalog = new ProductCatalog();
@@ -32,13 +31,8 @@ public class Webshop {
     public static Webshop getInstance() {
         if (instance == null) {
             instance = new Webshop();
-            databaseConnector.getConnection();
         }
         return instance;
-    }
-
-    public static DatabaseConnector getDatabaseConnector() {
-        return databaseConnector;
     }
 
     public void setCurrentCustomerID(int currentCustomerID) {
