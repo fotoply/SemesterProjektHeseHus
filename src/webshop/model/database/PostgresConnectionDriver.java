@@ -18,6 +18,7 @@ public class PostgresConnectionDriver implements DatabaseConnector {
     private Connection connection;
 
     public void connect() {
+        readInfofile();
         try {
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(url, username, password);
