@@ -17,27 +17,6 @@ public class PostgresDatabaseCustomer extends Customer {
         this.connectionDriver = (PostgresConnectionDriver) connector;
     }
 
-    public PostgresDatabaseCustomer(DatabaseConnector connector, int customerId) {
-        this(connector);
-        try {
-            ResultSet rs = connectionDriver.executeQuery("SELECT * FROM customer WHERE customerid=" + customerId);
-            if(rs.next()) {
-                setName(rs.getString("name"));
-                setAddress(rs.getString("address"));
-                setBirthday(rs.getDate("birthday"));
-                setCurrentOrder(new PostgresDatabaseOrder(connectionDriver, rs.getInt("currentorderid")));
-                setEmail(rs.getString("email"));
-                setPassword(Customer.fromBase64(rs.getString("password")));
-                setSalt(Customer.fromBase64(rs.getString("passwordsalt")));
-                setPhoneNumber(rs.getInt("phonenumber"));
-            } else {
-                throw new IllegalArgumentException("Customer does not exist");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
     public PostgresDatabaseCustomer(String name, String address, String email, String password, Date dayOfBirth, int phoneNumber, PostgresConnectionDriver connectionDriver) {
         super(name, address, email, password, dayOfBirth, phoneNumber);
         this.connectionDriver = connectionDriver;
