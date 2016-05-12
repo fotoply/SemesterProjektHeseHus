@@ -1,5 +1,7 @@
 package webshop.model.database;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 public class DatabaseFacade {
 
     private static DatabaseConnector databaseConnector = new PostgresConnectionDriver();
@@ -13,5 +15,13 @@ public class DatabaseFacade {
             instance = new DatabaseFacade();
         }
         return instance;
+    }
+
+    public String getCustomerName(int customerId) {
+        throw new NotImplementedException();
+    }
+
+    public int getCustomerIdFromEmail(String email) {
+        throw new NotImplementedException();
     }
 }
