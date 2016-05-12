@@ -2,6 +2,8 @@ package webshop.model.database;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.sql.ResultSet;
+
 public class DatabaseFacade {
 
     private static DatabaseConnector databaseConnector = new PostgresConnectionDriver();
@@ -18,7 +20,15 @@ public class DatabaseFacade {
         return instance;
     }
 
-    public String getCustomerName(int customerId) {
+    public ResultSet getCustomer(int customerId) {
+        throw new NotImplementedException();
+    }
+
+    public ResultSet getProduct(int productId) {
+        throw new NotImplementedException();
+    }
+
+    public ResultSet getOrder(int orderId) {
         throw new NotImplementedException();
     }
 
