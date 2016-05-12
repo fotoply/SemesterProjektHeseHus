@@ -32,6 +32,7 @@ public class Webshop {
     public static Webshop getInstance() {
         if (instance == null) {
             instance = new Webshop();
+            databaseConnector.getConnection();
         }
         return instance;
     }

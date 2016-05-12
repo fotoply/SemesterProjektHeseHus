@@ -44,6 +44,7 @@ public class PostgresConnectionDriver implements DatabaseConnector {
         }
     }
 
+    @Override
     public Connection getConnection() {
         if (connection == null) {
             connect();
