@@ -8,6 +8,7 @@ public class DatabaseFacade {
     private static DatabaseFacade instance;
 
     private DatabaseFacade() {
+        databaseConnector.getConnection();
     }
 
     public static DatabaseFacade getInstance() {
