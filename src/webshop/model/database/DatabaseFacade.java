@@ -3,6 +3,7 @@ package webshop.model.database;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class DatabaseFacade {
 
@@ -21,7 +22,12 @@ public class DatabaseFacade {
     }
 
     public ResultSet getCustomer(int customerId) {
-        throw new NotImplementedException();
+        try {
+            return databaseConnector.executeQuery("SELECT * FROM customer WHERE customerid=" + customerId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        throw new RuntimeException("Something went wrong in executing SQL statement.");
     }
 
     public ResultSet getProduct(int productId) {

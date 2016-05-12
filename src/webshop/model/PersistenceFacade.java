@@ -1,5 +1,7 @@
 package webshop.model;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+
 /**
  * Handles transferring to and from persistent data.
  */
@@ -18,6 +20,6 @@ public class PersistenceFacade {
     }
 
     public Customer getFromId(int customerId) {
-
+        throw new NotImplementedException();
     }
 }
