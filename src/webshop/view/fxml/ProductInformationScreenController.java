@@ -42,7 +42,7 @@ public class ProductInformationScreenController {
     }
 
     private boolean isTextfieldValidAmount() {
-        if(quantityTextField.getText().isEmpty()) {
+        if (quantityTextField.getText().isEmpty()) {
             return true;
         }
         try {

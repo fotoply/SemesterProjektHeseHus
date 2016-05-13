@@ -15,6 +15,7 @@ public class CustomerManager {
     private static final int PHONENUMBER_LENGTH = 8;
     private static int customerID = 0;
     private Map<Integer, Customer> customerMap;
+    private PersistenceFacade persistenceFacade = new PersistenceFacade;
 
     public CustomerManager() {
         customerMap = new HashMap<>();
@@ -35,6 +36,11 @@ public class CustomerManager {
                 throw new IllegalArgumentException("This E-Mail is already used");
             }
         }
+
+        if (persistenceFacade.confirmEmail(email)) {
+            throw new IllegalArgumentException("This E-Mail is already used");
+        }
+
         String number = "" + phoneNumber;
         if (number.length() != PHONENUMBER_LENGTH) {
             throw new IllegalArgumentException("Phone Number does not exist");

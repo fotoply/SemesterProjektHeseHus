@@ -15,16 +15,17 @@ import java.util.List;
 
 public class GUIController extends Application {
 
+    private static RootWindowController rootInstance;
+    private static Webshop webshopInstance;
+
     public static void main(String[] args) {
         launch(args);
     }
 
-    private static RootWindowController rootInstance;
-    private static Webshop webshopInstance;
-
     public static RootWindowController getRootInstance() {
         return rootInstance;
     }
+
     public static Webshop getWebshopInstance() {
         return webshopInstance;
     }
@@ -43,6 +44,6 @@ public class GUIController extends Application {
         primaryStage.initStyle(StageStyle.UNIFIED);
         primaryStage.setScene(scene);
         primaryStage.show();
-       webshopInstance.createCustomer("testnavn","testvej", "test", "test", new Date(), 12345678);
+        webshopInstance.createCustomer("testnavn", "testvej", "test", "test", new Date(), 12345678);
     }
 }
