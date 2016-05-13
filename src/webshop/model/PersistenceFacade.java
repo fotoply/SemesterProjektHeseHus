@@ -47,8 +47,9 @@ public class PersistenceFacade {
         }
         return newCustomer;
     }
-    public void saveCustomer(Customer customer) {
-        database.saveCustomer(customer);
+    public void saveCustomer(Customer c) {
+        database.saveCustomer(c.getName(), c.getAddress(), c.getEmail(), Customer.toBase64(c.getPassword()), c.getBirthday(), c.getPhoneNumber(), Customer.toBase64(c.getSalt()), -1);
+        //TODO Implement a getter for getting the orderId so that it can be saved.
     }
 
     public Order loadOrderFromId(int orderId) {
