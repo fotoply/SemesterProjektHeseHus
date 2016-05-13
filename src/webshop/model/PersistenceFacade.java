@@ -58,6 +58,22 @@ public class PersistenceFacade {
     }
 
     public Product loadProductFromId(int productId) {
-        throw new NotImplementedException();
+        ResultSet rs = database.getProduct(productId);
+        Product newProduct = null;
+
+        try {
+            if(rs.next()) {
+                newProduct = new Product(rs.getString("name"), rs.getString("description"), rs.getString("type"), new Money(rs.getString("price")), productId, rs.getBoolean("currentlyselling"));
+            } else {
+                throw new IllegalArgumentException("Product does not exist");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        if (newProduct == null) {
+            throw new RuntimeException("Something went wrong in initializing a product from database");
+        }
+        return newProduct;
     }
 }
