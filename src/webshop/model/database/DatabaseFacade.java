@@ -37,6 +37,7 @@ public class DatabaseFacade {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        throw new RuntimeException("Something went wrong in executing SQL statement.");
     }
 
     public ResultSet getOrder(int orderId) {
@@ -45,6 +46,7 @@ public class DatabaseFacade {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        throw new RuntimeException("Something went wrong in executing SQL statement.");
     }
 
     public int getCustomerIdFromEmail(String email) {
