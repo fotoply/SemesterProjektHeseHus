@@ -1,5 +1,8 @@
 package webshop.model;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import webshop.model.Inventory.Order;
+import webshop.model.Inventory.Product;
 import webshop.model.database.DatabaseFacade;
 
 import java.sql.ResultSet;
@@ -23,7 +26,7 @@ public class PersistenceFacade {
         return instance;
     }
 
-    public Customer loadFromId(int customerId) {
+    public Customer loadCustomerFromId(int customerId) {
         ResultSet rs = database.getCustomer(customerId);
         Customer newCustomer = null;
         try {
@@ -43,5 +46,13 @@ public class PersistenceFacade {
             throw new RuntimeException("Something went wrong in initializing a customer from database");
         }
         return newCustomer;
+    }
+
+    public Order loadOrderFromId(int orderId) {
+        throw new NotImplementedException();
+    }
+
+    public Product loadProductFromId(int productId) {
+        throw new NotImplementedException();
     }
 }
