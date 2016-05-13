@@ -19,7 +19,7 @@ public class PostgresDatabaseOrder extends Order {
     public PostgresDatabaseOrder(PostgresConnectionDriver driver, int orderId) throws SQLException {
         super(orderId);
         this.connector = driver;
-        ResultSet rs = driver.executeQuery("SELECT * FROM orderinfo WHERE orderId=" + orderId);
+
         if (rs.next()) {
             if (!rs.getString("tax").isEmpty()) {
                 setTax(new Money(rs.getString("tax")));

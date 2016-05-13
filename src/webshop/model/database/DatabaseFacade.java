@@ -40,7 +40,11 @@ public class DatabaseFacade {
     }
 
     public ResultSet getOrder(int orderId) {
-        throw new NotImplementedException();
+        try {
+            return databaseConnector.executeQuery("SELECT * FROM orderinfo WHERE orderId=" + orderId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public int getCustomerIdFromEmail(String email) {
