@@ -16,7 +16,7 @@ public class DatabaseFacade {
     }
 
     public static DatabaseFacade getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new DatabaseFacade();
         }
         return instance;

@@ -32,7 +32,7 @@ public class WebshopCommandline {
     public static void main(String[] args) throws ParseException {
         // Test code for products
         WebshopCommandline controller = new WebshopCommandline();
-        controller.webshop.createCustomer("Bob","Vester bobvej", "test", "1", new Date(), 10203040);
+        controller.webshop.createCustomer("Bob", "Vester bobvej", "test", "1", new Date(), 10203040);
 
         while (true) {
             System.out.println("**testbruger: navn: test kode: 1** \n"
@@ -60,7 +60,7 @@ public class WebshopCommandline {
                     break;
 
                 case 4:
-                    if(!controller.checkoutCustomer(input)) {
+                    if (!controller.checkoutCustomer(input)) {
                         controller.cancelOrder();
                     }
                     break;
@@ -81,7 +81,7 @@ public class WebshopCommandline {
     private boolean checkoutCustomer(Scanner input) {
         input.nextLine();
         webshop.checkoutBasket();
-        
+
         try {
             if (webshop.getCustomer() == null || webshop.getCurrentOrder() == null) {
                 System.out.println("You cannot checkout without an account or basket");
@@ -97,22 +97,22 @@ public class WebshopCommandline {
 
         System.out.println("Do you wish to apply a giftcard? (Y/N)");
         String nextString = input.nextLine();
-        if(nextString.equalsIgnoreCase("cancel")) return false;
-        if(nextString.toLowerCase().equals("y")) {
+        if (nextString.equalsIgnoreCase("cancel")) return false;
+        if (nextString.toLowerCase().equals("y")) {
             System.out.println("Please enter giftcard ID");
             int giftcardId = input.nextInt();
             webshop.applyGiftCard(giftcardId);
             System.out.println("Giftcard was applied");
         }
 
-        if(!webshop.isOrderPaidFor()) {
+        if (!webshop.isOrderPaidFor()) {
             int choice = 0;
             System.out.println("How do you wish to pay? 0 for by credit card and 1 for in-shop:");
             choice = input.nextInt();
 
-            if(choice == 0) {
+            if (choice == 0) {
                 webshop.setPayingBy(Webshop.paymentType.CREDIT_CARD);
-            } else if(choice == 1) {
+            } else if (choice == 1) {
                 webshop.setPayingBy(Webshop.paymentType.IN_SHOP);
             } else {
                 System.out.println("Invalid choice, credit card was substituted");
@@ -128,7 +128,7 @@ public class WebshopCommandline {
 
         System.out.println("Your address is: " + webshop.getCurrentOrder().getShippingAddress());
 
-        
+
         input.nextLine();
         return true;
     }
@@ -185,7 +185,7 @@ public class WebshopCommandline {
     }
 
     private void addToOrder(int id) {
-        if(webshop.getCurrentOrder() == null) {
+        if (webshop.getCurrentOrder() == null) {
             webshop.createNewOrder();
         }
 

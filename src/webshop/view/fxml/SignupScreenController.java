@@ -39,11 +39,13 @@ public class SignupScreenController {
 
     @FXML
     void initialize() {
-        phoneField.textProperty().addListener((observable, oldValue, newValue) -> {correctPhoneNumber(newValue,oldValue);});
+        phoneField.textProperty().addListener((observable, oldValue, newValue) -> {
+            correctPhoneNumber(newValue, oldValue);
+        });
     }
 
     private void correctPhoneNumber(String newValue, String oldValue) {
-        if(newValue.isEmpty()) {
+        if (newValue.isEmpty()) {
             phoneField.setText(newValue);
         } else {
             try {

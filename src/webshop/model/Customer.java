@@ -34,26 +34,6 @@ public class Customer {
 
     }
 
-    public byte[] getSalt() {
-        return salt;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public int getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public String getName() {
-        return name;
-    }
-
     /**
      * A constructor to the class Customer is used to create a new customer.
      * There is no control of the parameters in the constructor, it has to be checked before
@@ -98,12 +78,48 @@ public class Customer {
         return DatatypeConverter.printBase64Binary(array);
     }
 
-    public void setPassword(byte[] password) {
-        this.password = password;
+    public byte[] getSalt() {
+        return salt;
     }
 
     public void setSalt(byte[] salt) {
         this.salt = salt;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPassword(byte[] password) {
+        this.password = password;
     }
 
     public byte[] getPassword() {
@@ -166,22 +182,6 @@ public class Customer {
      */
     public void addProduct(Product product, int amount) {
         this.currentOrder.addProduct(product, amount);
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public void setPhoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     //TODO implement constant-time comparison to avoid timing attacks

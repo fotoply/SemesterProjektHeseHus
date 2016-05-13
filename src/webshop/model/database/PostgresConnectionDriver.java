@@ -6,11 +6,10 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class PostgresConnectionDriver implements DatabaseConnector {
-    private String defaultInfoFile = "logininfo.txt";
     private final String defaultUsername = "postgres";
     private final String defaultPassword = "123";
     private final String defaultUrl = "jdbc:postgresql://localhost:5432/hesehus";
-
+    private String defaultInfoFile = "logininfo.txt";
     private String username;
     private String password;
     private String url;
@@ -31,7 +30,7 @@ public class PostgresConnectionDriver implements DatabaseConnector {
     }
 
     private void readInfofile() {
-        try (Scanner scanner = new Scanner(new File(defaultInfoFile))){
+        try (Scanner scanner = new Scanner(new File(defaultInfoFile))) {
             String[] input = scanner.nextLine().split(";");
             username = input[0];
             password = input[1];
