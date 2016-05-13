@@ -64,4 +64,8 @@ public class DatabaseFacade {
             e.printStackTrace();
         }
     }
+
+    public void saveOrder(int orderId, int customerId, String finalPrice, String tax, String shippingCharges, String shippingAddress, String status, Date date) {
+        //TODO Implement saving of orders.
+    }
 }
