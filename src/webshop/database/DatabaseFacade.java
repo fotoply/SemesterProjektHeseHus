@@ -53,6 +53,10 @@ public class DatabaseFacade {
         throw new NotImplementedException();
     }
 
+    public boolean isCustomerCreatable(int customerId) {
+        throw new NotImplementedException();
+    }
+
     public void saveCustomer(String name, String address, String email, String password, Date birthday, int phoneNumber, String passwordsalt, int currentorderid) {
         int id = -1;
         try {
