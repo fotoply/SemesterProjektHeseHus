@@ -4,6 +4,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 
 public class DatabaseFacade {
 
@@ -42,13 +43,13 @@ public class DatabaseFacade {
         throw new NotImplementedException();
     }
 
-    public void saveCustomer() {
+    public void saveCustomer(String name, String address, String email, String password, Date birthday, int phoneNumber, String passwordsalt, int currentorderid) {
         int id = -1;
         try {
-            ResultSet rs = connectionDriver.executeQuery("SELECT max(customerid) FORM customer");
+            ResultSet rs = databaseConnector.executeQuery("SELECT max(customerid) FORM customer");
             id = rs.getInt("customerid") + 1;
 
-            connectionDriver.executeUpdate(String.format("INSERT INTO customer (customerid, name, address, email, password, birthday, phonenumber, passwordsalt, currentorder) VALUES (%d, '%s', '%s', '%s', '%s', '%s', %d, '%s', %d)", id, name, address, email, Customer.toBase64(getPassword()), dayOfBirth.toInstant(), phoneNumber, Customer.toBase64(getSalt()), -1));
+            databaseConnector.executeUpdate(String.format("INSERT INTO customer (customerid, name, address, email, password, birthday, phonenumber, passwordsalt, currentorderid) VALUES (%d, '%s', '%s', '%s', '%s', '%s', %d, '%s', %d)", id, name, address, email, password, birthday.toInstant(), phoneNumber, passwordsalt, -1));
         } catch (SQLException e) {
             e.printStackTrace();
         }
