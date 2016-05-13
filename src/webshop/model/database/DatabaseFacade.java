@@ -32,7 +32,11 @@ public class DatabaseFacade {
     }
 
     public ResultSet getProduct(int productId) {
-        throw new NotImplementedException();
+        try {
+            return databaseConnector.executeQuery("SELECT * FROM product WHERE productId=" + productId);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public ResultSet getOrder(int orderId) {
