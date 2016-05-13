@@ -108,7 +108,6 @@ public class RootWindowController {
             e.printStackTrace();
         }
         ((ProductInformationScreenController) loader.getController()).setProduct(product);
-        //TODO Back button maybe?
     }
 
     public ShopAreaController getShopAreaController() {
@@ -136,8 +135,6 @@ public class RootWindowController {
     }
 
     public synchronized void addToBasket(ProductNode node) {
-        //TODO Fix concurrentModificationException issue.
-        //synchronised keyword does not fix it.. For some odd reason
         addToBasket(node, 1);
     }
 
