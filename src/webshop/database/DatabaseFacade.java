@@ -50,7 +50,13 @@ public class DatabaseFacade {
     }
 
     public int getCustomerIdFromEmail(String email) {
-        throw new NotImplementedException();
+        try {
+            ResultSet rs = databaseConnector.executeQuery(String.format("SELECT costumerid FROM customer WHERE email='%s'", email));
+            return rs.getInt("customerid");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
     }
 
     public boolean isCustomerCreatable(int customerId) {
@@ -60,7 +66,7 @@ public class DatabaseFacade {
     public void saveCustomer(String name, String address, String email, String password, Date birthday, int phoneNumber, String passwordsalt, int currentorderid) {
         int id = -1;
         try {
-            ResultSet rs = databaseConnector.executeQuery("SELECT max(customerid) FORM customer");
+            ResultSet rs = databaseConnector.executeQuery("SELECT max(customerid) FROM customer");
             id = rs.getInt("customerid") + 1;
 
             databaseConnector.executeUpdate(String.format("INSERT INTO customer (customerid, name, address, email, password, birthday, phonenumber, passwordsalt, currentorderid) VALUES (%d, '%s', '%s', '%s', '%s', '%s', %d, '%s', %d)", id, name, address, email, password, birthday.toInstant(), phoneNumber, passwordsalt, -1));
