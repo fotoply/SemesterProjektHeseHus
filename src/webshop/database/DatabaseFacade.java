@@ -22,6 +22,19 @@ public class DatabaseFacade {
         return instance;
     }
 
+    public boolean confirmEmail(String email) {
+        ResultSet rs = null;
+        try {
+            rs = databaseConnector.executeQuery("SELECT email FROM customer WHERE email="+email);
+            return rs.isBeforeFirst();
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+        throw new RuntimeException("Something went wrong in executing SQL statement.");
+
+    }
+
     public ResultSet getCustomer(int customerId) {
         try {
             return databaseConnector.executeQuery("SELECT * FROM customer WHERE customerid=" + customerId);
