@@ -34,7 +34,7 @@ public class PersistenceFacade {
                 newCustomer = new Customer(rs.getString("name"), rs.getString("address"), rs.getString("email"), "toBeLoaded", rs.getDate("birthday"), rs.getInt("phonenumber"));
                 newCustomer.setPassword(Customer.fromBase64(rs.getString("password")));
                 newCustomer.setSalt(Customer.fromBase64(rs.getString("passwordsalt")));
-                //setCurrentOrder(new PostgresDatabaseOrder(connectionDriver, rs.getInt("currentorderid")));
+                newCustomer.setCurrentOrder(loadOrderFromId(rs.getInt("currentorderid")));
             } else {
                 throw new IllegalArgumentException("Customer does not exist");
             }
