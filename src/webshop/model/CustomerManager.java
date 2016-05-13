@@ -15,7 +15,11 @@ public class CustomerManager {
     private static final int PHONENUMBER_LENGTH = 8;
     private static int customerID = 0;
     private Map<Integer, Customer> customerMap;
-    private PersistenceFacade persistenceFacade = new PersistenceFacade;
+    private PersistenceFacade persistenceFacade;
+
+    public PersistenceFacade getPersistenceFacade() {
+        return persistenceFacade;
+    }
 
     public CustomerManager() {
         customerMap = new HashMap<>();
