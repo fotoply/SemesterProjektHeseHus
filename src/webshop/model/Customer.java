@@ -38,6 +38,22 @@ public class Customer {
         return salt;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public String getName() {
+        return name;
+    }
+
     /**
      * A constructor to the class Customer is used to create a new customer.
      * There is no control of the parameters in the constructor, it has to be checked before

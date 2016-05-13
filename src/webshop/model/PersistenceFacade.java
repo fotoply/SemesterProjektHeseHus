@@ -47,6 +47,9 @@ public class PersistenceFacade {
         }
         return newCustomer;
     }
+    public void saveCustomer(Customer customer) {
+        database.saveCustomer(customer);
+    }
 
     public Order loadOrderFromId(int orderId) {
         throw new NotImplementedException();
