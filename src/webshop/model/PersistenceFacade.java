@@ -1,9 +1,9 @@
 package webshop.model;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import webshop.database.DatabaseFacade;
 import webshop.model.Inventory.Order;
 import webshop.model.Inventory.Product;
-import webshop.model.database.DatabaseFacade;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

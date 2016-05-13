@@ -1,4 +1,4 @@
-package webshop.model.database;
+package webshop.database;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
