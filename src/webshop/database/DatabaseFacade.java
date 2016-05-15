@@ -23,7 +23,7 @@ public class DatabaseFacade {
     public boolean confirmEmail(String email) {
         ResultSet rs = null;
         try {
-            rs = databaseConnector.executeQuery("SELECT email FROM customer WHERE email="+email);
+            rs = databaseConnector.executeQuery("SELECT email FROM customer WHERE email='"+email + "'");
             return rs.isBeforeFirst();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -70,23 +70,8 @@ public class DatabaseFacade {
         return -1;
     }
 
-    public boolean isCustomerExisting(String email) {
-        ResultSet rs;
-        try {
-            rs = databaseConnector.executeQuery("SELECT * FROM customer WHERE email='" + email + "'");
-            if(rs.next()) {
-                return true;
-            } else {
-                return false;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        throw new RuntimeException("Something went wrong in executing SQL statement.");
-    }
-
     public void saveCustomer(String name, String address, String email, String password, Date birthday, int phoneNumber, String passwordsalt, int currentorderid) {
-        if(isCustomerExisting(email)) {
+        if(confirmEmail(email)) {
             throw new IllegalArgumentException("Customer already exists");
         }
         int id = -1;
