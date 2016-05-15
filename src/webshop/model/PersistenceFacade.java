@@ -13,10 +13,10 @@ import java.sql.SQLException;
  */
 public class PersistenceFacade {
     private static PersistenceFacade instance;
-    DatabaseFacade database = DatabaseFacade.getInstance();
+    DatabaseFacade database;
 
     private PersistenceFacade() {
-
+        database = DatabaseFacade.getInstance();
     }
 
     public static PersistenceFacade getInstance() {
