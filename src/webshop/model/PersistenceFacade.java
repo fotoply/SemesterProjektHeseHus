@@ -16,6 +16,7 @@ public class PersistenceFacade {
     DatabaseFacade database;
 
     private PersistenceFacade() {
+        DatabaseFacade.initializeConnection();
         database = DatabaseFacade.getInstance();
     }
 

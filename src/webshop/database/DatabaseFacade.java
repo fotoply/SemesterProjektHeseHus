@@ -14,10 +14,14 @@ public class DatabaseFacade {
     }
 
     public static DatabaseFacade getInstance() {
+        initializeConnection();
+        return instance;
+    }
+
+    public static void initializeConnection() {
         if (instance == null) {
             instance = new DatabaseFacade();
         }
-        return instance;
     }
 
     public boolean emailExists(String email) {
