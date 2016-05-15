@@ -49,7 +49,7 @@ public class PersistenceFacade {
     }
 
     public boolean confirmEmail(String email) {
-        return database.confirmEmail(email);
+        return database.emailExists(email);
     }
 
     public void saveCustomer(Customer c) {
