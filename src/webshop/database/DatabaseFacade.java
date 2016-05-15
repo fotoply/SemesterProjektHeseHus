@@ -1,7 +1,5 @@
 package webshop.database;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
@@ -72,10 +70,10 @@ public class DatabaseFacade {
         return -1;
     }
 
-    public boolean isCustomerCreatable(int customerId) {
+    public boolean isCustomerExisting(String email) {
         ResultSet rs;
         try {
-            rs = databaseConnector.executeQuery("SELECT * FROM customer WHERE customerid=" + customerId);
+            rs = databaseConnector.executeQuery("SELECT * FROM customer WHERE email='" + email + "'");
             if(rs.next()) {
                 return false;
             } else {
@@ -88,6 +86,9 @@ public class DatabaseFacade {
     }
 
     public void saveCustomer(String name, String address, String email, String password, Date birthday, int phoneNumber, String passwordsalt, int currentorderid) {
+        if(isCustomerExisting(email)) {
+            return;
+        }
         int id = -1;
         try {
             ResultSet rs = databaseConnector.executeQuery("SELECT max(customerid) FROM customer");
