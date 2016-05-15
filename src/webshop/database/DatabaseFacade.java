@@ -73,7 +73,18 @@ public class DatabaseFacade {
     }
 
     public boolean isCustomerCreatable(int customerId) {
-        throw new NotImplementedException();
+        ResultSet rs;
+        try {
+            rs = databaseConnector.executeQuery("SELECT * FROM customer WHERE customerid=" + customerId);
+            if(rs.next()) {
+                return false;
+            } else {
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        throw new RuntimeException("Something went wrong in executing SQL statement.");
     }
 
     public void saveCustomer(String name, String address, String email, String password, Date birthday, int phoneNumber, String passwordsalt, int currentorderid) {
