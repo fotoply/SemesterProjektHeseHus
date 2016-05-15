@@ -68,7 +68,7 @@ public class PersistenceFacade {
         Product newProduct = null;
 
         try {
-            if(rs.next()) {
+            if (rs.next()) {
                 newProduct = new Product(rs.getString("name"), rs.getString("description"), rs.getString("type"), new Money(rs.getString("price")), productId, rs.getBoolean("currentlyselling"));
             } else {
                 throw new IllegalArgumentException("Product does not exist");

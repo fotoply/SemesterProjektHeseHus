@@ -27,7 +27,7 @@ public class DatabaseFacade {
     public boolean emailExists(String email) {
         ResultSet rs = null;
         try {
-            rs = databaseConnector.executeQuery("SELECT email FROM customer WHERE email='"+email + "'");
+            rs = databaseConnector.executeQuery("SELECT email FROM customer WHERE email='" + email + "'");
             return rs.isBeforeFirst();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -75,7 +75,7 @@ public class DatabaseFacade {
     }
 
     public void saveCustomer(String name, String address, String email, String password, Date birthday, int phoneNumber, String passwordsalt, int currentorderid) {
-        if(emailExists(email)) {
+        if (emailExists(email)) {
             throw new IllegalArgumentException("Customer already exists");
         }
         int id = -1;
