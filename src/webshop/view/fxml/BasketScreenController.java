@@ -15,7 +15,7 @@ import java.util.List;
 
 public class BasketScreenController {
 
-    public static final String BASKET_FORMAT_LOCALE = "%-s40 - %-s8 - %s8";
+    private static final String BASKET_FORMAT_LOCALE = "%-s40 %-s8 %s8";
     @FXML
     private TextField giftcodeTextArea;
 
