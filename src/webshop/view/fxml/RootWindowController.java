@@ -90,7 +90,8 @@ public class RootWindowController {
     }
 
     public void showBasket() {
-        setCenterFromString("BasketScreen.fxml");
+        FXMLLoader loader = setCenterFromString("BasketScreen.fxml");
+        ((BasketScreenController)loader.getController()).applyBasket(GUIController.getWebshopInstance().getCurrentOrder().getProductList());
     }
 
     private FXMLLoader createLoaderFromResource(URL resource) {
@@ -117,13 +118,14 @@ public class RootWindowController {
         setCenterFromString("SignupScreen.fxml");
     }
 
-    private void setCenterFromString(String url) {
+    private FXMLLoader setCenterFromString(String url) {
         FXMLLoader loader = createLoaderFromResource(getClass().getResource(url));
         try {
             borderPane.setCenter(loader.load());
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return loader;
     }
 
     public void loginSuccesful() {
