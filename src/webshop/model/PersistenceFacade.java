@@ -62,7 +62,6 @@ public class PersistenceFacade {
         throw new NotImplementedException();
     }
 
-    // WAYNE
     public Product loadProductFromId(int productId) {
         ResultSet rs = database.getProduct(productId);
         Product newProduct = null;
