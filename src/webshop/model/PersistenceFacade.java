@@ -7,6 +7,8 @@ import webshop.model.Inventory.Product;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Handles transferring to and from persistent data.
@@ -80,5 +82,26 @@ public class PersistenceFacade {
             throw new RuntimeException("Something went wrong in initializing a product from database");
         }
         return newProduct;
+    }
+
+    public List searchProdut(String searchTerms) {
+        ResultSet rsType = database.getProductByType(searchTerms);
+        ResultSet rsName = database.getProductByName(searchTerms);
+        List<Product> searchedProducts = new ArrayList<>();
+        try {
+            if (rsType.next()) {
+                searchedProducts.add(new Product(rsType.getString("name"), rsType.getString("description"), rsType.getString("type"), new Money(rsType.getString("price")), rsType.getInt("productID"), rsType.getBoolean("currentlyselling")));
+            }
+            if (rsName.next()) {
+                searchedProducts.add(new Product(rsName.getString("name"), rsName.getString("description"), rsName.getString("type"), new Money(rsName.getString("price")), rsName.getInt("productID"), rsName.getBoolean("currentlyselling")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if (searchedProducts.isEmpty()) {
+            throw new RuntimeException("No products is found");
+        }
+
+        return searchedProducts;
     }
 }
