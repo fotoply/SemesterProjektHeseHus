@@ -13,10 +13,11 @@ import java.sql.SQLException;
  */
 public class PersistenceFacade {
     private static PersistenceFacade instance;
-    DatabaseFacade database = DatabaseFacade.getInstance();
+    DatabaseFacade database;
 
     private PersistenceFacade() {
-
+        DatabaseFacade.initializeConnection();
+        database = DatabaseFacade.getInstance();
     }
 
     public static PersistenceFacade getInstance() {
@@ -49,7 +50,7 @@ public class PersistenceFacade {
     }
 
     public boolean confirmEmail(String email) {
-        return database.confirmEmail(email);
+        return database.emailExists(email);
     }
 
     public void saveCustomer(Customer c) {
@@ -61,13 +62,12 @@ public class PersistenceFacade {
         throw new NotImplementedException();
     }
 
-    // WAYNE
     public Product loadProductFromId(int productId) {
         ResultSet rs = database.getProduct(productId);
         Product newProduct = null;
 
         try {
-            if(rs.next()) {
+            if (rs.next()) {
                 newProduct = new Product(rs.getString("name"), rs.getString("description"), rs.getString("type"), new Money(rs.getString("price")), productId, rs.getBoolean("currentlyselling"));
             } else {
                 throw new IllegalArgumentException("Product does not exist");

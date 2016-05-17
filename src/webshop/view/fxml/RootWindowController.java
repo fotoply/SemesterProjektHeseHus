@@ -9,6 +9,7 @@ import javafx.scene.layout.BorderPane;
 import webshop.view.GUIController;
 
 import java.io.IOException;
+import java.net.URL;
 
 public class RootWindowController {
 
@@ -70,13 +71,7 @@ public class RootWindowController {
     }
 
     public void showLoginScreen() {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("LoginScreen.fxml"));
-        try {
-            borderPane.setCenter(loader.load());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        setCenterFromString("LoginScreen.fxml");
     }
 
     public void showProfile() {
@@ -84,8 +79,7 @@ public class RootWindowController {
     }
 
     public void showShopArea() {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("ShopArea.fxml"));
+        FXMLLoader loader = createLoaderFromResource(getClass().getResource("ShopArea.fxml"));
         try {
             borderPane.setCenter(loader.load());
         } catch (IOException e) {
@@ -96,12 +90,17 @@ public class RootWindowController {
     }
 
     public void showBasket() {
-        //TODO Shows the basket of the current user, if any
+        setCenterFromString("BasketScreen.fxml");
+    }
+
+    private FXMLLoader createLoaderFromResource(URL resource) {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(resource);
+        return loader;
     }
 
     public void showProduct(ProductNode product) {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("ProductInformationScreen.fxml"));
+        FXMLLoader loader = createLoaderFromResource(getClass().getResource("ProductInformationScreen.fxml"));
         try {
             borderPane.setCenter(loader.load());
         } catch (IOException e) {
@@ -115,18 +114,16 @@ public class RootWindowController {
     }
 
     public void showSignupScreen() {
-        FXMLLoader loader = createFXMLLoader();
+        setCenterFromString("SignupScreen.fxml");
+    }
+
+    private void setCenterFromString(String url) {
+        FXMLLoader loader = createLoaderFromResource(getClass().getResource(url));
         try {
             borderPane.setCenter(loader.load());
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private FXMLLoader createFXMLLoader() {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("SignupScreen.fxml"));
-        return loader;
     }
 
     public void loginSuccesful() {

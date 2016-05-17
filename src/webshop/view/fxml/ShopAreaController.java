@@ -1,9 +1,11 @@
 package webshop.view.fxml;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.layout.FlowPane;
 import webshop.model.Inventory.Product;
+import webshop.view.GUIController;
 
 import java.util.List;
 
@@ -25,5 +27,10 @@ public class ShopAreaController {
         for (Product product : products) {
             addNewItem(new ProductNode(product));
         }
+    }
+
+    @FXML
+    void showBasketClicked(ActionEvent event) {
+        GUIController.getRootInstance().showBasket();
     }
 }
