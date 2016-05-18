@@ -1,8 +1,11 @@
 package webshop.database;
 
+import webshop.model.Inventory.Item;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.List;
 
 public class DatabaseFacade {
 
@@ -90,8 +93,15 @@ public class DatabaseFacade {
         }
     }
 
-    public void saveOrder(int orderId, int customerId, String finalPrice, String tax, String shippingCharges, String shippingAddress, String status, Date date) {
-        //TODO Implement saving of orders.
+    public void saveOrder(int orderId, int customerId, String finalPrice, String tax, String shippingCharges, String shippingAddress, String status, Date date, List<Item> items) {
+        try {
+            databaseConnector.executeUpdate(String.format("INSERT INTO orderinfo (orderid, customerid, finalprice, tax, shippingcharges, status, date) VALUES (%d, %d, %s, %s, '%s', %s, %s)", orderId, customerId, finalPrice,tax,shippingCharges, shippingAddress, status, date.toInstant()));
+            for (Item item: items) {
+                databaseConnector.executeUpdate(String.format("INSERT INTO productorderlink (productid, orderid, quantity) VALUES (%d, %d, %s)", item.getProduct().getID(), orderId, item.getQuantity()));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public ResultSet getProductByType(String searchTerms) {

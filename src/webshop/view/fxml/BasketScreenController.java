@@ -10,12 +10,11 @@ import javafx.scene.text.Text;
 import webshop.model.Inventory.Item;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 public class BasketScreenController {
 
-    private static final String BASKET_FORMAT_LOCALE = "%-40s %-14s %8s";
+    private static final String BASKET_FORMAT_LOCALE = "%-30s %-16s %-10s";
     @FXML
     private TextField giftcodeTextArea;
 
@@ -36,13 +35,31 @@ public class BasketScreenController {
 
     }
 
-    public void applyBasket(List<Item> items) {
-        basketListView.getItems().add(new Text(String.format(BASKET_FORMAT_LOCALE, "Name", "Quantity", "Total price")));
+    /**
+     * Adds the items from a list to the overview of the basket. Will format it.
+     * @param items The list of items
+     */
+    public void applyBasket(List<Item> items, String totalPrice) {
+        addItemToBasketList(String.format(BASKET_FORMAT_LOCALE, "Name", "Quantity", "Total price"));
         for (Item item: items) {
-            basketListView.getItems().add(new Text(itemToString(item)));
+            addItemToBasketList(itemToString(item));
         }
+        addItemToBasketList(formatTotal(totalPrice));
     }
 
+    private void addItemToBasketList(String itemText) {
+        basketListView.getItems().add(new Text(itemText));
+    }
+
+    private String formatTotal(String totalPrice) {
+        return String.format(BASKET_FORMAT_LOCALE, " ", "Total: ", totalPrice);
+    }
+
+    /**
+     * Takes the significant information about an item and returns it as a String.
+     * @param item
+     * @return A formatted String
+     */
     private String itemToString(Item item) {
         return String.format(BASKET_FORMAT_LOCALE, item.getProduct().getName(), item.getQuantity(), item.getProduct().getPrice().getAmount().multiply(BigDecimal.valueOf(item.getQuantity())));
     }
