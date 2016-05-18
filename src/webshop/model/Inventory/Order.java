@@ -146,8 +146,18 @@ public class Order {
         }
     }
 
+    private Money payWithGiftcard (Money amount) {
+        if (amount.compareTo(getTotalAmountOwedForProducts()) > 0) {
+            currentlyPaid.add(getTotalAmountOwedForProducts());
+            return new Money(amount - getTotalAmountOwedForProducts());
+        } else {
+            currentlyPaid.add(amount);
+            return new Money("0");
+        }
+    }
+
     public void applyGiftCard (int ID) {
-        payAmountForOrder(GiftCard.getGiftcardAmount(ID));
+        payWithGiftcard(GiftCard.getGiftcardAmount(ID));
     }
 
     public List<Item> getProducts() {
