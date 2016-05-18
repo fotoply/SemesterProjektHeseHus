@@ -93,7 +93,7 @@ public class DatabaseFacade {
     public int getNextCustomerId() {
         try {
             ResultSet rs = databaseConnector.executeQuery("SELECT max(customerid) FROM customer");
-            return rs.getInt("customerid") + 1;
+            return rs.getInt("max") + 1;
         } catch (SQLException e) {
             e.printStackTrace();
         }
