@@ -51,6 +51,6 @@ public class GUIController extends Application {
         primaryStage.initStyle(StageStyle.UNIFIED);
         primaryStage.setScene(scene);
         primaryStage.show();
-        webshopInstance.createCustomer("testnavn", "testvej", "test", "test", new Date(), 12345678);
+        webshopInstance.createCustomer("testnavn", "testvej", 12345678, "test", "test", new Date());
     }
 }
