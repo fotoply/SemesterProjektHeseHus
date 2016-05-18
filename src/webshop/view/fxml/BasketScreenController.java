@@ -10,12 +10,11 @@ import javafx.scene.text.Text;
 import webshop.model.Inventory.Item;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 public class BasketScreenController {
 
-    private static final String BASKET_FORMAT_LOCALE = "%-40s %-14s %8s";
+    private static final String BASKET_FORMAT_LOCALE = "%-35s %-13s %10s";
     @FXML
     private TextField giftcodeTextArea;
 
