@@ -30,13 +30,6 @@ public class CustomerManager {
     }
 
     public Customer createCustomer(String name, String address, int phoneNumber, String email, String password, Date dayOfBirth) {
-        Collection<Integer> keys = customerMap.keySet();
-        for (Integer key : keys) {
-            if (email.equalsIgnoreCase(customerMap.get(key).getEmail())) {
-                throw new IllegalArgumentException("This E-Mail is already used");
-            }
-        }
-
         if (persistenceFacade.confirmEmail(email)) {
             throw new IllegalArgumentException("This E-Mail is already used");
         }

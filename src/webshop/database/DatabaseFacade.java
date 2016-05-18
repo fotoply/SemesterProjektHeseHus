@@ -30,10 +30,11 @@ public class DatabaseFacade {
     public boolean emailExists(String email) {
         ResultSet rs = null;
         try {
-            rs = databaseConnector.executeQuery("SELECT email FROM customer WHERE email='" + email + "'");
+            rs = databaseConnector.executeQuery("SELECT email FROM customer WHERE email='" + email.toLowerCase() + "'");
             return rs.isBeforeFirst();
         } catch (SQLException e) {
             e.printStackTrace();
+
 
         }
         throw new RuntimeException("Something went wrong in executing SQL statement.");
@@ -101,5 +102,24 @@ public class DatabaseFacade {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public ResultSet getProductByType(String searchTerms) {
+        try {
+            return databaseConnector.executeQuery("SELECT * FROM product WHERE type like " + searchTerms + "%");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        throw new RuntimeException("Something went wrong in executing SQL statement.");
+
+    }
+
+    public ResultSet getProductByName(String searchTerms) {
+        try {
+            return databaseConnector.executeQuery("SELECT * FROM product WHERE name=" + searchTerms + "%");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        throw new RuntimeException("Something went wrong in executing SQL statement.");
     }
 }
