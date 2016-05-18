@@ -47,8 +47,8 @@ public class BasketScreenController {
         addItemToBasketList(formatTotal(totalPrice));
     }
 
-    private boolean addItemToBasketList(String itemText) {
-        return basketListView.getItems().add(new Text(itemText));
+    private void addItemToBasketList(String itemText) {
+        basketListView.getItems().add(new Text(itemText));
     }
 
     private String formatTotal(String totalPrice) {
