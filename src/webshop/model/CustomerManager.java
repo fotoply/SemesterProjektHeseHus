@@ -2,7 +2,6 @@ package webshop.model;
 
 import webshop.model.Inventory.Product;
 
-import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;

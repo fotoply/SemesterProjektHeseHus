@@ -95,8 +95,8 @@ public class DatabaseFacade {
 
     public void saveOrder(int orderId, int customerId, String finalPrice, String tax, String shippingCharges, String shippingAddress, String status, Date date, List<Item> items) {
         try {
-            databaseConnector.executeUpdate(String.format("INSERT INTO orderinfo (orderid, customerid, finalprice, tax, shippingcharges, status, date) VALUES (%d, %d, %s, %s, '%s', %s, %s)", orderId, customerId, finalPrice,tax,shippingCharges, shippingAddress, status, date.toInstant()));
-            for (Item item: items) {
+            databaseConnector.executeUpdate(String.format("INSERT INTO orderinfo (orderid, customerid, finalprice, tax, shippingcharges, status, date) VALUES (%d, %d, %s, %s, '%s', %s, %s)", orderId, customerId, finalPrice, tax, shippingCharges, shippingAddress, status, date.toInstant()));
+            for (Item item : items) {
                 databaseConnector.executeUpdate(String.format("INSERT INTO productorderlink (productid, orderid, quantity) VALUES (%d, %d, %s)", item.getProduct().getID(), orderId, item.getQuantity()));
             }
         } catch (SQLException e) {

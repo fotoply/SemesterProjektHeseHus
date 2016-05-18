@@ -14,8 +14,8 @@ import java.util.Map;
  * @author Karim
  */
 public class GiftCard extends Payment {
-    private int id;
     private static Map<Integer, GiftCard> giftCards = new HashMap<>();
+    private int id;
 
     public GiftCard(Money amount, int id) {
         super(amount);
@@ -23,7 +23,7 @@ public class GiftCard extends Payment {
         giftCards.put(this.id, this);
     }
 
-    public static GiftCard getGiftcard (int id) {
+    public static GiftCard getGiftcard(int id) {
         return giftCards.get(id);
     }
 

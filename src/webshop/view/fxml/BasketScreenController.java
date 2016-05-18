@@ -33,11 +33,12 @@ public class BasketScreenController {
 
     /**
      * Adds the items from a list to the overview of the basket. Will format it.
+     *
      * @param items The list of items
      */
     public void applyBasket(List<Item> items, String totalPrice) {
         addItemToBasketList(String.format(BASKET_FORMAT_LOCALE, "Name", "Quantity", "Total price"));
-        for (Item item: items) {
+        for (Item item : items) {
             addItemToBasketList(formatItem(item));
         }
         addItemToBasketList(formatTotal(totalPrice));
@@ -55,6 +56,7 @@ public class BasketScreenController {
 
     /**
      * Takes the significant information about an item and returns it as a String.
+     *
      * @param item
      * @return A formatted String
      */
