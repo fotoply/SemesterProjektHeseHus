@@ -28,7 +28,7 @@ public class GiftCard extends Payment {
     }
 
     public Money getGiftcardAmount(int id) {
-        giftCards.get(id).getAmount();
+        return giftCards.get(id).getAmount();
     }
 
     public void setGiftCardAmount(int id, Money amount) {
