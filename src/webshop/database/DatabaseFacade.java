@@ -82,15 +82,23 @@ public class DatabaseFacade {
         if (emailExists(email)) {
             throw new IllegalArgumentException("Customer already exists");
         }
-        int id = -1;
+        int id = getNextCustomerId();
         try {
-            ResultSet rs = databaseConnector.executeQuery("SELECT max(customerid) FROM customer");
-            id = rs.getInt("customerid") + 1;
-
             databaseConnector.executeUpdate(String.format("INSERT INTO customer (customerid, name, address, email, password, birthday, phonenumber, passwordsalt, currentorderid) VALUES (%d, '%s', '%s', '%s', '%s', '%s', %d, '%s', %d)", id, name, address, email, password, birthday.toInstant(), phoneNumber, passwordsalt, -1));
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public int getNextCustomerId() {
+        int id;
+        try {
+            ResultSet rs = databaseConnector.executeQuery("SELECT max(customerid) FROM customer");
+            id = rs.getInt("customerid") + 1;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
     }
 
     public void saveOrder(int orderId, int customerId, String finalPrice, String tax, String shippingCharges, String shippingAddress, String status, Date date, List<Item> items) {

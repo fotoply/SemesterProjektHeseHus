@@ -29,6 +29,10 @@ public class PersistenceFacade {
         return instance;
     }
 
+    public int getNextCustomerId() {
+        return database.getNextCustomerId();
+    }
+
     public Customer loadCustomerFromId(int customerId) {
         ResultSet rs = database.getCustomer(customerId);
         Customer newCustomer = null;
