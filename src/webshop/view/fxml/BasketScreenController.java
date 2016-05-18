@@ -40,11 +40,15 @@ public class BasketScreenController {
      * @param items The list of items
      */
     public void applyBasket(List<Item> items, String totalPrice) {
-        basketListView.getItems().add(new Text(String.format(BASKET_FORMAT_LOCALE, "Name", "Quantity", "Total price")));
+        addItemToBasketList(String.format(BASKET_FORMAT_LOCALE, "Name", "Quantity", "Total price"));
         for (Item item: items) {
-            basketListView.getItems().add(new Text(itemToString(item)));
+            addItemToBasketList(itemToString(item));
         }
-        basketListView.getItems().add(new Text(formatTotal(totalPrice)));
+        addItemToBasketList(formatTotal(totalPrice));
+    }
+
+    private boolean addItemToBasketList(String itemText) {
+        return basketListView.getItems().add(new Text(itemText));
     }
 
     private String formatTotal(String totalPrice) {
