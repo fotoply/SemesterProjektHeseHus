@@ -2,10 +2,7 @@ package webshop.view.fxml;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import webshop.model.Inventory.Item;
 
 import java.math.BigDecimal;
@@ -27,7 +24,7 @@ public class BasketScreenController {
     private RadioButton ownAddressRadio;
 
     @FXML
-    private TextArea basketListView;
+    private ListView<Label> basketListView;
 
     @FXML
     void initialize() {
@@ -47,10 +44,9 @@ public class BasketScreenController {
         addItemToBasketList(formatTotal(totalPrice));
     }
 
-
     private void addItemToBasketList(String itemText) {
-        basketListView.appendText(itemText);
-        basketListView.appendText("\n");
+        Label item = new Label(itemText);
+        basketListView.getItems().add(item);
     }
 
     private String formatTotal(String totalPrice) {
