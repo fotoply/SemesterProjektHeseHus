@@ -25,7 +25,7 @@ public class CustomerManager {
     }
 
     private int getNextId() {
-        return customerID++;
+        return persistenceFacade.getNextCustomerId();
     }
 
     public Customer createCustomer(String name, String address, int phoneNumber, String email, String password, Date dayOfBirth) {
@@ -39,6 +39,7 @@ public class CustomerManager {
         }
         int ID = getNextId();
         customerMap.put(ID, new Customer(name, address, email, password, dayOfBirth, phoneNumber));
+        customerMap.get(ID).setCustomerID(ID);
         return customerMap.get(ID);
 
     }

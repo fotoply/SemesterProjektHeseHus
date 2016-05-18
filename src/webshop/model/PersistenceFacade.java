@@ -42,6 +42,7 @@ public class PersistenceFacade {
                 newCustomer.setPassword(Customer.fromBase64(rs.getString("password")));
                 newCustomer.setSalt(Customer.fromBase64(rs.getString("passwordsalt")));
                 newCustomer.setCurrentOrder(loadOrderFromId(rs.getInt("currentorderid")));
+                newCustomer.setCustomerID(customerId);
             } else {
                 throw new IllegalArgumentException("Customer does not exist");
             }

@@ -29,10 +29,7 @@ public class Customer {
     private byte[] salt = new byte[32];
     private List<MemberShipCard> memberShipCards;
     private Order currentOrder;
-
-    public Customer() {
-
-    }
+    private int customerID;
 
     /**
      * A constructor to the class Customer is used to create a new customer.
@@ -55,9 +52,9 @@ public class Customer {
         SecureRandom rnd = new SecureRandom();
         rnd.nextBytes(salt);
         setPassword(password);
-    }
+        }
 
-    public static void main(String[] args) {
+      public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         String password = input.nextLine();
 
@@ -232,5 +229,9 @@ public class Customer {
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +
                 '}';
+    }
+
+    public void setCustomerID(int customerId) {
+        this.customerID = customerId;
     }
 }
