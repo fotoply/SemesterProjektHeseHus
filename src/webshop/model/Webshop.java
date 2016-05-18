@@ -63,7 +63,7 @@ public class Webshop {
         customerManager.getCustomer(currentCustomerID).addProduct(product, amount);
     }
 
-    public Customer createCustomer(String name, String address, String email, String password, Date dayOfBirth, int phoneNumber) {
+    public Customer createCustomer(String name, String address, int phoneNumber, String email, String password, Date dayOfBirth) {
         return customerManager.createCustomer(name, address, phoneNumber, email, password, dayOfBirth);
     }
 
