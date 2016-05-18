@@ -42,13 +42,14 @@ public class BasketScreenController {
     public void applyBasket(List<Item> items, String totalPrice) {
         addItemToBasketList(String.format(BASKET_FORMAT_LOCALE, "Name", "Quantity", "Total price"));
         for (Item item: items) {
-            addItemToBasketList(itemToString(item));
+            addItemToBasketList(formatItem(item));
         }
         addItemToBasketList(formatTotal(totalPrice));
     }
 
     private void addItemToBasketList(String itemText) {
-        basketListView.getItems().add(new Text(itemText));
+        Text item = new Text(itemText);
+        basketListView.getItems().add(item);
     }
 
     private String formatTotal(String totalPrice) {
@@ -60,7 +61,7 @@ public class BasketScreenController {
      * @param item
      * @return A formatted String
      */
-    private String itemToString(Item item) {
+    private String formatItem(Item item) {
         return String.format(BASKET_FORMAT_LOCALE, item.getProduct().getName(), item.getQuantity(), item.getProduct().getPrice().getAmount().multiply(BigDecimal.valueOf(item.getQuantity())));
     }
 
