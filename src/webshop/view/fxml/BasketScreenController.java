@@ -2,11 +2,7 @@ package webshop.view.fxml;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.text.Text;
+import javafx.scene.control.*;
 import webshop.model.Inventory.Item;
 
 import java.math.BigDecimal;
@@ -14,7 +10,7 @@ import java.util.List;
 
 public class BasketScreenController {
 
-    private static final String BASKET_FORMAT_LOCALE = "%-30s %-16s %-10s";
+    private static final String BASKET_FORMAT_LOCALE = "%-36s%-16s%-14s";
     @FXML
     private TextField giftcodeTextArea;
 
@@ -28,7 +24,7 @@ public class BasketScreenController {
     private RadioButton ownAddressRadio;
 
     @FXML
-    private ListView<Text> basketListView;
+    private ListView<Label> basketListView;
 
     @FXML
     void initialize() {
@@ -48,11 +44,12 @@ public class BasketScreenController {
     }
 
     private void addItemToBasketList(String itemText) {
-        Text item = new Text(itemText);
+        Label item = new Label(itemText);
         basketListView.getItems().add(item);
     }
 
     private String formatTotal(String totalPrice) {
+        totalPrice = totalPrice.trim();
         return String.format(BASKET_FORMAT_LOCALE, " ", "Total: ", totalPrice);
     }
 
@@ -62,7 +59,7 @@ public class BasketScreenController {
      * @return A formatted String
      */
     private String formatItem(Item item) {
-        return String.format(BASKET_FORMAT_LOCALE, item.getProduct().getName(), item.getQuantity(), item.getProduct().getPrice().getAmount().multiply(BigDecimal.valueOf(item.getQuantity())));
+        return String.format(BASKET_FORMAT_LOCALE, item.getProduct().getName().trim(), item.getQuantity(), item.getProduct().getPrice().getAmount().multiply(BigDecimal.valueOf(item.getQuantity())));
     }
 
     @FXML
