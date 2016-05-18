@@ -23,5 +23,8 @@ public class GiftCard extends Payment {
         giftCards.put(this.id, this);
     }
 
+    public static Money getGiftcardAmount(int id) {
+        giftCards.get(id).getAmount();
+    }
 }
 

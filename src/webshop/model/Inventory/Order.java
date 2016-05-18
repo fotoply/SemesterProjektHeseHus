@@ -157,7 +157,7 @@ public class Order {
     }
 
     public void applyGiftCard (int ID) {
-        payWithGiftcard(GiftCard.getGiftcardAmount(ID));
+        GiftCard.setGiftCardAmount(payWithGiftcard(GiftCard.getGiftcardAmount(ID)));
     }
 
     public List<Item> getProducts() {
