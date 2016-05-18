@@ -1,8 +1,5 @@
 package webshop.model.Inventory;
 
-/**
- * @author Grp. 14
- */
 public class Item {
 
     private Product product;

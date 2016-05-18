@@ -3,9 +3,6 @@ package webshop.model;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author Grp.14
- */
 public class MemberShipCard {
 
     private int memberShipID;

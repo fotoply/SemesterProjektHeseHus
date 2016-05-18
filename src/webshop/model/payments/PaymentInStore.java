@@ -2,9 +2,6 @@ package webshop.model.payments;
 
 import webshop.model.Money;
 
-/**
- * @author Grp.14
- */
 public class PaymentInStore extends Payment {
     private int reservationID;
     private String location;

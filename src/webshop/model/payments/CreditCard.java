@@ -4,9 +4,6 @@ import webshop.model.Money;
 
 import java.util.Date;
 
-/**
- * @author Grp. 14
- */
 public class CreditCard extends Payment {
 
     String cardHolder;

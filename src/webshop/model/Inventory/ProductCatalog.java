@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package webshop.model.Inventory;
 
 import webshop.model.Money;
@@ -11,9 +6,6 @@ import webshop.model.PersistenceFacade;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author Karim
- */
 public class ProductCatalog {
 
     private PersistenceFacade persistenceFacade = PersistenceFacade.getInstance();
