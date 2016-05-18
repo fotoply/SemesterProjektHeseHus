@@ -149,7 +149,8 @@ public class Order {
     private Money payWithGiftcard (Money amount) {
         if (amount.compareTo(getTotalAmountOwedForProducts()) > 0) {
             currentlyPaid.add(getTotalAmountOwedForProducts());
-            return new Money(amount - getTotalAmountOwedForProducts());
+            amount.pay(getTotalAmountOwedForProducts());
+            return amount;
         } else {
             currentlyPaid.add(amount);
             return new Money("0");
@@ -157,7 +158,8 @@ public class Order {
     }
 
     public void applyGiftCard (int ID) {
-        GiftCard.setGiftCardAmount(ID, payWithGiftcard(GiftCard.getGiftcardAmount(ID)));
+        GiftCard temp = GiftCard.getGiftcard(ID);
+        temp.setGiftCardAmount(ID, payWithGiftcard(temp.getGiftcardAmount(ID)));
     }
 
     public List<Item> getProducts() {
