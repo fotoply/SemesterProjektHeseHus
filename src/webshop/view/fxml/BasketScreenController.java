@@ -35,6 +35,10 @@ public class BasketScreenController {
 
     }
 
+    /**
+     * Adds the items from a list to the overview of the basket. Will format it.
+     * @param items The list of items
+     */
     public void applyBasket(List<Item> items) {
         basketListView.getItems().add(new Text(String.format(BASKET_FORMAT_LOCALE, "Name", "Quantity", "Total price")));
         for (Item item: items) {
@@ -42,6 +46,11 @@ public class BasketScreenController {
         }
     }
 
+    /**
+     * Takes the significant information about an item and returns it as a String.
+     * @param item
+     * @return A formatted String
+     */
     private String itemToString(Item item) {
         return String.format(BASKET_FORMAT_LOCALE, item.getProduct().getName(), item.getQuantity(), item.getProduct().getPrice().getAmount().multiply(BigDecimal.valueOf(item.getQuantity())));
     }
