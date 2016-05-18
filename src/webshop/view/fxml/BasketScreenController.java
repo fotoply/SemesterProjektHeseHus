@@ -14,7 +14,7 @@ import java.util.List;
 
 public class BasketScreenController {
 
-    private static final String BASKET_FORMAT_LOCALE = "%-35s %-13s %-10s";
+    private static final String BASKET_FORMAT_LOCALE = "%-34s %-12s %-10s";
     @FXML
     private TextField giftcodeTextArea;
 
@@ -52,7 +52,7 @@ public class BasketScreenController {
     }
 
     private String formatTotal(String totalPrice) {
-        return String.format(BASKET_FORMAT_LOCALE, "", "", totalPrice);
+        return String.format(BASKET_FORMAT_LOCALE, "", "Total: ", totalPrice);
     }
 
     /**
