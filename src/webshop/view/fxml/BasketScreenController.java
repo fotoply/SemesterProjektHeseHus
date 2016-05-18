@@ -10,7 +10,7 @@ import java.util.List;
 
 public class BasketScreenController {
 
-    private static final String BASKET_FORMAT_LOCALE = "%-$36s%-$16s%-$14s";
+    private static final String BASKET_FORMAT_LOCALE = "%-36s%-16s%-14s";
     @FXML
     private TextField giftcodeTextArea;
 
