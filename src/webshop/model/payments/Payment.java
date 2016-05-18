@@ -21,7 +21,7 @@ public abstract class Payment {
         return amount;
     }
 
-    public Money setAmount(Money amount) {
+    public void setAmount(Money amount) {
         this.amount = amount;
 
     }
