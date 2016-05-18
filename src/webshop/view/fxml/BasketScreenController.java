@@ -14,7 +14,7 @@ import java.util.List;
 
 public class BasketScreenController {
 
-    private static final String BASKET_FORMAT_LOCALE = "%-35s %-13s %10s";
+    private static final String BASKET_FORMAT_LOCALE = "%-35s %-13s %-10s";
     @FXML
     private TextField giftcodeTextArea;
 
@@ -39,11 +39,16 @@ public class BasketScreenController {
      * Adds the items from a list to the overview of the basket. Will format it.
      * @param items The list of items
      */
-    public void applyBasket(List<Item> items) {
+    public void applyBasket(List<Item> items, String totalPrice) {
         basketListView.getItems().add(new Text(String.format(BASKET_FORMAT_LOCALE, "Name", "Quantity", "Total price")));
         for (Item item: items) {
             basketListView.getItems().add(new Text(itemToString(item)));
         }
+        basketListView.getItems().add(new Text(formatTotal(totalPrice)));
+    }
+
+    private String formatTotal(String totalPrice) {
+        return String.format(BASKET_FORMAT_LOCALE, "", "", totalPrice);
     }
 
     /**
