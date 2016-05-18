@@ -79,12 +79,7 @@ public class RootWindowController {
     }
 
     public void showShopArea() {
-        FXMLLoader loader = createLoaderFromResource(getClass().getResource("ShopArea.fxml"));
-        try {
-            borderPane.setCenter(loader.load());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        FXMLLoader loader = setCenterFromString("ShopArea.fxml");
         shopAreaController = loader.getController();
         shopAreaController.loadItems(GUIController.getProducts());
     }
@@ -103,12 +98,7 @@ public class RootWindowController {
     }
 
     public void showProduct(ProductNode product) {
-        FXMLLoader loader = createLoaderFromResource(getClass().getResource("ProductInformationScreen.fxml"));
-        try {
-            borderPane.setCenter(loader.load());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        FXMLLoader loader = setCenterFromString("ProductInformationScreen.fxml");
         ((ProductInformationScreenController) loader.getController()).setProduct(product);
     }
 
