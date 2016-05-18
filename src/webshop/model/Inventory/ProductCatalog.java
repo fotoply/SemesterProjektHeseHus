@@ -68,13 +68,7 @@ public class ProductCatalog {
 
 
     public List searchProduct(String searchTerms) {
-        persistenceFacade.searchProdut(searchTerms);
-        List<Product> searchedProducts = new ArrayList<>();
-        for (Product product : productList) {
-            if (searchTerms.equals(product.getName()) || searchTerms.equals(product.getType())) {
-                searchedProducts.add(product);
-            }
-        }
-        return searchedProducts;
+        return persistenceFacade.searchProdut(searchTerms);
+
     }
 }
