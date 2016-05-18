@@ -70,7 +70,7 @@ public class SignupScreenController {
         }
         Date date = Date.from(Instant.from(dateOfBirthPicker.getValue().atStartOfDay(ZoneId.systemDefault())));
 
-        GUIController.getWebshopInstance().createCustomer(nameField.getText(), addressField.getText(), emailField.getText(), passwordField.getText(), date, Integer.parseInt(phoneField.getText()));
+        GUIController.getWebshopInstance().createCustomer(nameField.getText(), addressField.getText(), Integer.parseInt(phoneField.getText()), emailField.getText(), passwordField.getText(), date);
         GUIController.getRootInstance().showLoginScreen();
     }
 
