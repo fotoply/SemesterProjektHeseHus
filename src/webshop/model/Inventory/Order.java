@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Represents an order. Holds both the payment methods used, the information about the order, the list of items in the order and the status of the order.
+ */
 public class Order {
 
     private static int orderCount = 0;

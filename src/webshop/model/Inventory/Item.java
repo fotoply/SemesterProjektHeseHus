@@ -1,5 +1,8 @@
 package webshop.model.Inventory;
 
+/**
+ * Represents a collection of the same product. This is merely a container for the product and the quantity of the object.
+ */
 public class Item {
 
     private Product product;
