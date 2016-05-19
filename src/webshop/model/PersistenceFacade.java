@@ -118,6 +118,10 @@ public class PersistenceFacade {
         return newProduct;
     }
 
+    public void getCustomerIdFromEmail(String email) {
+        database.getCustomerIdFromEmail(email);
+    }
+
     /**
      * Attempts to fetch a product based on the searchTerms
      * @param searchTerms
