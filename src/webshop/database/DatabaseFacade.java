@@ -169,7 +169,7 @@ public class DatabaseFacade implements IDatabaseFacade {
     }
 
     /**
-     * Returns a product by searching for something where the type matches the input string. Uses partial matching
+     * Returns a product by searching for something where the type or name matches the input string. Uses partial matching
      * @param searchTerms the type to match for
      * @return A ResultSet containing the information for the product
      */
