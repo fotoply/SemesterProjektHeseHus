@@ -91,7 +91,7 @@ public class RootWindowController {
     public void showShopArea() {
         FXMLLoader loader = setCenterFromString("ShopArea.fxml");
         shopAreaController = loader.getController();
-        shopAreaController.loadItems(GUIController.getProducts());
+        shopAreaController.loadItems(GUIController.getWebshopInstance().searchProduct(""));
     }
 
     public void showBasket() {

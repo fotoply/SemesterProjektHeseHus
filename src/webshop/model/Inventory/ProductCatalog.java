@@ -14,7 +14,7 @@ public class ProductCatalog {
     public ProductCatalog() {
         productList = new ArrayList<>();
 
-        addTestProducts();
+        //addTestProducts();
     }
 
     private void addTestProducts() {
