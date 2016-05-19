@@ -1,5 +1,6 @@
 package webshop.model;
 
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import webshop.model.Inventory.Product;
 
 import java.util.Date;
@@ -36,7 +37,7 @@ public class CustomerManager {
             throw new IllegalArgumentException("Phone Number does not exist");
         }
         int ID = getNextId();
-        temp = new Customer(name, address, email, password, dayOfBirth, phoneNumber));
+        temp = new Customer(name, address, email, password, dayOfBirth, phoneNumber);
         temp.setCustomerID(getNextId());
         persistenceFacade.saveCustomer(temp);
         return temp;
@@ -51,11 +52,11 @@ public class CustomerManager {
     }
 
     public int getCustomerIDFromEmail(String email) {
-        return persistenceFacade.getNextCustomerId();
+        return persistenceFacade.getCustomerIdFromEmail(email);
     }
 
     public void deleteCustomer(int customerID) {
-        customerMap.remove(customerID);
+        throw new NotImplementedException();
     }
 
     public void addproduct(Product product, int amount, int customerID) {

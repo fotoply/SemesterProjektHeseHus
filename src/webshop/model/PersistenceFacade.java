@@ -118,8 +118,8 @@ public class PersistenceFacade {
         return newProduct;
     }
 
-    public void getCustomerIdFromEmail(String email) {
-        database.getCustomerIdFromEmail(email);
+    public int getCustomerIdFromEmail(String email) {
+        return database.getCustomerIdFromEmail(email);
     }
 
     /**
