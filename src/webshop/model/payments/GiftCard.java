@@ -9,6 +9,12 @@ public class GiftCard extends Payment {
     private static Map<Integer, GiftCard> giftCards = new HashMap<>();
     private int id;
 
+    /**
+     * The constructor for the GiftCard class,
+     * used to create a GiftCard object containing the value of the GiftCard.
+     * @param amount The available amount on the Gift Card.
+     * @param id The Gift Card's ID number.
+     */
     public GiftCard(Money amount, int id) {
         super(amount);
         this.id = id;
