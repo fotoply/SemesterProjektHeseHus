@@ -48,7 +48,7 @@ public class DatabaseFacade {
 
     /**
      * Gets the ResultSet representing a customers information.
-     * @param customerId the customers unique Id
+     * @param customerId the customers unique ID
      * @return A ResultSet containing all columns of the customer
      */
     public ResultSet getCustomer(int customerId) {
@@ -60,6 +60,11 @@ public class DatabaseFacade {
         throw new RuntimeException("Something went wrong in executing SQL statement.");
     }
 
+    /**
+     * Gets the ResultSet representing a products information in the database.
+     * @param productId the products unique ID
+     * @return A ResultSet containing all columns of the product
+     */
     public ResultSet getProduct(int productId) {
         try {
             return databaseConnector.executeQuery("SELECT * FROM product WHERE productId=" + productId);
@@ -69,6 +74,11 @@ public class DatabaseFacade {
         throw new RuntimeException("Something went wrong in executing SQL statement.");
     }
 
+    /**
+     * Gets the ResultSet representing an orders information in the database.
+     * @param orderId the orders unique ID
+     * @return A ResultSet containing all columns of the order
+     */
     public ResultSet getOrder(int orderId) {
         try {
             return databaseConnector.executeQuery("SELECT * FROM orderinfo WHERE orderId=" + orderId);
@@ -78,6 +88,11 @@ public class DatabaseFacade {
         throw new RuntimeException("Something went wrong in executing SQL statement.");
     }
 
+    /**
+     * Returns the unique ID for a customer based on their email. Is currently case sensitive
+     * @param email the users email
+     * @return the ID of the customer or -1 if no customer was found
+     */
     public int getCustomerIdFromEmail(String email) {
         try {
             ResultSet rs = databaseConnector.executeQuery(String.format("SELECT costumerid FROM customer WHERE email='%s'", email));
@@ -88,6 +103,17 @@ public class DatabaseFacade {
         return -1;
     }
 
+    /**
+     * Saves a customer and it's information to the database
+     * @param name The customers name
+     * @param address The customers physical address
+     * @param email The customers email
+     * @param password The customers hashed and salted password
+     * @param birthday The customers birthday. Is represented as an instant internally
+     * @param phoneNumber The customers phonenumber
+     * @param passwordsalt The salt for the customers password
+     * @param currentorderid The ID of the customers current order
+     */
     public void saveCustomer(String name, String address, String email, String password, Date birthday, int phoneNumber, String passwordsalt, int currentorderid) {
         if (emailExists(email)) {
             throw new IllegalArgumentException("Customer already exists");
@@ -100,6 +126,10 @@ public class DatabaseFacade {
         }
     }
 
+    /**
+     * Calculate and returns the next available customerId
+     * @return The ID as an int. -1 if no ID available or if no database connection.
+     */
     public int getNextCustomerId() {
         try {
             ResultSet rs = databaseConnector.executeQuery("SELECT max(customerid) FROM customer");
@@ -110,6 +140,18 @@ public class DatabaseFacade {
         return -1;
     }
 
+    /**
+     * Saves an order and it's information to the database
+     * @param orderId The orders ID
+     * @param customerId The ID of the associated customer
+     * @param finalPrice The final price for the order, mainly used for closed orders
+     * @param tax The tax on the order
+     * @param shippingCharges The shipping charges on the order
+     * @param shippingAddress The shipping address of the customer
+     * @param status The status of the order currently
+     * @param date The date of the finalization of the order
+     * @param items A list of items in the order
+     */
     public void saveOrder(int orderId, int customerId, String finalPrice, String tax, String shippingCharges, String shippingAddress, String status, Date date, List<Item> items) {
         try {
             databaseConnector.executeUpdate(String.format("INSERT INTO orderinfo (orderid, customerid, finalprice, tax, shippingcharges, status, date) VALUES (%d, %d, %s, %s, '%s', %s, %s)", orderId, customerId, finalPrice, tax, shippingCharges, shippingAddress, status, date.toInstant()));
