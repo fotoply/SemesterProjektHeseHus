@@ -97,6 +97,7 @@ public class DatabaseFacade implements IDatabaseFacade {
     public int getCustomerIdFromEmail(String email) {
         try {
             ResultSet rs = databaseConnector.executeQuery(String.format("SELECT costumerid FROM customer WHERE email='%s'", email));
+            rs.next();
             return rs.getInt("customerid");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -106,6 +107,7 @@ public class DatabaseFacade implements IDatabaseFacade {
 
     /**
      * Saves a customer and it's information to the database
+     * @param customerID
      * @param name The customers name
      * @param address The customers physical address
      * @param email The customers email
@@ -116,13 +118,13 @@ public class DatabaseFacade implements IDatabaseFacade {
      * @param currentorderid The ID of the customers current order
      */
     @Override
-    public void saveCustomer(String name, String address, String email, String password, Date birthday, int phoneNumber, String passwordsalt, int currentorderid) {
+    public void saveCustomer(int customerID, String name, String address, String email, String password, Date birthday, int phoneNumber, String passwordsalt, int currentorderid) {
         if (emailExists(email)) {
             throw new IllegalArgumentException("Customer already exists");
         }
-        int id = getNextCustomerId();
+
         try {
-            databaseConnector.executeUpdate(String.format("INSERT INTO customer (customerid, name, address, email, password, birthday, phonenumber, passwordsalt, currentorderid) VALUES (%d, '%s', '%s', '%s', '%s', '%s', %d, '%s', %d)", id, name, address, email, password, birthday.toInstant(), phoneNumber, passwordsalt, -1));
+            databaseConnector.executeUpdate(String.format("INSERT INTO customer (customerid, name, address, email, password, birthday, phonenumber, passwordsalt, currentorderid) VALUES (%d, '%s', '%s', '%s', '%s', '%s', %d, '%s', %d)", customerID, name, address, email, password, birthday.toInstant(), phoneNumber, passwordsalt, -1));
         } catch (SQLException e) {
             e.printStackTrace();
         }

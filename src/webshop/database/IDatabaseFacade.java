@@ -18,7 +18,7 @@ public interface IDatabaseFacade {
 
     int getCustomerIdFromEmail(String email);
 
-    void saveCustomer(String name, String address, String email, String password, Date birthday, int phoneNumber, String passwordsalt, int currentorderid);
+    void saveCustomer(int customerID, String name, String address, String email, String password, Date birthday, int phoneNumber, String passwordsalt, int currentorderid);
 
     int getNextCustomerId();
 
