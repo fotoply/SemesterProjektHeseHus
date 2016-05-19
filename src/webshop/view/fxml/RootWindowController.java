@@ -43,7 +43,12 @@ public class RootWindowController {
 
     public void showSearchOptions() {
         searchShown = true;
-        setCenterFromString("SearchArea.fxml");
+        FXMLLoader loader = createLoaderFromResource(getClass().getResource("SearchArea.fxml"));
+        try {
+            borderPane.setBottom(loader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         //TODO Should show a menu for search options in the left part of the center pane
     }
 
