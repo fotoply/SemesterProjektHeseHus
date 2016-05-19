@@ -45,10 +45,7 @@ public class CustomerManager {
     }
 
     public Customer getCustomer(int customerID) {
-        //if () {
-        //    return customerMap.get(customerID);
-        //}
-        throw new IllegalArgumentException("This customer does not exist");
+        return persistenceFacade.loadCustomerFromId(customerID);
     }
 
     public int getCustomerIDFromEmail(String email) {
