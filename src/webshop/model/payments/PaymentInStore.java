@@ -8,9 +8,10 @@ public class PaymentInStore extends Payment {
 
     /**
      * Handles payment of reserved goods in a physical store.
-     * @param amount The amount to be paid by the customer.
+     *
+     * @param amount        The amount to be paid by the customer.
      * @param reservationID The reservation ID sent to the customer, when he/she reserved their product(s) online.
-     * @param location The location of the physical store the products were ordered to.
+     * @param location      The location of the physical store the products were ordered to.
      */
     public PaymentInStore(Money amount, int reservationID, String location) {
         super(amount);

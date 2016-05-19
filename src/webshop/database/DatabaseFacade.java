@@ -17,7 +17,7 @@ public class DatabaseFacade implements IDatabaseFacade {
     }
 
     public static IDatabaseFacade getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new DatabaseFacade();
         }
         return instance;
@@ -25,6 +25,7 @@ public class DatabaseFacade implements IDatabaseFacade {
 
     /**
      * Checks whether a given email is currently in use in the database. This method is <u>not</u> case sensitive.
+     *
      * @param email the email to check
      * @return true if the email exists otherwise false
      */
@@ -45,6 +46,7 @@ public class DatabaseFacade implements IDatabaseFacade {
 
     /**
      * Gets the ResultSet representing a customers information.
+     *
      * @param customerId the customers unique ID
      * @return A ResultSet containing all columns of the customer
      */
@@ -60,6 +62,7 @@ public class DatabaseFacade implements IDatabaseFacade {
 
     /**
      * Gets the ResultSet representing a products information in the database.
+     *
      * @param productId the products unique ID
      * @return A ResultSet containing all columns of the product
      */
@@ -75,6 +78,7 @@ public class DatabaseFacade implements IDatabaseFacade {
 
     /**
      * Gets the ResultSet representing an orders information in the database.
+     *
      * @param orderId the orders unique ID
      * @return A ResultSet containing all columns of the order
      */
@@ -90,6 +94,7 @@ public class DatabaseFacade implements IDatabaseFacade {
 
     /**
      * Returns the unique ID for a customer based on their email. Is currently case sensitive
+     *
      * @param email the users email
      * @return the ID of the customer or -1 if no customer was found
      */
@@ -107,14 +112,15 @@ public class DatabaseFacade implements IDatabaseFacade {
 
     /**
      * Saves a customer and it's information to the database
+     *
      * @param customerID
-     * @param name The customers name
-     * @param address The customers physical address
-     * @param email The customers email
-     * @param password The customers hashed and salted password
-     * @param birthday The customers birthday. Is represented as an instant internally
-     * @param phoneNumber The customers phonenumber
-     * @param passwordsalt The salt for the customers password
+     * @param name           The customers name
+     * @param address        The customers physical address
+     * @param email          The customers email
+     * @param password       The customers hashed and salted password
+     * @param birthday       The customers birthday. Is represented as an instant internally
+     * @param phoneNumber    The customers phonenumber
+     * @param passwordsalt   The salt for the customers password
      * @param currentorderid The ID of the customers current order
      */
     @Override
@@ -132,6 +138,7 @@ public class DatabaseFacade implements IDatabaseFacade {
 
     /**
      * Calculate and returns the next available customerId
+     *
      * @return The ID as an int. -1 if no ID available or if no database connection.
      */
     @Override
@@ -148,15 +155,16 @@ public class DatabaseFacade implements IDatabaseFacade {
 
     /**
      * Saves an order and it's information to the database
-     * @param orderId The orders ID
-     * @param customerId The ID of the associated customer
-     * @param finalPrice The final price for the order, mainly used for closed orders
-     * @param tax The tax on the order
+     *
+     * @param orderId         The orders ID
+     * @param customerId      The ID of the associated customer
+     * @param finalPrice      The final price for the order, mainly used for closed orders
+     * @param tax             The tax on the order
      * @param shippingCharges The shipping charges on the order
      * @param shippingAddress The shipping address of the customer
-     * @param status The status of the order currently
-     * @param date The date of the finalization of the order
-     * @param items A list of items in the order
+     * @param status          The status of the order currently
+     * @param date            The date of the finalization of the order
+     * @param items           A list of items in the order
      */
     @Override
     public void saveOrder(int orderId, int customerId, String finalPrice, String tax, String shippingCharges, String shippingAddress, String status, Date date, List<Item> items) {
@@ -172,6 +180,7 @@ public class DatabaseFacade implements IDatabaseFacade {
 
     /**
      * Returns a product by searching for something where the type or name matches the input string. Uses partial matching
+     *
      * @param searchTerms the type to match for
      * @return A ResultSet containing the information for the product
      */

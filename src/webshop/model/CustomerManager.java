@@ -1,6 +1,5 @@
 package webshop.model;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import webshop.model.Inventory.Product;
 
 import java.util.Date;
@@ -9,10 +8,10 @@ public class CustomerManager {
 
     private static final int PHONENUMBER_LENGTH = 8;
     private static int customerID = 0;
-    //private Map<Integer, Customer> customerMap;
-    private PersistenceFacade persistenceFacade = PersistenceFacade.getInstance();
     private static Customer currentCustomer;
     private static int currentCustomerID = -1;
+    //private Map<Integer, Customer> customerMap;
+    private PersistenceFacade persistenceFacade = PersistenceFacade.getInstance();
 
     public CustomerManager() {
 
@@ -54,7 +53,7 @@ public class CustomerManager {
     }
 
     public Customer getCustomer(int customerID) {
-        if(currentCustomer == null || currentCustomer.getCustomerID() != customerID) {
+        if (currentCustomer == null || currentCustomer.getCustomerID() != customerID) {
             currentCustomer = persistenceFacade.loadCustomerFromId(customerID);
         }
         return currentCustomer;

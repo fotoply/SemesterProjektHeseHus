@@ -12,8 +12,9 @@ public class GiftCard extends Payment {
     /**
      * The constructor for the GiftCard class,
      * used to create a GiftCard object containing the value of the GiftCard.
+     *
      * @param amount The available amount on the Gift Card.
-     * @param id The Gift Card's ID number.
+     * @param id     The Gift Card's ID number.
      */
     public GiftCard(Money amount, int id) {
         super(amount);

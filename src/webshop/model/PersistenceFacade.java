@@ -31,6 +31,7 @@ public class PersistenceFacade {
 
     /**
      * Gets the next available customerID.
+     *
      * @return The next ID or -1 if no ID was found.
      */
     public int getNextCustomerId() {
@@ -39,6 +40,7 @@ public class PersistenceFacade {
 
     /**
      * Loads a customer given a customerID
+     *
      * @param customerId the unique ID of the customer
      * @return A customer object with all information set from the database, null if no customer was found
      */
@@ -50,7 +52,7 @@ public class PersistenceFacade {
                 newCustomer = new Customer(rs.getString("name"), rs.getString("address"), rs.getString("email"), "toBeLoaded", rs.getDate("birthday"), rs.getInt("phonenumber"));
                 newCustomer.setPassword(Customer.fromBase64(rs.getString("password")));
                 newCustomer.setSalt(Customer.fromBase64(rs.getString("passwordsalt")));
-            //  newCustomer.setCurrentOrder(loadOrderFromId(rs.getInt("currentorderid")));
+                //  newCustomer.setCurrentOrder(loadOrderFromId(rs.getInt("currentorderid")));
                 newCustomer.setCustomerID(customerId);
             } else {
                 throw new IllegalArgumentException("Customer does not exist");
@@ -67,6 +69,7 @@ public class PersistenceFacade {
 
     /**
      * Confirms whether the given email exists in the persistent system
+     *
      * @param email the email to search for
      * @return true if the email exists otherwise false
      */
@@ -76,6 +79,7 @@ public class PersistenceFacade {
 
     /**
      * Saves a Customer object to the database
+     *
      * @param c the customer to save
      */
     public void saveCustomer(Customer c) {
@@ -85,6 +89,7 @@ public class PersistenceFacade {
 
     /**
      * Loads an order from it's orderId
+     *
      * @param orderId the unique ID for the order
      * @return An order object representing the data in the database
      * // TODO: 5/19/16 Finish this method
@@ -95,6 +100,7 @@ public class PersistenceFacade {
 
     /**
      * Loads a product given a productId
+     *
      * @param productId the unique ID of the product
      * @return A product object with all information from the database, null if no product was found
      */
@@ -120,6 +126,7 @@ public class PersistenceFacade {
 
     /**
      * Gets the unique ID of a customer based on their email. This method is <u>not</u> case sensitive.
+     *
      * @param email the email of the user
      * @return the ID of the user or -1 if no user is found
      */
@@ -129,6 +136,7 @@ public class PersistenceFacade {
 
     /**
      * Attempts to fetch a product based on the searchTerms
+     *
      * @param searchTerms
      * @return A list of the found products
      */

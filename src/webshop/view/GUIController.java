@@ -12,7 +12,6 @@ import webshop.model.payments.GiftCard;
 import webshop.view.fxml.RootWindowController;
 
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 
 public class GUIController extends Application {

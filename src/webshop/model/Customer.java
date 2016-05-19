@@ -51,9 +51,9 @@ public class Customer {
         SecureRandom rnd = new SecureRandom();
         rnd.nextBytes(salt);
         setPassword(password);
-        }
+    }
 
-      public static void main(String[] args) {
+    public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         String password = input.nextLine();
 
@@ -66,12 +66,9 @@ public class Customer {
 
     }
 
-    public int getCustomerID() {
-        return this.customerID;
-    }
-
     /**
      * Converts a string from the base64 format to a byte array
+     *
      * @param base64String a string representing the base64 object
      * @return
      */
@@ -81,11 +78,20 @@ public class Customer {
 
     /**
      * Converts a byte array into a String, in base64
+     *
      * @param array the array to convert
      * @return
      */
     public static String toBase64(@NotNull byte[] array) {
         return DatatypeConverter.printBase64Binary(array);
+    }
+
+    public int getCustomerID() {
+        return this.customerID;
+    }
+
+    public void setCustomerID(int customerId) {
+        this.customerID = customerId;
     }
 
     public byte[] getSalt() {
@@ -184,6 +190,8 @@ public class Customer {
         throw new NotImplementedException();
     }
 
+    //TODO implement constant-time comparison to avoid timing attacks
+
     /**
      * Adds a product to the current order.
      *
@@ -194,10 +202,9 @@ public class Customer {
         this.currentOrder.addProduct(product, amount);
     }
 
-    //TODO implement constant-time comparison to avoid timing attacks
-
     /**
      * Returns whether the given password is the correct password for the customer.
+     *
      * @param comparisonPassword the non-hashed password to be tested
      * @return true if the password matches otherwise false
      */
@@ -215,6 +222,7 @@ public class Customer {
 
     /**
      * Is used to hash the password. Will also salt it with the users salt. Expects salt to be set.
+     *
      * @param password the password that should be hashed.
      * @return the hashed password as an array of bytes.
      */
@@ -247,9 +255,5 @@ public class Customer {
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +
                 '}';
-    }
-
-    public void setCustomerID(int customerId) {
-        this.customerID = customerId;
     }
 }

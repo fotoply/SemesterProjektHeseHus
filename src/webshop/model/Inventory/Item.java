@@ -15,6 +15,7 @@ public class Item {
 
     /**
      * Gets the product associated with this item
+     *
      * @return A product instance or null if none.
      */
     public Product getProduct() {
@@ -23,6 +24,7 @@ public class Item {
 
     /**
      * Gets the quantity of associated product
+     *
      * @return An int representing how many of the product that is associated with this item.
      */
     public int getQuantity() {
