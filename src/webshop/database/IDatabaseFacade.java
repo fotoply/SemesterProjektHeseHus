@@ -26,5 +26,4 @@ public interface IDatabaseFacade {
 
     ResultSet searchProduct(String searchTerms);
 
-    ResultSet getProductByName(String searchTerms);
 }

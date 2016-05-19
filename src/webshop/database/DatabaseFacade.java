@@ -184,18 +184,5 @@ public class DatabaseFacade implements IDatabaseFacade {
 
     }
 
-    /**
-     * Returns a product by searching for something where the name matches the input string. Uses partial matching
-     * @param searchTerms the name to match for
-     * @return A ResultSet containing the information for the product
-     */
-    @Override
-    public ResultSet getProductByName(String searchTerms) {
-        try {
-            return databaseConnector.executeQuery(String.format("SELECT * FROM product WHERE LOWER(name) like '%s%%'", searchTerms.toLowerCase()));
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        throw new RuntimeException("Something went wrong in executing SQL statement.");
-    }
+
 }
