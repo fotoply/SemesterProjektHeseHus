@@ -27,6 +27,9 @@ public class RootWindowController {
     @FXML
     private BorderPane borderPane;
 
+    @FXML
+    private Button homeButton;
+
     public static Image getDefaultImage() {
         return new Image("/res/placeholderProductIcon.png");
     }
@@ -34,6 +37,7 @@ public class RootWindowController {
     @FXML
     void initialize() {
         optionsButton.setPadding(Insets.EMPTY);
+        homeButton.setPadding(Insets.EMPTY);
         showShopArea();
     }
 
@@ -56,9 +60,6 @@ public class RootWindowController {
         } else {
             showSearchOptions();
         }
-
-        showShopArea();
-
     }
 
     @FXML
@@ -68,6 +69,11 @@ public class RootWindowController {
         } else {
             showLoginScreen();
         }
+    }
+
+    @FXML
+    private void homeButtonPressed() {
+        showShopArea();
     }
 
     public void showLoginScreen() {
