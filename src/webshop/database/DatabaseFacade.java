@@ -136,6 +136,7 @@ public class DatabaseFacade implements IDatabaseFacade {
     public int getNextCustomerId() {
         try {
             ResultSet rs = databaseConnector.executeQuery("SELECT max(customerid) FROM customer");
+            rs.next();
             return rs.getInt("max") + 1;
         } catch (SQLException e) {
             e.printStackTrace();
