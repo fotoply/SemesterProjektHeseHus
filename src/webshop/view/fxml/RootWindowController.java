@@ -43,14 +43,12 @@ public class RootWindowController {
 
     public void showSearchOptions() {
         searchShown = true;
-        //borderPane.setLeft();
         //TODO Should show a menu for search options in the left part of the center pane
     }
 
     public void hideSearchOptions() {
         searchShown = false;
-        borderPane.setLeft(null);
-        //TODO Hide the search menu again.
+        borderPane.setBottom(null);
     }
 
     @FXML
