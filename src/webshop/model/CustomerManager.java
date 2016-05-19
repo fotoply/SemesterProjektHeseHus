@@ -6,9 +6,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author Grp. 14
- */
 public class CustomerManager {
 
     private static final int PHONENUMBER_LENGTH = 8;

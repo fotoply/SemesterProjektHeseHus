@@ -16,9 +16,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- * @author Grp. 14
- */
 public class Customer {
     private String address;
     private String email;

@@ -1,15 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package webshop.model.payments;
 
 import webshop.model.Money;
 
-/**
- * @author Karim
- */
 public abstract class Payment {
     private Money amount;
 

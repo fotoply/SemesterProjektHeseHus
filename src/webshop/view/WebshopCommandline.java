@@ -32,7 +32,7 @@ public class WebshopCommandline {
     public static void main(String[] args) throws ParseException {
         // Test code for products
         WebshopCommandline controller = new WebshopCommandline();
-        controller.webshop.createCustomer("Bob", "Vester bobvej", "test", "1", new Date(), 10203040);
+        controller.webshop.createCustomer("Bob", "Vester bobvej", 10203040, "test", "1", new Date());
 
         while (true) {
             System.out.println("**testbruger: navn: test kode: 1** \n"
@@ -175,7 +175,7 @@ public class WebshopCommandline {
         System.out.println("Enter phone number:");
         int phoneNumber = Integer.valueOf(input.nextLine());
 
-        Customer newCustomer = webshop.createCustomer(name, address, email, password, birth, phoneNumber);
+        Customer newCustomer = webshop.createCustomer(name, address, phoneNumber, email, password, birth);
         System.out.println("You are: " + newCustomer.toString());
         System.out.println("Your password hash is: " + Customer.toBase64(newCustomer.getPassword()));
     }
