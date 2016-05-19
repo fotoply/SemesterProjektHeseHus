@@ -176,7 +176,7 @@ public class DatabaseFacade implements IDatabaseFacade {
     @Override
     public ResultSet searchProduct(String searchTerms) {
         try {
-            return databaseConnector.executeQuery(String.format("SELECT * FROM product WHERE LOWER(type) like '%s%%' OR WHERE LOWER(name) like '%s%%'", searchTerms.toLowerCase()));
+            return databaseConnector.executeQuery(String.format("SELECT * FROM product WHERE LOWER(type) like '%s%%' OR LOWER(name) like '%s%%'", searchTerms.toLowerCase(), searchTerms.toLowerCase()));
         } catch (SQLException e) {
             e.printStackTrace();
         }
