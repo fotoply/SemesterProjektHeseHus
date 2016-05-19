@@ -128,10 +128,10 @@ public class PersistenceFacade {
         ResultSet rsName = database.getProductByName(searchTerms);
         List<Product> searchedProducts = new ArrayList<>();
         try {
-            if (rsType.next()) {
+            while (rsType.next()) {
                 searchedProducts.add(new Product(rsType.getString("name"), rsType.getString("description"), rsType.getString("type"), new Money(rsType.getString("price")), rsType.getInt("productID"), rsType.getBoolean("currentlyselling")));
             }
-            if (rsName.next()) {
+            while (rsName.next()) {
                 searchedProducts.add(new Product(rsName.getString("name"), rsName.getString("description"), rsName.getString("type"), new Money(rsName.getString("price")), rsName.getInt("productID"), rsName.getBoolean("currentlyselling")));
             }
         } catch (SQLException e) {

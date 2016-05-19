@@ -23,11 +23,6 @@ public class Order {
     private List<Payment> paymentMethods;
     private Status status = Status.IN_BASKET;
 
-    public Order(int orderId) {
-        this.paymentMethods = new ArrayList<>();
-        this.orderID = orderId;
-    }
-
     public Order(String shippingCharges, String shippingAddress, int customerID) {
         this.shippingCharges = new Money(shippingCharges);
         this.shippingAddress = shippingAddress;
