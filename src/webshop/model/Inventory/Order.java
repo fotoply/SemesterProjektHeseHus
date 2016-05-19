@@ -144,9 +144,10 @@ public class Order {
         }
     }
 
-    public void applyGiftCard(int ID) {
+    public boolean applyGiftCard(int ID) {
         GiftCard temp = GiftCard.getGiftcard(ID);
         temp.setGiftCardAmount(ID, payWithGiftcard(temp.getGiftcardAmount(ID)));
+        return isPaid();
     }
 
     public List<Item> getProducts() {
