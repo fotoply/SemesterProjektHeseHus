@@ -38,7 +38,7 @@ public class CustomerManager {
         int ID = getNextId();
         temp = new Customer(name, address, email, password, dayOfBirth, phoneNumber));
         temp.setCustomerID(getNextId());
-        persistenceFacade.uploadCustomer(temp);
+        persistenceFacade.saveCustomer(temp);
         return temp;
 
     }
