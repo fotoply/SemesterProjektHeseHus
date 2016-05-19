@@ -116,7 +116,7 @@ public class Webshop {
     }
 
     public boolean isLoggedIn() {
-        return getCurrentCustomer() != null;
+        return CustomerManager.getCurrentCustomerID() != -1;
     }
 
     public List<Product> getProducts() {
