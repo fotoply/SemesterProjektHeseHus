@@ -65,6 +65,10 @@ public class Customer {
 
     }
 
+    public int getCustomerID() {
+        return this.customerID;
+    }
+
     public static byte[] fromBase64(String base64String) {
         return DatatypeConverter.parseBase64Binary(base64String);
     }

@@ -142,6 +142,6 @@ public class PersistenceFacade {
 
     public void uploadCustomer(Customer temp) {
 
-        database.uploadCustomer(String temp.getName(), )
+        database.uploadCustomer(int temp.getCustomerId(),  String temp.getName(), )
     }
 }
