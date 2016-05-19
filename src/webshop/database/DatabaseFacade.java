@@ -2,8 +2,7 @@ package webshop.database;
 
 import webshop.model.Inventory.Item;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Date;
 import java.util.List;
 

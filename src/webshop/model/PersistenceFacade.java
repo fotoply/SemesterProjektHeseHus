@@ -6,10 +6,8 @@ import webshop.database.IDatabaseFacade;
 import webshop.model.Inventory.Order;
 import webshop.model.Inventory.Product;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.*;
+import java.util.*;
 
 /**
  * Handles transferring to and from persistent datastore.
