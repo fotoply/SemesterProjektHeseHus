@@ -43,7 +43,7 @@ public class Webshop {
         return getCurrentCustomer().getCurrentOrder();
     }
 
-    private Customer getCurrentCustomer() {
+    public Customer getCurrentCustomer() {
         return customerManager.getCustomer(CustomerManager.getCurrentCustomerID());
     }
 

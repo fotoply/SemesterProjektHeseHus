@@ -83,7 +83,7 @@ public class WebshopCommandline {
         webshop.checkoutBasket();
 
         try {
-            if (webshop.getCustomer() == null || webshop.getCurrentOrder() == null) {
+            if (webshop.getCurrentCustomer() == null || webshop.getCurrentOrder() == null) {
                 System.out.println("You cannot checkout without an account or basket");
                 return true;
             }
