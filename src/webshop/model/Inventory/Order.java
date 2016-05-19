@@ -168,4 +168,5 @@ public class Order {
     public enum Status {
         IN_BASKET, SHIPPING_TO_SHOP, SHIPPING, ACCEPTED, CLOSED, FOR_VERIFICATION
     }
+
 }
