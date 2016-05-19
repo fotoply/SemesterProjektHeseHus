@@ -16,6 +16,10 @@ public class DatabaseFacade {
         databaseConnector.getConnection();
     }
 
+    /**
+     * Gets the global instance of the DatabaseFacade singleton.
+     * @return
+     */
     public static DatabaseFacade getInstance() {
         initializeConnection();
         return instance;
