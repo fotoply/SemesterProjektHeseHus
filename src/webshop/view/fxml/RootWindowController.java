@@ -43,6 +43,7 @@ public class RootWindowController {
 
     public void showSearchOptions() {
         searchShown = true;
+        setCenterFromString("SearchArea.fxml");
         //TODO Should show a menu for search options in the left part of the center pane
     }
 

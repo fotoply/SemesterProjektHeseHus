@@ -1,4 +1,4 @@
-package webshop;
+package webshop.view.fxml;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
