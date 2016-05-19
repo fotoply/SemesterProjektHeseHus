@@ -21,12 +21,13 @@ public class GUIController extends Application {
     private static Webshop webshopInstance;
 
     public static void main(String[] args) {
-        launch(args);
         new GiftCard(new Money("2000"), 1);
         new GiftCard(new Money("200"), 2);
         new GiftCard(new Money("4000"), 3);
         new GiftCard(new Money("500"), 4);
         new GiftCard(new Money("3000"), 5);
+        launch(args);
+
     }
 
     public static RootWindowController getRootInstance() {
