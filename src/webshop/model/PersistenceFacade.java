@@ -118,6 +118,11 @@ public class PersistenceFacade {
         return newProduct;
     }
 
+    /**
+     * Gets the unique ID of a customer based on their email. This method is <u>not</u> case sensitive.
+     * @param email the email of the user
+     * @return the ID of the user or -1 if no user is found
+     */
     public int getCustomerIdFromEmail(String email) {
         return database.getCustomerIdFromEmail(email);
     }
