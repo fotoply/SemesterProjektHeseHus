@@ -67,7 +67,12 @@ public class BasketScreenController {
 
     @FXML
     void applyCodeClicked(ActionEvent event) {
-        GUIController.getWebshopInstance().applyGiftCard(1);
+        if (GUIController.getWebshopInstance().applyGiftCard(1)) {
+            System.out.println("stuff is paid");
+        } else {
+            System.out.println("Fuck You");
+        }
+
 
     }
 
