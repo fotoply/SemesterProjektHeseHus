@@ -30,7 +30,8 @@ public class GiftCard extends Payment {
     }
 
     public void setGiftCardAmount(int id, Money amount) {
-        giftCards.get(id).setAmount(amount);
+        this.setAmount(amount);
+        //giftCards.get(id).setAmount(amount);
     }
 }
 
