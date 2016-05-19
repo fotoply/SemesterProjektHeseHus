@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Handles transferring to and from persistent data.
+ * Handles transferring to and from persistent datastore.
  */
 public class PersistenceFacade {
     private static PersistenceFacade instance;
@@ -29,6 +29,10 @@ public class PersistenceFacade {
         return instance;
     }
 
+    /**
+     * Gets the next available customerID.
+     * @return The next ID or -1 if no ID was found.
+     */
     public int getNextCustomerId() {
         return database.getNextCustomerId();
     }
