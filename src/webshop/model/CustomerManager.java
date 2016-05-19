@@ -12,9 +12,18 @@ public class CustomerManager {
     //private Map<Integer, Customer> customerMap;
     private PersistenceFacade persistenceFacade = PersistenceFacade.getInstance();
     private static Customer currentCustomer;
+    private static int currentCustomerID = -1;
 
     public CustomerManager() {
 
+    }
+
+    public static int getCurrentCustomerID() {
+        return currentCustomerID;
+    }
+
+    public static void setCurrentCustomerID(int currentCustomerID) {
+        CustomerManager.currentCustomerID = currentCustomerID;
     }
 
     public void createNewOrder(int customerID) {

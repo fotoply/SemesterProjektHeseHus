@@ -9,7 +9,6 @@ import java.util.List;
 
 public class Webshop {
     private static Webshop instance;
-    private int currentCustomerID = -1;
     private CustomerManager customerManager;
     private ProductCatalog productCatalog = new ProductCatalog();
     private PaymentType payingBy;
@@ -26,7 +25,7 @@ public class Webshop {
     }
 
     public void setCurrentCustomerID(int currentCustomerID) {
-        this.currentCustomerID = currentCustomerID;
+        CustomerManager.setCurrentCustomerID(currentCustomerID);
     }
 
     public Product findProduct(int productID) {
@@ -41,18 +40,22 @@ public class Webshop {
     }
 
     public Order getCurrentOrder() {
-        return customerManager.getCustomer(currentCustomerID).getCurrentOrder();
+        return getCurrentCustomer().getCurrentOrder();
+    }
+
+    private Customer getCurrentCustomer() {
+        return customerManager.getCustomer(CustomerManager.getCurrentCustomerID());
     }
 
     public void createNewOrder() {
-        customerManager.getCustomer(currentCustomerID).createNewOrder(currentCustomerID);
+        getCurrentCustomer().createNewOrder(CustomerManager.getCurrentCustomerID());
     }
 
     public void addItem(Product product, int amount) {
         if (getCurrentOrder() == null) {
             createNewOrder();
         }
-        customerManager.getCustomer(currentCustomerID).addProduct(product, amount);
+        getCurrentCustomer().addProduct(product, amount);
     }
 
     public Customer createCustomer(String name, String address, int phoneNumber, String email, String password, Date dayOfBirth) {
@@ -64,10 +67,7 @@ public class Webshop {
     }
 
     public boolean loginWithCustomer(int customerId, String password) {
-        if (customerManager.getCustomer(customerId).isCorrectPassword(password)) {
-            return true;
-        }
-        return false;
+        return customerManager.getCustomer(customerId).isCorrectPassword(password);
     }
 
     public boolean isValidEmail(String email) {
@@ -77,12 +77,12 @@ public class Webshop {
 
     public boolean loginWithEmail(String email, String password) {
         setCurrentCustomerID(getCustomerIdFromEmail(email));
-        System.out.println("Current customer ID: " + getCustomer());
-        return loginWithCustomer(currentCustomerID, password);
+        System.out.println("Current customer ID: " + getCurrentCustomer().getCustomerID());
+        return loginWithCustomer(CustomerManager.getCurrentCustomerID(), password);
     }
 
     public String checkoutBasket() {
-        customerManager.getCustomer(currentCustomerID).checkoutBasket();
+        getCurrentCustomer().checkoutBasket();
         return "Basket was checked out";
     }
 
@@ -91,15 +91,12 @@ public class Webshop {
     }
 
     public void cancelOrder() {
-        customerManager.getCustomer(currentCustomerID).cancelOrder();
+        getCurrentCustomer().cancelOrder();
     }
 
-    public Customer getCustomer() {
-        return customerManager.getCustomer(currentCustomerID);
-    }
 
     public void deleteCustomer() {
-        customerManager.deleteCustomer(currentCustomerID);
+        customerManager.deleteCustomer(CustomerManager.getCurrentCustomerID());
     }
 
     public boolean isOrderPaidFor() {
@@ -119,12 +116,7 @@ public class Webshop {
     }
 
     public boolean isLoggedIn() {
-        try {
-            customerManager.getCustomer(currentCustomerID);
-        } catch (Exception ignored) {
-            return false;
-        }
-        return currentCustomerID != -1;
+        return getCurrentCustomer() != null;
     }
 
     public List<Product> getProducts() {
