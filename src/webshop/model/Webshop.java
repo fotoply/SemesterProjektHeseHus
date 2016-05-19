@@ -12,7 +12,7 @@ public class Webshop {
     private int currentCustomerID = -1;
     private CustomerManager customerManager;
     private ProductCatalog productCatalog = new ProductCatalog();
-    private paymentType payingBy;
+    private PaymentType payingBy;
 
     private Webshop() {
         customerManager = new CustomerManager();
@@ -110,11 +110,11 @@ public class Webshop {
         return true;
     }
 
-    public paymentType getPayingBy() {
+    public PaymentType getPayingBy() {
         return payingBy;
     }
 
-    public void setPayingBy(paymentType payingBy) {
+    public void setPayingBy(PaymentType payingBy) {
         this.payingBy = payingBy;
     }
 
@@ -131,5 +131,5 @@ public class Webshop {
         return productCatalog.getProductList();
     }
 
-    public enum paymentType {IN_SHOP, CREDIT_CARD}
+    public enum PaymentType {IN_SHOP, CREDIT_CARD}
 }
