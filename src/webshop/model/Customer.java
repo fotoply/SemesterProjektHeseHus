@@ -25,6 +25,7 @@ public class Customer {
     private String name;
     private byte[] salt = new byte[32];
     private List<MemberShipCard> memberShipCards;
+    private List<Order> orderList;
     private Order currentOrder;
     private int customerID;
 
