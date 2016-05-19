@@ -163,6 +163,11 @@ public class DatabaseFacade {
         }
     }
 
+    /**
+     * Returns a product by searching for something where the type matches the input string. Uses partial matching
+     * @param searchTerms the type to match for
+     * @return A ResultSet containing the information for the product
+     */
     public ResultSet getProductByType(String searchTerms) {
         try {
             return databaseConnector.executeQuery("SELECT * FROM product WHERE type like " + searchTerms + "%");
@@ -173,6 +178,11 @@ public class DatabaseFacade {
 
     }
 
+    /**
+     * Returns a product by searching for something where the name matches the input string. Uses partial matching
+     * @param searchTerms the name to match for
+     * @return A ResultSet containing the information for the product
+     */
     public ResultSet getProductByName(String searchTerms) {
         try {
             return databaseConnector.executeQuery("SELECT * FROM product WHERE name=" + searchTerms + "%");
