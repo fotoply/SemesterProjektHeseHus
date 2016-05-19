@@ -176,7 +176,7 @@ public class DatabaseFacade implements IDatabaseFacade {
     @Override
     public ResultSet getProductByType(String searchTerms) {
         try {
-            return databaseConnector.executeQuery("SELECT * FROM product WHERE type like " + searchTerms + "%");
+            return databaseConnector.executeQuery("SELECT * FROM product WHERE type like '" + searchTerms + "%'");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -192,7 +192,7 @@ public class DatabaseFacade implements IDatabaseFacade {
     @Override
     public ResultSet getProductByName(String searchTerms) {
         try {
-            return databaseConnector.executeQuery("SELECT * FROM product WHERE name=" + searchTerms + "%");
+            return databaseConnector.executeQuery("SELECT * FROM product WHERE name='" + searchTerms + "%'");
         } catch (SQLException e) {
             e.printStackTrace();
         }
