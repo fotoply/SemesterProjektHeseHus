@@ -24,6 +24,7 @@ public class ShopAreaController {
     }
 
     public void loadItems(List<Product> products) {
+        productArea.getChildren().clear();
         for (Product product : products) {
             addNewItem(new ProductNode(product));
         }
