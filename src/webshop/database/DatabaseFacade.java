@@ -27,6 +27,11 @@ public class DatabaseFacade {
         }
     }
 
+    /**
+     * Checks whether a given email is currently in use in the database. This method is <u>not</u> case sensitive.
+     * @param email the email to check
+     * @return true if the email exists otherwise false
+     */
     public boolean emailExists(String email) {
         ResultSet rs = null;
         try {
@@ -41,6 +46,11 @@ public class DatabaseFacade {
 
     }
 
+    /**
+     * Gets the ResultSet representing a customers information.
+     * @param customerId the customers unique Id
+     * @return A ResultSet containing all columns of the customer
+     */
     public ResultSet getCustomer(int customerId) {
         try {
             return databaseConnector.executeQuery("SELECT * FROM customer WHERE customerid=" + customerId);
