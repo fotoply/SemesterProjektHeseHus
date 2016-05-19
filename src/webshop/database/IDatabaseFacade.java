@@ -8,11 +8,6 @@ import java.util.List;
 
 public interface IDatabaseFacade {
 
-    /**
-     * Gets the global instance of the DatabaseFacade singleton.
-     * @return
-     */
-
     boolean emailExists(String email);
 
     ResultSet getCustomer(int customerId);
