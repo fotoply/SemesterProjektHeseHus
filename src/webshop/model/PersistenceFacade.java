@@ -139,4 +139,9 @@ public class PersistenceFacade {
 
         return searchedProducts;
     }
+
+    public void uploadCustomer(Customer temp) {
+
+        database.uploadCustomer(String temp.getName(), )
+    }
 }

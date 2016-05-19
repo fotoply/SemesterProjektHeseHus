@@ -10,11 +10,11 @@ public class CustomerManager {
 
     private static final int PHONENUMBER_LENGTH = 8;
     private static int customerID = 0;
-    private Map<Integer, Customer> customerMap;
+    //private Map<Integer, Customer> customerMap;
     private PersistenceFacade persistenceFacade = PersistenceFacade.getInstance();
 
     public CustomerManager() {
-        customerMap = new HashMap<>();
+
     }
 
     public void createNewOrder(int customerID) {
@@ -26,6 +26,7 @@ public class CustomerManager {
     }
 
     public Customer createCustomer(String name, String address, int phoneNumber, String email, String password, Date dayOfBirth) {
+        Customer temp;
         if (persistenceFacade.confirmEmail(email)) {
             throw new IllegalArgumentException("This E-Mail is already used");
         }
@@ -35,16 +36,17 @@ public class CustomerManager {
             throw new IllegalArgumentException("Phone Number does not exist");
         }
         int ID = getNextId();
-        customerMap.put(ID, new Customer(name, address, email, password, dayOfBirth, phoneNumber));
-        customerMap.get(ID).setCustomerID(ID);
-        return customerMap.get(ID);
+        temp = new Customer(name, address, email, password, dayOfBirth, phoneNumber));
+        temp.setCustomerID(getNextId());
+        persistenceFacade.uploadCustomer(temp);
+        return temp;
 
     }
 
     public Customer getCustomer(int customerID) {
-        if (customerMap.containsKey(customerID)) {
-            return customerMap.get(customerID);
-        }
+        //if () {
+        //    return customerMap.get(customerID);
+        //}
         throw new IllegalArgumentException("This customer does not exist");
     }
 
