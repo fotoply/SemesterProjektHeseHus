@@ -6,11 +6,6 @@ import java.sql.ResultSet;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created 5/19/16
- *
- * @author Niels Norberg
- */
 public interface IDatabaseFacade {
 
     /**
