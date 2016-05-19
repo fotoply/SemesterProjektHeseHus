@@ -169,14 +169,14 @@ public class DatabaseFacade implements IDatabaseFacade {
     }
 
     /**
-     * Returns a product by searching for something where the type matches the input string. Uses partial matching
+     * Returns a product by searching for something where the type or name matches the input string. Uses partial matching
      * @param searchTerms the type to match for
      * @return A ResultSet containing the information for the product
      */
     @Override
-    public ResultSet getProductByType(String searchTerms) {
+    public ResultSet searchProduct(String searchTerms) {
         try {
-            return databaseConnector.executeQuery("SELECT * FROM product WHERE type like " + searchTerms + "%");
+            return databaseConnector.executeQuery(String.format("SELECT * FROM product WHERE LOWER(type) like '%s%%' OR LOWER(name) like '%s%%'", searchTerms.toLowerCase(), searchTerms.toLowerCase()));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -184,18 +184,5 @@ public class DatabaseFacade implements IDatabaseFacade {
 
     }
 
-    /**
-     * Returns a product by searching for something where the name matches the input string. Uses partial matching
-     * @param searchTerms the name to match for
-     * @return A ResultSet containing the information for the product
-     */
-    @Override
-    public ResultSet getProductByName(String searchTerms) {
-        try {
-            return databaseConnector.executeQuery("SELECT * FROM product WHERE name=" + searchTerms + "%");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        throw new RuntimeException("Something went wrong in executing SQL statement.");
-    }
+
 }

@@ -14,7 +14,7 @@ public class ProductCatalog {
     public ProductCatalog() {
         productList = new ArrayList<>();
 
-        addTestProducts();
+        //addTestProducts();
     }
 
     private void addTestProducts() {
@@ -31,9 +31,9 @@ public class ProductCatalog {
                 "Jackets", new Money("1499.95"), 3, true));
     }
 
-    public Product findProduct(int itemID) {
+    public Product findProduct(int productID) {
         for (Product product : productList) {
-            if (itemID == product.getProductID()) {
+            if (productID == product.getProductID()) {
                 return product;
             }
         }

@@ -24,7 +24,6 @@ public interface IDatabaseFacade {
 
     void saveOrder(int orderId, int customerId, String finalPrice, String tax, String shippingCharges, String shippingAddress, String status, Date date, List<Item> items);
 
-    ResultSet getProductByType(String searchTerms);
+    ResultSet searchProduct(String searchTerms);
 
-    ResultSet getProductByName(String searchTerms);
 }
