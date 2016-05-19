@@ -96,7 +96,7 @@ public class DatabaseFacade implements IDatabaseFacade {
     @Override
     public int getCustomerIdFromEmail(String email) {
         try {
-            ResultSet rs = databaseConnector.executeQuery(String.format("SELECT costumerid FROM customer WHERE LOWER(email)='%s'", email.toLowerCase()));
+            ResultSet rs = databaseConnector.executeQuery(String.format("SELECT customerid FROM customer WHERE LOWER(email)='%s'", email.toLowerCase()));
             rs.next();
             return rs.getInt("customerid");
         } catch (SQLException e) {
