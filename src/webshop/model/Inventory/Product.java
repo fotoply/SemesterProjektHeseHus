@@ -10,10 +10,6 @@ public class Product {
     private int productID = -1;
     private boolean currentlySelling = false;
 
-    public Product(int productID) {
-        this.productID = productID;
-    }
-
     public Product(String name, String description, String type, Money price, int productID, boolean currentlySelling) {
         this.name = name;
         this.description = description;
