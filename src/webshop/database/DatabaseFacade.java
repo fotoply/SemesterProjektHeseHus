@@ -30,7 +30,7 @@ public class DatabaseFacade implements IDatabaseFacade {
      */
     @Override
     public boolean emailExists(String email) {
-        ResultSet rs = null;
+        ResultSet rs;
         try {
             rs = databaseConnector.executeQuery("SELECT email FROM customer WHERE email='" + email.toLowerCase() + "'");
             return rs.isBeforeFirst();

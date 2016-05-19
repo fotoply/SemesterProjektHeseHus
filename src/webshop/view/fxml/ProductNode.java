@@ -26,7 +26,7 @@ public class ProductNode extends AnchorPane {
         getChildren().add(border);
 
         ImageView imageView = new ImageView();
-        imageView.setImage(GUIController.getRootInstance().getDefaultImage());
+        imageView.setImage(RootWindowController.getDefaultImage());
         imageView.setX(2);
         imageView.setY(16);
         imageView.setFitHeight(126);
