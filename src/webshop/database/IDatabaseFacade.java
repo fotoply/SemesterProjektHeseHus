@@ -12,13 +12,6 @@ public interface IDatabaseFacade {
      * Gets the global instance of the DatabaseFacade singleton.
      * @return
      */
-    static DatabaseFacade getInstance() {
-        return null;
-    }
-
-    static void initializeConnection() {
-
-    }
 
     boolean emailExists(String email);
 

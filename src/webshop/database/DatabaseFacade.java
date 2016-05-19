@@ -16,6 +16,13 @@ public class DatabaseFacade implements IDatabaseFacade {
         databaseConnector.getConnection();
     }
 
+    public static IDatabaseFacade getInstance() {
+        if(instance == null) {
+            instance = new DatabaseFacade();
+        }
+        return instance;
+    }
+
     /**
      * Checks whether a given email is currently in use in the database. This method is <u>not</u> case sensitive.
      * @param email the email to check

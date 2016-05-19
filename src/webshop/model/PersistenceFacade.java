@@ -2,6 +2,7 @@ package webshop.model;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import webshop.database.DatabaseFacade;
+import webshop.database.IDatabaseFacade;
 import webshop.model.Inventory.Order;
 import webshop.model.Inventory.Product;
 
@@ -15,10 +16,9 @@ import java.util.List;
  */
 public class PersistenceFacade {
     private static PersistenceFacade instance;
-    DatabaseFacade database;
+    IDatabaseFacade database;
 
     private PersistenceFacade() {
-        DatabaseFacade.initializeConnection();
         database = DatabaseFacade.getInstance();
     }
 
