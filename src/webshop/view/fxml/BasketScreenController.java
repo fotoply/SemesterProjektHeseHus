@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import webshop.model.Inventory.Item;
+import webshop.view.GUIController;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -66,6 +67,7 @@ public class BasketScreenController {
 
     @FXML
     void applyCodeClicked(ActionEvent event) {
+        GUIController.getWebshopInstance().applyGiftCard(1);
 
     }
 
