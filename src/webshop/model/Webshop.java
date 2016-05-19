@@ -95,10 +95,6 @@ public class Webshop {
     }
 
 
-    public void deleteCustomer() {
-        customerManager.deleteCustomer(CustomerManager.getCurrentCustomerID());
-    }
-
     public boolean isOrderPaidFor() {
         return getCurrentOrder().isPaid();
     }

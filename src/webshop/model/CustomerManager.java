@@ -64,9 +64,6 @@ public class CustomerManager {
         return persistenceFacade.getCustomerIdFromEmail(email);
     }
 
-    public void deleteCustomer(int customerID) {
-        throw new NotImplementedException();
-    }
 
     public void addproduct(Product product, int amount, int customerID) {
         getCustomer(customerID).addProduct(product, amount);
