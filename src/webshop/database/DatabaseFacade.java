@@ -124,7 +124,7 @@ public class DatabaseFacade implements IDatabaseFacade {
         }
 
         try {
-            databaseConnector.executeUpdate(String.format("INSERT INTO customer (customerid, name, address, email, password, birthday, phonenumber, passwordsalt, currentorderid) VALUES (%d, '%s', '%s', '%s', '%s', '%s', %d, '%s', %d)", customerID, name, address, email, password, birthday.toInstant(), phoneNumber, passwordsalt, -1));
+            databaseConnector.executeUpdate(String.format("INSERT INTO customer (customerid, name, address, email, password, birthday, phonenumber, passwordsalt, currentorderid) VALUES (%d, '%s', '%s', '%s', '%s', '%s', %d, '%s', %s)", customerID, name, address, email, password, birthday.toInstant(), phoneNumber, passwordsalt, "null"));
         } catch (SQLException e) {
             e.printStackTrace();
         }
