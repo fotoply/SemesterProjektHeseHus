@@ -104,8 +104,7 @@ public class Webshop {
     }
 
     public boolean applyGiftCard(int giftcardId) {
-        getCurrentCustomer().getCurrentOrder().applyGiftCard(giftcardId);
-        return true;
+        return getCurrentCustomer().getCurrentOrder().applyGiftCard(giftcardId);
     }
 
     public PaymentType getPayingBy() {
