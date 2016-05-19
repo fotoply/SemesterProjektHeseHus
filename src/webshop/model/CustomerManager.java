@@ -4,8 +4,6 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import webshop.model.Inventory.Product;
 
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 public class CustomerManager {
 
@@ -13,6 +11,7 @@ public class CustomerManager {
     private static int customerID = 0;
     //private Map<Integer, Customer> customerMap;
     private PersistenceFacade persistenceFacade = PersistenceFacade.getInstance();
+    private static Customer currentCustomer;
 
     public CustomerManager() {
 
@@ -40,12 +39,16 @@ public class CustomerManager {
         temp = new Customer(name, address, email, password, dayOfBirth, phoneNumber);
         temp.setCustomerID(getNextId());
         persistenceFacade.saveCustomer(temp);
+        currentCustomer = temp;
         return temp;
 
     }
 
     public Customer getCustomer(int customerID) {
-        return persistenceFacade.loadCustomerFromId(customerID);
+        if(currentCustomer == null || currentCustomer.getCustomerID() != customerID) {
+            currentCustomer = persistenceFacade.loadCustomerFromId(customerID);
+        }
+        return currentCustomer;
     }
 
     public int getCustomerIDFromEmail(String email) {
