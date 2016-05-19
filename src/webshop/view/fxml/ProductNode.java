@@ -33,13 +33,13 @@ public class ProductNode extends AnchorPane {
         imageView.setFitHeight(126);
         getChildren().add(imageView);
 
-        Text nametext = new Text(4, 12, product.getName().substring(0,Math.min(product.getName().length()-1,15)));
+        Text nametext = new Text(4, 12, product.getName().substring(0,Math.min(product.getName().length(),15)));
         if(product.getName().length() > 15) {
-            nametext.setText(nametext.getText() + "...");
+            nametext.setText(nametext.getText().trim() + "...");
         }
         getChildren().add(nametext);
 
-        Text pricetext = new Text(105, 140, product.getPrice().getAmountAsString());
+        Text pricetext = new Text(100, 140, product.getPrice().getAmountAsString());
         getChildren().add(pricetext);
 
         setPrefWidth(150);
