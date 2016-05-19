@@ -24,7 +24,7 @@ public class ShopAreaController {
     }
 
     public void loadItems(List<Product> products) {
-        productArea.getChildren().clear();
+        clearArea();
         for (Product product : products) {
             addNewItem(new ProductNode(product));
         }
@@ -33,5 +33,9 @@ public class ShopAreaController {
     @FXML
     void showBasketClicked(ActionEvent event) {
         GUIController.getRootInstance().showBasket();
+    }
+
+    public void clearArea() {
+        productArea.getChildren().clear();
     }
 }

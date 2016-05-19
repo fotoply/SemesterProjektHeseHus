@@ -15,7 +15,11 @@ public class SearchController {
     }
 
     private void searchChanged(String newValue) {
-        GUIController.getRootInstance().getShopAreaController().loadItems(GUIController.getWebshopInstance().searchProduct(newValue));
+        try {
+            GUIController.getRootInstance().getShopAreaController().loadItems(GUIController.getWebshopInstance().searchProduct(newValue));
+        } catch (RuntimeException e) {
+            GUIController.getRootInstance().getShopAreaController().clearArea();
+        }
 
     }
 }

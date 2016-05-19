@@ -176,7 +176,7 @@ public class DatabaseFacade implements IDatabaseFacade {
     @Override
     public ResultSet getProductByType(String searchTerms) {
         try {
-            return databaseConnector.executeQuery("SELECT * FROM product WHERE type like '" + searchTerms + "%'");
+            return databaseConnector.executeQuery(String.format("SELECT * FROM product WHERE type like '%s%%'", searchTerms));
         } catch (SQLException e) {
             e.printStackTrace();
         }
