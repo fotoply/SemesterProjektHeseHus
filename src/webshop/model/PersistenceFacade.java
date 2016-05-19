@@ -124,7 +124,7 @@ public class PersistenceFacade {
      * @return A list of the found products
      */
     public List searchProduct(String searchTerms) {
-        ResultSet rsType = database.getProductByType(searchTerms);
+        ResultSet rsType = database.searchProduct(searchTerms);
         ResultSet rsName = database.getProductByName(searchTerms);
         List<Product> searchedProducts = new ArrayList<>();
         try {
