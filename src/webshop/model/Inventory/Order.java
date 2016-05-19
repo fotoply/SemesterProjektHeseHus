@@ -154,6 +154,7 @@ public class Order {
     }
 
     public boolean isPaid() {
+        System.out.println(finalPrice);
         return getFinalPrice().compareTo(currentlyPaid) < 0;
     }
 

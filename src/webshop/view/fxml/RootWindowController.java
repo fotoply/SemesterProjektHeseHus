@@ -97,6 +97,7 @@ public class RootWindowController {
     public void showBasket() {
         FXMLLoader loader = setCenterFromString("BasketScreen.fxml");
         if (GUIController.getWebshopInstance().getCurrentOrder() != null) {
+            GUIController.getWebshopInstance().getCurrentOrder().setFinalPrice(GUIController.getWebshopInstance().getCurrentOrder().getTotalAmountOwedForProducts());
             ((BasketScreenController) loader.getController()).applyBasket(GUIController.getWebshopInstance().getCurrentOrder().getProductList(), GUIController.getWebshopInstance().getCurrentOrder().getTotalAmountOwedForProducts().toString());
         }
     }
