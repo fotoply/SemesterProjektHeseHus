@@ -37,6 +37,11 @@ public class PersistenceFacade {
         return database.getNextCustomerId();
     }
 
+    /**
+     * Loads a customer given a customerID
+     * @param customerId the unique ID of the customer
+     * @return A customer object with all information set from the database, null if no customer was found
+     */
     public Customer loadCustomerFromId(int customerId) {
         ResultSet rs = database.getCustomer(customerId);
         Customer newCustomer = null;
@@ -60,19 +65,39 @@ public class PersistenceFacade {
         return newCustomer;
     }
 
+    /**
+     * Confirms whether the given email exists in the persistent system
+     * @param email the email to search for
+     * @return true if the email exists otherwise false
+     */
     public boolean confirmEmail(String email) {
         return database.emailExists(email);
     }
 
+    /**
+     * Saves a Customer object to the database
+     * @param c the customer to save
+     */
     public void saveCustomer(Customer c) {
         database.saveCustomer(c.getName(), c.getAddress(), c.getEmail(), Customer.toBase64(c.getPassword()), c.getBirthday(), c.getPhoneNumber(), Customer.toBase64(c.getSalt()), -1);
         //TODO Implement a getter for getting the orderId so that it can be saved.
     }
 
+    /**
+     * Loads an order from it's orderId
+     * @param orderId the unique ID for the order
+     * @return An order object representing the data in the database
+     * // TODO: 5/19/16 Finish this method
+     */
     public Order loadOrderFromId(int orderId) {
         throw new NotImplementedException();
     }
 
+    /**
+     * Loads a product given a productId
+     * @param productId the unique ID of the product
+     * @return A product object with all information from the database, null if no product was found
+     */
     public Product loadProductFromId(int productId) {
         ResultSet rs = database.getProduct(productId);
         Product newProduct = null;
@@ -93,7 +118,12 @@ public class PersistenceFacade {
         return newProduct;
     }
 
-    public List searchProdut(String searchTerms) {
+    /**
+     * Attempts to fetch a product based on the searchTerms
+     * @param searchTerms
+     * @return A list of the found products
+     */
+    public List searchProduct(String searchTerms) {
         ResultSet rsType = database.getProductByType(searchTerms);
         ResultSet rsName = database.getProductByName(searchTerms);
         List<Product> searchedProducts = new ArrayList<>();

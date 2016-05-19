@@ -60,7 +60,7 @@ public class ProductCatalog {
 
 
     public List searchProduct(String searchTerms) {
-        return persistenceFacade.searchProdut(searchTerms);
+        return persistenceFacade.searchProduct(searchTerms);
 
     }
 }
