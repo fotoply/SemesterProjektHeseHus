@@ -125,6 +125,7 @@ public class Order {
     }
 
     public void calcFinalPrice () {
+        finalPrice = new Money("0");
         finalPrice.add(getTotalAmountOwedForProducts());
         finalPrice.add(getTax());
         finalPrice.add(getShippingCharges());
@@ -167,6 +168,7 @@ public class Order {
     }
 
     public boolean isPaid() {
+        calcFinalPrice();
         System.out.println("isPaid");
         System.out.println(finalPrice);
         System.out.println(currentlyPaid);
