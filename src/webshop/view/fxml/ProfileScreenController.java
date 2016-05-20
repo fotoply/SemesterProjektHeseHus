@@ -5,17 +5,13 @@
  */
 package webshop.view.fxml;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.text.Text;
 
-/**
- * FXML Controller class
- *
- * @author Jebi
- */
+import java.net.URL;
+import java.util.ResourceBundle;
+
 public class ProfileScreenController implements Initializable {
     @FXML
     private Text addressID;
@@ -25,6 +21,8 @@ public class ProfileScreenController implements Initializable {
     private Text emailID;
     @FXML
     private Text birthdayID;
+    @FXML
+    private Text nameText;
 
     /**
      * Initializes the controller class.

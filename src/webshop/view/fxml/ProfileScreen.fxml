@@ -3,18 +3,16 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.text.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="260.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text layoutX="276.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jebisan Nadarajah">
+      <Text fx:id="nameText" layoutX="276.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Jebisan Nadarajah">
          <font>
             <Font name="System Bold" size="23.0" />
          </font></Text>
       <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="31.0" layoutY="36.0">
          <image>
-            <Image url="@../../../../../../Downloads/profile-icon.png" />
+            <Image url="@../../../res/profile-icon.png" />
          </image>
       </ImageView>
       <Text fx:id="addressID" layoutX="343.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ravnholtvænget 17 1.tv" />
