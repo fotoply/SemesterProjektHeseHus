@@ -13,8 +13,7 @@ public class CustomerManager {
     //private Map<Integer, Customer> customerMap;
     private PersistenceFacade persistenceFacade = PersistenceFacade.getInstance();
 
-    public CustomerManager() {
-    }
+    public CustomerManager() { }
 
     public static int getCurrentCustomerID() {
         return currentCustomerID;
