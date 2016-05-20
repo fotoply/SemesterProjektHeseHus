@@ -154,8 +154,10 @@ public class Order {
     }
 
     public boolean isPaid() {
+        System.out.println("isPaid");
         System.out.println(finalPrice);
-        return getFinalPrice().compareTo(currentlyPaid) < 0;
+        System.out.println(currentlyPaid);
+        return getFinalPrice().compareTo(currentlyPaid) == 0;
     }
 
     public String getShippingAddress() {

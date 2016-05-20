@@ -67,10 +67,11 @@ public class BasketScreenController {
 
     @FXML
     void applyCodeClicked(ActionEvent event) {
-        if (GUIController.getWebshopInstance().applyGiftCard(1)) {
+        if (GUIController.getWebshopInstance().applyGiftCard(Integer.parseInt(giftcodeTextArea.getText()))) {
             System.out.println("stuff is paid");
         } else {
             System.out.println("Fuck You");
+            System.out.println(GUIController.getWebshopInstance().getCurrentOrder().getTotalAmountOwedForProducts().toString());
         }
 
 
