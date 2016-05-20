@@ -4,10 +4,12 @@ import webshop.model.Money;
 import webshop.model.payments.GiftCard;
 import webshop.model.payments.Payment;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
+/**
+ * Represents an order. Holds both the payment methods used, the information about the order, the list of items in the order and the status of the order.
+ * This class should most likely be split into multiple as it is right now and some of the internal and external methods are a mess.
+ */
 public class Order {
 
     private static int orderCount = 0;

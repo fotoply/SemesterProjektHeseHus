@@ -1,8 +1,6 @@
 package webshop.database;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public interface DatabaseConnector {
     Connection getConnection();

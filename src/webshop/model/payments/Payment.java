@@ -8,6 +8,7 @@ public abstract class Payment {
     /**
      * The constructor for the Payment class,
      * used to create a Payment object containing the amount to be paid and the payment status.
+     *
      * @param amount The amount to be paid.
      */
     public Payment(Money amount) {

@@ -3,6 +3,8 @@ package webshop.model;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import webshop.database.DatabaseFacade;
 import webshop.database.IDatabaseFacade;
+import webshop.exceptions.NoSuchCustomerException;
+import webshop.exceptions.NoSuchProductException;
 import webshop.model.Inventory.Order;
 import webshop.model.Inventory.Product;
 
@@ -31,6 +33,7 @@ public class PersistenceFacade {
 
     /**
      * Gets the next available customerID.
+     *
      * @return The next ID or -1 if no ID was found.
      */
     public int getNextCustomerId() {
@@ -39,6 +42,7 @@ public class PersistenceFacade {
 
     /**
      * Loads a customer given a customerID
+     *
      * @param customerId the unique ID of the customer
      * @return A customer object with all information set from the database, null if no customer was found
      */
@@ -50,23 +54,24 @@ public class PersistenceFacade {
                 newCustomer = new Customer(rs.getString("name"), rs.getString("address"), rs.getString("email"), "toBeLoaded", rs.getDate("birthday"), rs.getInt("phonenumber"));
                 newCustomer.setPassword(Customer.fromBase64(rs.getString("password")));
                 newCustomer.setSalt(Customer.fromBase64(rs.getString("passwordsalt")));
-            //  newCustomer.setCurrentOrder(loadOrderFromId(rs.getInt("currentorderid")));
+                //  newCustomer.setCurrentOrder(loadOrderFromId(rs.getInt("currentorderid")));
                 newCustomer.setCustomerID(customerId);
             } else {
-                throw new IllegalArgumentException("Customer does not exist");
+                throw new NoSuchCustomerException(customerId);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         if (newCustomer == null) {
-            throw new RuntimeException("Something went wrong in initializing a customer from database");
+            throw new NoSuchCustomerException(customerId);
         }
         return newCustomer;
     }
 
     /**
      * Confirms whether the given email exists in the persistent system
+     *
      * @param email the email to search for
      * @return true if the email exists otherwise false
      */
@@ -76,6 +81,7 @@ public class PersistenceFacade {
 
     /**
      * Saves a Customer object to the database
+     *
      * @param c the customer to save
      */
     public void saveCustomer(Customer c) {
@@ -85,6 +91,7 @@ public class PersistenceFacade {
 
     /**
      * Loads an order from it's orderId
+     *
      * @param orderId the unique ID for the order
      * @return An order object representing the data in the database
      * // TODO: 5/19/16 Finish this method
@@ -95,6 +102,7 @@ public class PersistenceFacade {
 
     /**
      * Loads a product given a productId
+     *
      * @param productId the unique ID of the product
      * @return A product object with all information from the database, null if no product was found
      */
@@ -106,24 +114,31 @@ public class PersistenceFacade {
             if (rs.next()) {
                 newProduct = new Product(rs.getString("name"), rs.getString("description"), rs.getString("type"), new Money(rs.getString("price")), productId, rs.getBoolean("currentlyselling"));
             } else {
-                throw new IllegalArgumentException("Product does not exist");
+                throw new NoSuchProductException(productId);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         if (newProduct == null) {
-            throw new RuntimeException("Something went wrong in initializing a product from database");
+            throw new NoSuchProductException(productId);
         }
         return newProduct;
     }
 
+    /**
+     * Gets the unique ID of a customer based on their email. This method is <u>not</u> case sensitive.
+     *
+     * @param email the email of the user
+     * @return the ID of the user or -1 if no user is found
+     */
     public int getCustomerIdFromEmail(String email) {
         return database.getCustomerIdFromEmail(email);
     }
 
     /**
      * Attempts to fetch a product based on the searchTerms
+     *
      * @param searchTerms
      * @return A list of the found products
      */
@@ -138,7 +153,7 @@ public class PersistenceFacade {
             e.printStackTrace();
         }
         if (searchedProducts.isEmpty()) {
-            throw new RuntimeException("No products is found");
+            throw new NoSuchProductException();
         }
 
         return searchedProducts;

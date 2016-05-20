@@ -11,7 +11,9 @@ public class SearchController {
 
     @FXML
     void initialize() {
-        searchTextField.setOnAction(event -> {searchChanged(searchTextField.getText());});
+        searchTextField.setOnAction(event -> {
+            searchChanged(searchTextField.getText());
+        });
     }
 
     private void searchChanged(String newValue) {

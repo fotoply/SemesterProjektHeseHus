@@ -75,23 +75,11 @@ public class Product {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getType() {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public boolean isCurrentlySelling() {
         return currentlySelling;
-    }
-
-    public void setCurrentlySelling(boolean currentlySelling) {
-        this.currentlySelling = currentlySelling;
     }
 }
