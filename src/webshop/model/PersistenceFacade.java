@@ -57,7 +57,7 @@ public class PersistenceFacade {
                 //  newCustomer.setCurrentOrder(loadOrderFromId(rs.getInt("currentorderid")));
                 newCustomer.setCustomerID(customerId);
             } else {
-                throw new IllegalArgumentException("Customer does not exist");
+                throw new NoSuchCustomerException(customerId);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -114,7 +114,7 @@ public class PersistenceFacade {
             if (rs.next()) {
                 newProduct = new Product(rs.getString("name"), rs.getString("description"), rs.getString("type"), new Money(rs.getString("price")), productId, rs.getBoolean("currentlyselling"));
             } else {
-                throw new IllegalArgumentException("Product does not exist");
+                throw new NoSuchProductException(productId);
             }
         } catch (SQLException e) {
             e.printStackTrace();
