@@ -134,9 +134,13 @@ public class Order {
     }
 
     private Money payWithGiftcard(Money amount) {
-        if (amount.compareTo(getTotalAmountOwedForProducts()) > 0) {
-            currentlyPaid.add(getTotalAmountOwedForProducts());
-            amount.pay(getTotalAmountOwedForProducts());
+        if (isPaid()) {
+            return amount;
+        } else if (amount.compareTo(getTotalAmountOwedForProducts()) > 0) {
+            Money owes = getTotalAmountOwedForProducts();
+            owes.pay(currentlyPaid);
+            currentlyPaid.add(owes);
+            amount.pay(owes);
             return amount;
         } else {
             currentlyPaid.add(amount);
