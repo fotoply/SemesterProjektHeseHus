@@ -12,7 +12,7 @@
          </font></Text>
       <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="31.0" layoutY="36.0">
          <image>
-            <Image url="@../../../res/profile-icon.png" />
+            <Image url="@../../../res/placeholderProfileIcon.png" />
          </image>
       </ImageView>
       <Text fx:id="addressID" layoutX="343.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ravnholtvænget 17 1.tv" />
