@@ -120,10 +120,14 @@ public class Order {
     }
 
     public Money getFinalPrice() {
+
+        return finalPrice;
+    }
+
+    public void calcFinalPrice () {
         finalPrice.add(getTotalAmountOwedForProducts());
         finalPrice.add(getTax());
         finalPrice.add(getShippingCharges());
-        return finalPrice;
     }
 
     public void setFinalPrice(Money finalPrice) {
