@@ -158,8 +158,12 @@ public class Order {
         }
     }
 
+    public GiftCard getGiftCardFromID (int ID) {
+        return GiftCard.getGiftcard(ID);
+    }
+
     public boolean applyGiftCard(int ID) {
-        GiftCard.getGiftcard(ID).setGiftCardAmount(ID, payWithGiftcard(GiftCard.getGiftcard(ID).getGiftcardAmount(ID)));
+        getGiftCardFromID(ID).setGiftCardAmount(ID, payWithGiftcard(GiftCard.getGiftcard(ID).getGiftcardAmount(ID)));
         return isPaid();
     }
 
