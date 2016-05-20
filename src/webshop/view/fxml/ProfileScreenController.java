@@ -8,6 +8,7 @@ package webshop.view.fxml;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.text.Text;
+import webshop.model.Customer;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -29,7 +30,15 @@ public class ProfileScreenController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+
+    }
+
+    public void setCustomer(Customer customer) {
+        nameText.setText(customer.getName());
+        birthdayID.setText(customer.getBirthday().toString());
+        emailID.setText(customer.getEmail());
+        phoneID.setText(String.valueOf(customer.getPhoneNumber()));
+        addressID.setText(customer.getAddress());
+    }
     
 }
