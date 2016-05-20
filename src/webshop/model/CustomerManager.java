@@ -23,10 +23,18 @@ public class CustomerManager {
         CustomerManager.currentCustomerID = currentCustomerID;
     }
 
+    /**
+     * Initializes a new order in the given customer
+     * @param customerID the unique ID of the customer
+     */
     public void createNewOrder(int customerID) {
-        getCustomer(customerID).createNewOrder(customerID);
+        getCurrentCustomer(customerID).createNewOrder(customerID);
     }
 
+    /**
+     * Gets the next available customerId from the datastore
+     * @return an int or -1 if no ID
+     */
     private int getNextId() {
         return persistenceFacade.getNextCustomerId();
     }
@@ -61,7 +69,7 @@ public class CustomerManager {
 
     }
 
-    public Customer getCustomer(int customerID) {
+    public Customer getCurrentCustomer(int customerID) {
         if (currentCustomer == null || currentCustomer.getCustomerID() != customerID) {
             currentCustomer = persistenceFacade.loadCustomerFromId(customerID);
         }
@@ -74,6 +82,6 @@ public class CustomerManager {
 
 
     public void addproduct(Product product, int amount, int customerID) {
-        getCustomer(customerID).addProduct(product, amount);
+        getCurrentCustomer(customerID).addProduct(product, amount);
     }
 }

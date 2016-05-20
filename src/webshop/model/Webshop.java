@@ -44,7 +44,7 @@ public class Webshop {
     }
 
     public Customer getCurrentCustomer() {
-        return customerManager.getCustomer(CustomerManager.getCurrentCustomerID());
+        return customerManager.getCurrentCustomer(CustomerManager.getCurrentCustomerID());
     }
 
     public void createNewOrder() {
@@ -67,7 +67,7 @@ public class Webshop {
     }
 
     public boolean loginWithCustomer(int customerId, String password) {
-        return customerManager.getCustomer(customerId).isCorrectPassword(password);
+        return customerManager.getCurrentCustomer(customerId).isCorrectPassword(password);
     }
 
     public boolean isValidEmail(String email) {
