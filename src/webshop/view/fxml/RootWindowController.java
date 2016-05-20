@@ -49,7 +49,6 @@ public class RootWindowController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //TODO Should show a menu for search options in the left part of the center pane
     }
 
     public void hideSearchOptions() {
@@ -85,6 +84,7 @@ public class RootWindowController {
     }
 
     public void showProfile() {
+        setCenterFromString("ProfileScreen.fxml");
         //TODO Shows the profile of the current user, if they are logged in.
     }
 
@@ -131,16 +131,28 @@ public class RootWindowController {
         return loader;
     }
 
+    /**
+     * Is called when a user successfully logs into the system
+     */
     public void loginSuccesful() {
         showShopArea();
         loginButton.setText("Profile");
     }
 
+    /**
+     * Adds 1 of a product associated with a ProductNode to the current users basket.
+     * @param node
+     */
     public synchronized void addToBasket(ProductNode node) {
         addToBasket(node, 1);
     }
 
-    public void addToBasket(ProductNode node, int amount) {
+    /**
+     * Adds amount of a product associated with a ProductNode to the current users basket.
+     * @param node
+     * @param amount how many to add
+     */
+    public synchronized void addToBasket(ProductNode node, int amount) {
         GUIController.getWebshopInstance().addItem(node.getProduct(), amount);
         System.out.println(node.getProduct() + " was added");
     }

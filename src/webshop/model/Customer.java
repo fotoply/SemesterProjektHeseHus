@@ -1,16 +1,19 @@
 package webshop.model;
 
-import com.sun.istack.internal.NotNull;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import webshop.model.Inventory.Order;
 import webshop.model.Inventory.Product;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import javax.xml.bind.DatatypeConverter;
-import java.security.*;
-import java.security.spec.*;
-import java.util.*;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.KeySpec;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.Scanner;
 
 public class Customer {
     private String address;
@@ -67,7 +70,7 @@ public class Customer {
      * @param base64String a string representing the base64 object
      * @return
      */
-    public static byte[] fromBase64(@NotNull String base64String) {
+    public static byte[] fromBase64(String base64String) {
         return DatatypeConverter.parseBase64Binary(base64String);
     }
 
@@ -77,7 +80,7 @@ public class Customer {
      * @param array the array to convert
      * @return
      */
-    public static String toBase64(@NotNull byte[] array) {
+    public static String toBase64(byte[] array) {
         return DatatypeConverter.printBase64Binary(array);
     }
 
@@ -182,7 +185,7 @@ public class Customer {
     public void linkMemberShipCard(int id) {
     /*    MemberShipCard e = MemberShipCard.getMemberShipCard(id);
         memberShipCards.add(e);*/
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException();
     }
 
     //TODO implement constant-time comparison to avoid timing attacks

@@ -1,6 +1,5 @@
 package webshop.model;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import webshop.database.DatabaseFacade;
 import webshop.database.IDatabaseFacade;
 import webshop.exceptions.NoSuchCustomerException;
@@ -97,7 +96,7 @@ public class PersistenceFacade {
      * // TODO: 5/19/16 Finish this method
      */
     public Order loadOrderFromId(int orderId) {
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException();
     }
 
     /**
