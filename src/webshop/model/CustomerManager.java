@@ -31,6 +31,17 @@ public class CustomerManager {
         return persistenceFacade.getNextCustomerId();
     }
 
+    /**
+     * Creates a new customer based on the given information.
+     * Stores this customer in the persistent datastore.
+     * @param name name of the customer
+     * @param address address of the customer
+     * @param phoneNumber phone number of the customer. Must be exactly PHONENUMBER_LENGTH characters long
+     * @param email email of the customer
+     * @param password plaintext password of the customer
+     * @param dayOfBirth birthday of the customer
+     * @return returns the newly created customer object
+     */
     public Customer createCustomer(String name, String address, int phoneNumber, String email, String password, Date dayOfBirth) {
         Customer temp;
         if (persistenceFacade.confirmEmail(email)) {
@@ -39,11 +50,11 @@ public class CustomerManager {
 
         String number = "" + phoneNumber;
         if (number.length() != PHONENUMBER_LENGTH) {
-            throw new IllegalArgumentException("Phone Number does not exist");
+            throw new IllegalArgumentException("Phone number has a bad length");
         }
         int ID = getNextId();
         temp = new Customer(name, address, email, password, dayOfBirth, phoneNumber);
-        temp.setCustomerID(getNextId());
+        temp.setCustomerID(ID);
         persistenceFacade.saveCustomer(temp);
         currentCustomer = temp;
         return temp;
