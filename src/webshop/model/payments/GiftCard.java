@@ -26,20 +26,17 @@ public class GiftCard extends Payment {
         return giftCards.get(id);
     }
 
-    public Money getGiftcardAmount(int id) {
-        return giftCards.get(id).getAmount();
+    public int getId () {
+        return this.id;
     }
 
-    public int getID() {
-        return this.id;
+    public Money getGiftcardAmount(int id) {
+        return giftCards.get(id).getAmount();
     }
 
     public void setGiftCardAmount(int id, Money amount) {
         this.setAmount(amount);
         //giftCards.get(id).setAmount(amount);
     }
-
-    public
-
 }
 
