@@ -3,11 +3,15 @@ package webshop.model;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import webshop.database.DatabaseFacade;
 import webshop.database.IDatabaseFacade;
+import webshop.exceptions.NoSuchCustomerException;
+import webshop.exceptions.NoSuchProductException;
 import webshop.model.Inventory.Order;
 import webshop.model.Inventory.Product;
 
-import java.sql.*;
-import java.util.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Handles transferring to and from persistent datastore.
@@ -60,7 +64,7 @@ public class PersistenceFacade {
         }
 
         if (newCustomer == null) {
-            throw new RuntimeException("Something went wrong in initializing a customer from database");
+            throw new NoSuchCustomerException(customerId);
         }
         return newCustomer;
     }
@@ -117,7 +121,7 @@ public class PersistenceFacade {
         }
 
         if (newProduct == null) {
-            throw new RuntimeException("Something went wrong in initializing a product from database");
+            throw new NoSuchProductException(productId);
         }
         return newProduct;
     }
@@ -149,7 +153,7 @@ public class PersistenceFacade {
             e.printStackTrace();
         }
         if (searchedProducts.isEmpty()) {
-            throw new RuntimeException("No products is found");
+            throw new NoSuchProductException();
         }
 
         return searchedProducts;
