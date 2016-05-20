@@ -1,8 +1,12 @@
 package webshop.database;
 
+import webshop.exceptions.NoSuchCustomerException;
+import webshop.exceptions.NoSuchOrderException;
+import webshop.exceptions.NoSuchProductException;
 import webshop.model.Inventory.Item;
 
-import java.sql.*;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
@@ -56,7 +60,7 @@ public class DatabaseFacade implements IDatabaseFacade {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        throw new RuntimeException("Something went wrong in executing SQL statement.");
+        throw new NoSuchCustomerException(customerId);
     }
 
     /**
@@ -72,7 +76,7 @@ public class DatabaseFacade implements IDatabaseFacade {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        throw new RuntimeException("Something went wrong in executing SQL statement.");
+        throw new NoSuchProductException(productId);
     }
 
     /**
@@ -88,7 +92,7 @@ public class DatabaseFacade implements IDatabaseFacade {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        throw new RuntimeException("Something went wrong in executing SQL statement.");
+        throw new NoSuchOrderException(orderId);
     }
 
     /**
