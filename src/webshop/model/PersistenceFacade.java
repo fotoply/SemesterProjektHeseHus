@@ -7,16 +7,19 @@ import webshop.model.Inventory.Product;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Handles transferring to and from persistent data.
  */
 public class PersistenceFacade {
     private static PersistenceFacade instance;
-    DatabaseFacade database = DatabaseFacade.getInstance();
+    DatabaseFacade database;
 
     private PersistenceFacade() {
-
+        DatabaseFacade.initializeConnection();
+        database = DatabaseFacade.getInstance();
     }
 
     public static PersistenceFacade getInstance() {
@@ -49,7 +52,7 @@ public class PersistenceFacade {
     }
 
     public boolean confirmEmail(String email) {
-        return database.confirmEmail(email);
+        return database.emailExists(email);
     }
 
     public void saveCustomer(Customer c) {
@@ -61,13 +64,12 @@ public class PersistenceFacade {
         throw new NotImplementedException();
     }
 
-    // WAYNE
     public Product loadProductFromId(int productId) {
         ResultSet rs = database.getProduct(productId);
         Product newProduct = null;
 
         try {
-            if(rs.next()) {
+            if (rs.next()) {
                 newProduct = new Product(rs.getString("name"), rs.getString("description"), rs.getString("type"), new Money(rs.getString("price")), productId, rs.getBoolean("currentlyselling"));
             } else {
                 throw new IllegalArgumentException("Product does not exist");
@@ -80,5 +82,26 @@ public class PersistenceFacade {
             throw new RuntimeException("Something went wrong in initializing a product from database");
         }
         return newProduct;
+    }
+
+    public List searchProdut(String searchTerms) {
+        ResultSet rsType = database.getProductByType(searchTerms);
+        ResultSet rsName = database.getProductByName(searchTerms);
+        List<Product> searchedProducts = new ArrayList<>();
+        try {
+            if (rsType.next()) {
+                searchedProducts.add(new Product(rsType.getString("name"), rsType.getString("description"), rsType.getString("type"), new Money(rsType.getString("price")), rsType.getInt("productID"), rsType.getBoolean("currentlyselling")));
+            }
+            if (rsName.next()) {
+                searchedProducts.add(new Product(rsName.getString("name"), rsName.getString("description"), rsName.getString("type"), new Money(rsName.getString("price")), rsName.getInt("productID"), rsName.getBoolean("currentlyselling")));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if (searchedProducts.isEmpty()) {
+            throw new RuntimeException("No products is found");
+        }
+
+        return searchedProducts;
     }
 }

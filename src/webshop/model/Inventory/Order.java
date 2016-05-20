@@ -6,6 +6,7 @@
 package webshop.model.Inventory;
 
 import webshop.model.Money;
+import webshop.model.payments.GiftCard;
 import webshop.model.payments.Payment;
 
 import java.util.ArrayList;
@@ -143,6 +144,22 @@ public class Order {
         } else {
             currentlyPaid.add(amount);
         }
+    }
+
+    private Money payWithGiftcard (Money amount) {
+        if (amount.compareTo(getTotalAmountOwedForProducts()) > 0) {
+            currentlyPaid.add(getTotalAmountOwedForProducts());
+            amount.pay(getTotalAmountOwedForProducts());
+            return amount;
+        } else {
+            currentlyPaid.add(amount);
+            return new Money("0");
+        }
+    }
+
+    public void applyGiftCard (int ID) {
+        GiftCard temp = GiftCard.getGiftcard(ID);
+        temp.setGiftCardAmount(ID, payWithGiftcard(temp.getGiftcardAmount(ID)));
     }
 
     public List<Item> getProducts() {

@@ -9,6 +9,7 @@ import javafx.scene.layout.BorderPane;
 import webshop.view.GUIController;
 
 import java.io.IOException;
+import java.net.URL;
 
 public class RootWindowController {
 
@@ -70,13 +71,7 @@ public class RootWindowController {
     }
 
     public void showLoginScreen() {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("LoginScreen.fxml"));
-        try {
-            borderPane.setCenter(loader.load());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        setCenterFromString("LoginScreen.fxml");
     }
 
     public void showProfile() {
@@ -84,29 +79,26 @@ public class RootWindowController {
     }
 
     public void showShopArea() {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("ShopArea.fxml"));
-        try {
-            borderPane.setCenter(loader.load());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        FXMLLoader loader = setCenterFromString("ShopArea.fxml");
         shopAreaController = loader.getController();
         shopAreaController.loadItems(GUIController.getProducts());
     }
 
     public void showBasket() {
-        //TODO Shows the basket of the current user, if any
+        FXMLLoader loader = setCenterFromString("BasketScreen.fxml");
+        if(GUIController.getWebshopInstance().getCurrentOrder() != null) {
+            ((BasketScreenController) loader.getController()).applyBasket(GUIController.getWebshopInstance().getCurrentOrder().getProductList(), GUIController.getWebshopInstance().getCurrentOrder().getTotalAmountOwedForProducts().toString());
+        }
+    }
+
+    private FXMLLoader createLoaderFromResource(URL resource) {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(resource);
+        return loader;
     }
 
     public void showProduct(ProductNode product) {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("ProductInformationScreen.fxml"));
-        try {
-            borderPane.setCenter(loader.load());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        FXMLLoader loader = setCenterFromString("ProductInformationScreen.fxml");
         ((ProductInformationScreenController) loader.getController()).setProduct(product);
     }
 
@@ -115,17 +107,16 @@ public class RootWindowController {
     }
 
     public void showSignupScreen() {
-        FXMLLoader loader = createFXMLLoader();
+        setCenterFromString("SignupScreen.fxml");
+    }
+
+    private FXMLLoader setCenterFromString(String url) {
+        FXMLLoader loader = createLoaderFromResource(getClass().getResource(url));
         try {
             borderPane.setCenter(loader.load());
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private FXMLLoader createFXMLLoader() {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("SignupScreen.fxml"));
         return loader;
     }
 

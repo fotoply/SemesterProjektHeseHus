@@ -6,6 +6,7 @@
 package webshop.model.Inventory;
 
 import webshop.model.Money;
+import webshop.model.PersistenceFacade;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.List;
  */
 public class ProductCatalog {
 
+    private PersistenceFacade persistenceFacade = PersistenceFacade.getInstance();
     private List<Product> productList;
 
     public ProductCatalog() {
@@ -66,12 +68,7 @@ public class ProductCatalog {
 
 
     public List searchProduct(String searchTerms) {
-        List<Product> searchedProducts = new ArrayList<>();
-        for (Product product : productList) {
-            if (searchTerms.equals(product.getName()) || searchTerms.equals(product.getType())) {
-                searchedProducts.add(product);
-            }
-        }
-        return searchedProducts;
+        return persistenceFacade.searchProdut(searchTerms);
+
     }
 }

@@ -1,10 +1,11 @@
 package webshop.database;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import webshop.model.Inventory.Item;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.List;
 
 public class DatabaseFacade {
 
@@ -16,19 +17,24 @@ public class DatabaseFacade {
     }
 
     public static DatabaseFacade getInstance() {
-        if (instance == null) {
-            instance = new DatabaseFacade();
-        }
+        initializeConnection();
         return instance;
     }
 
-    public boolean confirmEmail(String email) {
+    public static void initializeConnection() {
+        if (instance == null) {
+            instance = new DatabaseFacade();
+        }
+    }
+
+    public boolean emailExists(String email) {
         ResultSet rs = null;
         try {
-            rs = databaseConnector.executeQuery("SELECT email FROM customer WHERE email="+email);
+            rs = databaseConnector.executeQuery("SELECT email FROM customer WHERE email='" + email.toLowerCase() + "'");
             return rs.isBeforeFirst();
         } catch (SQLException e) {
             e.printStackTrace();
+
 
         }
         throw new RuntimeException("Something went wrong in executing SQL statement.");
@@ -72,11 +78,10 @@ public class DatabaseFacade {
         return -1;
     }
 
-    public boolean isCustomerCreatable(int customerId) {
-        throw new NotImplementedException();
-    }
-
     public void saveCustomer(String name, String address, String email, String password, Date birthday, int phoneNumber, String passwordsalt, int currentorderid) {
+        if (emailExists(email)) {
+            throw new IllegalArgumentException("Customer already exists");
+        }
         int id = -1;
         try {
             ResultSet rs = databaseConnector.executeQuery("SELECT max(customerid) FROM customer");
@@ -88,7 +93,33 @@ public class DatabaseFacade {
         }
     }
 
-    public void saveOrder(int orderId, int customerId, String finalPrice, String tax, String shippingCharges, String shippingAddress, String status, Date date) {
-        //TODO Implement saving of orders.
+    public void saveOrder(int orderId, int customerId, String finalPrice, String tax, String shippingCharges, String shippingAddress, String status, Date date, List<Item> items) {
+        try {
+            databaseConnector.executeUpdate(String.format("INSERT INTO orderinfo (orderid, customerid, finalprice, tax, shippingcharges, status, date) VALUES (%d, %d, %s, %s, '%s', %s, %s)", orderId, customerId, finalPrice,tax,shippingCharges, shippingAddress, status, date.toInstant()));
+            for (Item item: items) {
+                databaseConnector.executeUpdate(String.format("INSERT INTO productorderlink (productid, orderid, quantity) VALUES (%d, %d, %s)", item.getProduct().getID(), orderId, item.getQuantity()));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ResultSet getProductByType(String searchTerms) {
+        try {
+            return databaseConnector.executeQuery("SELECT * FROM product WHERE type like " + searchTerms + "%");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        throw new RuntimeException("Something went wrong in executing SQL statement.");
+
+    }
+
+    public ResultSet getProductByName(String searchTerms) {
+        try {
+            return databaseConnector.executeQuery("SELECT * FROM product WHERE name=" + searchTerms + "%");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        throw new RuntimeException("Something went wrong in executing SQL statement.");
     }
 }

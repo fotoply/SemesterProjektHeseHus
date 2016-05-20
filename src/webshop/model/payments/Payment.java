@@ -21,6 +21,11 @@ public abstract class Payment {
         return amount;
     }
 
+    public void setAmount(Money amount) {
+        this.amount = amount;
+
+    }
+
     private enum Status {
         NOT_PAID, RESERVED_IN_STORE, PAID
     }

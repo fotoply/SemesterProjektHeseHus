@@ -79,7 +79,8 @@ public class Webshop {
     }
 
     public boolean isValidEmail(String email) {
-        return customerManager.getCustomerIDFromEmail(email) > -1;
+        return PersistenceFacade.getInstance().confirmEmail(email);
+        //return customerManager.getCustomerIDFromEmail(email) > -1;
     }
 
     public boolean loginWithEmail(String email, String password) {
