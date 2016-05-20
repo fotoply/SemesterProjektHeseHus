@@ -49,7 +49,6 @@ public class RootWindowController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //TODO Should show a menu for search options in the left part of the center pane
     }
 
     public void hideSearchOptions() {
