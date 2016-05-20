@@ -1,18 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package webshop.model.payments;
 
 import webshop.model.Money;
 
-/**
- * @author Karim
- */
 public abstract class Payment {
     private Money amount;
 
+    /**
+     * The constructor for the Payment class,
+     * used to create a Payment object containing the amount to be paid and the payment status.
+     *
+     * @param amount The amount to be paid.
+     */
     public Payment(Money amount) {
         this.amount = amount;
     }

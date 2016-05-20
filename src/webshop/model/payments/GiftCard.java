@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package webshop.model.payments;
 
 import webshop.model.Money;
@@ -10,20 +5,24 @@ import webshop.model.Money;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author Karim
- */
 public class GiftCard extends Payment {
-    private int id;
     private static Map<Integer, GiftCard> giftCards = new HashMap<>();
+    private int id;
 
+    /**
+     * The constructor for the GiftCard class,
+     * used to create a GiftCard object containing the value of the GiftCard.
+     *
+     * @param amount The available amount on the Gift Card.
+     * @param id     The Gift Card's ID number.
+     */
     public GiftCard(Money amount, int id) {
         super(amount);
         this.id = id;
         giftCards.put(this.id, this);
     }
 
-    public static GiftCard getGiftcard (int id) {
+    public static GiftCard getGiftcard(int id) {
         return giftCards.get(id);
     }
 
@@ -32,7 +31,8 @@ public class GiftCard extends Payment {
     }
 
     public void setGiftCardAmount(int id, Money amount) {
-        giftCards.get(id).setAmount(amount);
+        this.setAmount(amount);
+        //giftCards.get(id).setAmount(amount);
     }
 }
 

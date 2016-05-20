@@ -2,6 +2,9 @@ package webshop.model;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import webshop.database.DatabaseFacade;
+import webshop.database.IDatabaseFacade;
+import webshop.exceptions.NoSuchCustomerException;
+import webshop.exceptions.NoSuchProductException;
 import webshop.model.Inventory.Order;
 import webshop.model.Inventory.Product;
 
@@ -11,14 +14,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Handles transferring to and from persistent data.
+ * Handles transferring to and from persistent datastore.
  */
 public class PersistenceFacade {
     private static PersistenceFacade instance;
-    DatabaseFacade database;
+    IDatabaseFacade database;
 
     private PersistenceFacade() {
-        DatabaseFacade.initializeConnection();
         database = DatabaseFacade.getInstance();
     }
 
@@ -29,6 +31,21 @@ public class PersistenceFacade {
         return instance;
     }
 
+    /**
+     * Gets the next available customerID.
+     *
+     * @return The next ID or -1 if no ID was found.
+     */
+    public int getNextCustomerId() {
+        return database.getNextCustomerId();
+    }
+
+    /**
+     * Loads a customer given a customerID
+     *
+     * @param customerId the unique ID of the customer
+     * @return A customer object with all information set from the database, null if no customer was found
+     */
     public Customer loadCustomerFromId(int customerId) {
         ResultSet rs = database.getCustomer(customerId);
         Customer newCustomer = null;
@@ -37,33 +54,58 @@ public class PersistenceFacade {
                 newCustomer = new Customer(rs.getString("name"), rs.getString("address"), rs.getString("email"), "toBeLoaded", rs.getDate("birthday"), rs.getInt("phonenumber"));
                 newCustomer.setPassword(Customer.fromBase64(rs.getString("password")));
                 newCustomer.setSalt(Customer.fromBase64(rs.getString("passwordsalt")));
-                newCustomer.setCurrentOrder(loadOrderFromId(rs.getInt("currentorderid")));
+                //  newCustomer.setCurrentOrder(loadOrderFromId(rs.getInt("currentorderid")));
+                newCustomer.setCustomerID(customerId);
             } else {
-                throw new IllegalArgumentException("Customer does not exist");
+                throw new NoSuchCustomerException(customerId);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         if (newCustomer == null) {
-            throw new RuntimeException("Something went wrong in initializing a customer from database");
+            throw new NoSuchCustomerException(customerId);
         }
         return newCustomer;
     }
 
+    /**
+     * Confirms whether the given email exists in the persistent system
+     *
+     * @param email the email to search for
+     * @return true if the email exists otherwise false
+     */
     public boolean confirmEmail(String email) {
         return database.emailExists(email);
     }
 
+    /**
+     * Saves a Customer object to the database
+     *
+     * @param c the customer to save
+     */
     public void saveCustomer(Customer c) {
-        database.saveCustomer(c.getName(), c.getAddress(), c.getEmail(), Customer.toBase64(c.getPassword()), c.getBirthday(), c.getPhoneNumber(), Customer.toBase64(c.getSalt()), -1);
+        database.saveCustomer(c.getCustomerID(), c.getName(), c.getAddress(), c.getEmail(), Customer.toBase64(c.getPassword()), c.getBirthday(), c.getPhoneNumber(), Customer.toBase64(c.getSalt()), -1);
         //TODO Implement a getter for getting the orderId so that it can be saved.
     }
 
+    /**
+     * Loads an order from it's orderId
+     *
+     * @param orderId the unique ID for the order
+     * @return An order object representing the data in the database
+     * // TODO: 5/19/16 Finish this method
+     */
     public Order loadOrderFromId(int orderId) {
         throw new NotImplementedException();
     }
 
+    /**
+     * Loads a product given a productId
+     *
+     * @param productId the unique ID of the product
+     * @return A product object with all information from the database, null if no product was found
+     */
     public Product loadProductFromId(int productId) {
         ResultSet rs = database.getProduct(productId);
         Product newProduct = null;
@@ -72,36 +114,50 @@ public class PersistenceFacade {
             if (rs.next()) {
                 newProduct = new Product(rs.getString("name"), rs.getString("description"), rs.getString("type"), new Money(rs.getString("price")), productId, rs.getBoolean("currentlyselling"));
             } else {
-                throw new IllegalArgumentException("Product does not exist");
+                throw new NoSuchProductException(productId);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         if (newProduct == null) {
-            throw new RuntimeException("Something went wrong in initializing a product from database");
+            throw new NoSuchProductException(productId);
         }
         return newProduct;
     }
 
-    public List searchProdut(String searchTerms) {
-        ResultSet rsType = database.getProductByType(searchTerms);
-        ResultSet rsName = database.getProductByName(searchTerms);
+    /**
+     * Gets the unique ID of a customer based on their email. This method is <u>not</u> case sensitive.
+     *
+     * @param email the email of the user
+     * @return the ID of the user or -1 if no user is found
+     */
+    public int getCustomerIdFromEmail(String email) {
+        return database.getCustomerIdFromEmail(email);
+    }
+
+    /**
+     * Attempts to fetch a product based on the searchTerms
+     *
+     * @param searchTerms
+     * @return A list of the found products
+     */
+    public List searchProduct(String searchTerms) {
+        ResultSet rsType = database.searchProduct(searchTerms);
         List<Product> searchedProducts = new ArrayList<>();
         try {
-            if (rsType.next()) {
+            while (rsType.next()) {
                 searchedProducts.add(new Product(rsType.getString("name"), rsType.getString("description"), rsType.getString("type"), new Money(rsType.getString("price")), rsType.getInt("productID"), rsType.getBoolean("currentlyselling")));
-            }
-            if (rsName.next()) {
-                searchedProducts.add(new Product(rsName.getString("name"), rsName.getString("description"), rsName.getString("type"), new Money(rsName.getString("price")), rsName.getInt("productID"), rsName.getBoolean("currentlyselling")));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         if (searchedProducts.isEmpty()) {
-            throw new RuntimeException("No products is found");
+            throw new NoSuchProductException();
         }
 
         return searchedProducts;
     }
+
+
 }

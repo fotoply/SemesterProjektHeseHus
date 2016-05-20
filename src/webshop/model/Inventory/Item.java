@@ -1,7 +1,7 @@
 package webshop.model.Inventory;
 
 /**
- * @author Grp. 14
+ * Represents a collection of the same product. This is merely a container for the product and the quantity of the object.
  */
 public class Item {
 
@@ -13,10 +13,20 @@ public class Item {
         this.quantity = quantity;
     }
 
+    /**
+     * Gets the product associated with this item
+     *
+     * @return A product instance or null if none.
+     */
     public Product getProduct() {
         return product;
     }
 
+    /**
+     * Gets the quantity of associated product
+     *
+     * @return An int representing how many of the product that is associated with this item.
+     */
     public int getQuantity() {
         return quantity;
     }

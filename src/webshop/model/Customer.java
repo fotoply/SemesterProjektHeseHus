@@ -1,5 +1,6 @@
 package webshop.model;
 
+import com.sun.istack.internal.NotNull;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import webshop.model.Inventory.Order;
 import webshop.model.Inventory.Product;
@@ -7,18 +8,10 @@ import webshop.model.Inventory.Product;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import javax.xml.bind.DatatypeConverter;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.KeySpec;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
+import java.security.*;
+import java.security.spec.*;
+import java.util.*;
 
-/**
- * @author Grp. 14
- */
 public class Customer {
     private String address;
     private String email;
@@ -28,11 +21,9 @@ public class Customer {
     private String name;
     private byte[] salt = new byte[32];
     private List<MemberShipCard> memberShipCards;
+    private List<Order> orderList;
     private Order currentOrder;
-
-    public Customer() {
-
-    }
+    private int customerID;
 
     /**
      * A constructor to the class Customer is used to create a new customer.
@@ -70,12 +61,32 @@ public class Customer {
 
     }
 
-    public static byte[] fromBase64(String base64String) {
+    /**
+     * Converts a string from the base64 format to a byte array
+     *
+     * @param base64String a string representing the base64 object
+     * @return
+     */
+    public static byte[] fromBase64(@NotNull String base64String) {
         return DatatypeConverter.parseBase64Binary(base64String);
     }
 
-    public static String toBase64(byte[] array) {
+    /**
+     * Converts a byte array into a String, in base64
+     *
+     * @param array the array to convert
+     * @return
+     */
+    public static String toBase64(@NotNull byte[] array) {
         return DatatypeConverter.printBase64Binary(array);
+    }
+
+    public int getCustomerID() {
+        return this.customerID;
+    }
+
+    public void setCustomerID(int customerId) {
+        this.customerID = customerId;
     }
 
     public byte[] getSalt() {
@@ -174,6 +185,8 @@ public class Customer {
         throw new NotImplementedException();
     }
 
+    //TODO implement constant-time comparison to avoid timing attacks
+
     /**
      * Adds a product to the current order.
      *
@@ -184,7 +197,12 @@ public class Customer {
         this.currentOrder.addProduct(product, amount);
     }
 
-    //TODO implement constant-time comparison to avoid timing attacks
+    /**
+     * Returns whether the given password is the correct password for the customer.
+     *
+     * @param comparisonPassword the non-hashed password to be tested
+     * @return true if the password matches otherwise false
+     */
     public boolean isCorrectPassword(String comparisonPassword) {
         return Arrays.equals(password, getPasswordHash(comparisonPassword));
     }
@@ -198,10 +216,10 @@ public class Customer {
     }
 
     /**
-     * Is used to hash the password.
+     * Is used to hash the password. Will also salt it with the users salt. Expects salt to be set.
      *
      * @param password the password that should be hashed.
-     * @return the hashed password.
+     * @return the hashed password as an array of bytes.
      */
     private byte[] getPasswordHash(String password) {
         KeySpec keySpecification = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);

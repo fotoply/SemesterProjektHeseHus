@@ -1,20 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package webshop.model.Inventory;
 
 import webshop.model.Money;
 import webshop.model.payments.GiftCard;
 import webshop.model.payments.Payment;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
- * @author Karim
+ * Represents an order. Holds both the payment methods used, the information about the order, the list of items in the order and the status of the order.
+ * This class should most likely be split into multiple as it is right now and some of the internal and external methods are a mess.
  */
 public class Order {
 
@@ -30,11 +24,6 @@ public class Order {
     private Money currentlyPaid;
     private List<Payment> paymentMethods;
     private Status status = Status.IN_BASKET;
-
-    public Order(int orderId) {
-        this.paymentMethods = new ArrayList<>();
-        this.orderID = orderId;
-    }
 
     public Order(String shippingCharges, String shippingAddress, int customerID) {
         this.shippingCharges = new Money(shippingCharges);
@@ -146,10 +135,14 @@ public class Order {
         }
     }
 
-    private Money payWithGiftcard (Money amount) {
-        if (amount.compareTo(getTotalAmountOwedForProducts()) > 0) {
-            currentlyPaid.add(getTotalAmountOwedForProducts());
-            amount.pay(getTotalAmountOwedForProducts());
+    private Money payWithGiftcard(Money amount) {
+        if (isPaid()) {
+            return amount;
+        } else if (amount.compareTo(getTotalAmountOwedForProducts()) > 0) {
+            Money owes = getTotalAmountOwedForProducts();
+            owes.pay(currentlyPaid);
+            currentlyPaid.add(owes);
+            amount.pay(owes);
             return amount;
         } else {
             currentlyPaid.add(amount);
@@ -157,9 +150,9 @@ public class Order {
         }
     }
 
-    public void applyGiftCard (int ID) {
-        GiftCard temp = GiftCard.getGiftcard(ID);
-        temp.setGiftCardAmount(ID, payWithGiftcard(temp.getGiftcardAmount(ID)));
+    public boolean applyGiftCard(int ID) {
+        GiftCard.getGiftcard(ID).setGiftCardAmount(ID, payWithGiftcard(GiftCard.getGiftcard(ID).getGiftcardAmount(ID)));
+        return isPaid();
     }
 
     public List<Item> getProducts() {
@@ -167,7 +160,10 @@ public class Order {
     }
 
     public boolean isPaid() {
-        return getFinalPrice().compareTo(currentlyPaid) < 0;
+        System.out.println("isPaid");
+        System.out.println(finalPrice);
+        System.out.println(currentlyPaid);
+        return getFinalPrice().compareTo(currentlyPaid) == 0;
     }
 
     public String getShippingAddress() {
@@ -181,4 +177,5 @@ public class Order {
     public enum Status {
         IN_BASKET, SHIPPING_TO_SHOP, SHIPPING, ACCEPTED, CLOSED, FOR_VERIFICATION
     }
+
 }

@@ -86,23 +86,27 @@ package webshop.model;
 
 import webshop.model.Inventory.Product;
 
-import java.util.Collection;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
-/**
- * @author Grp. 14
- */
 public class CustomerManager {
 
     private static final int PHONENUMBER_LENGTH = 8;
     private static int customerID = 0;
-    private Map<Integer, Customer> customerMap;
+    private static Customer currentCustomer;
+    private static int currentCustomerID = -1;
+    //private Map<Integer, Customer> customerMap;
     private PersistenceFacade persistenceFacade = PersistenceFacade.getInstance();
 
     public CustomerManager() {
-        customerMap = new HashMap<>();
+
+    }
+
+    public static int getCurrentCustomerID() {
+        return currentCustomerID;
+    }
+
+    public static void setCurrentCustomerID(int currentCustomerID) {
+        CustomerManager.currentCustomerID = currentCustomerID;
     }
 
     public void createNewOrder(int customerID) {
@@ -110,10 +114,11 @@ public class CustomerManager {
     }
 
     private int getNextId() {
-        return customerID++;
+        return persistenceFacade.getNextCustomerId();
     }
 
     public Customer createCustomer(String name, String address, int phoneNumber, String email, String password, Date dayOfBirth) {
+        Customer temp;
         if (persistenceFacade.confirmEmail(email)) {
             throw new IllegalArgumentException("This E-Mail is already used");
         }
@@ -123,31 +128,25 @@ public class CustomerManager {
             throw new IllegalArgumentException("Phone Number does not exist");
         }
         int ID = getNextId();
-        customerMap.put(ID, new Customer(name, address, email, password, dayOfBirth, phoneNumber));
-        return customerMap.get(ID);
+        temp = new Customer(name, address, email, password, dayOfBirth, phoneNumber);
+        temp.setCustomerID(getNextId());
+        persistenceFacade.saveCustomer(temp);
+        currentCustomer = temp;
+        return temp;
 
     }
 
     public Customer getCustomer(int customerID) {
-        if (customerMap.containsKey(customerID)) {
-            return customerMap.get(customerID);
+        if (currentCustomer == null || currentCustomer.getCustomerID() != customerID) {
+            currentCustomer = persistenceFacade.loadCustomerFromId(customerID);
         }
-        throw new IllegalArgumentException("This customer does not exist");
+        return currentCustomer;
     }
 
     public int getCustomerIDFromEmail(String email) {
-        for (int i = 0; i < customerMap.values().size(); i++) {
-            Customer customer = customerMap.getOrDefault(i, null);
-            if (customer != null && customer.getEmail().equalsIgnoreCase(email)) {
-                return i;
-            }
-        }
-        return -1;
+        return persistenceFacade.getCustomerIdFromEmail(email);
     }
 
-    public void deleteCustomer(int customerID) {
-        customerMap.remove(customerID);
-    }
 
     public void addproduct(Product product, int amount, int customerID) {
         getCustomer(customerID).addProduct(product, amount);

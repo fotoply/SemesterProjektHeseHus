@@ -2,11 +2,6 @@ package webshop.model;
 
 import java.math.BigDecimal;
 
-/**
- * Created 4/22/16
- *
- * @author Niels Norberg
- */
 public class Money implements Comparable {
 
     private BigDecimal amount;

@@ -32,7 +32,7 @@ public class WebshopCommandline {
     public static void main(String[] args) throws ParseException {
         // Test code for products
         WebshopCommandline controller = new WebshopCommandline();
-        controller.webshop.createCustomer("Bob", "Vester bobvej", "test", "1", new Date(), 10203040);
+        controller.webshop.createCustomer("Bob", "Vester bobvej", 10203040, "test", "1", new Date());
 
         while (true) {
             System.out.println("**testbruger: navn: test kode: 1** \n"
@@ -83,7 +83,7 @@ public class WebshopCommandline {
         webshop.checkoutBasket();
 
         try {
-            if (webshop.getCustomer() == null || webshop.getCurrentOrder() == null) {
+            if (webshop.getCurrentCustomer() == null || webshop.getCurrentOrder() == null) {
                 System.out.println("You cannot checkout without an account or basket");
                 return true;
             }
@@ -111,15 +111,15 @@ public class WebshopCommandline {
             choice = input.nextInt();
 
             if (choice == 0) {
-                webshop.setPayingBy(Webshop.paymentType.CREDIT_CARD);
+                webshop.setPayingBy(Webshop.PaymentType.CREDIT_CARD);
             } else if (choice == 1) {
-                webshop.setPayingBy(Webshop.paymentType.IN_SHOP);
+                webshop.setPayingBy(Webshop.PaymentType.IN_SHOP);
             } else {
                 System.out.println("Invalid choice, credit card was substituted");
-                webshop.setPayingBy(Webshop.paymentType.CREDIT_CARD);
+                webshop.setPayingBy(Webshop.PaymentType.CREDIT_CARD);
             }
 
-            if (webshop.getPayingBy() == Webshop.paymentType.CREDIT_CARD) {
+            if (webshop.getPayingBy() == Webshop.PaymentType.CREDIT_CARD) {
                 System.out.println("Please press enter to continue to the payment processors site.");
                 input.nextLine();
                 System.out.println("Payment for the remaining was received");
@@ -175,7 +175,7 @@ public class WebshopCommandline {
         System.out.println("Enter phone number:");
         int phoneNumber = Integer.valueOf(input.nextLine());
 
-        Customer newCustomer = webshop.createCustomer(name, address, email, password, birth, phoneNumber);
+        Customer newCustomer = webshop.createCustomer(name, address, phoneNumber, email, password, birth);
         System.out.println("You are: " + newCustomer.toString());
         System.out.println("Your password hash is: " + Customer.toBase64(newCustomer.getPassword()));
     }

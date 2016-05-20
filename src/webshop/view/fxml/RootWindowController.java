@@ -27,6 +27,9 @@ public class RootWindowController {
     @FXML
     private BorderPane borderPane;
 
+    @FXML
+    private Button homeButton;
+
     public static Image getDefaultImage() {
         return new Image("/res/placeholderProductIcon.png");
     }
@@ -34,19 +37,24 @@ public class RootWindowController {
     @FXML
     void initialize() {
         optionsButton.setPadding(Insets.EMPTY);
+        homeButton.setPadding(Insets.EMPTY);
         showShopArea();
     }
 
     public void showSearchOptions() {
         searchShown = true;
-        //borderPane.setLeft();
+        FXMLLoader loader = createLoaderFromResource(getClass().getResource("SearchArea.fxml"));
+        try {
+            borderPane.setBottom(loader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         //TODO Should show a menu for search options in the left part of the center pane
     }
 
     public void hideSearchOptions() {
         searchShown = false;
-        borderPane.setLeft(null);
-        //TODO Hide the search menu again.
+        borderPane.setBottom(null);
     }
 
     @FXML
@@ -56,9 +64,6 @@ public class RootWindowController {
         } else {
             showSearchOptions();
         }
-
-        showShopArea();
-
     }
 
     @FXML
@@ -68,6 +73,11 @@ public class RootWindowController {
         } else {
             showLoginScreen();
         }
+    }
+
+    @FXML
+    private void homeButtonPressed() {
+        showShopArea();
     }
 
     public void showLoginScreen() {
@@ -81,12 +91,13 @@ public class RootWindowController {
     public void showShopArea() {
         FXMLLoader loader = setCenterFromString("ShopArea.fxml");
         shopAreaController = loader.getController();
-        shopAreaController.loadItems(GUIController.getProducts());
+        shopAreaController.loadItems(GUIController.getWebshopInstance().searchProduct(""));
     }
 
     public void showBasket() {
         FXMLLoader loader = setCenterFromString("BasketScreen.fxml");
-        if(GUIController.getWebshopInstance().getCurrentOrder() != null) {
+        if (GUIController.getWebshopInstance().getCurrentOrder() != null) {
+            GUIController.getWebshopInstance().getCurrentOrder().setFinalPrice(GUIController.getWebshopInstance().getCurrentOrder().getTotalAmountOwedForProducts());
             ((BasketScreenController) loader.getController()).applyBasket(GUIController.getWebshopInstance().getCurrentOrder().getProductList(), GUIController.getWebshopInstance().getCurrentOrder().getTotalAmountOwedForProducts().toString());
         }
     }

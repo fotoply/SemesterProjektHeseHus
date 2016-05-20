@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package webshop.model.Inventory;
 
 import webshop.model.Money;
@@ -14,10 +9,6 @@ public class Product {
     private Money price = new Money();
     private int productID = -1;
     private boolean currentlySelling = false;
-
-    public Product(int productID) {
-        this.productID = productID;
-    }
 
     public Product(String name, String description, String type, Money price, int productID, boolean currentlySelling) {
         this.name = name;
@@ -84,23 +75,11 @@ public class Product {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getType() {
         return type;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public boolean isCurrentlySelling() {
         return currentlySelling;
-    }
-
-    public void setCurrentlySelling(boolean currentlySelling) {
-        this.currentlySelling = currentlySelling;
     }
 }
