@@ -45,6 +45,12 @@ public class BasketScreenController {
         addItemToBasketList(formatTotal(totalPrice));
     }
 
+    private void addPayedInfoToBasketList() {
+
+    }
+
+
+
     private void addItemToBasketList(String itemText) {
         Label item = new Label(itemText);
         basketListView.getItems().add(item);
