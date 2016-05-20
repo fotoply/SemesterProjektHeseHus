@@ -59,6 +59,8 @@ public class Order {
         return customerID;
     }
 
+    public Money getCurrentlyPaid() { return currentlyPaid;}
+
     public void setCustomerID(int customerID) {
         this.customerID = customerID;
     }
@@ -120,7 +122,15 @@ public class Order {
     }
 
     public Money getFinalPrice() {
+
         return finalPrice;
+    }
+
+    public void calcFinalPrice () {
+        finalPrice = new Money("0");
+        finalPrice.add(getTotalAmountOwedForProducts());
+      //  finalPrice.add(getTax());
+  //      finalPrice.add(getShippingCharges());
     }
 
     public void setFinalPrice(Money finalPrice) {
@@ -150,8 +160,12 @@ public class Order {
         }
     }
 
+    public GiftCard getGiftCardFromID (int ID) {
+        return GiftCard.getGiftcard(ID);
+    }
+
     public boolean applyGiftCard(int ID) {
-        GiftCard.getGiftcard(ID).setGiftCardAmount(ID, payWithGiftcard(GiftCard.getGiftcard(ID).getGiftcardAmount(ID)));
+        getGiftCardFromID(ID).setGiftCardAmount(ID, payWithGiftcard(GiftCard.getGiftcard(ID).getGiftcardAmount(ID)));
         return isPaid();
     }
 
@@ -160,10 +174,8 @@ public class Order {
     }
 
     public boolean isPaid() {
-        System.out.println("isPaid");
-        System.out.println(finalPrice);
-        System.out.println(currentlyPaid);
-        return getFinalPrice().compareTo(currentlyPaid) == 0;
+        calcFinalPrice();
+         return getFinalPrice().compareTo(currentlyPaid) == 0;
     }
 
     public String getShippingAddress() {
