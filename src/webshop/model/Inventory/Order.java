@@ -59,6 +59,8 @@ public class Order {
         return customerID;
     }
 
+    public Money getCurrentlyPaid() { return currentlyPaid;}
+
     public void setCustomerID(int customerID) {
         this.customerID = customerID;
     }
@@ -127,8 +129,8 @@ public class Order {
     public void calcFinalPrice () {
         finalPrice = new Money("0");
         finalPrice.add(getTotalAmountOwedForProducts());
-        finalPrice.add(getTax());
-        finalPrice.add(getShippingCharges());
+      //  finalPrice.add(getTax());
+  //      finalPrice.add(getShippingCharges());
     }
 
     public void setFinalPrice(Money finalPrice) {
