@@ -14,7 +14,6 @@ public class CustomerManager {
     private PersistenceFacade persistenceFacade = PersistenceFacade.getInstance();
 
     public CustomerManager() {
-
     }
 
     public static int getCurrentCustomerID() {
