@@ -146,7 +146,7 @@ public class PersistenceFacade {
         List<Product> searchedProducts = new ArrayList<>();
         try {
             while (rsType.next()) {
-                searchedProducts.add(new Product(rsType.getString("name"), rsType.getString("description"), rsType.getString("type"), new Money(rsType.getString("price")), rsType.getInt("productID"), rsType.getBoolean("currentlyselling")));
+                searchedProducts.add(loadProductFromId(rsType.getInt("productid")));
             }
         } catch (SQLException e) {
             e.printStackTrace();
