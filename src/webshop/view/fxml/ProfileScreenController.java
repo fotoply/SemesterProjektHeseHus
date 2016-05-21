@@ -40,5 +40,5 @@ public class ProfileScreenController implements Initializable {
         phoneID.setText(String.valueOf(customer.getPhoneNumber()));
         addressID.setText(customer.getAddress());
     }
-    
+
 }

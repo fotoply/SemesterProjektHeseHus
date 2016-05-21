@@ -4,7 +4,9 @@ import webshop.model.Money;
 import webshop.model.payments.GiftCard;
 import webshop.model.payments.Payment;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Represents an order. Holds both the payment methods used, the information about the order, the list of items in the order and the status of the order.
@@ -59,10 +61,12 @@ public class Order {
         return customerID;
     }
 
-    public Money getCurrentlyPaid() { return currentlyPaid;}
-
     public void setCustomerID(int customerID) {
         this.customerID = customerID;
+    }
+
+    public Money getCurrentlyPaid() {
+        return currentlyPaid;
     }
 
     public List<Item> getProductList() {
@@ -126,15 +130,15 @@ public class Order {
         return finalPrice;
     }
 
-    public void calcFinalPrice () {
-        finalPrice = new Money("0");
-        finalPrice.add(getTotalAmountOwedForProducts());
-      //  finalPrice.add(getTax());
-  //      finalPrice.add(getShippingCharges());
-    }
-
     public void setFinalPrice(Money finalPrice) {
         this.finalPrice = finalPrice;
+    }
+
+    public void calcFinalPrice() {
+        finalPrice = new Money("0");
+        finalPrice.add(getTotalAmountOwedForProducts());
+        //  finalPrice.add(getTax());
+        //      finalPrice.add(getShippingCharges());
     }
 
     public void payAmountForOrder(Money amount) {
@@ -160,7 +164,7 @@ public class Order {
         }
     }
 
-    public GiftCard getGiftCardFromID (int ID) {
+    public GiftCard getGiftCardFromID(int ID) {
         return GiftCard.getGiftcard(ID);
     }
 
@@ -175,7 +179,7 @@ public class Order {
 
     public boolean isPaid() {
         calcFinalPrice();
-         return getFinalPrice().compareTo(currentlyPaid) == 0;
+        return getFinalPrice().compareTo(currentlyPaid) == 0;
     }
 
     public String getShippingAddress() {

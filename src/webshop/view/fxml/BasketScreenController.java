@@ -6,7 +6,6 @@ import javafx.scene.control.*;
 import webshop.model.Inventory.Item;
 import webshop.model.Money;
 import webshop.model.payments.GiftCard;
-import webshop.model.payments.Payment;
 import webshop.view.GUIController;
 
 import java.math.BigDecimal;
@@ -48,7 +47,7 @@ public class BasketScreenController {
         addItemToBasketList(formatTotal(totalPrice));
     }
 
-    public void applyGiftcardToBasket (GiftCard giftCard) {
+    public void applyGiftcardToBasket(GiftCard giftCard) {
         addPayedInfoToBasketList(formatPayedInfo(giftCard));
     }
 
@@ -57,13 +56,13 @@ public class BasketScreenController {
         basketListView.getItems().add(giftcard);
     }
 
-    private String formatPayedInfo (GiftCard giftCard) {
+    private String formatPayedInfo(GiftCard giftCard) {
         Money owes = GUIController.getWebshopInstance().getCurrentCustomer().getCurrentOrder().getTotalAmountOwedForProducts();
         owes.pay(GUIController.getWebshopInstance().getCurrentCustomer().getCurrentOrder().getCurrentlyPaid());
         if (owes.compareTo(giftCard.getAmount()) < 0) {
-            return String.format(BASKET_FORMAT_LOCALE, "Giftcard ID:", giftCard.getId(), "-"+owes.toString());
+            return String.format(BASKET_FORMAT_LOCALE, "Giftcard ID:", giftCard.getId(), "-" + owes.toString());
         }
-        return String.format(BASKET_FORMAT_LOCALE, "Giftcard ID:", giftCard.getId(), "-"+giftCard.getAmount().toString());
+        return String.format(BASKET_FORMAT_LOCALE, "Giftcard ID:", giftCard.getId(), "-" + giftCard.getAmount().toString());
     }
 
     private void addItemToBasketList(String itemText) {

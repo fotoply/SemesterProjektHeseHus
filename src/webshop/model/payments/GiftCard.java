@@ -26,7 +26,7 @@ public class GiftCard extends Payment {
         return giftCards.get(id);
     }
 
-    public int getId () {
+    public int getId() {
         return this.id;
     }
 

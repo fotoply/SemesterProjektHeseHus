@@ -85,7 +85,7 @@ public class RootWindowController {
 
     public void showProfile() {
         FXMLLoader loader = setCenterFromString("ProfileScreen.fxml");
-        ((ProfileScreenController)loader.getController()).setCustomer(GUIController.getWebshopInstance().getCurrentCustomer());
+        ((ProfileScreenController) loader.getController()).setCustomer(GUIController.getWebshopInstance().getCurrentCustomer());
     }
 
     public void showShopArea() {
@@ -141,6 +141,7 @@ public class RootWindowController {
 
     /**
      * Adds 1 of a product associated with a ProductNode to the current users basket.
+     *
      * @param node
      */
     public synchronized void addToBasket(ProductNode node) {
@@ -149,6 +150,7 @@ public class RootWindowController {
 
     /**
      * Adds amount of a product associated with a ProductNode to the current users basket.
+     *
      * @param node
      * @param amount how many to add
      */

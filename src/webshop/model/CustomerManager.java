@@ -13,7 +13,8 @@ public class CustomerManager {
     //private Map<Integer, Customer> customerMap;
     private PersistenceFacade persistenceFacade = PersistenceFacade.getInstance();
 
-    public CustomerManager() { }
+    public CustomerManager() {
+    }
 
     public static int getCurrentCustomerID() {
         return currentCustomerID;
@@ -25,6 +26,7 @@ public class CustomerManager {
 
     /**
      * Initializes a new order in the given customer
+     *
      * @param customerID the unique ID of the customer
      */
     public void createNewOrder(int customerID) {
@@ -33,6 +35,7 @@ public class CustomerManager {
 
     /**
      * Gets the next available customerId from the datastore
+     *
      * @return an int or -1 if no ID
      */
     private int getNextId() {
@@ -42,12 +45,13 @@ public class CustomerManager {
     /**
      * Creates a new customer based on the given information.
      * Stores this customer in the persistent datastore.
-     * @param name name of the customer
-     * @param address address of the customer
+     *
+     * @param name        name of the customer
+     * @param address     address of the customer
      * @param phoneNumber phone number of the customer. Must be exactly PHONENUMBER_LENGTH characters long
-     * @param email email of the customer
-     * @param password plaintext password of the customer
-     * @param dayOfBirth birthday of the customer
+     * @param email       email of the customer
+     * @param password    plaintext password of the customer
+     * @param dayOfBirth  birthday of the customer
      * @return returns the newly created customer object
      */
     public Customer createCustomer(String name, String address, int phoneNumber, String email, String password, Date dayOfBirth) {
