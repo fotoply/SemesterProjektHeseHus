@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import webshop.model.Inventory.Item;
+import webshop.model.Inventory.Order;
 import webshop.model.Money;
 import webshop.model.payments.GiftCard;
 import webshop.view.GUIController;
@@ -48,7 +49,7 @@ public class BasketScreenController {
     }
 
     public void applyGiftcardToBasket(GiftCard giftCard) {
-        addPayedInfoToBasketList(formatPayedInfo(giftCard));
+        addPayedInfoToBasketList(formatGiftcardInfo(giftCard));
     }
 
     private void addPayedInfoToBasketList(String giftCardText) {
@@ -56,7 +57,7 @@ public class BasketScreenController {
         basketListView.getItems().add(giftcard);
     }
 
-    private String formatPayedInfo(GiftCard giftCard) {
+    private String formatGiftcardInfo(GiftCard giftCard) {
         Money owes = GUIController.getWebshopInstance().getCurrentCustomer().getCurrentOrder().getTotalAmountOwedForProducts();
         owes.pay(GUIController.getWebshopInstance().getCurrentCustomer().getCurrentOrder().getCurrentlyPaid());
         if (owes.compareTo(giftCard.getAmount()) < 0) {
@@ -88,14 +89,15 @@ public class BasketScreenController {
     @FXML
     void applyCodeClicked(ActionEvent event) {
         Money owes;
-        applyGiftcardToBasket(GUIController.getWebshopInstance().getCurrentCustomer().getCurrentOrder().getGiftCardFromID(Integer.parseInt(giftcodeTextArea.getText())));
+        Order currentOrder = GUIController.getWebshopInstance().getCurrentOrder();
+        applyGiftcardToBasket(currentOrder.getGiftCardFromID(Integer.parseInt(giftcodeTextArea.getText())));
         if (GUIController.getWebshopInstance().applyGiftCard(Integer.parseInt(giftcodeTextArea.getText()))) {
-            owes = GUIController.getWebshopInstance().getCurrentCustomer().getCurrentOrder().getFinalPrice();
-            owes.pay(GUIController.getWebshopInstance().getCurrentCustomer().getCurrentOrder().getCurrentlyPaid());
+            owes = currentOrder.getFinalPrice();
+            owes.pay(currentOrder.getCurrentlyPaid());
             addItemToBasketList(formatTotal(owes.toString()));
         } else {
-            owes = GUIController.getWebshopInstance().getCurrentCustomer().getCurrentOrder().getFinalPrice();
-            owes.pay(GUIController.getWebshopInstance().getCurrentCustomer().getCurrentOrder().getCurrentlyPaid());
+            owes = currentOrder.getFinalPrice();
+            owes.pay(currentOrder.getCurrentlyPaid());
             addItemToBasketList(formatTotal(owes.getAmountAsString()));
         }
 
