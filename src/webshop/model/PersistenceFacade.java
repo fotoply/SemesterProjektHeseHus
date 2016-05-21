@@ -2,8 +2,8 @@ package webshop.model;
 
 import webshop.database.DatabaseFacade;
 import webshop.database.IDatabaseFacade;
-import webshop.exceptions.NoSuchCustomerException;
-import webshop.exceptions.NoSuchProductException;
+import webshop.database.exceptions.NoSuchCustomerException;
+import webshop.database.exceptions.NoSuchProductException;
 import webshop.model.Inventory.Order;
 import webshop.model.Inventory.Product;
 

@@ -1,8 +1,8 @@
 package webshop.database;
 
-import webshop.exceptions.NoSuchCustomerException;
-import webshop.exceptions.NoSuchOrderException;
-import webshop.exceptions.NoSuchProductException;
+import webshop.database.exceptions.NoSuchCustomerException;
+import webshop.database.exceptions.NoSuchOrderException;
+import webshop.database.exceptions.NoSuchProductException;
 import webshop.model.Inventory.Item;
 
 import java.sql.ResultSet;

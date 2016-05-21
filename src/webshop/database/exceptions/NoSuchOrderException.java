@@ -1,4 +1,4 @@
-package webshop.exceptions;
+package webshop.database.exceptions;
 
 public class NoSuchOrderException extends RuntimeException {
 
