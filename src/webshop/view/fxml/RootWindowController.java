@@ -41,6 +41,14 @@ public class RootWindowController {
         showShopArea();
     }
 
+    public void clearWindowSpecificParts() {
+        borderPane.setBottom(null);
+        borderPane.setCenter(null);
+        borderPane.setLeft(null);
+        borderPane.setRight(null);
+        searchShown = false;
+    }
+
     public void showSearchOptions() {
         searchShown = true;
         FXMLLoader loader = createLoaderFromResource(getClass().getResource("SearchArea.fxml"));
@@ -80,21 +88,25 @@ public class RootWindowController {
     }
 
     public void showLoginScreen() {
+        clearWindowSpecificParts();
         setCenterFromString("LoginScreen.fxml");
     }
 
     public void showProfile() {
+        clearWindowSpecificParts();
         FXMLLoader loader = setCenterFromString("ProfileScreen.fxml");
         ((ProfileScreenController) loader.getController()).setCustomer(GUIController.getWebshopInstance().getCurrentCustomer());
     }
 
     public void showShopArea() {
+        clearWindowSpecificParts();
         FXMLLoader loader = setCenterFromString("ShopArea.fxml");
         shopAreaController = loader.getController();
         shopAreaController.loadItems(GUIController.getWebshopInstance().searchProduct(""));
     }
 
     public void showBasket() {
+        clearWindowSpecificParts();
         FXMLLoader loader = setCenterFromString("BasketScreen.fxml");
         if (GUIController.getWebshopInstance().getCurrentOrder() != null) {
             GUIController.getWebshopInstance().getCurrentOrder().setFinalPrice(GUIController.getWebshopInstance().getCurrentOrder().getTotalAmountOwedForProducts());
@@ -109,6 +121,7 @@ public class RootWindowController {
     }
 
     public void showProduct(ProductNode product) {
+        clearWindowSpecificParts();
         FXMLLoader loader = setCenterFromString("ProductInformationScreen.fxml");
         ((ProductInformationScreenController) loader.getController()).setProduct(product);
     }
@@ -118,6 +131,7 @@ public class RootWindowController {
     }
 
     public void showSignupScreen() {
+        clearWindowSpecificParts();
         setCenterFromString("SignupScreen.fxml");
     }
 
