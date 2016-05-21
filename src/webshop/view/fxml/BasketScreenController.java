@@ -106,12 +106,12 @@ public class BasketScreenController {
 
     @FXML
     void payLaterClicked(ActionEvent event) {
-
+        GUIController.getRootInstance().completeOrder();
     }
 
     @FXML
     void payNowClicked(ActionEvent event) {
-
+        GUIController.getRootInstance().completeOrder();
     }
 
 }

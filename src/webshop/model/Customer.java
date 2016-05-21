@@ -10,10 +10,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Customer {
     private String address;
@@ -49,6 +46,7 @@ public class Customer {
         SecureRandom rnd = new SecureRandom();
         rnd.nextBytes(salt);
         setPassword(password);
+        orderList = new ArrayList<>();
     }
 
     public static void main(String[] args) {
@@ -151,6 +149,7 @@ public class Customer {
     public void checkoutBasket() {
         if (currentOrder != null) {
             currentOrder.setStatus(Order.Status.FOR_VERIFICATION);
+            currentOrder = null;
         }
     }
 
@@ -180,6 +179,7 @@ public class Customer {
     public void createNewOrder(int customerID) {
         //Shippingcharges sat til 0.
         currentOrder = new Order("0", address, customerID);
+        orderList.add(currentOrder);
     }
 
     public void linkMemberShipCard(int id) {

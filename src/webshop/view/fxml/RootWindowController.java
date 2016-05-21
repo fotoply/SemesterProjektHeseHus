@@ -92,6 +92,11 @@ public class RootWindowController {
         setCenterFromString("LoginScreen.fxml");
     }
 
+    public void completeOrder() {
+        setCenterFromString("CheckOut.fxml");
+        GUIController.getWebshopInstance().getCurrentCustomer().checkoutBasket();
+    }
+
     public void showProfile() {
         clearWindowSpecificParts();
         FXMLLoader loader = setCenterFromString("ProfileScreen.fxml");
