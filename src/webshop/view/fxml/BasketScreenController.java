@@ -60,6 +60,9 @@ public class BasketScreenController {
     private String formatPayedInfo (GiftCard giftCard) {
         Money owes = GUIController.getWebshopInstance().getCurrentCustomer().getCurrentOrder().getTotalAmountOwedForProducts();
         owes.pay(GUIController.getWebshopInstance().getCurrentCustomer().getCurrentOrder().getCurrentlyPaid());
+        if (owes.compareTo(giftCard.getAmount()) < 0) {
+            return String.format(BASKET_FORMAT_LOCALE, "Giftcard ID:", giftCard.getId(), "-"+owes.toString());
+        }
         return String.format(BASKET_FORMAT_LOCALE, "Giftcard ID:", giftCard.getId(), "-"+giftCard.getAmount().toString());
     }
 
