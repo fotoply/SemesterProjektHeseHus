@@ -136,7 +136,7 @@ public class PersistenceFacade {
     }
 
     /**
-     * Attempts to fetch a product based on the searchTerms
+     * Attempts to fetch a list of products based on the searchTerms
      *
      * @param searchTerms
      * @return A list of the found products

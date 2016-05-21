@@ -182,10 +182,10 @@ public class DatabaseFacade implements IDatabaseFacade {
     }
 
     /**
-     * Returns a product by searching for something where the type or name matches the input string. Uses partial matching
+     * Returns a resultSet of productID's by searching for something where the type or name matches the input string. Uses partial matching
      *
      * @param searchTerms the type to match for
-     * @return A ResultSet containing the information for the product
+     * @return A ResultSet containing the information for the product(s)
      */
     @Override
     public ResultSet searchProduct(String searchTerms) {
