@@ -96,7 +96,7 @@ public class DatabaseFacade implements IDatabaseFacade {
     }
 
     /**
-     * Returns the unique ID for a customer based on their email. Is currently case sensitive
+     * Returns the unique ID for a customer based on their email. Is <u>not</u> case sensitive
      *
      * @param email the users email
      * @return the ID of the customer or -1 if no customer was found
