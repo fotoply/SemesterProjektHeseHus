@@ -84,8 +84,8 @@ public class RootWindowController {
     }
 
     public void showProfile() {
-        setCenterFromString("ProfileScreen.fxml");
-        //TODO Shows the profile of the current user, if they are logged in.
+        FXMLLoader loader = setCenterFromString("ProfileScreen.fxml");
+        ((ProfileScreenController)loader.getController()).setCustomer(GUIController.getWebshopInstance().getCurrentCustomer());
     }
 
     public void showShopArea() {
